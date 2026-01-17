@@ -1,23 +1,30 @@
 export default {
     async fetch(request, env) {
-        // CORS
+        const origin = request.headers.get('Origin') || '';
+        const isLocalhost = origin.includes('localhost') || origin.includes('127.0.0.1');
+
+        // CORS - allow localhost for development
+        const allowedOrigin = isLocalhost ? origin : env.ALLOWED_ORIGIN;
+
         if (request.method === 'OPTIONS') {
             return new Response(null, {
-                headers: corsHeaders(env)
+                headers: corsHeaders(allowedOrigin)
             });
         }
 
         if (request.method !== 'POST') {
-            return json({ success: false, error: 'Method not allowed' }, 405, env);
+            return json({ success: false, error: 'Method not allowed' }, 405, allowedOrigin);
         }
 
         try {
             const formData = await request.formData();
 
-            // 1. Turnstile 验证
+            // 1. Turnstile 验证 (skip on localhost for testing)
             const turnstileToken = formData.get('cf-turnstile-response');
-            if (!await verifyTurnstile(turnstileToken, env)) {
-                return json({ success: false, error: 'Captcha failed' }, 400, env);
+            if (!isLocalhost) {
+                if (!await verifyTurnstile(turnstileToken, env)) {
+                    return json({ success: false, error: 'Captcha verification failed' }, 400, allowedOrigin);
+                }
             }
 
             // 2. 提取字段
@@ -27,7 +34,7 @@ export default {
             const description = formData.get('description');
 
             if (!name || !contact || !projectType || !description) {
-                return json({ success: false, error: 'Missing fields' }, 400, env);
+                return json({ success: false, error: 'Missing required fields' }, 400, allowedOrigin);
             }
 
             // 3. 上传图片到 R2
@@ -39,47 +46,51 @@ export default {
                     await env.CONTACT_IMAGES.put(key, file.stream(), {
                         httpMetadata: { contentType: file.type }
                     });
-                    // Assuming R2 bucket is public or handled via worker, but here using a hypothetical domain
-                    // The plan mentioned r2.viiyd.com, we will stick to that.
                     imageUrls.push(`https://r2.viiyd.com/${key}`);
                 }
             }
 
             // 4. 发送 Telegram 通知
-            await sendTelegramNotification({
+            const telegramResult = await sendTelegramNotification({
                 name, contact, projectType, description, imageUrls
             }, env);
 
-            return json({ success: true, message: 'Submitted' }, 200, env);
+            if (!telegramResult.ok) {
+                console.error('Telegram error:', telegramResult.error);
+                // Still return success to user, but log the error
+            }
+
+            return json({ success: true, message: 'Submitted successfully' }, 200, allowedOrigin);
 
         } catch (err) {
             console.error('Error:', err);
-            return json({ success: false, error: 'Server error' }, 500, env);
+            return json({ success: false, error: 'Server error: ' + err.message }, 500, allowedOrigin);
         }
     }
 };
 
 // --- Helpers ---
 
-function corsHeaders(env) {
+function corsHeaders(origin) {
     return {
-        'Access-Control-Allow-Origin': env.ALLOWED_ORIGIN,
+        'Access-Control-Allow-Origin': origin,
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
     };
 }
 
-function json(data, status, env) {
+function json(data, status, origin) {
     return new Response(JSON.stringify(data), {
         status,
         headers: {
             'Content-Type': 'application/json',
-            ...corsHeaders(env)
+            ...corsHeaders(origin)
         }
     });
 }
 
 async function verifyTurnstile(token, env) {
+    if (!token) return false;
     const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -100,46 +111,56 @@ async function sendTelegramNotification(data, env) {
         other: '✨ 其他/定制'
     };
 
-    let message = `
-📩 *新委托申请*
+    let message = `📩 *新委托申请*
 
 👤 *称呼*: ${escapeMarkdown(name)}
 📱 *联络方式*: ${escapeMarkdown(contact)}
 📦 *项目类型*: ${typeLabels[projectType] || projectType}
 
 📝 *项目描述*:
-${escapeMarkdown(description)}
-`;
+${escapeMarkdown(description)}`;
 
     if (imageUrls.length > 0) {
-        message += `\n🖼️ *参考图片*: ${imageUrls.length}张`;
+        message += `\n\n🖼️ *参考图片*: ${imageUrls.length}张`;
     }
 
     // 发送文本消息
-    await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            chat_id: env.TELEGRAM_CHAT_ID,
-            text: message,
-            parse_mode: 'Markdown'
-        })
-    });
-
-    // 发送图片 (如果有)
-    for (const url of imageUrls) {
-        await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+    try {
+        const res = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 chat_id: env.TELEGRAM_CHAT_ID,
-                photo: url,
-                caption: `来自 ${name} 的参考图`
+                text: message,
+                parse_mode: 'Markdown'
             })
         });
+        const result = await res.json();
+
+        if (!result.ok) {
+            return { ok: false, error: result.description };
+        }
+
+        // 发送图片 (如果有)
+        for (const url of imageUrls) {
+            await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: env.TELEGRAM_CHAT_ID,
+                    photo: url,
+                    caption: `来自 ${name} 的参考图`
+                })
+            });
+        }
+
+        return { ok: true };
+    } catch (err) {
+        return { ok: false, error: err.message };
     }
 }
 
 function escapeMarkdown(text) {
-    return text.replace(/[_*[\]()~`>#+=|{}.!-]/g, '\\$&');
+    if (!text) return '';
+    return String(text).replace(/[_*[\]()~`>#+=|{}.!-]/g, '\\$&');
 }
