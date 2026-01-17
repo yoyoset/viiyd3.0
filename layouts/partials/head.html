@@ -1,0 +1,36 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+    <!-- Language Persistence Script -->
+    <script>
+        (function () {
+            const pref = localStorage.getItem('viiyd_lang_pref');
+            const path = window.location.pathname;
+
+            // Only redirect on homepage roots to avoid interfering with deep links
+            if (path === '/' && pref === 'zh') {
+                window.location.replace('/zh/');
+            } else if (path === '/zh/' && pref === 'en') {
+                window.location.replace('/');
+            }
+        })();
+    </script>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    {{ $style := resources.Get "css/main.css" }}
+    {{ $style = $style | css.PostCSS }}
+    {{ if hugo.IsProduction }}
+    {{ $style = $style | minify | fingerprint }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+</head>

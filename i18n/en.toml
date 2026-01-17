@@ -1,0 +1,41 @@
+[operators]
+other = "Operators"
+
+[unit_count]
+other = "Operators"
+
+[time_log]
+other = "Execution Time"
+
+[tier]
+other = "Quality Tier"
+
+[tier_battleline]
+other = "Battleline"
+
+[tier_specialist]
+other = "Specialist"
+
+[tier_spec_ops]
+other = "Spec Ops"
+
+[tier_master]
+other = "Master"
+
+[tier_legend]
+other = "Legend"
+
+[alchemy]
+other = "The Alchemy"
+
+[protocol]
+other = "Tactical Protocol"
+
+[mission_data]
+other = "Mission Data"
+
+[color_data]
+other = "Color Data"
+
+[methodology]
+other = "Methodology"

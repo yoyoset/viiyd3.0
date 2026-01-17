@@ -1,0 +1,36 @@
+{{ $before := .Page.Resources.Get (.Get "before") }}
+{{ $after := .Page.Resources.Get (.Get "after") }}
+
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl my-8 select-none group border border-white/10"
+    style="--position: 50%;">
+    {{ if and $before $after }}
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ $after.RelPermalink }}');"></div>
+    <div class="absolute inset-0 bg-cover bg-center border-r border-imperial-gold-400/50"
+        style="width: var(--position); background-image: url('{{ $before.RelPermalink }}');"></div>
+    {{ else }}
+    <div class="text-red-500 p-4 border border-red-500">
+        Error: Images not found. Check filenames.
+    </div>
+    {{ end }}
+
+    <input type="range" min="0" max="100" value="50"
+        class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 focus:outline-none"
+        oninput="this.parentElement.style.setProperty('--position', this.value + '%')">
+
+    <div class="absolute top-1/2 left-0 right-0 h-full pointer-events-none z-10 flex items-center justify-center"
+        style="transform: translateX(calc(var(--position) - 50%));">
+        <div
+            class="w-8 h-8 rounded-full bg-imperial-gold-400 text-neutral-900 flex items-center justify-center shadow-lg transform -translate-y-1/2 mt-[50%]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clip-rule="evenodd" />
+            </svg>
+        </div>
+    </div>
+
+    <span
+        class="absolute bottom-4 left-4 bg-neutral-900/80 text-white text-xs px-2 py-1 rounded backdrop-blur font-mono">BEFORE</span>
+    <span
+        class="absolute bottom-4 right-4 bg-neutral-900/80 text-white text-xs px-2 py-1 rounded backdrop-blur font-mono">AFTER</span>
+</div>

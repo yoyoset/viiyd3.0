@@ -1,0 +1,29 @@
+# Hugo
+public/
+resources/_gen/
+
+# Node modules
+node_modules/
+
+# Build artifacts
+.hugo_build.lock
+hugo_stats.json
+build.log
+audit_result.txt
+audit_report.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Backup folder (large)
+backup/

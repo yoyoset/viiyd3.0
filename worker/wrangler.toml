@@ -1,0 +1,23 @@
+name = "viiyd-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# D1 Database Binding
+[[d1_databases]]
+binding = "DB" # Available in your Worker on env.DB
+database_name = "viiyd-db"
+database_id = "59f939a7-b5cb-40e7-bc1d-79b7c94209a8"
+
+# KV Namespace Binding
+# [[kv_namespaces]]
+# binding = "SESSION_KV"
+# id = "YOUR_KV_ID_HERE" # Run `wrangler kv:namespace create SESSION_KV` to get this
+
+# Secrets (Do not commit real values)
+# Run `wrangler secret put JWT_SECRET` to set these
+# [vars]
+# STRIPE_API_KEY = "..."
+
+[observability]
+enabled = true
+head_sampling_rate = 1

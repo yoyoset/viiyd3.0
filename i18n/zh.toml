@@ -1,0 +1,110 @@
+[alchemy]
+other = "调色配方"
+
+[protocol]
+other = "涂装规程"
+
+[tier]
+other = "质量等级"
+
+[time_log]
+other = "执行工时"
+
+[unit_count]
+other = "单位数量"
+
+[color_data]
+other = "色彩数据"
+
+[methodology]
+other = "执行方案"
+
+[cta_ready]
+other = "准备好部署了吗？"
+
+[cta_button]
+other = "启动委托程序 ->"
+
+[mission_data]
+other = "任务数据"
+
+[work_log]
+other = "作业日志"
+
+[prev]
+other = "上一作"
+
+[next]
+other = "下一作"
+
+[index]
+other = "目录"
+
+[cta_request]
+other = "建立委托"
+
+[tier_battle]
+other = "战场部署"
+
+[tier_parade]
+other = "阅兵规格"
+
+[tier_master]
+other = "殿堂典藏"
+
+[price_start]
+other = "起步价"
+
+[features]
+other = "战术规格"
+
+[studio_title]
+other = "工作室"
+
+[studio_motto]
+other = "非量产工厂。微缩艺术的庇护所。"
+
+[process_title]
+other = "流程"
+
+[rates_title]
+other = "价格"
+
+[view_schema]
+other = "查看图谱"
+
+[full_rate_card]
+other = "完整价目表"
+
+[initiate_uplink]
+other = "建立链接"
+
+[logs_title]
+other = "日志"
+
+[view_archive]
+other = "查看归档"
+
+[latest_deliveries]
+other = "最新交付"
+
+[view_all_archives]
+other = "查看所有归档 ->"
+
+[proc_1]
+other = "I. 分析"
+
+[proc_2]
+other = "II. 报价"
+
+[proc_3]
+other = "III. 锻造"
+
+[tier_spec_ops]
+other = "特种作战"
+
+[archive_index]
+other = "/// 归档目录"
+
+[tier_elite]
+other = "精英级"

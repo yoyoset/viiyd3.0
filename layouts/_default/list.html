@@ -1,0 +1,147 @@
+{{ define "main" }}
+<div class="max-w-7xl mx-auto px-4 py-12">
+    <!-- Header -->
+    <div class="mb-12 text-center">
+        <h1 class="text-4xl md:text-6xl font-black font-serif text-white mb-4 tracking-tight drop-shadow-lg">{{ T
+            "work_log" }}
+        </h1>
+        <p class="text-gray-400 font-mono text-sm tracking-widest uppercase">{{ T "archive_index" }}</p>
+    </div>
+
+    <!-- Project Grid (Standard) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ $paginator := .Paginate .Pages 9 }}
+        {{ range $paginator.Pages }}
+        <a href="{{ .RelPermalink }}"
+            class="group block bg-neutral-900 border border-white/5 rounded-xl overflow-hidden hover:border-gold-500/30 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+
+            <!-- Cover Top (Standardized 16/10) -->
+            <div class="aspect-[16/10] relative overflow-hidden bg-neutral-950 border-b border-white/5">
+                {{ $finalSrc := "" }}
+                {{ $cover := .Params.cover }}
+
+                {{ if $cover }}
+                {{ if strings.HasPrefix $cover "http" }}
+                {{ $finalSrc = $cover }}
+                {{ else }}
+                {{ with .Resources.GetMatch $cover }}
+                {{ $finalSrc = .RelPermalink }}
+                {{ else }}
+                {{/* Fallback: Append filename to page permalink */}}
+                {{ $finalSrc = printf "%s%s" .RelPermalink $cover }}
+                {{ end }}
+                {{ end }}
+                {{ end }}
+
+                {{ if not $finalSrc }}
+                {{ with .Params.images }}
+                {{ $finalSrc = index . 0 }}
+                {{ end }}
+                {{ end }}
+
+                {{ if $finalSrc }}
+                <img src="{{ $finalSrc }}" alt="{{ .Title }}"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100 group-hover:contrast-110">
+                {{ else }}
+                <div
+                    class="w-full h-full flex flex-col items-center justify-center text-gray-700 bg-neutral-900 pattern-grid-sm">
+                    <div class="w-8 h-8 border-2 border-dashed border-gray-600 rounded-full animate-spin"></div>
+                </div>
+                {{ end }}
+
+                <!-- Badges (Top Right) -->
+                <div class="absolute flex flex-col items-end gap-2 z-50" style="top: 12px; right: 12px;">
+                    <!-- Tier Badge -->
+                    {{ with .Params.tier }}
+                    <span
+                        class="text-[9px] font-mono font-black uppercase bg-black/80 text-gold-500 px-2 py-1 rounded border border-gold-500/30 backdrop-blur-md shadow-lg">
+                        {{ T (printf "tier_%s" (replace . " " "_" | lower)) | default . }}
+                    </span>
+                    {{ end }}
+
+                    <!-- Asset Count Badge -->
+                    {{ $assetCount := 0 }}
+                    {{ if .Params.images }}
+                    {{ $assetCount = len .Params.images }}
+                    {{ else }}
+                    {{ $assetCount = len (findRE "<img|lightbox" .Content) }} {{ end }} {{ if gt $assetCount 0 }} <span
+                        class="text-[9px] font-mono font-bold uppercase bg-neutral-900/80 text-cyan-400 px-2 py-1 rounded border border-cyan-500/30 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                        <!-- Photo Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        {{ $assetCount }}
+                        </span>
+                        {{ end }}
+                </div>
+            </div>
+
+            <!-- Content Bottom -->
+            <div class="p-6 flex flex-col h-auto bg-neutral-900">
+                <!-- Header Meta -->
+                <div class="flex justify-between items-center mb-3">
+                    <!-- Tag -->
+                    {{ with .Params.tags }}
+                    <span class="text-[10px] font-mono font-bold uppercase text-cyan-500 tracking-widest">
+                        {{ index . 0 }}
+                    </span>
+                    {{ end }}
+                    <!-- Date -->
+                    <span class="text-[10px] font-mono text-gray-600 uppercase">{{ .Date.Format "2006.01.02" }}</span>
+                </div>
+
+                <!-- Title -->
+                <h2
+                    class="text-xl font-bold font-serif text-white mb-3 leading-tight group-hover:text-gold-400 transition-colors line-clamp-1">
+                    {{ .Title }}
+                </h2>
+
+                <!-- Summary -->
+                <p class="text-xs text-gray-400 font-sans line-clamp-3 leading-relaxed mb-4">
+                    {{ .Params.summary | default .Params.description | default .Summary | truncate 150 }}
+                </p>
+
+                <!-- Footer Action -->
+                <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
+                    <span class="text-[10px] font-mono text-gray-500 group-hover:text-white transition-colors">{{ T
+                        "access_log" }}
+                        -></span>
+                    <div class="flex gap-1">
+                        <div
+                            class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-gold-500 transition-colors delay-75">
+                        </div>
+                        <div
+                            class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-cyan-500 transition-colors delay-100">
+                        </div>
+                        <div
+                            class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-fuchsia-500 transition-colors delay-150">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {{ end }}
+    </div>
+
+    <!-- Paginator UI -->
+    {{ if gt $paginator.TotalPages 1 }}
+    <div class="mt-12 flex justify-center gap-2 font-mono text-xs">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}"
+            class="px-3 py-1 bg-neutral-800 text-white rounded hover:bg-gold-500 transition-colors"><- {{ T "prev"
+                }}</a>
+                {{ end }}
+                <span class="px-3 py-1 text-gray-500">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages
+                    }}</span>
+                {{ if $paginator.HasNext }}
+                <a href="{{ $paginator.Next.URL }}"
+                    class="px-3 py-1 bg-neutral-800 text-white rounded hover:bg-gold-500 transition-colors">{{ T "next"
+                    }} -></a>
+                {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,258 @@
+{{ define "main" }}
+<article class="min-h-screen bg-neutral-900 pb-20">
+
+    <!-- Hero Section: Compact Cinematic Header -->
+    <header class="relative w-full h-[60vh] overflow-hidden group">
+        {{ with .Params.cover }}
+        <div class="absolute inset-0 z-0">
+            <img src="{{ . }}" alt="Cover"
+                class="w-full h-full object-cover filter brightness-90 group-hover:brightness-100 transition-all duration-1000 transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+        </div>
+        {{ end }}
+
+        <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 z-10 max-w-7xl mx-auto">
+            <div class="flex items-center gap-4 mb-4">
+                <a href="/work"
+                    class="text-gold-400 font-mono text-xs font-bold uppercase tracking-widest hover:text-white transition-colors border border-gold-500/50 px-2 py-1 rounded">///
+                    WORK_LOG</a>
+                <span class="text-gray-400 font-mono text-xs uppercase">{{ .Date.Format "2006.01.02" }}</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black font-serif text-white leading-none drop-shadow-2xl">
+                {{ .Title }}
+            </h1>
+        </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
+
+        <!-- Left Column: Sticky Dashboard (Mission Data) -->
+        <aside class="hidden lg:block lg:col-span-4 relative">
+            <div class="sticky top-24">
+
+                <!-- Unified Mission Data & Action Card -->
+                <div
+                    class="relative overflow-hidden p-0.5 rounded-xl shadow-[0_0_50px_rgba(124,58,237,0.3)] group transition-transform hover:scale-[1.01] duration-700">
+
+                    <!-- Fallback Background & Image (Inline Style for Reliability) -->
+                    <div class="absolute inset-0 bg-indigo-950"></div>
+                    <div class="absolute inset-0 bg-cover bg-center opacity-90 group-hover:opacity-100 transition-all duration-1000 scale-110 group-hover:scale-100"
+                        style="background-image: url('/img/card_fluid_art.png');"></div>
+
+                    <!-- Glass Overlay -->
+                    <div class="absolute inset-0 bg-neutral-900/40 backdrop-blur-xl"></div>
+                    <div
+                        class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_25%,rgba(255,255,255,0.05)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.05)_75%,rgba(255,255,255,0.05)_100%)] bg-[length:4px_4px] opacity-20 mixed-blend-overlay">
+                    </div>
+
+                    <!-- Inner Content -->
+                    <div
+                        class="relative p-6 rounded-[10px] bg-black/60 border border-white/10 cyber-border flex flex-col gap-6">
+
+                        <!-- Header -->
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <h3
+                                class="text-xs font-mono text-fuchsia-300 uppercase tracking-[0.2em] flex items-center gap-3 drop-shadow-[0_0_5px_rgba(216,180,254,0.8)]">
+                                <span
+                                    class="w-2 h-2 bg-gradient-to-r from-cyan-400 to-fuchsia-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(216,180,254,0.8)]"></span>
+                                {{ T "mission_data" }}
+                            </h3>
+                            <!-- Technical Icon/Graphic -->
+                            <div class="flex gap-1">
+                                <span class="w-1 h-1 bg-white/30 rounded-full"></span>
+                                <span class="w-1 h-1 bg-white/30 rounded-full"></span>
+                                <span class="w-1 h-1 bg-white/30 rounded-full"></span>
+                            </div>
+                        </div>
+
+                        <!-- Tier & Time Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div
+                                class="bg-white/5 p-3 rounded border border-white/5 hover:border-fuchsia-500/50 transition-colors backdrop-blur-sm group/item">
+                                <span
+                                    class="block text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-1 shadow-black">{{
+                                    T "tier" }}</span>
+                                <span
+                                    class="text-xl font-serif font-bold text-white tracking-wide drop-shadow-md group-hover/item:text-fuchsia-200 transition-colors">{{
+                                    T (printf "tier_%s" (replace .Params.tier " " "_" | lower)) | default .Params.tier
+                                    }}</span>
+                            </div>
+                            <div
+                                class="bg-white/5 p-3 rounded border border-white/5 hover:border-cyan-500/50 transition-colors backdrop-blur-sm group/item">
+                                <span
+                                    class="block text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-1 shadow-black">{{
+                                    T "time_log" }}</span>
+                                <span
+                                    class="text-xl font-mono text-cyan-300 font-bold drop-shadow-md group-hover/item:text-cyan-100 transition-colors">{{
+                                    .Params.time_log | default "N/A" }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Paints Used -->
+                        {{ with .Params.paints }}
+                        <div class="relative pl-3">
+                            <div
+                                class="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-fuchsia-500/50 via-cyan-500/50 to-transparent">
+                            </div>
+
+                            <span
+                                class="block text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-4 drop-shadow">{{
+                                T "alchemy" }}</span>
+                            <div class="space-y-3">
+                                {{ range . }}
+                                <a href="{{ .link }}" target="_blank"
+                                    class="flex items-center gap-3 p-2 rounded hover:bg-white/5 transition-all group/paint border border-transparent hover:border-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                                    {{ $color := .hex | default "#333" }}
+                                    <div
+                                        class="w-8 h-8 rounded-full border border-white/30 shadow-lg shrink-0 relative overflow-hidden group-hover/paint:scale-110 transition-transform duration-300 ring-2 ring-black/50">
+                                        <div class="absolute inset-0"
+                                            style='{{ printf "background-color: %s;" $color | safeCSS }}'>
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-tr from-black/20 to-white/30 mix-blend-overlay">
+                                        </div>
+                                        <!-- Gloss Reflection -->
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent opacity-50">
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow">
+                                        <span
+                                            class="block text-xs text-gray-200 font-bold group-hover/paint:text-white transition-colors">{{
+                                            .name }}</span>
+                                        <span class="block text-[10px] text-gray-500 font-mono uppercase">{{ .role
+                                            }}</span>
+                                    </div>
+                                    <span
+                                        class="text-white/20 group-hover/paint:text-cyan-400 transition-colors">→</span>
+                                </a>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+
+                        <!-- Integrated Action Button -->
+                        <div class="pt-4 mt-2 border-t border-white/10">
+                            <a href="/rates"
+                                class="block w-full py-4 bg-gradient-to-r from-fuchsia-600 via-purple-600 to-cyan-600 hover:brightness-110 text-white font-black uppercase tracking-[0.15em] text-xs transition-all duration-300 rounded shadow-[0_0_25px_rgba(236,72,153,0.4)] hover:shadow-[0_0_40px_rgba(34,211,238,0.6)] hover:-translate-y-1 relative group overflow-hidden text-center">
+                                <span class="relative z-10 drop-shadow-md">{{ T "cta_request" }}</span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Right Column: Content Body & Gallery -->
+        <div class="lg:col-span-8">
+
+            <!-- Mobile Dashboard (Compact) -->
+            <div class="lg:hidden mb-12 bg-black/40 border border-white/10 p-6 rounded-xl">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-mono text-gold-500 uppercase">{{ T "mission_data" }}</span>
+                    <span class="text-white font-bold">{{ T (printf "tier_%s" (replace .Params.tier " " "_" | lower)) |
+                        default .Params.tier }} // {{ .Params.time_log }}</span>
+                </div>
+                <!-- Mobile Swatches -->
+                {{ with .Params.paints }}
+                <div class="flex flex-wrap gap-2 mt-4">
+                    {{ range . }}
+                    {{ $color := .hex | default "#333" }}
+                    <div class="w-6 h-6 rounded-full border border-white/20"
+                        style='{{ printf "background-color: %s;" $color | safeCSS }}'></div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+
+            <!-- Content -->
+            <div
+                class="prose prose-invert prose-lg prose-gold prose-headings:font-serif prose-headings:font-bold prose-p:font-light prose-p:leading-loose max-w-none mb-16">
+                {{ with .Params.description }}
+                <p class="text-xl text-gray-200 font-serif italic leading-relaxed border-l-4 border-gold-500 pl-6 mb-8">
+                    "{{ . }}"
+                </p>
+                {{ end }}
+                                
+                <!-- Dynamic Stats Bar (Template-Rendered) -->
+                <div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5 my-8 not-prose">
+                    <!-- Model Count -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🎯</span>
+                        <div>
+                            <span class="block text-2xl font-black text-white">{{ .Params.model_count | default "1" }}</span>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ T "unit_count" }}</span>
+                        </div>
+                    </div>
+                    <div class="w-px h-8 bg-white/10 hidden md:block"></div>
+                    
+                    <!-- Time Log -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">⏱️</span>
+                        <div>
+                            <span class="block text-2xl font-black text-cyan-400">{{ .Params.time_log | default "N/A" }}</span>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ T "time_log" }}</span>
+                        </div>
+                    </div>
+                    <div class="w-px h-8 bg-white/10 hidden md:block"></div>
+                    
+                    <!-- Tier -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">💎</span>
+                        <div>
+                            {{ $tierColor := "text-purple-400" }}
+                            {{ if eq .Params.tier "Battleline" }}{{ $tierColor = "text-blue-400" }}{{ end }}
+                            {{ if eq .Params.tier "Specialist" }}{{ $tierColor = "text-green-400" }}{{ end }}
+                            {{ if eq .Params.tier "Spec Ops" }}{{ $tierColor = "text-purple-400" }}{{ end }}
+                            {{ if eq .Params.tier "Master" }}{{ $tierColor = "text-orange-400" }}{{ end }}
+                            {{ if eq .Params.tier "Legend" }}{{ $tierColor = "text-gold-400" }}{{ end }}
+                            <span class="block text-2xl font-black {{ $tierColor }}">{{ T (printf "tier_%s" (replace .Params.tier " " "_" | lower)) | default .Params.tier }}</span>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ T "tier" }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                {{ .Content }}
+            </div>
+
+
+
+            <!-- Next/Prev Nav -->
+            <div
+                class="w-full pt-16 mt-16 border-t border-white/5 flex items-center justify-between text-xs font-mono tracking-widest text-gray-500">
+                <!-- Prev (Left) -->
+                <div class="flex-1 text-left">
+                    {{ with .PrevInSection }}
+                    <a href="{{ .RelPermalink }}"
+                        class="hover:text-gold-500 whitespace-nowrap inline-flex items-center gap-2">
+                        &lt; {{ T "prev" }}
+                    </a>
+                    {{ end }}
+                </div>
+
+                <!-- Index (Center) -->
+                <div class="flex-shrink-0 px-4 text-center">
+                    <a href="/work" class="hover:text-gold-500 whitespace-nowrap uppercase">{{ T "index" }}</a>
+                </div>
+
+                <!-- Next (Right) -->
+                <div class="flex-1 text-right">
+                    {{ with .NextInSection }}
+                    <a href="{{ .RelPermalink }}"
+                        class="hover:text-gold-500 whitespace-nowrap inline-flex items-center justify-end gap-2">
+                        {{ T "next" }} &gt;
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</article>
+{{ end }}

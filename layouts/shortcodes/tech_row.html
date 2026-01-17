@@ -1,0 +1,13 @@
+<div class="mb-6">
+    <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-bold text-white tracking-wide">{{ .Get "label" }}</span>
+        <span class="text-xs font-mono text-imperial-gold-400">{{ .Get "value" }}%</span>
+    </div>
+    <div class="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
+        <div class="bg-gradient-to-r from-imperial-gold-400 to-imperial-gold-500 h-full rounded-full transition-all duration-1000 ease-out"
+            style="width: {{ .Get " value" }}%"></div>
+    </div>
+    {{ if .Get "comment" }}
+    <p class="text-xs text-gray-500 mt-1.5 font-mono">{{ .Get "comment" }}</p>
+    {{ end }}
+</div>

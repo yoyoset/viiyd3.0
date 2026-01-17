@@ -1,0 +1,21 @@
+<div class="border-b border-white/5 py-4">
+    <details class="group">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+            <div class="flex items-center text-white group-hover:text-imperial-gold-400 transition-colors">
+                <span class="text-imperial-gold-500 font-mono mr-4 font-bold">Q.</span>
+                <span class="font-medium">{{ .Get "q" }}</span>
+            </div>
+            <span class="transform transition-transform group-open:rotate-180 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </summary>
+        <div
+            class="mt-4 pl-8 text-gray-400 prose prose-invert max-w-none text-sm leading-relaxed border-l-2 border-white/5 ml-2">
+            {{ .Inner | markdownify }}
+        </div>
+    </details>
+</div>

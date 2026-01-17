@@ -1,0 +1,149 @@
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* 减小间距，让排列更紧凑 */
+    justify-content: center;
+    /* 尝试让网格铺满全宽，可能需要根据主题修改父级选择器 */
+    max-width: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-grid a {
+    flex: 1 1 120px; /* 减小图片基本尺寸，让图片更小 */
+    max-width: 180px; /* 减小图片最大尺寸 */
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* 确保图片完整填充，不变形 */
+    border-radius: 8px;
+}
+/* 工期看板呼吸灯 */
+.relative.flex.h-3.w-3 .animate-ping {
+    background-color: var(--color-primary-400); /* 随主题金色变动 */
+}
+
+/* 确保页脚 FAQ 在移动端不会挤在一起 */
+.footer-faq-item button {
+    transition: all 0.2s ease-in-out;
+}
+
+/* 修复文章导航变形问题：确保 footer 是独立的 block */
+/* 导航箭头的动态效果 */
+.group-hover\:-translate-x-1 {
+    transform: translateX(-4px);
+}
+.group-hover\:translate-x-1 {
+    transform: translateX(4px);
+}
+
+/* 1. 强制分页容器占满全屏，无视父级限制 */
+.no-prose.w-full {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    clear: both !important;
+}
+
+/* 2. 确保 Flex 不会因为任何原因塌陷或换行 */
+.flex.flex-nowrap {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+}
+
+/* 3. 左右平分 50% */
+.w-1\/2 {
+    width: 50% !important;
+}
+
+/* --- 1. 基础状态保持不变 --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- 2. 针对新类名 revealed 的呈现态 --- */
+.reveal.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* --- 3. 彻底封死所有可能的线 (针对 revealed 类) --- */
+.tech-row.revealed, 
+.tech-row.revealed *,
+.tech-profile-container .reveal.revealed,
+.tech-profile-container .reveal.revealed * {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
+}
+
+/* --- WIP 对比滑块容器 --- */
+/* --- 强制撑开 WIP 容器的骨架 --- */
+.prose .wip-container.revealed {
+    position: relative !important;
+    width: 100% !important;
+    height: 0 !important;
+    /* 核心修复：通过 padding 强行撑开 16:9 的高度，防止塌陷为 0 */
+    padding-bottom: 56.25% !important; 
+    margin: 2rem 0 !important;
+    background-color: #231f1e !important;
+    overflow: hidden !important;
+    display: block !important;
+    background-size: cover !important;
+}
+
+/* --- 图片层：必须绝对定位并填满父容器 --- */
+.prose .wip-image {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.prose .wip-after { z-index: 1 !important; }
+
+.prose .wip-before {
+    z-index: 2 !important;
+    /* 根据滑动条动态裁切 */
+    clip-path: inset(0 calc(100% - var(--position, 50%)) 0 0) !important;
+    border-right: 2px solid #ffd700 !important;
+}
+
+/* --- 滑动条：必须透明并覆盖在图片上 --- */
+.prose .wip-slider {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    opacity: 0 !important; /* 隐藏原生条，只留交互 */
+    cursor: col-resize !important;
+    z-index: 10 !important;
+}
+
+/* --- 标签样式 --- */
+.prose .wip-label {
+    position: absolute !important;
+    bottom: 15px !important;
+    padding: 4px 10px !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: #ffd700 !important;
+    font-size: 12px !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+}
+.prose .wip-label-before { left: 15px !important; }
+.prose .wip-label-after { right: 15px !important; }

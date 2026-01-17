@@ -1,0 +1,3 @@
+src/module_quote/api_lead.ts(1,22): error TS2307: Cannot find module '../utils_uuid' or its corresponding type declarations.
+src/routes/auth.ts(74,31): error TS2554: Expected 3 arguments, but got 2.
+src/routes/payment.ts(3,20): error TS2307: Cannot find module 'stripe' or its corresponding type declarations.

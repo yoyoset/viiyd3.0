@@ -1,0 +1,76 @@
+<header class="w-full border-b border-white/5 bg-neutral-900 sticky top-0 z-50 backdrop-blur-md bg-neutral-900/90">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex md:grid md:grid-cols-3 items-center justify-between relative">
+        <!-- Left: Logo -->
+        <div class="flex justify-start">
+            <a href="{{ .Site.BaseURL }}" class="flex items-center gap-2 group">
+                <span
+                    class="font-serif font-bold text-xl text-white group-hover:text-gold-500 transition-colors tracking-tight">VIIYD.</span>
+            </a>
+        </div>
+
+        <!-- Center: Desktop Navigation -->
+        <nav
+            class="hidden md:flex justify-center items-center gap-8 text-sm font-mono uppercase tracking-widest text-gray-400">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            {{ $active := $currentPage.IsMenuCurrent "main" . }}
+            <a href="{{ .URL }}"
+                class="hover:text-gold-500 hover:border-b hover:border-gold-500 pb-0.5 transition-all {{ if $active }}text-white border-b border-gold-500{{ end }}">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </nav>
+
+        <!-- Right: Language & Mobile Menu -->
+        <div class="flex justify-end items-center gap-4 md:gap-6">
+            <!-- Language Switcher -->
+            <div class="flex items-center gap-1 md:gap-2 text-xs font-bold font-mono">
+                {{ range .AllTranslations }}
+                <a href="{{ .RelPermalink }}" onclick="localStorage.setItem('viiyd_lang_pref', '{{ .Lang }}')"
+                    class="px-2 py-1 rounded border {{ if eq .Lang $.Lang }}border-gold-500 text-gold-500 bg-gold-500/10{{ else }}border-transparent text-gray-600 hover:text-gray-300{{ end }} transition-all uppercase">
+                    {{ .Language.Params.isoCode | default .Lang }}
+                </a>
+                {{ end }}
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2"
+                aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-menu"
+        class="hidden md:hidden absolute top-20 left-0 w-full bg-neutral-900 border-b border-white/10 shadow-2xl transition-all duration-300 origin-top">
+        <nav class="flex flex-col p-6 gap-4 font-mono text-sm uppercase tracking-widest">
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL }}"
+                class="text-gray-400 hover:text-gold-500 py-2 border-b border-white/5 hover:bg-neutral-800/50 block px-2 rounded transition-colors">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </nav>
+    </div>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                const isHidden = menu.classList.contains('hidden');
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                    // Optional: Change icon to X
+                } else {
+                    menu.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</header>

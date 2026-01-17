@@ -1,0 +1,81 @@
+baseURL = 'https://viiyd.com/'
+title = 'VIIYD 3.0'
+theme = []
+
+# Multilingual Config
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.en]
+    languageName = 'English'
+    contentDir = 'content'
+    weight = 1
+    title = 'VIIYD (EN)'
+    [languages.en.params]
+      description = "Forging digital souls with raw code and imperial aesthetics."
+    [[languages.en.menu.main]]
+      name = "Home"
+      pageRef = "/"
+      weight = 10
+    [[languages.en.menu.main]]
+      name = "Work"
+      pageRef = "work"
+      weight = 20
+    [[languages.en.menu.main]]
+      name = "Process"
+      pageRef = "process"
+      weight = 30
+    [[languages.en.menu.main]]
+      name = "Services"
+      pageRef = "rates"
+      weight = 40
+    [[languages.en.menu.main]]
+      name = "About"
+      pageRef = "about"
+      weight = 50
+
+  [languages.zh]
+    languageName = '中文'
+    weight = 2
+    title = 'VIIYD (CN)'
+    [languages.zh.params]
+      description = "以原始代码与帝王美学锻造数字灵魂。"
+    [[languages.zh.menu.main]]
+      name = "首页"
+      pageRef = "/"
+      weight = 10
+    [[languages.zh.menu.main]]
+      name = "作品"
+      pageRef = "work"
+      weight = 20
+    [[languages.zh.menu.main]]
+      name = "流程"
+      pageRef = "process"
+      weight = 30
+    [[languages.zh.menu.main]]
+      name = "报价"
+      pageRef = "rates"
+      weight = 40
+    [[languages.zh.menu.main]]
+      name = "关于"
+      pageRef = "about"
+      weight = 50
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.110.0"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[build]
+  writeStats = true
+  
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"

@@ -1,0 +1,282 @@
+{{ define "main" }}
+<div class="max-w-7xl mx-auto py-12">
+    <!-- Hero Section -->
+
+
+    <!-- Bento Grid (Portal System) -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+
+        <!-- Card 1: Studio / About (Large) -->
+        <a href="/about"
+            class="md:col-span-2 md:row-span-2 relative group rounded-2xl overflow-hidden border border-white/10 hover:border-gold-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(234,179,8,0.3)]">
+            <div class="absolute inset-0 z-0">
+                <img src="/img/card_studio_illustrative_v2.png"
+                    class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter contrast-125 saturate-150">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+            </div>
+
+            <!-- Logo (Right Side) -->
+            <div class="absolute top-8 right-8 z-20 opacity-80 group-hover:opacity-100 transition-opacity">
+                <!-- Maximize Logo Size -->
+                <img src="/img/viiyd_logo.png" alt="VIIYD Logo" class="w-32 md:w-64 h-auto drop-shadow-2xl">
+            </div>
+
+
+            <div class="absolute bottom-0 left-0 p-8 z-10 w-full">
+                <span
+                    class="text-gold-400 font-mono text-xs font-black tracking-widest uppercase mb-2 block animate-pulse">///
+                    IDENTITY</span>
+                <h2 class="text-4xl font-black font-serif text-white mb-2 drop-shadow-xl">THE STUDIO</h2>
+                <p class="text-gray-100 font-bold text-sm max-w-md drop-shadow-md">Not a factory. A sanctuary for the
+                    miniature arts.</p>
+            </div>
+        </a>
+
+        <!-- 01: Protocol -->
+        <a href="/process"
+            class="relative group rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+            <div class="absolute inset-0 z-0">
+                <img src="/img/card_protocol_illustrative_v2.png"
+                    class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter contrast-125 saturate-150 brightness-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 p-6 z-10 w-full group-hover:opacity-100 transition-opacity">
+                <span class="text-cyan-400 font-mono text-xs font-black tracking-widest uppercase mb-1 block">///
+                    PROTOCOL</span>
+                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">PROCESS</h3>
+                <ul class="space-y-1 mb-4 hidden md:block">
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">I. ANALYSIS</li>
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">II. QUOTE</li>
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">III. FORGE</li>
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">IV. DEPLOY</li>
+                </ul>
+                <span
+                    class="inline-block bg-cyan-500 hover:bg-cyan-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg mt-2">
+                    VIEW SCHEMA
+                </span>
+            </div>
+        </a>
+
+        <!-- 02: Tiers (Rates) -->
+        <a href="/rates"
+            class="relative group rounded-2xl overflow-hidden border border-white/10 hover:border-gold-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(234,179,8,0.3)]">
+            <div class="absolute inset-0 z-0">
+                <img src="/img/card_tiers_illustrative_v2.png"
+                    class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter contrast-125 saturate-150 brightness-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+            </div>
+            <!-- Compact Content Container -->
+            <div class="absolute bottom-0 left-0 p-4 z-20 w-full">
+                <span class="text-gold-400 font-mono text-[10px] font-black tracking-widest uppercase mb-1 block">///
+                    TIERS</span>
+                <h3 class="text-xl font-black font-serif text-white drop-shadow-lg mb-2">{{ T "rates_title" }}</h3>
+
+                <!-- 3-Tier Price List -->
+                <div class="flex flex-col gap-0.5 mb-2 font-mono text-[10px] font-bold text-white drop-shadow-md">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-0.5">
+                        <span class="text-gray-300">{{ T "tier_battle" }}</span>
+                        <span class="text-gold-400">$5+</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/10 pb-0.5">
+                        <span class="text-gray-300">{{ T "tier_parade" }}</span>
+                        <span class="text-gold-400">$15+</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-0.5">
+                        <span class="text-gray-300">{{ T "tier_master" }}</span>
+                        <span class="text-gold-400">$45+</span>
+                    </div>
+                </div>
+
+
+                <!-- Gold Button with Inline Style -->
+                <span
+                    class="inline-block text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg"
+                    style="background-color: #eab308;">
+                    {{ T "full_rate_card" }}
+                </span>
+            </div>
+        </a>
+
+        <!-- 03: Start Comm (Shrink to 1x1) -->
+        <a href="mailto:contact@viiyd.com"
+            class="group relative overflow-hidden rounded-2xl border border-white/5 bg-neutral-900 transition-all hover:scale-[1.01] hover:border-green-500/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-green-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100">
+            </div>
+            <img src="/img/card_comm_illustrative_v2.png" alt="Start Commission"
+                class="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100">
+
+            <div class="absolute top-4 left-4 z-20">
+                <span
+                    class="flex items-center gap-2 rounded bg-green-900/50 px-2 py-1 font-mono text-[10px] uppercase text-green-400 backdrop-blur border border-green-500/30">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    Open
+                </span>
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6 z-20">
+                <h3
+                    class="text-2xl font-black font-serif italic text-white mb-2 leading-none group-hover:translate-x-1 transition-transform">
+                    Start<br>Comm.</h3>
+                <div class="flex items-center gap-2 mt-2 group-hover:gap-3 transition-all">
+                    <!-- Green Button (Badge Style) -->
+                    <span
+                        class="inline-block bg-green-500 hover:bg-green-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg">
+                        INITIATE UPLINK
+                    </span>
+                </div>
+            </div>
+        </a>
+
+        <!-- 04: Logs (New 5th Card) -->
+        <a href="/work"
+            class="group relative overflow-hidden rounded-2xl border border-white/5 bg-neutral-900 transition-all hover:scale-[1.02] hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100">
+            </div>
+            <!-- Boom Image -->
+            <img src="/img/card-boom.png" alt="Database"
+                class="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100 filter hue-rotate-15">
+
+            <div class="absolute bottom-6 left-6 w-full pr-12 z-20">
+                <!-- Text Color Changed to White/80 -->
+                <span class="text-white/80 font-mono text-xs font-black tracking-widest uppercase mb-1 block">///
+                    DATABASE</span>
+                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">LOGS</h3>
+                <!-- Purple Button (Badge Style) -->
+                <span
+                    class="inline-block bg-purple-500 hover:bg-purple-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg relative z-50">
+                    VIEW ARCHIVE
+                </span>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Latest Deliveries Section -->
+    <div class="mt-20 border-t border-white/10 pt-12">
+        <div class="flex justify-between items-end mb-8">
+            <h3 class="text-xs font-mono font-bold tracking-[0.2em] text-white uppercase">Latest Deliveries</h3>
+            <a href="/work" class="text-xs font-mono text-gold-500 hover:text-white transition-colors">VIEW ALL ARCHIVES
+                -></a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {{ range first 3 (where .Site.RegularPages "Section" "work") }}
+            <a href="{{ .RelPermalink }}"
+                class="group block bg-neutral-900 border border-white/5 rounded-xl overflow-hidden hover:border-gold-500/30 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+                <!-- Cover Image Logic (Standardized Aspect Ratio) -->
+                <div class="aspect-[16/10] relative overflow-hidden bg-neutral-950 border-b border-white/5">
+                    {{ $finalSrc := "" }}
+                    {{ $cover := .Params.cover }}
+
+                    {{ if $cover }}
+                    {{ if strings.HasPrefix $cover "http" }}
+                    {{ $finalSrc = $cover }}
+                    {{ else }}
+                    {{ with .Resources.GetMatch $cover }}
+                    {{ $finalSrc = .RelPermalink }}
+                    {{ else }}
+                    {{/* Fallback: Append filename to page permalink */}}
+                    {{ $finalSrc = printf "%s%s" .RelPermalink $cover }}
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
+
+                    {{ if not $finalSrc }}
+                    {{ with .Params.images }}
+                    {{ $finalSrc = index . 0 }}
+                    {{ end }}
+                    {{ end }}
+
+                    {{ if $finalSrc }}
+                    <img src="{{ $finalSrc }}" alt="{{ .Title }}"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100 group-hover:contrast-110">
+                    {{ else }}
+                    <div
+                        class="w-full h-full flex flex-col items-center justify-center text-gray-700 bg-neutral-900 pattern-grid-sm">
+                        <span class="text-[10px] font-mono uppercase tracking-widest mb-2 opacity-50">Signal Lost</span>
+                        <div class="w-6 h-6 border-b-2 border-r-2 border-gray-600 rounded-full animate-spin"></div>
+                    </div>
+                    {{ end }}
+
+                    <!-- Badges (Top Right) -->
+                    <div class="absolute flex flex-col items-end gap-2 z-50" style="top: 12px; right: 12px;">
+                        <!-- Tier Badge -->
+                        {{ with .Params.tier }}
+                        <span
+                            class="text-[9px] font-mono font-black uppercase bg-black/80 text-gold-500 px-2 py-1 rounded border border-gold-500/30 backdrop-blur-md shadow-lg">
+                            {{ . }}
+                        </span>
+                        {{ end }}
+
+                        <!-- Asset Count Badge -->
+                        {{ $assetCount := 0 }}
+                        {{ if .Params.images }}
+                        {{ $assetCount = len .Params.images }}
+                        {{ else }}
+                        {{ $assetCount = len (findRE "<img|lightbox" .Content) }} {{ end }} {{ if gt $assetCount 0 }}
+                            <span
+                            class="text-[9px] font-mono font-bold uppercase bg-neutral-900/80 text-cyan-400 px-2 py-1 rounded border border-cyan-500/30 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                            <!-- Photo Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            {{ $assetCount }}
+                            </span>
+                            {{ end }}
+                    </div>
+                </div>
+
+                <!-- Content Body -->
+                <div class="p-5 flex flex-col h-auto">
+                    <!-- Meta Header -->
+                    <div class="flex justify-between items-center mb-3">
+                        <!-- Tag -->
+                        {{ with .Params.tags }}
+                        <span class="text-[10px] font-mono font-bold uppercase text-cyan-500 tracking-widest">
+                            {{ index . 0 }}
+                        </span>
+                        {{ end }}
+                        <span class="text-[10px] font-mono text-gray-600 uppercase">{{ .Date.Format "2006.01.02"
+                            }}</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h4
+                        class="text-lg font-bold font-serif text-white leading-tight group-hover:text-gold-400 transition-colors line-clamp-1 mb-2">
+                        {{ .Title }}
+                    </h4>
+
+                    <!-- Summary (Truncated) -->
+                    <p class="text-xs text-gray-400 line-clamp-3 leading-relaxed font-sans mb-4">
+                        {{ .Params.summary | default .Params.description | default .Summary | truncate 150 }}
+                    </p>
+
+                    <!-- Footer Action -->
+                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span
+                            class="text-[10px] font-mono text-gray-500 group-hover:text-white transition-colors">ACCESS_LOG
+                            -></span>
+                        <div class="flex gap-1">
+                            <div
+                                class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-gold-500 transition-colors delay-75">
+                            </div>
+                            <div
+                                class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-cyan-500 transition-colors delay-100">
+                            </div>
+                            <div
+                                class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-fuchsia-500 transition-colors delay-150">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}
