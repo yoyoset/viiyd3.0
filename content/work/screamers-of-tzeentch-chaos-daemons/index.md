@@ -89,7 +89,7 @@ The Alchemy
 <span class="font-mono text-emerald-200">Thousand Sons Blue</span>
 </li>
 <li class="flex justify-between">
-<span>âœ¨ Energy Edge</span>
+<span>âœ?Energy Edge</span>
 <span class="font-mono text-yellow-200/80">Baharroth Blue</span>
 </li>
 <li class="flex justify-between">
@@ -116,16 +116,4 @@ Tactical Protocol
 </div>
 
 </div>
-
-<!-- BOTTOM CTA -->
-<div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div>
-<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">Ready to Deploy?</h4>
-<p class="text-sm text-gray-400">Summon the daemons to your aid.</p>
-</div>
-<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
-INITIATE COMMISSION ->
-</button>
-</div>
-
 </div>

@@ -27,3 +27,6 @@ Thumbs.db
 
 # Backup folder (large)
 backup/
+
+# Cloudflare Wrangler
+.wrangler/

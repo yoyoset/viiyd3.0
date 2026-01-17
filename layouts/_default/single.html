@@ -178,29 +178,33 @@
                     "{{ . }}"
                 </p>
                 {{ end }}
-                                
+
                 <!-- Dynamic Stats Bar (Template-Rendered) -->
-                <div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5 my-8 not-prose">
+                <div
+                    class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5 my-8 not-prose">
                     <!-- Model Count -->
                     <div class="flex items-center gap-3">
                         <span class="text-3xl">🎯</span>
                         <div>
-                            <span class="block text-2xl font-black text-white">{{ .Params.model_count | default "1" }}</span>
-                            <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ T "unit_count" }}</span>
+                            <span class="block text-2xl font-black text-white">{{ .Params.model_count | default "1"
+                                }}</span>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ T "unit_count"
+                                }}</span>
                         </div>
                     </div>
                     <div class="w-px h-8 bg-white/10 hidden md:block"></div>
-                    
+
                     <!-- Time Log -->
                     <div class="flex items-center gap-3">
                         <span class="text-3xl">⏱️</span>
                         <div>
-                            <span class="block text-2xl font-black text-cyan-400">{{ .Params.time_log | default "N/A" }}</span>
+                            <span class="block text-2xl font-black text-cyan-400">{{ .Params.time_log | default "N/A"
+                                }}</span>
                             <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ T "time_log" }}</span>
                         </div>
                     </div>
                     <div class="w-px h-8 bg-white/10 hidden md:block"></div>
-                    
+
                     <!-- Tier -->
                     <div class="flex items-center gap-3">
                         <span class="text-3xl">💎</span>
@@ -211,16 +215,43 @@
                             {{ if eq .Params.tier "Spec Ops" }}{{ $tierColor = "text-purple-400" }}{{ end }}
                             {{ if eq .Params.tier "Master" }}{{ $tierColor = "text-orange-400" }}{{ end }}
                             {{ if eq .Params.tier "Legend" }}{{ $tierColor = "text-gold-400" }}{{ end }}
-                            <span class="block text-2xl font-black {{ $tierColor }}">{{ T (printf "tier_%s" (replace .Params.tier " " "_" | lower)) | default .Params.tier }}</span>
+                            <span class="block text-2xl font-black {{ $tierColor }}">{{ T (printf "tier_%s" (replace
+                                .Params.tier " " "_" | lower)) | default .Params.tier }}</span>
                             <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ T "tier" }}</span>
                         </div>
                     </div>
                 </div>
-                
+
                 {{ .Content }}
             </div>
 
 
+
+            <!-- CTA Section -->
+            <div
+                class="mt-16 mb-16 p-8 bg-neutral-900 border border-gold-500/20 rounded-2xl text-center relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gold-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                </div>
+
+                <h3 class="text-xl md:text-2xl font-serif text-white mb-4 relative z-10">{{ T "work_cta_title" }}</h3>
+                <p class="text-gray-400 mb-8 max-w-lg mx-auto relative z-10">{{ T "work_cta_desc" }}</p>
+
+                <a href="{{ relLangURL "contact/" }}"
+                    class="inline-flex items-center gap-3 bg-gold-500 text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 relative z-10 overflow-hidden animate-[pulse-gold_2s_ease-in-out_infinite]">
+                    <span class="relative z-10">{{ T "work_cta_button" }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="relative z-10">
+                        <line x1="22" x2="11" y1="2" y2="13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                    <!-- Shimmer effect -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_ease-in-out_infinite]">
+                    </div>
+                </a>
+            </div>
 
             <!-- Next/Prev Nav -->
             <div

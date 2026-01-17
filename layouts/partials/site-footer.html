@@ -1,7 +1,126 @@
 <footer class="mt-auto py-8 border-t border-white/5 bg-neutral-900">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-        <p class="text-xs text-gray-500 font-mono">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Contact Section -->
+        <div class="flex flex-col items-center justify-center mb-12">
+            <h4 class="text-xs font-mono text-gold-500 uppercase tracking-[0.2em] mb-8 relative">
+                <span class="inline-block w-2 h-2 bg-gold-500 rounded-full mr-2 animate-pulse"></span>
+                {{ T "footer_contact_title" }}
+            </h4>
+
+            <div class="flex items-center gap-8 md:gap-12">
+                <!-- Email -->
+                <a href="mailto:maylyy8@gmail.com"
+                    class="group flex flex-col items-center gap-3 text-gray-500 hover:text-white transition-colors duration-300">
+                    <div
+                        class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-gold-500/50 group-hover:bg-gold-500/10 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                    </div>
+                    <span class="text-[10px] font-mono uppercase tracking-widest hidden md:block">Email</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/viiyang.yingying/" target="_blank" rel="noopener noreferrer"
+                    class="group flex flex-col items-center gap-3 text-gray-500 hover:text-fuchsia-400 transition-colors duration-300">
+                    <div
+                        class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-fuchsia-500/50 group-hover:bg-fuchsia-500/10 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg>
+                    </div>
+                    <span class="text-[10px] font-mono uppercase tracking-widest hidden md:block">Instagram</span>
+                </a>
+
+                <!-- WeChat -->
+                <button onclick="toggleWechatModal()"
+                    class="group flex flex-col items-center gap-3 text-gray-500 hover:text-emerald-400 transition-colors duration-300">
+                    <div
+                        class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M8.5 15.5c4.7 0 8.5-3.1 8.5-7s-3.8-7-8.5-7-8.5 3.1-8.5 7c0 1.9.8 3.7 2.2 4.9 0 0-.6 2.2-.8 2.5 1.5.1 3.4-.6 3.4-.6.9.5 2.1.8 3.2.7z" />
+                            <path
+                                d="M17 12c-4.1 0-7.5 2.5-7.5 5.5 0 3 3.4 5.5 7.5 5.5.9 0 1.8-.2 2.7-.6 0 0 1.7.6 3 .5-.2-.3-.7-2.3-.7-2.3 1.2-1.1 1.9-2.7 1.9-4.3-.1-3-3.4-5.5-7.4-5.5z" />
+                        </svg>
+                    </div>
+                    <span class="text-[10px] font-mono uppercase tracking-widest hidden md:block">WeChat</span>
+                </button>
+            </div>
+        </div>
+
+        <p class="text-xs text-gray-600 font-mono text-center border-t border-white/5 pt-8">
             &copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.
         </p>
     </div>
+
+    <!-- WeChat Modal -->
+    <div id="wechat-modal"
+        class="fixed inset-0 bg-neutral-950/90 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-6"
+        onclick="toggleWechatModal()">
+        <div class="bg-neutral-900 border border-gold-500/30 p-2 rounded-2xl shadow-[0_0_50px_rgba(234,179,8,0.2)] transform scale-95 transition-transform duration-300 relative"
+            onclick="event.stopPropagation()">
+            <!-- Decorative Corners -->
+            <div class="absolute -top-1 -left-1 w-4 h-4 border-t border-l border-gold-500"></div>
+            <div class="absolute -top-1 -right-1 w-4 h-4 border-t border-r border-gold-500"></div>
+            <div class="absolute -bottom-1 -left-1 w-4 h-4 border-b border-l border-gold-500"></div>
+            <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b border-r border-gold-500"></div>
+
+            <div class="bg-white p-3 rounded-xl relative overflow-hidden">
+                <img src="/img/mywechat.jpg" alt="WeChat QR Code" class="w-48 h-48 md:w-64 md:h-64 object-cover">
+                <!-- Scan Line Animation -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent via-gold-500/20 to-transparent h-[10%] w-full animate-[scan_2s_linear_infinite] pointer-events-none">
+                </div>
+            </div>
+
+            <div
+                class="bg-neutral-900 mt-2 py-3 px-4 rounded-xl flex items-center justify-between border border-white/5">
+                <span class="text-white font-mono text-xs uppercase tracking-wider">{{ T "wechat_label" }}</span>
+                <button onclick="toggleWechatModal()" class="text-gray-500 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Script -->
+    <script>
+        function toggleWechatModal() {
+            const modal = document.getElementById('wechat-modal');
+            const body = document.body;
+
+            if (modal.classList.contains('hidden')) {
+                // Open
+                modal.classList.remove('hidden');
+                // Small delay to allow display:block to apply before opacity transition
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modal.querySelector('div').classList.remove('scale-95');
+                    modal.querySelector('div').classList.add('scale-100');
+                }, 10);
+                body.style.overflow = 'hidden';
+            } else {
+                // Close
+                modal.classList.add('opacity-0');
+                modal.querySelector('div').classList.remove('scale-100');
+                modal.querySelector('div').classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+                body.style.overflow = '';
+            }
+        }
+    </script>
 </footer>

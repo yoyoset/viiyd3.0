@@ -70,6 +70,9 @@ other = "Per Character"
 [deploy_button]
 other = "Deploy"
 
+[cta_request]
+other = "Request Commission"
+
 [recommended_label]
 other = "Recommended"
 
@@ -182,3 +185,77 @@ other = "VIEW SCHEMA"
 
 [view_archive]
 other = "VIEW ARCHIVE"
+
+[contact_title]
+other = "Sectors"
+
+[footer_contact_title]
+other = "Establish Uplink"
+
+[wechat_label]
+other = "WeChat Protocol"
+
+[work_cta_title]
+other = "Like This Work?"
+[work_cta_desc]
+other = "Contact us for a similar commission quote."
+[work_cta_button]
+other = "Get Quote"
+
+[contact_intro]
+other = "Initiate communication. We are ready to receive your commission specifications."
+
+[about_btn_contact]
+other = "Contact Studio"
+
+[about_btn_work]
+other = "View Work"
+
+# Contact Form
+[form_name]
+other = "Your Name"
+
+[form_name_placeholder]
+other = "How should we call you?"
+
+[form_contact]
+other = "Contact Method"
+
+[form_contact_placeholder]
+other = "WeChat / Email / Discord / etc."
+
+[form_project_type]
+other = "Project Type"
+
+[form_select_option]
+other = "Select..."
+
+[form_project_single]
+other = "Single Model"
+
+[form_project_squad]
+other = "Squad / Kill Team"
+
+[form_project_army]
+other = "Full Army"
+
+[form_project_other]
+other = "Other / Custom"
+
+[form_images]
+other = "Reference Images (Optional)"
+
+[form_images_hint]
+other = "Click to upload (max 3)"
+
+[form_description]
+other = "Project Details"
+
+[form_description_placeholder]
+other = "Describe what you want: color scheme, deadline, special requests..."
+
+[form_submit]
+other = "Submit Request"
+
+[contact_direct]
+other = "or email directly"

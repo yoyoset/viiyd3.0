@@ -103,11 +103,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>🛡️ Base</span>
+<span>🛡�?Base</span>
 <span class="font-mono text-emerald-200">Mephiston Red</span>
 </li>
 <li class="flex justify-between">
-<span>✨ Highlight</span>
+<span>�?Highlight</span>
 <span class="font-mono text-cyan-200">Wild Rider Red</span>
 </li>
 </ul>
@@ -129,16 +129,4 @@ Tactical Protocol
 </div>
 
 </div>
-
-<!-- BOTTOM CTA -->
-<div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div>
-<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">Ready to Deploy?</h4>
-<p class="text-sm text-gray-400">Secure a slot for your detachment.</p>
-</div>
-<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
-INITIATE COMMISSION ->
-</button>
-</div>
-
 </div>

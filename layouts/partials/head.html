@@ -33,4 +33,49 @@
     {{ $style = $style | minify | fingerprint }}
     {{ end }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title"
+        content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta property="og:description"
+        content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ if .Params.cover }}
+    <meta property="og:image" content="{{ .Params.cover | absURL }}">
+    {{ else if .Params.featured_image }}
+    <meta property="og:image" content="{{ .Params.featured_image | absURL }}">
+    {{ end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta name="twitter:description"
+        content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
+    {{ if .Params.cover }}
+    <meta name="twitter:image" content="{{ .Params.cover | absURL }}">
+    {{ end }}
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "VIIYD Miniature Painting Studio",
+      "description": "Professional Warhammer and miniature painting commission service",
+      "url": "https://viiyd.com",
+      "email": "maylyy8@gmail.com",
+      "sameAs": [
+        "https://www.instagram.com/viiyang.yingying/"
+      ],
+      "image": "{{ absURL "/img/card_studio_illustrative_v2.png" }}",
+      "priceRange": "$$$"
+    }
+    </script>
 </head>

@@ -2,6 +2,9 @@ baseURL = 'https://viiyd.com/'
 title = 'VIIYD 3.0'
 theme = []
 
+[params]
+  turnstileSiteKey = "0x4AAAAAACNE6SxZEmTQJClP"
+
 # Multilingual Config
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = false

@@ -1,0 +1,11 @@
+name = "viiyd-contact-handler"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://viiyd.com"
+
+# R2 绑定
+[[r2_buckets]]
+binding = "CONTACT_IMAGES"
+bucket_name = "viiyd-contact-images"

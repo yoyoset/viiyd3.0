@@ -114,14 +114,7 @@ description: "对《黑神话：悟空》天命人的独特Q版诠释。在风�
 
 </div>
 
-<div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div>
-<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">准备好部署了吗？</h4>
-<p class="text-sm text-gray-400">您的定制角色正在等待。</p>
-</div>
-<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
-启动委托程序 ->
-</button>
-</div>
 
 </div>
+
+

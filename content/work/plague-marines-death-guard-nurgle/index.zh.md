@@ -1,4 +1,4 @@
----
+﻿---
 title: "瘟疫战士：死亡守卫"
 date: 2024-01-01
 summary: "莫塔里安的不屈子嗣。经典的死亡守卫配色方案，专注于干净的底漆和凹槽阴影。"
@@ -116,15 +116,5 @@ description: "莫塔里安的不屈子嗣。经典的死亡守卫配色方案，
 
 </div>
 
-<!-- BOTTOM CTA -->
-<div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div>
-<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">准备好部署了吗？</h4>
-<p class="text-sm text-gray-400">开始您的军团扩散。</p>
-</div>
-<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
-启动委托程序 ->
-</button>
 </div>
 
-</div>

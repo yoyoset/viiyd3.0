@@ -1,4 +1,4 @@
----
+﻿---
 title: "莱昂·庄森：饭制自定义模型"
 date: 2024-01-01
 summary: "一件独特的饭制基因原体莱昂·庄森自定义雕塑，探索了该角色的不同诠释。"
@@ -95,15 +95,5 @@ description: "一件独特的饭制基因原体莱昂·庄森自定义雕塑，�
 
 </div>
 
-<!-- BOTTOM CTA -->
-<div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div>
-<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">准备好委托了吗？</h4>
-<p class="text-sm text-gray-400">将您的独特愿景变为现实。</p>
-</div>
-<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
-启动委托程序 ->
-</button>
 </div>
 
-</div>

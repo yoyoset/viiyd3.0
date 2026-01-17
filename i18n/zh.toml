@@ -218,3 +218,77 @@ other = "信号丢失"
 
 [access_log]
 other = "访问日志"
+
+[contact_title]
+other = "通讯扇区"
+
+[footer_contact_title]
+other = "建立链接"
+
+[wechat_label]
+other = "微信通讯协议"
+
+[work_cta_title]
+other = "心仪此作？"
+[work_cta_desc]
+other = "联系我们获取同款定制报价。"
+[work_cta_button]
+other = "获取报价"
+
+[contact_intro]
+other = "发起通讯。我们随时准备接收您的委托详细规格。"
+
+[about_btn_contact]
+other = "联络工作室"
+
+[about_btn_work]
+other = "查看作品"
+
+# Contact Form
+[form_name]
+other = "您的称呼"
+
+[form_name_placeholder]
+other = "怎么称呼您？"
+
+[form_contact]
+other = "联络方式"
+
+[form_contact_placeholder]
+other = "微信 / 邮箱 / Discord / 等等"
+
+[form_project_type]
+other = "项目类型"
+
+[form_select_option]
+other = "请选择..."
+
+[form_project_single]
+other = "单件模型"
+
+[form_project_squad]
+other = "小队 / 战斗组"
+
+[form_project_army]
+other = "完整军团"
+
+[form_project_other]
+other = "其他 / 定制"
+
+[form_images]
+other = "参考图片 (可选)"
+
+[form_images_hint]
+other = "点击上传 (最多3张)"
+
+[form_description]
+other = "项目详情"
+
+[form_description_placeholder]
+other = "描述您想要的效果：配色方案、截止日期、特殊要求..."
+
+[form_submit]
+other = "提交委托"
+
+[contact_direct]
+other = "或直接发邮件"
