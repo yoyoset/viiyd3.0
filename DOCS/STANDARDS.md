@@ -18,7 +18,6 @@ All project descriptions and site copy must adhere to the **"Master & Commander"
 *   **Recipes** → `The Alchemy` / `Pigment Analysis`
 *   **Techniques** → `Tactical Protocol` / `Methodology`
 *   **Stats** → `Mission Data` / `Field Report`
-*   **Call to Action** → `Initiate Commission` / `Ready to Deploy?`
 
 ## 2. Layout & Design Patterns
 
