@@ -87,31 +87,31 @@ Failed to render "/zh/": render: failed to render pages: render of "/" failed at
 ## 📏 项目处理顺序（按字母顺序）
 
 1. 3d-print-custom-figure-chromatic ✅ 已完成
-2. black-myth-wukong-chibi ⚠️ 需验证
-3. blue-horrors-tzeentch-chaos-daemons
-4. cities-of-sigmar-army-showcase-complete-set
-5. dark-angels-deathwing
-6. dark-angels-interemptors-dreadwing
-7. flesh-hounds-khorne-daemons-showcase
-8. freeguild-cavalier-marshal-and-ironweld-great-cannon
-9. freeguild-cavaliers-cities-of-sigmar-blue-scheme
-10. freeguild-cavaliers-cities-of-sigmar-red-scheme
-11. hexbanes-hunters-underworlds-witch-hunters
-12. joytoy-dark-source-steel-legion-head-repaint
-13. kill-team-blood-and-zeal-sanctifiers
-14. kill-team-kasrkin
-15. legio-custodes-caladius-grav-tank-annihilator
-16. lion-el-jonson
-17. lion-el-jonson-fanmade-custom
-18. noise-marines-slaanesh-chaos-space-marines
-19. pink-horrors-tzeentch-chaos-daemons
-20. plague-marines-death-guard-nurgle
-21. screamers-of-tzeentch-chaos-daemons  
-22. tahlia-vedra-lioness-of-the-parch
-23. warhammer-painting-beginner-guide
-24. wildercorps-hunters-cities-of-sigmar
-25. wuxia-board-game-miniature-painting-test
-26. zenestra-matriarch-of-the-great-wheel-cities-of-sigmar
+2. black-myth-wukong-chibi ✅ 已完成
+3. blue-horrors-tzeentch-chaos-daemons ✅ 已修复
+4. cities-of-sigmar-army-showcase-complete-set ✅ 已修复
+5. dark-angels-deathwing ✅ 已修复
+6. dark-angels-interemptors-dreadwing ✅ 已修复
+7. flesh-hounds-khorne-daemons-showcase ✅ 已修复
+8. freeguild-cavalier-marshal-and-ironweld-great-cannon ✅ 已修复
+9. freeguild-cavaliers-cities-of-sigmar-blue-scheme ✅ 已修复
+10. freeguild-cavaliers-cities-of-sigmar-red-scheme ✅ 已修复
+11. hexbanes-hunters-underworlds-witch-hunters ✅ 已修复
+12. joytoy-dark-source-steel-legion-head-repaint ✅ 已修复
+13. kill-team-blood-and-zeal-sanctifiers ✅ 已修复
+14. kill-team-kasrkin ✅ 已修复
+15. legio-custodes-caladius-grav-tank-annihilator ✅ 已修复
+16. lion-el-jonson ✅ 已修复
+17. lion-el-jonson-fanmade-custom ✅ 已修复
+18. noise-marines-slaanesh-chaos-space-marines ✅ 已修复
+19. pink-horrors-tzeentch-chaos-daemons ✅ 已修复
+20. plague-marines-death-guard-nurgle ✅ 已修复
+21. screamers-of-tzeentch-chaos-daemons ✅ 已修复
+22. tahlia-vedra-lioness-of-the-parch ✅ 已修复
+23. warhammer-painting-beginner-guide ✅ 已修复
+24. wildercorps-hunters-cities-of-sigmar ✅ 已修复
+25. wuxia-board-game-miniature-painting-test ✅ 已修复
+26. zenestra-matriarch-of-the-great-wheel-cities-of-sigmar ✅ 已修复
 
 **内容结构**:
 ```markdown

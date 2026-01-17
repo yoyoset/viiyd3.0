@@ -6,17 +6,26 @@ tags: ["Warhammer 40k", "Tzeentch", "Daemons", "Chaos"]
 cover: "https://photo.viiyd.com/viiyd20251104bhot_01.jpg"
 layout: "project"
 tier: "Spec Ops"
-hero_image: "https://photo.viiyd.com/viiyd20251104bhot_01.jpg"
-time_log: "20h"
+time_log: "20h 00m"
+model_count: 10
 paints:
   - name: "The Fang"
+    role: "BASE"
     hex: "#465866"
+    link: "https://www.warhammer.com/en-GB/shop/Base-The-Fang-2019"
   - name: "Russ Grey"
+    role: "LAYER"
     hex: "#536774"
+    link: "https://www.warhammer.com/en-GB/shop/Layer-Russ-Grey-2019"
   - name: "Lothern Blue"
+    role: "LAYER"
     hex: "#2C9CD7"
+    link: "https://www.warhammer.com/en-GB/shop/Layer-Lothern-Blue-2019"
   - name: "Drakenhof Nightshade"
+    role: "SHADE"
     hex: "#101D33"
+    link: "https://www.warhammer.com/en-GB/shop/Shade-Drakenhof-Nightshade-2019"
+description: "The grumbling remnants of Pink Horrors. A study in cold blue gradients and magical flame effects. Designed for mass infantry deployment, these Blue Horrors prioritize vibrant readability."
 ---
 
 <div class="image-grid">
@@ -56,55 +65,60 @@ Designed for mass infantry deployment, these Blue Horrors prioritize vibrant rea
 </p>
 </div>
 
-<!-- VISUAL STATS BAR -->
-<div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5">
-<div class="flex items-center gap-3">
-<span class="text-3xl">🎯</span>
-<div>
-<span class="block text-2xl font-black text-white">10</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Models</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">⏱️</span>
-<div>
-<span class="block text-2xl font-black text-cyan-400">20h</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Time Log</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">💎</span>
-<div>
-<span class="block text-2xl font-black text-gold-400">Spec Ops</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Tier</span>
-</div>
-</div>
-</div>
-
 <!-- TECHNICAL CARDS -->
 <div class="grid md:grid-cols-2 gap-4">
-<!-- Card 1: Alchemy -->
+
+<!-- Card 1: The Alchemy -->
 <div class="bg-neutral-800/30 p-5 rounded border border-emerald-500/20 hover:border-emerald-500/40 transition-colors group">
-<h4 class="font-bold text-emerald-400 mb-2">The Alchemy</h4>
-<ul class="space-y-2 text-sm text-gray-300">
-<li class="flex justify-between"><span>Base</span><span class="font-mono text-emerald-200">The Fang</span></li>
-<li class="flex justify-between"><span>Highlight</span><span class="font-mono text-cyan-200">Blue Horror</span></li>
-<li class="flex justify-between"><span>Shade</span><span class="font-mono text-indigo-400">Drakenhof Nightshade</span></li>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-emerald-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+The Alchemy
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Color Data</span>
+</div>
+<ul class="space-y-3 text-sm text-gray-300">
+<li class="flex justify-between">
+<span>🛡️ Base</span>
+<span class="font-mono text-emerald-200">The Fang</span>
+</li>
+<li class="flex justify-between">
+<span>✨ Highlight</span>
+<span class="font-mono text-cyan-200">Blue Horror</span>
+</li>
+<li class="flex justify-between">
+<span>🌑 Shade</span>
+<span class="font-mono text-indigo-400">Drakenhof Nightshade</span>
+</li>
 </ul>
 </div>
-<!-- Card 2: Protocol -->
+
+<!-- Card 2: Tactical Protocol -->
 <div class="bg-neutral-800/30 p-5 rounded border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
-<h4 class="font-bold text-cyan-400 mb-2">Tactical Protocol</h4>
-<p class="text-sm text-gray-400">Heavy drybrushing for flame effects, focusing on smooth transitions from deep blue to near-white tips.</p>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-cyan-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+Tactical Protocol
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Methodology</span>
 </div>
+<p class="text-sm text-gray-400 mb-2">Key techniques deployed:</p>
+<ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
+<li><strong>Flame Effects:</strong> Heavy drybrushing, focusing on smooth transitions from deep blue to near-white tips.</li>
+</ul>
+</div>
+
 </div>
 
 <!-- BOTTOM CTA -->
 <div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div><h4 class="text-lg font-bold text-white mb-1">Ready to Deploy?</h4></div>
-<button class="px-6 py-2 bg-purple-600 text-white font-bold rounded">INITIATE COMMISSION -></button>
+<div>
+<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">Ready to Deploy?</h4>
+<p class="text-sm text-gray-400">Secure a slot for your detachment.</p>
+</div>
+<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
+INITIATE COMMISSION ->
+</button>
 </div>
 
 </div>

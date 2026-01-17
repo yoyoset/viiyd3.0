@@ -1,12 +1,27 @@
 ---
 title: "Flesh Hounds Khorne Daemons Showcase"
 date: 2024-01-01
-summary: "Click to view detailed showcase."
-tags: []
+summary: "The hounds of Khorne. Painted to a Spec Ops standard for high contrast and tabletop durability."
+tags: ["Warhammer 40k", "Khorne", "Daemons", "Flesh Hounds", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20250909fh_01.jpg"
 layout: "project"
-tier: "Spec Ops"
-description: "Automated migrated content"
+tier: "Specialist"
+time_log: "20h 00m"
+model_count: 5
+paints:
+  - name: "Khorne Red"
+    role: "BASE"
+    hex: "#6A0001"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Khorne-Red-2019"
+  - name: "Nuln Oil"
+    role: "SHADE"
+    hex: "#111111"
+    link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
+  - name: "Retributor Armour"
+    role: "METALLIC"
+    hex: "#C69632"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
+description: "The hounds of Khorne. Painted to a Spec Ops standard for high contrast and tabletop durability. The skin uses a classic Khorne Red recipe with deep shading for muscular definition."
 ---
 
 <div class="image-grid">
@@ -32,66 +47,66 @@ description: "Automated migrated content"
 {{< lightbox src="https://photo.viiyd.com/viiyd20250909fh_21.jpg" title="Flesh Hounds Cinematic Angle" >}}
 </div>
 
-
-
 <div class="space-y-4 my-4">
 
 <!-- THE HOOK -->
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
 <h3 class="text-xl font-bold text-white mb-2">🔥 Use Case: Battlefield Deployment</h3>
 <p class="text-gray-300 leading-relaxed">
-This unit has been prepared for tabletop deployment with a focus on durability and visual clarity. The color scheme is optimized for recognition at a distance while maintaining clean details for closer inspection.
+This unit has been prepared for tabletop deployment with a focus on durability and visual clarity. The color scheme is optimized for recognition at a distance using the classic Khorne palette.
 </p>
-</div>
-
-<!-- VISUAL STATS BAR -->
-<div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5">
-<div class="flex items-center gap-3">
-<span class="text-3xl">🎯</span>
-<div>
-<span class="block text-2xl font-black text-white">1</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Unit</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">⏱️</span>
-<div>
-<span class="block text-2xl font-black text-cyan-400">20h</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Time Log</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">💎</span>
-<div>
-<span class="block text-2xl font-black text-gold-400">Standard</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Tier</span>
-</div>
-</div>
 </div>
 
 <!-- TECHNICAL CARDS -->
 <div class="grid md:grid-cols-2 gap-4">
-<!-- Card 1: Alchemy -->
+
+<!-- Card 1: The Alchemy -->
 <div class="bg-neutral-800/30 p-5 rounded border border-emerald-500/20 hover:border-emerald-500/40 transition-colors group">
-<h4 class="font-bold text-emerald-400 mb-2">The Alchemy</h4>
-<ul class="space-y-2 text-sm text-gray-300">
-<li class="flex justify-between"><span>Base</span><span class="font-mono text-emerald-200">Standard</span></li>
-<li class="flex justify-between"><span>Highlight</span><span class="font-mono text-cyan-200">Layered</span></li>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-emerald-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+The Alchemy
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Color Data</span>
+</div>
+<ul class="space-y-3 text-sm text-gray-300">
+<li class="flex justify-between">
+<span>🛡️ Skin</span>
+<span class="font-mono text-emerald-200">Khorne Red</span>
+</li>
+<li class="flex justify-between">
+<span>👑 Collar</span>
+<span class="font-mono text-cyan-200">Retributor Armour</span>
+</li>
 </ul>
 </div>
-<!-- Card 2: Protocol -->
+
+<!-- Card 2: Tactical Protocol -->
 <div class="bg-neutral-800/30 p-5 rounded border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
-<h4 class="font-bold text-cyan-400 mb-2">Tactical Protocol</h4>
-<p class="text-sm text-gray-400">Standard application of base coats, washes, and edge highlights.</p>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-cyan-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+Tactical Protocol
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Methodology</span>
 </div>
+<p class="text-sm text-gray-400 mb-2">Key techniques deployed:</p>
+<ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
+<li><strong>Muscle Definition:</strong> Deep shading with Nuln Oil to define the musculature of the daemon hounds.</li>
+</ul>
+</div>
+
 </div>
 
 <!-- BOTTOM CTA -->
 <div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div><h4 class="text-lg font-bold text-white mb-1">Ready to Deploy?</h4></div>
-<button class="px-6 py-2 bg-purple-600 text-white font-bold rounded">INITIATE COMMISSION -></button>
+<div>
+<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">Ready to Deploy?</h4>
+<p class="text-sm text-gray-400">Secure a slot for your detachment.</p>
+</div>
+<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
+INITIATE COMMISSION ->
+</button>
 </div>
 
 </div>

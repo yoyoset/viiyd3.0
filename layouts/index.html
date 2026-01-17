@@ -7,7 +7,7 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
 
         <!-- Card 1: Studio / About (Large) -->
-        <a href="/about"
+        <a href="{{ relLangURL "about/" }}"
             class="md:col-span-2 md:row-span-2 relative group rounded-2xl overflow-hidden border border-white/10 hover:border-gold-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(234,179,8,0.3)]">
             <div class="absolute inset-0 z-0">
                 <img src="/img/card_studio_illustrative_v2.png"
@@ -25,15 +25,14 @@
             <div class="absolute bottom-0 left-0 p-8 z-10 w-full">
                 <span
                     class="text-gold-400 font-mono text-xs font-black tracking-widest uppercase mb-2 block animate-pulse">///
-                    IDENTITY</span>
-                <h2 class="text-4xl font-black font-serif text-white mb-2 drop-shadow-xl">THE STUDIO</h2>
-                <p class="text-gray-100 font-bold text-sm max-w-md drop-shadow-md">Not a factory. A sanctuary for the
-                    miniature arts.</p>
+                    {{ T "identity" }}</span>
+                <h2 class="text-4xl font-black font-serif text-white mb-2 drop-shadow-xl">{{ T "studio_title" }}</h2>
+                <p class="text-gray-100 font-bold text-sm max-w-md drop-shadow-md">{{ T "studio_motto" }}</p>
             </div>
         </a>
 
         <!-- 01: Protocol -->
-        <a href="/process"
+        <a href="{{ relLangURL " process/" }}"
             class="relative group rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
             <div class="absolute inset-0 z-0">
                 <img src="/img/card_protocol_illustrative_v2.png"
@@ -42,23 +41,23 @@
             </div>
             <div class="absolute bottom-0 left-0 p-6 z-10 w-full group-hover:opacity-100 transition-opacity">
                 <span class="text-cyan-400 font-mono text-xs font-black tracking-widest uppercase mb-1 block">///
-                    PROTOCOL</span>
-                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">PROCESS</h3>
+                    {{ T "protocol_label" }}</span>
+                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">{{ T "process_title" }}</h3>
                 <ul class="space-y-1 mb-4 hidden md:block">
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">I. ANALYSIS</li>
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">II. QUOTE</li>
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">III. FORGE</li>
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">IV. DEPLOY</li>
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_1" }}</li>
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_2" }}</li>
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_3" }}</li>
+                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_4" }}</li>
                 </ul>
                 <span
                     class="inline-block bg-cyan-500 hover:bg-cyan-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg mt-2">
-                    VIEW SCHEMA
+                    {{ T "view_schema" }}
                 </span>
             </div>
         </a>
 
         <!-- 02: Tiers (Rates) -->
-        <a href="/rates"
+        <a href="{{ relLangURL " rates/" }}"
             class="relative group rounded-2xl overflow-hidden border border-white/10 hover:border-gold-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(234,179,8,0.3)]">
             <div class="absolute inset-0 z-0">
                 <img src="/img/card_tiers_illustrative_v2.png"
@@ -68,7 +67,7 @@
             <!-- Compact Content Container -->
             <div class="absolute bottom-0 left-0 p-4 z-20 w-full">
                 <span class="text-gold-400 font-mono text-[10px] font-black tracking-widest uppercase mb-1 block">///
-                    TIERS</span>
+                    {{ T "tiers_label" }}</span>
                 <h3 class="text-xl font-black font-serif text-white drop-shadow-lg mb-2">{{ T "rates_title" }}</h3>
 
                 <!-- 3-Tier Price List -->
@@ -110,26 +109,26 @@
                 <span
                     class="flex items-center gap-2 rounded bg-green-900/50 px-2 py-1 font-mono text-[10px] uppercase text-green-400 backdrop-blur border border-green-500/30">
                     <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                    Open
+                    {{ T "status_open" }}
                 </span>
             </div>
 
             <div class="absolute bottom-6 left-6 right-6 z-20">
                 <h3
                     class="text-2xl font-black font-serif italic text-white mb-2 leading-none group-hover:translate-x-1 transition-transform">
-                    Start<br>Comm.</h3>
+                    {{ T "start_comm" | safeHTML }}</h3>
                 <div class="flex items-center gap-2 mt-2 group-hover:gap-3 transition-all">
                     <!-- Green Button (Badge Style) -->
                     <span
                         class="inline-block bg-green-500 hover:bg-green-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg">
-                        INITIATE UPLINK
+                        {{ T "initiate_uplink" }}
                     </span>
                 </div>
             </div>
         </a>
 
         <!-- 04: Logs (New 5th Card) -->
-        <a href="/work"
+        <a href="{{ relLangURL " work/" }}"
             class="group relative overflow-hidden rounded-2xl border border-white/5 bg-neutral-900 transition-all hover:scale-[1.02] hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
             <div
                 class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100">
@@ -141,12 +140,12 @@
             <div class="absolute bottom-6 left-6 w-full pr-12 z-20">
                 <!-- Text Color Changed to White/80 -->
                 <span class="text-white/80 font-mono text-xs font-black tracking-widest uppercase mb-1 block">///
-                    DATABASE</span>
-                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">LOGS</h3>
+                    {{ T "database_label" }}</span>
+                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">{{ T "logs_title" }}</h3>
                 <!-- Purple Button (Badge Style) -->
                 <span
                     class="inline-block bg-purple-500 hover:bg-purple-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg relative z-50">
-                    VIEW ARCHIVE
+                    {{ T "view_archive" }}
                 </span>
             </div>
         </a>
@@ -156,9 +155,11 @@
     <!-- Latest Deliveries Section -->
     <div class="mt-20 border-t border-white/10 pt-12">
         <div class="flex justify-between items-end mb-8">
-            <h3 class="text-xs font-mono font-bold tracking-[0.2em] text-white uppercase">Latest Deliveries</h3>
-            <a href="/work" class="text-xs font-mono text-gold-500 hover:text-white transition-colors">VIEW ALL ARCHIVES
-                -></a>
+            <h3 class="text-xs font-mono font-bold tracking-[0.2em] text-white uppercase">{{ T "latest_deliveries" }}
+            </h3>
+            <a href="{{ relLangURL " work/" }}"
+                class="text-xs font-mono text-gold-500 hover:text-white transition-colors">{{ T "view_all_archives"
+                }}</a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -195,7 +196,8 @@
                     {{ else }}
                     <div
                         class="w-full h-full flex flex-col items-center justify-center text-gray-700 bg-neutral-900 pattern-grid-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-widest mb-2 opacity-50">Signal Lost</span>
+                        <span class="text-[10px] font-mono uppercase tracking-widest mb-2 opacity-50">{{ T "signal_lost"
+                            }}</span>
                         <div class="w-6 h-6 border-b-2 border-r-2 border-gray-600 rounded-full animate-spin"></div>
                     </div>
                     {{ end }}
@@ -258,8 +260,8 @@
 
                     <!-- Footer Action -->
                     <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span
-                            class="text-[10px] font-mono text-gray-500 group-hover:text-white transition-colors">ACCESS_LOG
+                        <span class="text-[10px] font-mono text-gray-500 group-hover:text-white transition-colors">{{ T
+                            "access_log" }}
                             -></span>
                         <div class="flex gap-1">
                             <div

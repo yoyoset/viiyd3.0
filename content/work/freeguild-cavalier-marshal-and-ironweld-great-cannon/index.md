@@ -5,15 +5,27 @@ summary: "A dual showcase featuring the commanding Freeguild Cavalier-Marshal an
 tags: ["Freeguild", "Cavalry", "Artillery", "Cities of Sigmar", "Age of Sigmar", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20250909cos_01.jpg"
 layout: "project"
-tier: "High Tabletop"
-hero_image: "https://photo.viiyd.com/viiyd20250909cos_01.jpg"
-paints: [
-  { name: "Leadbelcher", color: "#636e72" },
-  { name: "Dryad Bark", color: "#3e2723" },
-  { name: "Mephiston Red", color: "#b91919" },
-  { name: "Retributor Armour", color: "#fab1a0" }
-]
-time: "25h"
+tier: "Specialist"
+time_log: "25h 00m"
+model_count: 2
+paints:
+  - name: "Leadbelcher"
+    role: "BASE"
+    hex: "#636e72"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
+  - name: "Dryad Bark"
+    role: "BASE"
+    hex: "#3e2723"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Dryad-Bark-2019"
+  - name: "Mephiston Red"
+    role: "BASE"
+    hex: "#b91919"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Mephiston-Red-2019"
+  - name: "Retributor Armour"
+    role: "METALLIC"
+    hex: "#fab1a0"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
+description: "A dual showcase featuring the commanding Freeguild Cavalier-Marshal and the devastating Ironweld Great Cannon. Both models feature enhanced weathering and metallic effects to represent veteran service in the field."
 ---
 
 <div class="image-grid">
@@ -38,8 +50,6 @@ time: "25h"
 {{< lightbox src="https://photo.viiyd.com/viiyd20250909cos_21.jpg" title="Ironweld Great Cannon Base Terrain" >}}
 </div>
 
-
-
 <div class="space-y-4 my-4">
 
 <!-- THE HOOK -->
@@ -50,54 +60,56 @@ This commission combines the strategic leadership of the Cavalier-Marshal with t
 </p>
 </div>
 
-<!-- VISUAL STATS BAR -->
-<div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5">
-<div class="flex items-center gap-3">
-<span class="text-3xl">🎯</span>
-<div>
-<span class="block text-2xl font-black text-white">2</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Models</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">⏱️</span>
-<div>
-<span class="block text-2xl font-black text-cyan-400">25h</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Time Log</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">💎</span>
-<div>
-<span class="block text-2xl font-black text-gold-400">High Tabletop</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Tier</span>
-</div>
-</div>
-</div>
-
 <!-- TECHNICAL CARDS -->
 <div class="grid md:grid-cols-2 gap-4">
-<!-- Card 1: Alchemy -->
+
+<!-- Card 1: The Alchemy -->
 <div class="bg-neutral-800/30 p-5 rounded border border-emerald-500/20 hover:border-emerald-500/40 transition-colors group">
-<h4 class="font-bold text-emerald-400 mb-2">The Alchemy</h4>
-<ul class="space-y-2 text-sm text-gray-300">
-<li class="flex justify-between"><span>Wood</span><span class="font-mono text-emerald-200">Dryad Bark + Highlight</span></li>
-<li class="flex justify-between"><span>Metals</span><span class="font-mono text-cyan-200">Weathered Iron</span></li>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-emerald-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+The Alchemy
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Color Data</span>
+</div>
+<ul class="space-y-3 text-sm text-gray-300">
+<li class="flex justify-between">
+<span>🌲 Wood</span>
+<span class="font-mono text-emerald-200">Dryad Bark + Highlight</span>
+</li>
+<li class="flex justify-between">
+<span>⚙️ Metals</span>
+<span class="font-mono text-cyan-200">Weathered Iron</span>
+</li>
 </ul>
 </div>
-<!-- Card 2: Protocol -->
+
+<!-- Card 2: Tactical Protocol -->
 <div class="bg-neutral-800/30 p-5 rounded border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
-<h4 class="font-bold text-cyan-400 mb-2">Tactical Protocol</h4>
-<p class="text-sm text-gray-400">Advanced weathering on the cannon carriage and precise highlighting on the Marshal's cape.</p>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-cyan-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+Tactical Protocol
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Methodology</span>
 </div>
+<p class="text-sm text-gray-400 mb-2">Key techniques deployed:</p>
+<ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
+<li><strong>Weathering:</strong> Advanced weathering on the cannon carriage and precise highlighting on the Marshal's cape.</li>
+</ul>
+</div>
+
 </div>
 
 <!-- BOTTOM CTA -->
 <div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div><h4 class="text-lg font-bold text-white mb-1">Ready to Deploy?</h4></div>
-<button class="px-6 py-2 bg-purple-600 text-white font-bold rounded">INITIATE COMMISSION -></button>
+<div>
+<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">Ready to Deploy?</h4>
+<p class="text-sm text-gray-400">Secure a slot for your detachment.</p>
+</div>
+<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
+INITIATE COMMISSION ->
+</button>
 </div>
 
 </div>

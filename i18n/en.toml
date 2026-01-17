@@ -39,3 +39,146 @@ other = "Color Data"
 
 [methodology]
 other = "Methodology"
+
+[tier_battle]
+other = "Battle Ready"
+
+[tier_parade]
+other = "Parade Ready"
+
+[price_start]
+other = "Starting at"
+
+[features]
+other = "Features"
+
+[tier_standard_label]
+other = "/// TIER: STANDARD"
+
+[tier_elite_label]
+other = "/// TIER: ELITE"
+
+[tier_master_label]
+other = "/// TIER: MASTER"
+
+[per_infantry]
+other = "Per Infantry Model"
+
+[per_character]
+other = "Per Character"
+
+[deploy_button]
+other = "Deploy"
+
+[recommended_label]
+other = "Recommended"
+
+[unsure_text]
+other = "Unsure about your requirements?"
+
+[review_protocol]
+other = "Review our Operational Protocol ->"
+
+[feat_zenital]
+other = "Zenital Highlight"
+
+[feat_base_wash]
+other = "Base Colors + Wash"
+
+[feat_std_base]
+other = "Standard Basing"
+
+[feat_volumetric]
+other = "Volumetric Shading"
+
+[feat_edge]
+other = "Edge Highlights"
+
+[feat_weather]
+other = "Weathering Effects"
+
+[feat_scenic]
+other = "Scenic Basing"
+
+[feat_nmm]
+other = "NMM (Non-Metallic Metal)"
+
+[feat_osl]
+other = "OSL (Glow Effects)"
+
+[feat_freehand]
+other = "Freehand Detail"
+
+[addons_title]
+other = "Strategic Upgrades"
+
+[addon_prep_title]
+other = "Prep & Assembly"
+[addon_prep_desc]
+other = "Moldline removal, gap filling, and surface polishing."
+
+[addon_magnet_title]
+other = "Magnetization"
+[addon_magnet_desc]
+other = "Weapon and limb magnetization for loadout swapping."
+
+[addon_terrain_title]
+other = "Custom Terrain"
+[addon_terrain_desc]
+other = "From urban ruins to alien jungles, bespoke battlefields."
+
+[addon_print_title]
+other = "3D Printing"
+[addon_print_desc]
+other = "High-res 8K printing for bits or custom proxies."
+
+[price_quote]
+other = "Get Quote"
+
+[identity]
+other = "IDENTITY"
+
+[protocol_label]
+other = "PROTOCOL"
+
+[tiers_label]
+other = "TIERS"
+
+[status_open]
+other = "Open"
+
+[start_comm]
+other = "Start<br>Comm."
+
+[database_label]
+other = "DATABASE"
+
+[signal_lost]
+other = "Signal Lost"
+
+[access_log]
+other = "ACCESS_LOG"
+
+[studio_title]
+other = "THE STUDIO"
+
+[studio_motto]
+other = "Not a factory. A sanctuary for the miniature arts."
+
+[process_title]
+other = "PROCESS"
+
+[logs_title]
+other = "LOGS"
+
+[latest_deliveries]
+other = "Latest Deliveries"
+
+[view_all_archives]
+other = "VIEW ALL ARCHIVES ->"
+
+[view_schema]
+other = "VIEW SCHEMA"
+
+[view_archive]
+other = "VIEW ARCHIVE"

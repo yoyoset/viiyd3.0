@@ -1,12 +1,31 @@
 ---
-title: "Noise Marines Slaanesh Chaos Space Marines"
+title: "Noise Marines: Slaanesh Chaos Space Marines"
 date: 2024-01-01
-summary: "Click to view detailed showcase."
-tags: []
+summary: "Sonic weaponry and vibrant colors. A Noise Marine squad honoring Slaanesh with deafening cacophony."
+tags: ["Chaos Space Marines", "Slaanesh", "Noise Marines", "Emperor's Children", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013nm_01.jpg"
 layout: "project"
 tier: "Spec Ops"
-description: "Automated migrated content"
+time_log: "25h 00m"
+model_count: 10
+paints:
+  - name: "Emperor's Children"
+    role: "ARMOR"
+    hex: "#6a2d53"
+    link: "https://www.warhammer.com/en-GB/shop/Layer-Emperors-Children-2019"
+  - name: "Abaddon Black"
+    role: "SECONDARY"
+    hex: "#000000"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
+  - name: "Retributor Armour"
+    role: "METALLIC"
+    hex: "#fab1a0"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
+  - name: "Screamer Pink"
+    role: "BASE"
+    hex: "#741d44"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Screamer-Pink-2019"
+description: "Sonic weaponry and vibrant colors. A Noise Marine squad honoring Slaanesh with deafening cacophony. Featuring gradient pink armour, contrasting black panels, and glowing OSL effects on plasma weaponry and blastmasters."
 ---
 
 <div class="image-grid">
@@ -60,66 +79,67 @@ description: "Automated migrated content"
 {{< lightbox src="https://photo.viiyd.com/viiyd20251013nm_48.jpg" title="Noise Marines Final Impression 03" >}}
 </div>
 
-
-
 <div class="space-y-4 my-4">
 
 <!-- THE HOOK -->
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
 <h3 class="text-xl font-bold text-white mb-2">🔥 Use Case: Battlefield Deployment</h3>
 <p class="text-gray-300 leading-relaxed">
-This unit has been prepared for tabletop deployment with a focus on durability and visual clarity. The color scheme is optimized for recognition at a distance while maintaining clean details for closer inspection.
+These Noise Marines are ready to unleash a sonic assault. The color scheme is designed to be loud and vibrant, just like the unit itself. The gradient pink armor ensures visibility, while the black provides a grounding contrast.
 </p>
-</div>
-
-<!-- VISUAL STATS BAR -->
-<div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5">
-<div class="flex items-center gap-3">
-<span class="text-3xl">🎯</span>
-<div>
-<span class="block text-2xl font-black text-white">1</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Unit</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">⏱️</span>
-<div>
-<span class="block text-2xl font-black text-cyan-400">20h</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Time Log</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">💎</span>
-<div>
-<span class="block text-2xl font-black text-gold-400">Standard</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Tier</span>
-</div>
-</div>
 </div>
 
 <!-- TECHNICAL CARDS -->
 <div class="grid md:grid-cols-2 gap-4">
-<!-- Card 1: Alchemy -->
+
+<!-- Card 1: The Alchemy -->
 <div class="bg-neutral-800/30 p-5 rounded border border-emerald-500/20 hover:border-emerald-500/40 transition-colors group">
-<h4 class="font-bold text-emerald-400 mb-2">The Alchemy</h4>
-<ul class="space-y-2 text-sm text-gray-300">
-<li class="flex justify-between"><span>Base</span><span class="font-mono text-emerald-200">Standard</span></li>
-<li class="flex justify-between"><span>Highlight</span><span class="font-mono text-cyan-200">Layered</span></li>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-emerald-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+The Alchemy
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Color Data</span>
+</div>
+<ul class="space-y-3 text-sm text-gray-300">
+<li class="flex justify-between">
+<span>🛡️ Armor</span>
+<span class="font-mono text-emerald-200">Emperor's Children Pink</span>
+</li>
+<li class="flex justify-between">
+<span>⚔️ Secondary</span>
+<span class="font-mono text-cyan-200">Abaddon Black</span>
+</li>
 </ul>
 </div>
-<!-- Card 2: Protocol -->
+
+<!-- Card 2: Tactical Protocol -->
 <div class="bg-neutral-800/30 p-5 rounded border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
-<h4 class="font-bold text-cyan-400 mb-2">Tactical Protocol</h4>
-<p class="text-sm text-gray-400">Standard application of base coats, washes, and edge highlights.</p>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-cyan-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+Tactical Protocol
+</h4>
+<span class="text-[10px] uppercase text-gray-500">Methodology</span>
 </div>
+<p class="text-sm text-gray-400 mb-2">Key techniques deployed:</p>
+<ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
+<li><strong>Gradient Blending:</strong> Smooth transitions on the pink armor plates to create volume.</li>
+<li><strong>Contrast Panels:</strong> Sharp black panel lining to separate the armor segments.</li>
+</ul>
+</div>
+
 </div>
 
 <!-- BOTTOM CTA -->
 <div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div><h4 class="text-lg font-bold text-white mb-1">Ready to Deploy?</h4></div>
-<button class="px-6 py-2 bg-purple-600 text-white font-bold rounded">INITIATE COMMISSION -></button>
+<div>
+<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">Ready to Commission?</h4>
+<p class="text-sm text-gray-400">Amplify your army's presence.</p>
+</div>
+<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
+INITIATE COMMISSION ->
+</button>
 </div>
 
 </div>

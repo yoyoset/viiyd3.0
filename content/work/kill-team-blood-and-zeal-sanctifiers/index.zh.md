@@ -1,272 +1,166 @@
 ---
-title: "杀戮小队：血与狂�?
-date: 2025-10-13
-summary: "这次完成的是混沌星际本次涂装的是《Kill Team: Blood and Zeal》套装中的信仰与圣洁之力武装�?Sanctifiers�?
-tags: []
+title: "杀戮小队：血与狂热"
+date: 2024-01-01
+summary: "一支经过重度改造的纯洁者杀戮小队，以此这展现OSL等离子效果和NMM金色金属镶边。"
+tags: ["杀戮小队", "战斗修女", "纯洁者", "帝国", "战锤40k", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251014ktbz_01.jpg"
 layout: "project"
 tier: "Spec Ops"
-
+time_log: "20h 00m"
+model_count: 10
+paints:
+  - name: "Khorne Red"
+    role: "BASE"
+    hex: "#6A0001"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Khorne-Red-2019"
+  - name: "Retributor Armour"
+    role: "METALLIC"
+    hex: "#fab1a0"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
+  - name: "Corax White"
+    role: "BASE"
+    hex: "#ffffff"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Corax-White-2019"
+  - name: "Leadbelcher"
+    role: "METALLIC"
+    hex: "#636e72"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
+  - name: "Troll Slayer Orange"
+    role: "GLOW"
+    hex: "#f39c12"
+    link: "https://www.warhammer.com/en-GB/shop/Layer-Troll-Slayer-Orange-2019"
+description: "一支经过重度改造的纯洁者杀戮小队，以此这展现OSL等离子效果和NMM金色金属镶边。该项目强调高对比度和动态照明，使模型在桌面上脱颖而出。"
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_01.jpg" title="Kill Team Blood and Zeal Sanctifiers vs Goremongers" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_02.jpg" title="Kill Team Sanctifiers Squad Leader Front" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_03.jpg" title="Kill Team Sanctifiers Squad Leader Back" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_04.jpg" title="Kill Team Sanctifiers Heavy Gunner Front" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_05.jpg" title="Kill Team Sanctifiers Heavy Gunner Back" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_06.jpg" title="Kill Team Sanctifiers Medic Specialist Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_07.jpg" title="Kill Team Sanctifiers Comms Specialist Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_08.jpg" title="Kill Team Sanctifiers Zealot Specialist Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_09.jpg" title="Kill Team Sanctifiers 标准 Bearer Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_10.jpg" title="Kill Team Sanctifiers Weapon Rack Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_11.jpg" title="Kill Team Sanctifiers Base Terrain Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_12.jpg" title="Kill Team Sanctifiers Armor Weathering Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_13.jpg" title="Kill Team Sanctifiers Helmet Glow Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_14.jpg" title="Kill Team Sanctifiers Purity Seal Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_15.jpg" title="Kill Team Sanctifiers Power Sword Effect" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_16.jpg" title="Kill Team Sanctifiers Plasma Pistol Glow" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_17.jpg" title="Kill Team Sanctifiers Robe Layering Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_18.jpg" title="Kill Team Sanctifiers Gold Trim NMM Style" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_19.jpg" title="Kill Team Sanctifiers Sister of Battle Ally 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_20.jpg" title="Kill Team Sanctifiers Sister of Battle Ally 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_21.jpg" title="Kill Team Sanctifiers Dynamic Pose 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_22.jpg" title="Kill Team Sanctifiers Dynamic Pose 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_23.jpg" title="Kill Team Sanctifiers Focus Shot 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_24.jpg" title="Kill Team Sanctifiers Focus Shot 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_25.jpg" title="Kill Team Sanctifiers Group Shot 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_26.jpg" title="Kill Team Sanctifiers Group Shot 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_27.jpg" title="Kill Team Sanctifiers Tactical Setup 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_28.jpg" title="Kill Team Sanctifiers Tactical Setup 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_29.jpg" title="Kill Team Sanctifiers Cinematic Lighting 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_30.jpg" title="Kill Team Sanctifiers Cinematic Lighting 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_31.jpg" title="Kill Team Blood and Zeal Goremongers Teaser 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_32.jpg" title="Kill Team Blood and Zeal Goremongers Teaser 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_33.jpg" title="Kill Team Blood and Zeal Environment Shot 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_34.jpg" title="Kill Team Blood and Zeal Environment Shot 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_35.jpg" title="Kill Team Sanctifiers Face Detail High Contrast" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_36.jpg" title="Kill Team Sanctifiers Shield Emblem Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_37.jpg" title="Kill Team Blood and Zeal Token and Dice Set" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_38.jpg" title="Kill Team Blood and Zeal Rulebook Cover" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_39.jpg" title="Kill Team Sanctifiers Full Squad Top View" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_40.jpg" title="Kill Team Sanctifiers Full Squad Side View" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_41.jpg" title="Kill Team Sanctifiers Detail Macro 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_42.jpg" title="Kill Team Sanctifiers Detail Macro 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_43.jpg" title="Kill Team Sanctifiers Detail Macro 03" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_44.jpg" title="Kill Team Sanctifiers Detail Macro 04" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_45.jpg" title="Kill Team Sanctifiers Detail Macro 05" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_46.jpg" title="Kill Team Sanctifiers Detail Macro 06" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_47.jpg" title="Kill Team Sanctifiers Detail Macro 07" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_48.jpg" title="Kill Team Sanctifiers Detail Macro 08" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_49.jpg" title="Kill Team Sanctifiers Detail Macro 09" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_50.jpg" title="Kill Team Sanctifiers Detail Macro 10" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_51.jpg" title="Kill Team Sanctifiers Detail Macro 11" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_52.jpg" title="Kill Team Sanctifiers Detail Macro 12" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_53.jpg" title="Kill Team Sanctifiers Detail Macro 13" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_54.jpg" title="Kill Team Sanctifiers Detail Macro 14" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_55.jpg" title="Kill Team Sanctifiers Detail Macro 15" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_56.jpg" title="Kill Team Sanctifiers Detail Macro 16" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_57.jpg" title="Kill Team Sanctifiers Detail Macro 17" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_58.jpg" title="Kill Team Sanctifiers Detail Macro 18" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_59.jpg" title="Kill Team Sanctifiers Detail Macro 19" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_60.jpg" title="Kill Team Sanctifiers Detail Macro 20" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_61.jpg" title="Kill Team Sanctifiers Showcase Final 01" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_62.jpg" title="Kill Team Sanctifiers Showcase Final 02" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_63.jpg" title="Kill Team Sanctifiers Showcase Final 03" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_64.jpg" title="Kill Team Sanctifiers Showcase Final 04" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_65.jpg" title="Kill Team Sanctifiers Showcase Final 05" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_66.jpg" title="Kill Team Sanctifiers Showcase Final 06" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_01.jpg" title="杀戮小队 血与狂热 纯洁者 vs 戈尔芒格" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_02.jpg" title="杀戮小队 纯洁者 队长 正面" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_03.jpg" title="杀戮小队 纯洁者 队长 背面" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_04.jpg" title="杀戮小队 纯洁者 重炮手 正面" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_05.jpg" title="杀戮小队 纯洁者 重炮手 背面" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_06.jpg" title="杀戮小队 纯洁者 医疗兵细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_07.jpg" title="杀戮小队 纯洁者 通讯专家细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_08.jpg" title="杀戮小队 纯洁者 狂热者细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_09.jpg" title="杀戮小队 纯洁者 旗手细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_10.jpg" title="杀戮小队 纯洁者 武器架细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_11.jpg" title="杀戮小队 纯洁者 底座地形细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_12.jpg" title="杀戮小队 纯洁者 盔甲做旧细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_13.jpg" title="杀戮小队 纯洁者 头盔发光效果" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_14.jpg" title="杀戮小队 纯洁者 纯洁印记细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_15.jpg" title="杀戮小队 纯洁者 动力剑效果" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_16.jpg" title="杀戮小队 纯洁者 等离子手枪发光" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_17.jpg" title="杀戮小队 纯洁者 长袍层次细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_18.jpg" title="杀戮小队 纯洁者 NMM风格金边" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_19.jpg" title="杀戮小队 纯洁者 战斗修女盟友 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_20.jpg" title="杀戮小队 纯洁者 战斗修女盟友 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_21.jpg" title="杀戮小队 纯洁者 动态姿势 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_22.jpg" title="杀戮小队 纯洁者 动态姿势 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_23.jpg" title="杀戮小队 纯洁者 焦点特写 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_24.jpg" title="杀戮小队 纯洁者 焦点特写 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_25.jpg" title="杀戮小队 纯洁者 全队镜头 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_26.jpg" title="杀戮小队 纯洁者 全队镜头 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_27.jpg" title="杀戮小队 纯洁者 战术布局 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_28.jpg" title="杀戮小队 纯洁者 战术布局 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_29.jpg" title="杀戮小队 纯洁者 电影感布光 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_30.jpg" title="杀戮小队 纯洁者 电影感布光 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_31.jpg" title="杀戮小队 血与狂热 戈尔芒格预告 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_32.jpg" title="杀戮小队 血与狂热 戈尔芒格预告 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_33.jpg" title="杀戮小队 血与狂热 环境照 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_34.jpg" title="杀戮小队 血与狂热 环境照 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_35.jpg" title="杀戮小队 纯洁者 面部高对比细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_36.jpg" title="杀戮小队 纯洁者 盾牌纹章细节" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_37.jpg" title="杀戮小队 血与狂热 标记和骰子" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_38.jpg" title="杀戮小队 血与狂热 规则书封面" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_39.jpg" title="杀戮小队 纯洁者 全队俯视图" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_40.jpg" title="杀戮小队 纯洁者 全队侧视图" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_41.jpg" title="杀戮小队 纯洁者 宏观细节 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_42.jpg" title="杀戮小队 纯洁者 宏观细节 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_43.jpg" title="杀戮小队 纯洁者 宏观细节 03" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_44.jpg" title="杀戮小队 纯洁者 宏观细节 04" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_45.jpg" title="杀戮小队 纯洁者 宏观细节 05" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_46.jpg" title="杀戮小队 纯洁者 宏观细节 06" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_47.jpg" title="杀戮小队 纯洁者 宏观细节 07" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_48.jpg" title="杀戮小队 纯洁者 宏观细节 08" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_49.jpg" title="杀戮小队 纯洁者 宏观细节 09" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_50.jpg" title="杀戮小队 纯洁者 宏观细节 10" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_51.jpg" title="杀戮小队 纯洁者 宏观细节 11" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_52.jpg" title="杀戮小队 纯洁者 宏观细节 12" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_53.jpg" title="杀戮小队 纯洁者 宏观细节 13" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_54.jpg" title="杀戮小队 纯洁者 宏观细节 14" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_55.jpg" title="杀戮小队 纯洁者 宏观细节 15" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_56.jpg" title="杀戮小队 纯洁者 宏观细节 16" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_57.jpg" title="杀戮小队 纯洁者 宏观细节 17" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_58.jpg" title="杀戮小队 纯洁者 宏观细节 18" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_59.jpg" title="杀戮小队 纯洁者 宏观细节 19" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_60.jpg" title="杀戮小队 纯洁者 宏观细节 20" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_61.jpg" title="杀戮小队 纯洁者 最终展示 01" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_62.jpg" title="杀戮小队 纯洁者 最终展示 02" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_63.jpg" title="杀戮小队 纯洁者 最终展示 03" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_64.jpg" title="杀戮小队 纯洁者 最终展示 04" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_65.jpg" title="杀戮小队 纯洁者 最终展示 05" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251014ktbz_66.jpg" title="杀戮小队 纯洁者 最终展示 06" >}}
 </div>
-
-
 
 <div class="space-y-4 my-4">
 
 <!-- THE HOOK -->
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
-<h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 战场部署 (Tabletop 标准)</h3>
+<h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 杀戮小队遭遇战</h3>
 <p class="text-gray-300 leading-relaxed">
-本单位专为桌面游戏设计，注重耐用性与视觉清晰度。配色方案经过优化，确保在远距离上易于识别，同时在近距离观察时保留清晰的细节�?</p>
-</div>
-
-<!-- VISUAL STATS BAR -->
-<div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5">
-<div class="flex items-center gap-3">
-<span class="text-3xl">🎯</span>
-<div>
-<span class="block text-2xl font-black text-white">1</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">单位数量</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">⏱️</span>
-<div>
-<span class="block text-2xl font-black text-cyan-400">20h</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">执行工时</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">💎</span>
-<div>
-<span class="block text-2xl font-black text-gold-400">标准</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">质量等级</span>
-</div>
-</div>
+这支纯洁者小队专为“加罗暗” (Gallowdark) 狭窄走廊或开阔遭遇战而优化。OSL效果在桌面上提供了特殊武器的即时识别，而NMM金色饰边则为叙事游戏增添了高级质感。
+</p>
 </div>
 
 <!-- TECHNICAL CARDS -->
 <div class="grid md:grid-cols-2 gap-4">
-<!-- Card 1: Alchemy -->
+
+<!-- Card 1: The Alchemy -->
 <div class="bg-neutral-800/30 p-5 rounded border border-emerald-500/20 hover:border-emerald-500/40 transition-colors group">
-<h4 class="font-bold text-emerald-400 mb-2">炼金配方 (炼金配方)</h4>
-<ul class="space-y-2 text-sm text-gray-300">
-<li class="flex justify-between"><span>底色</span><span class="font-mono text-emerald-200">标准</span></li>
-<li class="flex justify-between"><span>高光</span><span class="font-mono text-cyan-200">层叠</span></li>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-emerald-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+调色配方
+</h4>
+<span class="text-[10px] uppercase text-gray-500">色彩数据</span>
+</div>
+<ul class="space-y-3 text-sm text-gray-300">
+<li class="flex justify-between">
+<span>🛡️ 盔甲</span>
+<span class="font-mono text-emerald-200">Khorne Red</span>
+</li>
+<li class="flex justify-between">
+<span>✨ 辉光</span>
+<span class="font-mono text-cyan-200">Troll Slayer Orange</span>
+</li>
 </ul>
 </div>
-<!-- Card 2: Protocol -->
+
+<!-- Card 2: Tactical Protocol -->
 <div class="bg-neutral-800/30 p-5 rounded border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
-<h4 class="font-bold text-cyan-400 mb-2">战术规程 (Protocol)</h4>
-<p class="text-sm text-gray-400">标准的基础色、渍洗和边缘高光处理�?/p>
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+<h4 class="font-bold text-cyan-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+战术规程
+</h4>
+<span class="text-[10px] uppercase text-gray-500">技法解析</span>
 </div>
+<p class="text-sm text-gray-400 mb-2">部署的关键技法：</p>
+<ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
+<li><strong>OSL效果:</strong> 在等离子手枪和动力剑上广泛使用物体光源照明（OSL）效果，以模拟发光的能量。</li>
+</ul>
+</div>
+
 </div>
 
 <!-- BOTTOM CTA -->
 <div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
-<div><h4 class="text-lg font-bold text-white mb-1">准备好部署了吗？</h4></div>
-<button class="px-6 py-2 bg-purple-600 text-white font-bold rounded">启动委托程序 -></button>
+<div>
+<h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">准备好部署了吗？</h4>
+<p class="text-sm text-gray-400">为您的分队锁定席位。</p>
 </div>
-
-<!--
-
-<!-- Original Content Integration -->
-<div class="mt-8 pt-8 border-t border-white/10 opacity-70">
-<h4 class="text-sm font-bold text-gray-500 mb-4 uppercase tracking-widest">/// ARCHIVE_DATA (原始内容)</h4>
-<div class="prose prose-invert max-w-none text-gray-400 text-sm">
----
-title: "【Kill Team 血与狂热】Kill Team: Blood and Zeal 涂装，还�?个乱入�?
-date: 2025-10-13
-summary: "这次完成的是混沌星际本次涂装的是《Kill Team: Blood and Zeal》套装中的信仰与圣洁之力武装�?Sanctifiers�?
-draft: false
-tags: ["战锤40K", "KillTeam", "BloodAndZeal", "Sanctifiers", "Warhammer", "涂装展示", "MiniaturePainting", "Kill Team"]
-
-
-
----
-# ⚔️ Kill Team: 血与狂热（Blood and Zeal�?
-> “在血神的咆哮与帝皇的圣光之间，唯有战斗才能证明真理。�?
-这次完成的是 Kill Team 系列最新套�?**《Blood and Zeal》（血与狂热）** 的两支小队：  
-- **Goremongers**：狂热的科恩信徒，身披重甲，近战撕裂一切�? （未涂）
-- **Sanctifiers**：帝国信仰的战士们，以圣洁与秩序对抗混沌的血潮�? 
-
-套装本身具有非常强烈的对比感：一边是赤红嗜血的近战暴力美学，另一边是金色圣洁的信仰力量。整体造型与刻线也极具细节感，涂装过程相当有趣�?
----
-## 📸 我们的涂装效�?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-## �?Sanctifiers —�?信仰的光�?
-Sanctifiers 是忠诚帝国的象征，代表着帝皇的圣光与秩序。他们的造型有浓厚的宗教仪式感，带有大量圣徽、卷轴与金色装饰。与 Goremongers 相比，他们的气质更为沉稳与庄严�?
-涂装上我以象牙白与金色为主调，通过油墨和洗液加强刻线，赋予厚重感。肩甲与武器部分用黑白反差强化整体视觉层次，让他们在整队中显得非常“正统”与肃穆�?
----
-## 🏷 标签
-
-**中文标签**：`#战锤40K` `#KillTeam` `#血与狂热` `#Goremongers` `#Sanctifiers` `#涂装展示`  
-**English Tags**：`#Warhammer40K` `#KillTeam` `#BloodAndZeal` `#Sanctifiers` `#MiniaturePainting` `#Showcase`
-
-## 🎨 配色档案 (Paint Recipe)
-
-<div class="recipe-container">
-
-**⚜️ 圣洁骨白 (Sanctified Ivory)**
-- **Base**: Wraithbone / 幽灵骨白
-- **Shade**: Seraphim Sepia / 炽天使棕 (Diluted)
-- **Highlight**: Screaming Skull / 尖啸头骨�?- **Glaze**: Pallid Wych Flesh / 苍白女巫肉色
-
-**🔥 黑色甲壳 (Obsidian Armor)**
-- **Base**: Abaddon Black / 阿巴顿黑
-- **Edge**: Dark Reaper / 黑暗收割�?- **Dot**: Fenrisian Grey / 芬里斯灰
-
-**⚜️ 金色徽饰 (Imperial Gold)**
-- **Base**: Retributor Armour / 报应�?- **Shade**: Reikland Fleshshade
-- **Highlight**: Stormhost Silver / 风暴�?
-
-
-
----
-</div>
+<button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
+启动委托程序 ->
+</button>
 </div>
 
 </div>
--->

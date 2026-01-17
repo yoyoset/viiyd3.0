@@ -6,34 +6,41 @@ tags: ["Warhammer 40k", "Dark Angels", "Primarch", "Character", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013lej_12.jpg"
 layout: "project"
 tier: "Master"
-hero_image: "https://photo.viiyd.com/viiyd20251013lej_12.jpg"
-time_log: "45h"
+time_log: "45h 00m"
+model_count: 1
 paints:
   - name: "Caliban Green"
+    role: "ARMOR"
     hex: "#203328"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Caliban-Green-2019"
   - name: "Kantor Blue"
+    role: "CLOAK"
     hex: "#002050"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Kantor-Blue-2019"
   - name: "Retributor Armour"
+    role: "METALLIC"
     hex: "#C69632"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
   - name: "Rakarth Flesh"
+    role: "ROBES"
     hex: "#A29F91"
-description: "The Lion sleeps no more. A centerpiece display model focusing on high-contrast NMM-style power weaponry and rich, volumetric cloak rendering."
+    link: "https://www.warhammer.com/en-GB/shop/Base-Rakarth-Flesh-2019"
+description: "The Lion sleeps no more. A centerpiece display model focusing on high-contrast NMM-style power weaponry and rich, volumetric cloak rendering. Executed as a Master Tier centerpiece, designed to be the undisputed focal point of a Dark Angels army."
 ---
 
-<!-- GALLERY GRID -->
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_01.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_02.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_03.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_04.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_05.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_06.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_07.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_08.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_09.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_10.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_11.jpg" >}}
-{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_12.jpg" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_01.jpg" title="Lion El'Jonson Primarch Front View" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_02.jpg" title="Lion El'Jonson Primarch Side View" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_03.jpg" title="Lion El'Jonson Primarch Back View" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_04.jpg" title="Lion El'Jonson Primarch Cloak Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_05.jpg" title="Lion El'Jonson Primarch Sword Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_06.jpg" title="Lion El'Jonson Primarch Face Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_07.jpg" title="Lion El'Jonson Primarch Shield Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_08.jpg" title="Lion El'Jonson Primarch Base Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_09.jpg" title="Lion El'Jonson Primarch Armor Trim Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_10.jpg" title="Lion El'Jonson Primarch Watcher in the Dark" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_11.jpg" title="Lion El'Jonson Primarch Cinematic Angle" >}}
+{{< lightbox src="https://photo.viiyd.com/viiyd20251013lej_12.jpg" title="Lion El'Jonson Primarch Hero Shot" >}}
 </div>
 
 <div class="space-y-4 my-4">
@@ -44,33 +51,6 @@ description: "The Lion sleeps no more. A centerpiece display model focusing on h
 <p class="text-gray-300 leading-relaxed">
 The Lord of the First demands nothing less than perfection. This commission was executed as a <strong>Tier: Master</strong> centerpiece, designed to be the undisputed focal point of a Dark Angels army. We prioritized volumetric lighting on the cloak and a striking "crackling energy" effect on the Fealty Sword to represent the Primarch's sheer presence.
 </p>
-</div>
-
-<!-- VISUAL STATS BAR -->
-<div class="flex flex-wrap gap-4 items-center justify-between bg-neutral-900/50 p-4 rounded border border-white/5">
-<div class="flex items-center gap-3">
-<span class="text-3xl">🎯</span>
-<div>
-<span class="block text-2xl font-black text-white">1</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Primarch</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">⏱️</span>
-<div>
-<span class="block text-2xl font-black text-cyan-400">45h</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Execution Time</span>
-</div>
-</div>
-<div class="w-px h-8 bg-white/10 hidden md:block"></div>
-<div class="flex items-center gap-3">
-<span class="text-3xl">💎</span>
-<div>
-<span class="block text-2xl font-black text-gold-400">Master</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-widest">Quality Tier</span>
-</div>
-</div>
 </div>
 
 <!-- TECHNICAL CARDS -->
@@ -88,19 +68,15 @@ The Alchemy
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
 <span>🛡️ Power Armor</span>
-<span class="font-mono text-emerald-200">Caliban / Warpstone</span>
+<span class="font-mono text-emerald-200">Caliban Green</span>
 </li>
 <li class="flex justify-between">
 <span>⚡ Fealty Sword</span>
-<span class="font-mono text-cyan-200">Kantor / Temple Guard</span>
+<span class="font-mono text-cyan-200">Kantor Blue</span>
 </li>
 <li class="flex justify-between">
 <span>🦅 Ornate Trim</span>
 <span class="font-mono text-yellow-200/80">Retributor Gold</span>
-</li>
-<li class="flex justify-between">
-<span>🧥 Cloak Inner</span>
-<span class="font-mono text-gray-400">Rakarth / Pallid Wych</span>
 </li>
 </ul>
 </div>
@@ -118,7 +94,6 @@ Tactical Protocol
 <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
 <li><strong>Volumetric Shading:</strong> The cloak features manually glazed highlights to simulate heavy velvet texture.</li>
 <li><strong>Power Weapon NMM:</strong> The sword blade uses a Non-Metallic Metal approach for higher contrast photography.</li>
-<li><strong>Atmospheric Base:</strong> Forest floor debris and "Watcher" placement to frame the narrative.</li>
 </ul>
 </div>
 
@@ -128,7 +103,7 @@ Tactical Protocol
 <div class="bg-gradient-to-r from-purple-900/20 via-neutral-900 to-neutral-900 p-6 rounded border border-purple-500/30 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-neutral-800 transition-all cursor-pointer group" onclick="window.location='/rates'">
 <div>
 <h4 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">Ready to Deploy?</h4>
-<p class="text-sm text-gray-400">Secure a slot for your detachment. We handle the logistics, you command the victory.</p>
+<p class="text-sm text-gray-400">Secure a slot for your detachment.</p>
 </div>
 <button class="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded shadow-[0_0_15px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition-all transform group-hover:-translate-y-0.5 whitespace-nowrap">
 INITIATE COMMISSION ->

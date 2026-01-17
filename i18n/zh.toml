@@ -108,3 +108,113 @@ other = "/// 归档目录"
 
 [tier_elite]
 other = "精英级"
+
+[tier_standard_label]
+other = "/// 等级：标准"
+
+[tier_elite_label]
+other = "/// 等级：精英"
+
+[tier_master_label]
+other = "/// 等级：大师"
+
+[per_infantry]
+other = "单个步兵模型"
+
+[per_character]
+other = "单个角色模型"
+
+[deploy_button]
+other = "启动委托"
+
+[recommended_label]
+other = "推荐"
+
+[unsure_text]
+other = "不确定您的需求？"
+
+[review_protocol]
+other = "查看我们的作业流程 ->"
+
+[feat_zenital]
+other = "天顶高光"
+
+[feat_base_wash]
+other = "底色 + 渍洗"
+
+[feat_std_base]
+other = "标准地台"
+
+[feat_volumetric]
+other = "体积光影"
+
+[feat_edge]
+other = "边缘高光"
+
+[feat_weather]
+other = "做旧效果"
+
+[feat_scenic]
+other = "场景地台"
+
+[feat_nmm]
+other = "NMM (非金属金属色)"
+
+[feat_osl]
+other = "OSL (发光效果)"
+
+[feat_freehand]
+other = "手绘细节"
+
+[feat_diorama]
+other = "微缩场景构图"
+
+[addons_title]
+other = "战略升级"
+
+[addon_prep_title]
+other = "模型预处理"
+[addon_prep_desc]
+other = "去除合模线，填补缝隙，表面打磨。"
+
+[addon_magnet_title]
+other = "磁化改造"
+[addon_magnet_desc]
+other = "为武器和肢体添加磁铁，实现装备替换。"
+
+[addon_terrain_title]
+other = "地形定制"
+[addon_terrain_desc]
+other = "从城市废墟到外星丛林，定制专属战场。"
+
+[addon_print_title]
+other = "3D打印服务"
+[addon_print_desc]
+other = "高精度8K光固化打印，补充缺失零件或定制改件。"
+
+[price_quote]
+other = "按需报价"
+
+[identity]
+other = "身份"
+
+[protocol_label]
+other = "规程"
+
+[tiers_label]
+other = "等级"
+
+[status_open]
+other = "接单中"
+
+[start_comm]
+other = "建立<br>委托"
+
+[database_label]
+other = "数据库"
+
+[signal_lost]
+other = "信号丢失"
+
+[access_log]
+other = "访问日志"
