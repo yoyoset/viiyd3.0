@@ -30,3 +30,6 @@ backup/
 
 # Cloudflare Wrangler
 .wrangler/
+
+# Temporary Uploads
+need_upload/
