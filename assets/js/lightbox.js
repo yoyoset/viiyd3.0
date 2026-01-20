@@ -112,7 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isZoomed) toggleZoom();
 
-        imgContainer.src = sourceImg.getAttribute('data-full-res') || sourceImg.src;
+        // 新增: 分别获取 web 和 original 版本
+        const webSrc = sourceImg.getAttribute('data-web-src') || sourceImg.src;
+        const fullSrc = sourceImg.getAttribute('data-full-res') || sourceImg.src;
+
+        // 灯箱显示: web 版本
+        imgContainer.src = webSrc;
+
+        // 保存 full 版本供 save/zoom 使用
+        imgContainer.dataset.fullRes = fullSrc;
+        imgContainer.dataset.webSrc = webSrc;
         counter.textContent = `${currentIndex + 1}/${imageList.length}`;
 
         lightbox.classList.remove('opacity-0', 'pointer-events-none');
@@ -128,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleZoom() {
         isZoomed = !isZoomed;
         if (isZoomed) {
+            imgContainer.src = imgContainer.dataset.fullRes || imgContainer.src;
             imgContainer.style.maxWidth = 'none';
             imgContainer.style.maxHeight = 'none';
             imgContainer.style.cursor = 'grab';
@@ -138,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             imgContainer.style.maxHeight = '90vh';
             imgContainer.style.cursor = 'zoom-in';
             imgContainer.style.transform = '';
+            imgContainer.src = imgContainer.dataset.webSrc || imgContainer.src;
             panX = 0; panY = 0;
             zoomBtn.innerHTML = icons.zoomIn;
         }
@@ -154,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Share
     async function handleShare() {
-        const imgSrc = imgContainer.src;
+        const imgSrc = imgContainer.dataset.webSrc || imgContainer.src;
         if (navigator.share) {
             try {
                 await navigator.share({ title: 'VIIYD Workspace', url: imgSrc });
@@ -172,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Save
     async function handleSave() {
-        const imgSrc = imgContainer.src;
+        const imgSrc = imgContainer.dataset.fullRes || imgContainer.src;
         showToast('Saving...');
         try {
             const response = await fetch(imgSrc, { mode: 'cors' });

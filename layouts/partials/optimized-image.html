@@ -1,0 +1,18 @@
+{{/* Input: dict "src" $url "optimized" bool */}}
+{{ $src := .src }}
+{{ $optimized := .optimized | default false }}
+{{ $isViiyd := in $src "photo.viiyd.com" }}
+
+{{ $result := $src }}
+{{ if $isViiyd }}
+{{ if $optimized }}
+{{ $result = replace $src ".jpg" "_web.jpg" }}
+{{ $result = replace $result ".jpeg" "_web.jpeg" }}
+{{ $result = replace $result ".png" "_web.png" }}
+{{ else }}
+{{ $path := replace $src "https://photo.viiyd.com/" "" }}
+{{ $result = printf "https://photo.viiyd.com/cdn-cgi/image/width=1600,quality=80,format=auto/%s" $path }}
+{{ end }}
+{{ end }}
+
+{{ return $result }}

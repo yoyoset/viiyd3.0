@@ -190,47 +190,55 @@
                     {{ end }}
                     {{ end }}
 
+                    {{/* Apply optimization to finalSrc if available */}}
                     {{ if $finalSrc }}
-                    <img src="{{ $finalSrc }}" alt="{{ .Title }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100 group-hover:contrast-110">
-                    {{ else }}
-                    <div
-                        class="w-full h-full flex flex-col items-center justify-center text-gray-700 bg-neutral-900 pattern-grid-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-widest mb-2 opacity-50">{{ T "signal_lost"
-                            }}</span>
-                        <div class="w-6 h-6 border-b-2 border-r-2 border-gray-600 rounded-full animate-spin"></div>
-                    </div>
+                    {{ $finalSrc = partial "optimized-image" (dict "src" $finalSrc "optimized" .Params.optimized) }}
                     {{ end }}
 
-                    <!-- Badges (Top Right) -->
-                    <div class="absolute flex flex-col items-end gap-2 z-50" style="top: 12px; right: 12px;">
-                        <!-- Tier Badge -->
-                        {{ with .Params.tier }}
-                        <span
-                            class="text-[9px] font-mono font-black uppercase bg-black/80 text-gold-500 px-2 py-1 rounded border border-gold-500/30 backdrop-blur-md shadow-lg">
-                            {{ . }}
-                        </span>
+                    <a href="{{ .RelPermalink }}" class="block group relative aspect-[4/3] overflow-hidden rounded-lg">
+                        {{ if $finalSrc }}
+                        <img src="{{ $finalSrc }}" alt="{{ .Title }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100 group-hover:contrast-110">
+                        {{ else }}
+                        <div
+                            class="w-full h-full flex flex-col items-center justify-center text-gray-700 bg-neutral-900 pattern-grid-sm">
+                            <span class="text-[10px] font-mono uppercase tracking-widest mb-2 opacity-50">{{ T
+                                "signal_lost"
+                                }}</span>
+                            <div class="w-6 h-6 border-b-2 border-r-2 border-gray-600 rounded-full animate-spin"></div>
+                        </div>
                         {{ end }}
 
-                        <!-- Asset Count Badge -->
-                        {{ $assetCount := 0 }}
-                        {{ if .Params.images }}
-                        {{ $assetCount = len .Params.images }}
-                        {{ else }}
-                        {{ $assetCount = len (findRE "<img|lightbox" .Content) }} {{ end }} {{ if gt $assetCount 0 }}
+                        <!-- Badges (Top Right) -->
+                        <div class="absolute flex flex-col items-end gap-2 z-50" style="top: 12px; right: 12px;">
+                            <!-- Tier Badge -->
+                            {{ with .Params.tier }}
                             <span
-                            class="text-[9px] font-mono font-bold uppercase bg-neutral-900/80 text-cyan-400 px-2 py-1 rounded border border-cyan-500/30 backdrop-blur-md shadow-lg flex items-center gap-1.5">
-                            <!-- Photo Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <polyline points="21 15 16 10 5 21"></polyline>
-                            </svg>
-                            {{ $assetCount }}
+                                class="text-[9px] font-mono font-black uppercase bg-black/80 text-gold-500 px-2 py-1 rounded border border-gold-500/30 backdrop-blur-md shadow-lg">
+                                {{ . }}
                             </span>
                             {{ end }}
-                    </div>
+
+                            <!-- Asset Count Badge -->
+                            {{ $assetCount := 0 }}
+                            {{ if .Params.images }}
+                            {{ $assetCount = len .Params.images }}
+                            {{ else }}
+                            {{ $assetCount = len (findRE "<img|lightbox" .Content) }} {{ end }} {{ if gt $assetCount 0
+                                }} <span
+                                class="text-[9px] font-mono font-bold uppercase bg-neutral-900/80 text-cyan-400 px-2 py-1 rounded border border-cyan-500/30 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                                <!-- Photo Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                                {{ $assetCount }}
+                                </span>
+                                {{ end }}
+                        </div>
                 </div>
 
                 <!-- Content Body -->

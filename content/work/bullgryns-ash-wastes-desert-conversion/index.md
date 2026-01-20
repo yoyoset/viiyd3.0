@@ -5,6 +5,7 @@ summary: "Heavy infantry modified for Ash Wastes operations alongside Tallarn re
 tags: ["Warhammer 40k", "Astra Militarum", "Bullgryns", "Kitbash", "Tallarn", "Ash Wastes"]
 cover: "https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_01.jpg"
 layout: "project"
+optimized: true
 tier: "Specialist"
 time_log: "35h 00m"
 model_count: 3

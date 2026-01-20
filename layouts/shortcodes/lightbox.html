@@ -1,8 +1,10 @@
 {{ $src := .Get "src" }}
 {{ $title := .Get "title" }}
+{{ $webSrc := partial "optimized-image" (dict "src" $src "optimized" .Page.Params.optimized) }}
 
 <figure class="my-8">
-    <img src="{{ $src | relURL }}" alt="{{ $title }}"
+    <img src="{{ $webSrc | safeURL }}" data-web-src="{{ $webSrc | safeURL }}" data-full-res="{{ $src }}"
+        alt="{{ $title }}"
         class="w-full h-auto rounded-lg shadow-lg object-cover transition-transform duration-300 hover:brightness-110"
         loading="lazy">
     {{ if $title }}

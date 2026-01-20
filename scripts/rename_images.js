@@ -14,6 +14,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 
 // 支持的图片扩展名
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG'];
@@ -26,7 +27,7 @@ function getFormattedDate() {
     return `${year}${month}${day}`;
 }
 
-function renameImages(sourceFolder, projectCode) {
+async function renameImages(sourceFolder, projectCode) {
     // 验证参数
     if (!sourceFolder || !projectCode) {
         console.error('❌ 用法: node rename_images.js [source_folder] [project_code]');
@@ -109,6 +110,23 @@ function renameImages(sourceFolder, projectCode) {
     });
 
     console.log(`\n✅ 成功重命名 ${successCount}/${files.length} 张图片`);
+
+    // Generate web-optimized versions
+    console.log('\n🖼️  Generating web-optimized versions...');
+    for (const item of renameMap) {
+        const webPath = item.newPath.replace(/\.(jpg|jpeg|png)$/i, '_web.$1');
+        // Only generate if not exists or if we want to overwrite (currently skipping check implies overwrite logic or fresh run)
+        // Since we just renamed the main file, web file shouldn't exist unless previous run left it.
+        try {
+            await sharp(item.newPath)
+                .resize({ width: 1600, withoutEnlargement: true })
+                .jpeg({ quality: 80 })
+                .toFile(webPath);
+            console.log(`   ✅ ${path.basename(webPath)}`);
+        } catch (err) {
+            console.error(`   ❌ Failed: ${path.basename(item.newPath)} - ${err.message}`);
+        }
+    }
 
     // R2 Path info
     const now = new Date();
