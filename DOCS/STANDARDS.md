@@ -49,6 +49,11 @@ All project descriptions and site copy must adhere to the **"Master & Commander"
         ```
 *   **Inline Styles:** Avoid inline styles where possible; use Tailwind utility classes.
 
+### Hugo Template Syntax
+*   **No Leading Spaces in URL Functions:** When using `relLangURL` or `absLangURL`, **NEVER** include a leading space inside the quote string.
+    *   **Incorrect:** `{{ relLangURL " contact" }}` (Causes Git pre-commit failure)
+    *   **Correct:** `{{ relLangURL "contact" }}`
+
 ### CSS Reset & Overrides
 *   **Typography Plugin Overrides:** The site uses `@tailwindcss/typography` (`.prose`). This plugin adds aggressive margins to elements like `figure` and `img`.
 *   **Legitimate Use of `!important`:** To integrate custom layout components (like the Bento Grid) within prose content, it is **PERMISSIBLE AND REQUIRED** to use `!important` (e.g., `!m-0`) to force-reset margins on specific elements (`.image-grid figure`). This prevents layout collapse and ensures specific design intent overrides generic prose defaults.
