@@ -36,6 +36,13 @@
 *   **No Copy-Paste (Blindly)**: When migrating from `backup/`, read the code, understand it, and refactor it to match the "Imperial Gold" system.
 *   **Tailwind Only**: No `style="..."` tags. No custom `.css` files unless generally applicable in `main.css`.
 
+## 4. Hugo Syntax & Hygiene
+*   **No Leading Spaces in URL Functions**:
+    *   **STRICT FORBIDDEN**: `{{ relLangURL " value" }}`
+    *   **REQUIRED**: `{{ relLangURL "value" }}`
+    *   *Reason*: Causes pre-commit hooks to fail and breaks URL resolution.
+*   **No Indentation for HTML in Markdown**: Do not indent HTML blocks inside `.md` content files.
+
 ---
 
 ## 2. Interaction Protocol (The Loop)
