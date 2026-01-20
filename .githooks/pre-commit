@@ -1,0 +1,27 @@
+#!/bin/sh
+# Pre-commit hook: Check for leading spaces in Hugo URL functions
+# This prevents broken links like {{ relLangURL " contact/" }}
+
+echo "🔍 Checking for leading spaces in URL functions..."
+
+# Pattern: relLangURL/relURL/absURL followed by quote-space
+PATTERN='(relLangURL|relURL|absURL)\s+"\s'
+
+# Search only in layouts directory
+MATCHES=$(grep -rEn "$PATTERN" layouts/ 2>/dev/null || true)
+
+if [ -n "$MATCHES" ]; then
+    echo ""
+    echo "❌ ERROR: Found leading spaces in URL function calls!"
+    echo "   These will cause broken links (URLs with %20)."
+    echo ""
+    echo "$MATCHES"
+    echo ""
+    echo "Please fix by removing the space after the opening quote."
+    echo "Example: {{ relLangURL \"contact/\" }} (NOT \" contact/\")"
+    echo ""
+    exit 1
+fi
+
+echo "✅ No URL space issues found."
+exit 0
