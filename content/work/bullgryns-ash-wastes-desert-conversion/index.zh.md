@@ -1,5 +1,5 @@
 ---
-title: "Bullgryns: 灰烬行者改装"
+title: "Bullgryns: 塔兰 '尘壁' 辅助军"
 date: 2026-01-20T15:00:00+08:00
 summary: "适配塔兰废土作战环境的重型步兵改装项目。"
 tags: ["Warhammer 40k", "Astra Militarum", "Bullgryns", "Kitbash", "Tallarn", "委托"]
@@ -33,6 +33,28 @@ description: "结合 Necromunda Ash Waste Nomads 零件的废土风格改装，�
 {{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_06.jpg" title="小队队长" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_07.jpg" title="盾牌改装" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_08.jpg" title="灰烬废土地台" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_09.jpg" title="侧面特写" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_10.jpg" title="背面阵型" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_11.jpg" title="特写: 防风护目镜" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_12.jpg" title="特写: 呼吸过滤装置" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_13.jpg" title="旧化纹理" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_14.jpg" title="背包细节" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_15.jpg" title="战损掉漆" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_16.jpg" title="全分队合照" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_17.jpg" title="单体展示 I" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_18.jpg" title="单体展示 II" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_19.jpg" title="单体展示 III" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_20.jpg" title="动态视角" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_21.jpg" title="防爆盾细节" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_22.jpg" title="武器细节" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_23.jpg" title="战靴尘土" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_24.jpg" title="俯视视角" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_25.jpg" title="仰视压迫感" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_26.jpg" title="协同战术" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_27.jpg" title="光影检查" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_28.jpg" title="氛围感拍摄" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_29.jpg" title="最终检视" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_30.jpg" title="整备待发" >}}
 </div>
 
 <div class="space-y-4 my-4">
