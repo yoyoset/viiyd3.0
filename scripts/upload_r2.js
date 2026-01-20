@@ -47,8 +47,8 @@ function uploadImages(sourceFolder, bucketName, r2Prefix) {
         process.stdout.write(`[${index + 1}/${files.length}] Uploading ${file}... `);
 
         try {
-            // Using npx wrangler to ensure local version is used
-            execSync(`npx wrangler r2 object put "${objectPath}" --file "${localPath}"`, { stdio: 'pipe' });
+            // Using npx wrangler to ensure local version is used, enforcing remote upload
+            execSync(`npx wrangler r2 object put "${objectPath}" --file "${localPath}" --remote`, { stdio: 'pipe' });
             process.stdout.write('✅\n');
             successCount++;
         } catch (error) {
