@@ -20,11 +20,12 @@ tier: "[Tier]"  # ENUM: Battleline | Specialist | Spec Ops | Master | Legend
 time_log: "[X]h [X]m"  # Format: "XXh XXm" (e.g., "45h 30m")
 model_count: [N]  # Integer. Number of models. Defaults to 1.
 paints:
+  # STANDARD: Full Palette Required.
+  # MUST cover: 1. Main Armor (Base/Shade/Light) 2. Cloth/Undersuit 3. Metallics 4. Leather/Details
   - name: "[Paint Name]"
     role: "[ROLE]"  # ENUM: BASE | LAYER | SHADE | HIGHLIGHT | METALLIC | CONTRAST | DETAIL
     hex: "#[XXXXXX]"  # 6-digit hex
     link: "[URL to product page]"
-  # Add as many paints as actually used - NO LIMIT
 description: "[Longer narrative description for SEO/social. 150-200 chars.]"
 ---
 ```
@@ -39,7 +40,7 @@ description: "[Longer narrative description for SEO/social. 150-200 chars.]"
 | layout | ✅ | Must be `"project"` |
 | tier | ✅ | One of: Battleline, Specialist, Spec Ops, Master, Legend |
 | time_log | ✅ | Regex: `^\d+h \d+m$` |
-| paints | ✅ | Array with at least 1 item, each must have name/role/hex/link |
+| paints | ✅ | MUST be comprehensive: Armor, Cloth, Metal, Leather. Min 5-6 items. |
 | tags | ✅ | Array with at least 1 item |
 | model_count | ❌ | Integer, defaults to 1 |
 | summary | ✅ | Non-empty string |
@@ -185,9 +186,25 @@ paints:
     role: "BASE"
     hex: "#CF1F7A"
     link: "https://www.warhammer.com/..."
+  - name: "Carroburg Crimson"
+    role: "SHADE"
+    hex: "#4D112C"
+    link: "https://www.warhammer.com/..."
   - name: "Pink Horror"
     role: "LAYER"
     hex: "#DE3677"
+    link: "https://www.warhammer.com/..."
+  - name: "Retributor Armour"
+    role: "METALLIC"
+    hex: "#DAA520"
+    link: "https://www.warhammer.com/..."
+  - name: "Reikland Fleshshade"
+    role: "SHADE"
+    hex: "#4B2E2A"
+    link: "https://www.warhammer.com/..."
+  - name: "Abaddon Black"
+    role: "BASE"
+    hex: "#000000"
     link: "https://www.warhammer.com/..."
 description: "Multi-layer glazing and ethereal glow effects to capture the essence of Tzeentch."
 ---
