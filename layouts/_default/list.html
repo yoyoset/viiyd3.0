@@ -40,7 +40,7 @@
                 {{ end }}
 
                 {{ if $finalSrc }}
-                {{ $finalSrc := partial "optimized-image" (dict "src" .Params.cover "optimized" .Params.optimized) }}
+                {{ $finalSrc = partial "optimized-image" (dict "src" $finalSrc "optimized" .Params.optimized) }}
                 <img src="{{ $finalSrc }}" alt="{{ .Title }}"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100 group-hover:contrast-110">
                 {{ else }}
