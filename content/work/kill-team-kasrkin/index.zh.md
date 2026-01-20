@@ -1,102 +1,122 @@
-﻿---
-title: "杀戮小队：卡舍津"
-date: 2026-01-14
-summary: "精英中的精英。卡舍津是卡迪亚突击队的巅峰，配备了优越的地狱枪和甲壳盔甲。"
-tags: ["战锤40k", "星界军", "杀戮小队", "卡舍津", "委托"]
-cover: "https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-01.jpg"
+---
+title: "卡舍津杀戮小队：卡迪亚精英"
+date: 2026-01-20T22:30:00+08:00
+summary: "全套卡舍津杀戮小队委托，经典卡迪亚迷彩涂装与城市废墟地台。"
+tags: ["战锤40K", "杀戮小队", "星界军", "帝国卫队", "卡舍津", "委托"]
+cover: "https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_01.jpg"
 layout: "project"
 tier: "Spec Ops"
-time_log: "25h 00m"
+time_log: "35h 00m"
 model_count: 10
 paints:
   - name: "Castellan Green"
-    role: "ARMOR"
+    role: "BASE"
     hex: "#314821"
     link: "https://www.warhammer.com/en-GB/shop/Base-Castellan-Green-2019"
   - name: "Zandri Dust"
-    role: "FATIGUES"
+    role: "BASE"
     hex: "#9E915C"
     link: "https://www.warhammer.com/en-GB/shop/Base-Zandri-Dust-2019"
-  - name: "Doombull Brown"
-    role: "LEATHER"
-    hex: "#5D000A"
-    link: "https://www.warhammer.com/en-GB/shop/Base-Doombull-Brown-2019"
+  - name: "Loren Forest"
+    role: "LAYER"
+    hex: "#506D37"
+    link: "https://www.warhammer.com/en-GB/shop/Layer-Loren-Forest-2019"
+  - name: "Ushabti Bone"
+    role: "LAYER"
+    hex: "#BCBB7E"
+    link: "https://www.warhammer.com/en-GB/shop/Layer-Ushabti-Bone-2019"
+  - name: "Rhinox Hide"
+    role: "SHADE"
+    hex: "#483126"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Rhinox-Hide-2019"
   - name: "Leadbelcher"
-    role: "METAL"
-    hex: "#888D8F"
+    role: "METALLIC"
+    hex: "#181C1E"
     link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
-description: "卡迪亚突击队的精英特种部队。涂装为干净利落的桌面标准，专注于边缘高光和光学镜片细节。专为密集的杀戮小队地形中的高对比度可见性而设计。"
+  - name: "Nuln Oil"
+    role: "SHADE"
+    hex: "#151515"
+    link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-24ml-2022"
+  - name: "Agrax Earthshade"
+    role: "SHADE"
+    hex: "#433322"
+    link: "https://www.warhammer.com/en-GB/shop/Shade-Agrax-Earthshade-24ml-2022"
+description: "这是一套按照高桌面标准完成的卡舍津杀戮小队委托，重点展现了经典的卡迪亚迷彩图案、精细的镜头光效以及逼真的城市废墟地台细节。已准备好部署于第41千年的秘密行动中。"
 ---
 
-
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-01.jpg" title="卡舍津 - 正面视图" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-02.jpg" title="卡舍津 - 侧面视图" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-03.jpg" title="卡舍津 - 细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-04.jpg" title="卡舍津 - 武器细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-05.jpg" title="卡舍津 - 盔甲做旧" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-06.jpg" title="卡舍津 - 小队长" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-07.jpg" title="卡舍津 - 特殊武器" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-08.jpg" title="卡舍津 - 底座细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/2026-01-14-kasrkin-09.jpg" title="卡舍津 - 合影" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_01.jpg" title="小队队长" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_02.jpg" title="团队概览" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_03.jpg" title="狙击手" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_04.jpg" title="爆破手" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_05.jpg" title="通讯兵" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_06.jpg" title="战地医疗兵" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_07.jpg" title="突击队员 1" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_08.jpg" title="突击队员 2" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_09.jpg" title="突击队员 3" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_10.jpg" title="突击队员 4" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_11.jpg" title="细节展示：迷彩" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_12.jpg" title="细节展示：地台" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_13.jpg" title="细节展示：装备" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_14.jpg" title="动态展示 1" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_15.jpg" title="动态展示 2" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_16.jpg" title="小队队形" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_17.jpg" title="背面视图" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_18.jpg" title="全员出击" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_19.jpg" title="全家福" >}}
 </div>
 
 <div class="space-y-4 my-4">
 
-<!-- THE HOOK -->
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
-    <h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 杀戮小队行动</h3>
+    <h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 特种行动</h3>
     <p class="text-gray-300 leading-relaxed">
-        专为密集的杀戮小队地形中的高对比度可见性而设计。经典的卡迪亚配色方案通过锐利的边缘高光和生动的OSL（等离子发光）得到提升，确保每名特工在桌面上都作为独特的角色脱颖而出。
+        旨在兼顾桌面游戏的辨识度和设定的还原度。配色方案在军事写实风格与棋子视觉效果之间取得了平衡，确保在杀戮小队的战场上清晰可辨。
     </p>
 </div>
 
-<!-- TECHNICAL CARDS -->
 <div class="grid md:grid-cols-2 gap-4">
 
-<!-- Card 1: The Alchemy -->
 <div class="bg-neutral-800/30 p-5 rounded border border-emerald-500/20 hover:border-emerald-500/40 transition-colors group">
     <div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
         <h4 class="font-bold text-emerald-400 flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             调色配方
         </h4>
-        <span class="text-[10px] uppercase text-gray-500">色彩数据</span>
+        <span class="text-[10px] uppercase text-gray-500">颜色数据</span>
     </div>
     <ul class="space-y-3 text-sm text-gray-300">
         <li class="flex justify-between">
-            <span>🛡️ 盔甲板</span>
+            <span>🛡️ 卡迪亚护甲</span>
             <span class="font-mono text-emerald-200">Castellan Green</span>
         </li>
         <li class="flex justify-between">
-            <span>👕 军服</span>
+            <span>👕 内衬军服</span>
             <span class="font-mono text-yellow-200/80">Zandri Dust</span>
         </li>
-         <li class="flex justify-between">
-            <span>🔫 武器</span>
-            <span class="font-mono text-gray-400">Abaddon Black</span>
+        <li class="flex justify-between">
+            <span>👁️ 战术镜头</span>
+            <span class="font-mono text-cyan-200">Baharroth Blue</span>
         </li>
     </ul>
 </div>
 
-<!-- Card 2: Tactical Protocol -->
 <div class="bg-neutral-800/30 p-5 rounded border border-cyan-500/20 hover:border-cyan-500/40 transition-colors">
     <div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
         <h4 class="font-bold text-cyan-400 flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
             战术规程
         </h4>
-        <span class="text-[10px] uppercase text-gray-500">技法解析</span>
+        <span class="text-[10px] uppercase text-gray-500">涂装方法</span>
     </div>
-    <p class="text-sm text-gray-400 mb-2">部署的关键技法：</p>
-     <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
-        <li><strong>边缘高光:</strong> 锐利的Straken Green高光以定义盔甲几何形状。</li>
-        <li><strong>凹槽阴影:</strong> 使用Agrax Earthshade进行针对性的定义，保持平面清洁。</li>
-        <li><strong>OSL罩染:</strong> 等离子线圈从深蓝色过渡到纯白色。</li>
+    <p class="text-sm text-gray-400 mb-2">关键技术运用：</p>
+    <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
+        <li><strong>硬边迷彩：</strong> 锐利的几何色块，营造整洁的军事风格。</li>
+        <li><strong>海绵掉漆：</strong> 逼真的装甲磨损和战斗旧化效果。</li>
+        <li><strong>镜头罩染：</strong> 多层高光堆叠，展现光学仪器的反光质感。</li>
     </ul>
 </div>
 
 </div>
 
 </div>
-
