@@ -14,7 +14,7 @@
 
         <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 z-10 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-4">
-                <a href="/work"
+                <a href="{{ relLangURL "work" }}"
                     class="text-gold-400 font-mono text-xs font-bold uppercase tracking-widest hover:text-white transition-colors border border-gold-500/50 px-2 py-1 rounded">///
                     WORK_LOG</a>
                 <span class="text-gray-400 font-mono text-xs uppercase">{{ .Date.Format "2006.01.02" }}</span>
@@ -269,7 +269,8 @@
 
                 <!-- Index (Center) -->
                 <div class="flex-shrink-0 px-4 text-center">
-                    <a href="/work" class="hover:text-gold-500 whitespace-nowrap uppercase">{{ T "index" }}</a>
+                    <a href="{{ relLangURL "work" }}" class="hover:text-gold-500 whitespace-nowrap uppercase">{{ T
+                        "index" }}</a>
                 </div>
 
                 <!-- Next (Right) -->
