@@ -1,0 +1,20 @@
+﻿---
+title: "Bullgryns: Tallarn 'Dust Wall' Auxilia"
+date: 2026-01-20T15:00:00+08:00
+summary: "Heavy infantry modified for Ash Wastes operations alongside Tallarn regiments."
+tags: ["Warhammer 40k", "Astra Militarum", "Bullgryns", "Kitbash", "Tallarn", "Ash Wastes"]
+cover: "https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_01.jpg"
+layout: "project"
+optimized: true
+tier: "Specialist"
+time_log: "35h 00m"
+model_count: 3
+paints:
+  - name: "Zandri Dust"
+    role: "BASE"
+    hex: "#9F9566"
+    link: "https://www.warhammer.com/en-GB/shop/Base-Zandri-Dust-2019"
+  - name: "Agrax Earthshade"
+    role: "SHADE"
+    hex: "#5A513E"
+    link: "https://www.warhammer.com/en-GB/shop/Shade-Agrax-Earthshade-2019"

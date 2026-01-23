@@ -1,9 +1,9 @@
----
+﻿---
 title: "Bullgryns: Tallarn 'Dust Wall' Auxilia"
-date: 2026-01-20T15:00:00+08:00
+date: 2026-01-23T14:30:00+08:00
 summary: "Heavy infantry modified for Ash Wastes operations alongside Tallarn regiments."
 tags: ["Warhammer 40k", "Astra Militarum", "Bullgryns", "Kitbash", "Tallarn", "Ash Wastes"]
-cover: "https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_01.jpg"
+cover: "https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_01.jpg"
 layout: "project"
 optimized: true
 tier: "Specialist"
@@ -46,36 +46,36 @@ description: "A conversion project integrating Bullgryns into a Tallarn Ash Wast
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_01.jpg" title="Front Formation" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_02.jpg" title="Desert Pattern Armour" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_03.jpg" title="Equipment Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_04.jpg" title="Rear Gear" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_05.jpg" title="Weathering Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_06.jpg" title="Unit Champion" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_07.jpg" title="Shield Modification" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_08.jpg" title="Base Detail: Ash Wastes" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_09.jpg" title="Side Profile" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_10.jpg" title="Rear Formation" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_11.jpg" title="Close-Up: Goggles" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_12.jpg" title="Close-Up: Breathing Apparatus" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_13.jpg" title="Weathering Texture" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_14.jpg" title="Pack Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_15.jpg" title="Armor Chipping" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_16.jpg" title="Full Squad" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_17.jpg" title="Individual Pose 1" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_18.jpg" title="Individual Pose 2" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_19.jpg" title="Individual Pose 3" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_20.jpg" title="Dynamic Angle" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_21.jpg" title="Shield Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_22.jpg" title="Weapon Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_23.jpg" title="Boots Weathering" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_24.jpg" title="Top Down View" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_25.jpg" title="Low Angle" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_26.jpg" title="Group Coordination" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_27.jpg" title="Lighting Check" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_28.jpg" title="Atmospheric Shot" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_29.jpg" title="Final Inspection" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260120bullg_30.jpg" title="Ready for Deployment" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_01.jpg" title="Bullgryns Showcase 01" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_02.jpg" title="Bullgryns Showcase 02" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_03.jpg" title="Bullgryns Showcase 03" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_04.jpg" title="Bullgryns Showcase 04" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_05.jpg" title="Bullgryns Showcase 05" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_06.jpg" title="Bullgryns Showcase 06" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_07.jpg" title="Bullgryns Showcase 07" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_08.jpg" title="Bullgryns Showcase 08" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_09.jpg" title="Bullgryns Showcase 09" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_10.jpg" title="Bullgryns Showcase 10" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_11.jpg" title="Bullgryns Showcase 11" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_12.jpg" title="Bullgryns Showcase 12" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_13.jpg" title="Bullgryns Showcase 13" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_14.jpg" title="Bullgryns Showcase 14" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_15.jpg" title="Bullgryns Showcase 15" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_16.jpg" title="Bullgryns Showcase 16" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_17.jpg" title="Bullgryns Showcase 17" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_18.jpg" title="Bullgryns Showcase 18" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_19.jpg" title="Bullgryns Showcase 19" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_20.jpg" title="Bullgryns Showcase 20" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_21.jpg" title="Bullgryns Showcase 21" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_22.jpg" title="Bullgryns Showcase 22" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_23.jpg" title="Bullgryns Showcase 23" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_24.jpg" title="Bullgryns Showcase 24" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_25.jpg" title="Bullgryns Showcase 25" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_26.jpg" title="Bullgryns Showcase 26" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_27.jpg" title="Bullgryns Showcase 27" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_28.jpg" title="Bullgryns Showcase 28" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_29.jpg" title="Bullgryns Showcase 29" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_30.jpg" title="Bullgryns Showcase 30" >}}
 </div>
 
 <div class="space-y-4 my-4">
@@ -132,3 +132,4 @@ description: "A conversion project integrating Bullgryns into a Tallarn Ash Wast
 </div>
 
 </div>
+

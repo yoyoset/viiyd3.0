@@ -1,0 +1,185 @@
+﻿
+> <div class="image-g
+rid">
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_01.jpg"
+ title="Front Formati
+on" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_02.jpg"
+ title="Desert Patter
+n Armour" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_03.jpg"
+ title="Equipment Det
+ail" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_04.jpg"
+ title="Rear Gear" >}
+}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_05.jpg"
+ title="Weathering De
+tail" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_06.jpg"
+ title="Unit Champion
+" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_07.jpg"
+ title="Shield Modifi
+cation" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_08.jpg"
+ title="Base Detail: 
+Ash Wastes" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_09.jpg"
+ title="Side Profile"
+ >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_10.jpg"
+ title="Rear Formatio
+n" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_11.jpg"
+ title="Close-Up: Gog
+gles" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_12.jpg"
+ title="Close-Up: Bre
+athing Apparatus" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_13.jpg"
+ title="Weathering Te
+xture" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_14.jpg"
+ title="Pack Detail" 
+>}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_15.jpg"
+ title="Armor Chippin
+g" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_16.jpg"
+ title="Full Squad" >
+}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_17.jpg"
+ title="Individual Po
+se 1" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_18.jpg"
+ title="Individual Po
+se 2" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_19.jpg"
+ title="Individual Po
+se 3" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_20.jpg"
+ title="Dynamic Angle
+" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_21.jpg"
+ title="Shield Detail
+" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_22.jpg"
+ title="Weapon Detail
+" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_23.jpg"
+ title="Boots Weather
+ing" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_24.jpg"
+ title="Top Down View
+" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_25.jpg"
+ title="Low Angle" >}
+}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_26.jpg"
+ title="Group Coordin
+ation" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_27.jpg"
+ title="Lighting Chec
+k" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_28.jpg"
+ title="Atmospheric S
+hot" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_29.jpg"
+ title="Final Inspect
+ion" >}}
+  {{< lightbox src="h
+ttps://photo.viiyd.co
+m/2026/01/bullg/viiyd
+20260120bullg_30.jpg"
+ title="Ready for Dep
+loyment" >}}
+
+
