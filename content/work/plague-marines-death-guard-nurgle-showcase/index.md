@@ -3,8 +3,9 @@ title: "Plague Marines: Death Guard Showcase"
 date: 2026-03-18T21:35:00+08:00
 summary: "Decaying veteran warriors of the Death Guard, featuring advanced weathering and organic mutation effects."
 tags: ["Warhammer 40,000", "Death Guard", "Nurgle", "Chaos Space Marines", "Commission"]
-cover: "https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.jpg"
+cover: "https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.webp"
 layout: "project"
+optimized: true
 tier: "Spec Ops"
 time_log: "60h 00m"
 model_count: 20
@@ -37,76 +38,76 @@ description: "A comprehensive project showcasing a full squad of Plague Marines.
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_02.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_03.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_04.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_05.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_06.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_07.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_08.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_09.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_10.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_11.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_12.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_13.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_14.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_15.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_16.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_17.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_18.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_19.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_20.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_21.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_22.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_23.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_24.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_25.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_26.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_27.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_28.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_29.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_30.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_31.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_32.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_33.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_34.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_35.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_36.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_37.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_38.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_39.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_40.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_41.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_42.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_43.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_44.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_45.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_46.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_47.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_48.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_49.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_50.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_51.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_52.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_53.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_54.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_55.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_56.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_57.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_58.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_59.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_60.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_61.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_62.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_63.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_64.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_65.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_66.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_67.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_68.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_69.jpg" title="Death Guard Plague Marine" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_70.jpg" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_02.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_03.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_04.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_05.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_06.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_07.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_08.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_09.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_10.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_11.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_12.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_13.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_14.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_15.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_16.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_17.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_18.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_19.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_20.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_21.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_22.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_23.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_24.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_25.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_26.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_27.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_28.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_29.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_30.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_31.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_32.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_33.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_34.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_35.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_36.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_37.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_38.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_39.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_40.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_41.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_42.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_43.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_44.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_45.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_46.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_47.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_48.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_49.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_50.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_51.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_52.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_53.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_54.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_55.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_56.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_57.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_58.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_59.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_60.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_61.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_62.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_63.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_64.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_65.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_66.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_67.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_68.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_69.webp" title="Death Guard Plague Marine" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_70.webp" title="Death Guard Plague Marine" >}}
 </div>
 
 <div class="space-y-4 my-4">

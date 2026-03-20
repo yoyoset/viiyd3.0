@@ -47,7 +47,7 @@ async function uploadImages(sourceFolder, bucketName, r2Prefix) {
 
         try {
             // Using direct 'wrangler' if available, otherwise 'npx wrangler'
-            const cmd = `wrangler r2 object put "${objectPath}" --file "${localPath}" --remote`;
+            const cmd = `wrangler r2 object put ${bucketName}/${r2Key} --file "${localPath}" --remote`;
             await execPromise(cmd);
             successCount++;
             completed++;

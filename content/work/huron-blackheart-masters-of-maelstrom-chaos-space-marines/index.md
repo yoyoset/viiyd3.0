@@ -3,8 +3,9 @@ title: "Huron Blackheart and the Masters of the Maelstrom"
 date: 2026-03-18T21:07:00+08:00
 summary: "Legendary Chaos Lord Huron Blackheart and his elite inner circle of the Red Corsairs."
 tags: ["Warhammer 40,000", "Chaos Space Marines", "Red Corsairs", "Commission"]
-cover: "https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.jpg"
+cover: "https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.webp"
 layout: "project"
+optimized: true
 tier: "Master"
 time_log: "45h 00m"
 model_count: 10
@@ -37,40 +38,40 @@ description: "A high-tier commission project for Huron Blackheart and the Master
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_02.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_03.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_04.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_05.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_06.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_07.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_08.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_09.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_10.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_11.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_12.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_13.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_14.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_15.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_16.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_17.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_18.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_19.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_20.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_21.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_22.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_23.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_24.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_25.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_26.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_27.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_28.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_29.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_30.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_31.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_32.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_33.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_34.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_02.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_03.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_04.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_05.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_06.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_07.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_08.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_09.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_10.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_11.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_12.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_13.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_14.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_15.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_16.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_17.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_18.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_19.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_20.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_21.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_22.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_23.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_24.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_25.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_26.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_27.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_28.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_29.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_30.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_31.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_32.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_33.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_34.webp" title="Huron Blackheart and the Masters of the Maelstrom" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_35.jpg" title="Huron Blackheart and the Masters of the Maelstrom" >}}
 </div>
 

@@ -1,15 +1,14 @@
 /**
  * VIIYD Image Rename Script
  * 
- * 用途: 将相机原始文件名批量重命名为 VIIYD 标准格式
- * 格式: viiyd[YYYYMMDD][CODE]_[NN].jpg
+ * 用途: 将相机原始文件名批量重命名为 VIIYD 标准格式，并转换为 WebP
+ * 格式: viiyd[YYYYMMDD][CODE]_[NN].webp
  * 
  * 用法:
- *   node scripts/rename_images.js [source_folder] [project_code]
+ *   node scripts/rename_images.js [source_folder] [project_code] [optional_date]
  * 
  * 示例:
- *   node scripts/rename_images.js ./need_upload lion
- *   结果: viiyd20260120lion_01.jpg, viiyd20260120lion_02.jpg, ...
+ *   node scripts/rename_images.js ./need_upload lion 20260318
  */
 
 const fs = require('fs');
@@ -17,7 +16,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 // 支持的图片扩展名
-const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG'];
+const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.pdf', '.JPG', '.JPEG', '.PNG'];
 
 function getFormattedDate() {
     const now = new Date();
@@ -27,11 +26,11 @@ function getFormattedDate() {
     return `${year}${month}${day}`;
 }
 
-async function renameImages(sourceFolder, projectCode) {
+async function renameImages(sourceFolder, projectCode, dateOverride) {
     // 验证参数
     if (!sourceFolder || !projectCode) {
-        console.error('❌ 用法: node rename_images.js [source_folder] [project_code]');
-        console.error('   示例: node rename_images.js ./need_upload lion');
+        console.error('❌ 用法: node rename_images.js [source_folder] [project_code] [optional_date]');
+        console.error('   示例: node rename_images.js ./need_upload lion 20260318');
         process.exit(1);
     }
 
@@ -56,102 +55,81 @@ async function renameImages(sourceFolder, projectCode) {
     console.log(`📷 找到 ${files.length} 张图片\n`);
 
     // 生成前缀
-    const dateStr = getFormattedDate();
+    const dateStr = dateOverride || getFormattedDate();
     const prefix = `viiyd${dateStr}${projectCode.toLowerCase()}`;
 
     console.log(`🏷️  命名前缀: ${prefix}`);
     console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
 
-    // 创建重命名映射（先收集，再执行，避免冲突）
-    const renameMap = [];
+    // 创建重命名映射
+    const processMap = [];
 
     files.forEach((file, index) => {
         const num = String(index + 1).padStart(2, '0');
-        const ext = path.extname(file).toLowerCase();
-        const newName = `${prefix}_${num}${ext}`;
+        const mainName = `${prefix}_${num}.webp`;
+        const webName = `${prefix}_${num}_web.webp`;
 
-        renameMap.push({
+        processMap.push({
             oldPath: path.join(absolutePath, file),
-            newPath: path.join(absolutePath, newName),
+            mainPath: path.join(absolutePath, mainName),
+            webPath: path.join(absolutePath, webName),
             oldName: file,
-            newName: newName
+            mainName: mainName,
+            webName: webName
         });
     });
 
-    // 显示预览
-    console.log('📋 重命名预览:');
-    renameMap.forEach(item => {
-        console.log(`   ${item.oldName} → ${item.newName}`);
-    });
-
-    console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-
-    // 检查是否有冲突（目标文件已存在）
-    const conflicts = renameMap.filter(item =>
-        fs.existsSync(item.newPath) && item.oldPath !== item.newPath
-    );
-
-    if (conflicts.length > 0) {
-        console.error('\n⚠️  检测到文件名冲突:');
-        conflicts.forEach(c => console.error(`   ${c.newName} 已存在`));
-        console.error('\n请先清理冲突文件后重试');
-        process.exit(1);
-    }
-
-    // 执行重命名
-    let successCount = 0;
-    renameMap.forEach(item => {
+    console.log('🖼️  Processing and Converting to WebP...');
+    
+    for (const item of processMap) {
         try {
-            fs.renameSync(item.oldPath, item.newPath);
-            successCount++;
-        } catch (err) {
-            console.error(`❌ 重命名失败: ${item.oldName} - ${err.message}`);
-        }
-    });
-
-    console.log(`\n✅ 成功重命名 ${successCount}/${files.length} 张图片`);
-
-    // Generate web-optimized versions
-    console.log('\n🖼️  Generating web-optimized versions...');
-    for (const item of renameMap) {
-        const webPath = item.newPath.replace(/\.(jpg|jpeg|png)$/i, '_web.$1');
-        // Only generate if not exists or if we want to overwrite (currently skipping check implies overwrite logic or fresh run)
-        // Since we just renamed the main file, web file shouldn't exist unless previous run left it.
-        try {
-            await sharp(item.newPath)
+            // 1. Generate High-Res Original (Original Dimensions, 90% Quality)
+            await sharp(item.oldPath)
+                .webp({ quality: 90 })
+                .toFile(item.mainPath);
+            
+            // 2. Generate Optimized Web Version (1600px, 80% Quality)
+            await sharp(item.oldPath)
                 .resize({ width: 1600, withoutEnlargement: true })
-                .jpeg({ quality: 80 })
-                .toFile(webPath);
-            console.log(`   ✅ ${path.basename(webPath)}`);
+                .webp({ quality: 80 })
+                .toFile(item.webPath);
+
+            // Delete old file if names differ (to avoid cluttering need_upload)
+            if (item.oldPath !== item.mainPath && item.oldPath !== item.webPath) {
+                fs.unlinkSync(item.oldPath);
+            }
+
+            console.log(`   ✅ ${item.oldName} -> ${item.mainName} (+ _web.webp)`);
         } catch (err) {
-            console.error(`   ❌ Failed: ${path.basename(item.newPath)} - ${err.message}`);
+            console.error(`   ❌ Failed: ${item.oldName} - ${err.message}`);
         }
     }
+
+    console.log(`\n✅ 成功处理 ${files.length} 张图片`);
 
     // R2 Path info
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = dateStr.substring(0, 4);
+    const month = dateStr.substring(4, 6);
 
     console.log(`\n📎 R2 上传路径推荐:`);
-    console.log(`   viiyd-images/${year}/${month}/${projectCode.toLowerCase()}/`);
+    console.log(`   viiyd-art-photos/${year}/${month}/${projectCode.toLowerCase()}/`);
 
-    console.log(`\n🔗 URL 格式示例:`);
-    console.log(`   https://photo.viiyd.com/${year}/${month}/${projectCode.toLowerCase()}/${prefix}_01.jpg`);
+    console.log(`\n🔗 URL 格式示例 (Lightbox 使用):`);
+    console.log(`   https://photo.viiyd.com/${year}/${month}/${projectCode.toLowerCase()}/${prefix}_01.webp`);
 
     // 输出 lightbox shortcode 示例
-    console.log(`\n📝 Hugo shortcode 示例:`);
+    console.log(`\n📝 Hugo shortcode 示例 (确保 Frontmatter 开启 optimized: true):`);
     console.log(`<div class="image-grid">`);
-    renameMap.slice(0, 3).forEach(item => {
-        const url = `https://photo.viiyd.com/${year}/${month}/${projectCode.toLowerCase()}/${item.newName}`;
+    processMap.slice(0, 3).forEach(item => {
+        const url = `https://photo.viiyd.com/${year}/${month}/${projectCode.toLowerCase()}/${item.mainName}`;
         console.log(`{{< lightbox src="${url}" title="" >}}`);
     });
-    if (renameMap.length > 3) {
-        console.log(`... (共 ${renameMap.length} 张)`);
+    if (processMap.length > 3) {
+        console.log(`... (共 ${processMap.length} 张)`);
     }
     console.log(`</div>`);
 }
 
 // 执行
 const args = process.argv.slice(2);
-renameImages(args[0], args[1]);
+renameImages(args[0], args[1], args[2]);

@@ -3,8 +3,9 @@ title: "休伦·黑心与大漩涡之主"
 date: 2026-03-18T21:07:00+08:00
 summary: "传奇混沌领主休伦·黑心及其红海盗精英内圈成员。"
 tags: ["战锤 40,000", "混沌星际战士", "红海盗", "委托"]
-cover: "https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.jpg"
+cover: "https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.webp"
 layout: "project"
+optimized: true
 tier: "Master"
 time_log: "45h 00m"
 model_count: 10
@@ -37,40 +38,40 @@ description: "休伦·黑心与大漩涡之主高阶涂装委托项目。包含�
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_02.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_03.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_04.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_05.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_06.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_07.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_08.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_09.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_10.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_11.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_12.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_13.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_14.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_15.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_16.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_17.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_18.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_19.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_20.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_21.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_22.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_23.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_24.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_25.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_26.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_27.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_28.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_29.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_30.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_31.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_32.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_33.jpg" title="休伦·黑心与大漩涡之主" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_34.jpg" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_02.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_03.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_04.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_05.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_06.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_07.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_08.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_09.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_10.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_11.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_12.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_13.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_14.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_15.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_16.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_17.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_18.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_19.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_20.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_21.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_22.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_23.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_24.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_25.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_26.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_27.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_28.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_29.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_30.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_31.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_32.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_33.webp" title="休伦·黑心与大漩涡之主" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_34.webp" title="休伦·黑心与大漩涡之主" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_35.jpg" title="休伦·黑心与大漩涡之主" >}}
 </div>
 

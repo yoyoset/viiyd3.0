@@ -3,8 +3,9 @@ title: "瘟疫战士：死亡守卫展示"
 date: 2026-03-18T21:35:00+08:00
 summary: "死亡守卫的腐朽老兵战士，展示了高阶的战损表现与有机的变异效果。"
 tags: ["战锤 40,000", "死亡守卫", "纳垢", "混沌星际战士", "委托"]
-cover: "https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.jpg"
+cover: "https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.webp"
 layout: "project"
+optimized: true
 tier: "Spec Ops"
 time_log: "60h 00m"
 model_count: 20
@@ -37,76 +38,76 @@ description: "一个全面展示整支瘟疫战士小队的委托项目。重点
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_02.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_03.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_04.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_05.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_06.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_07.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_08.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_09.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_10.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_11.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_12.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_13.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_14.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_15.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_16.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_17.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_18.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_19.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_20.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_21.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_22.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_23.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_24.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_25.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_26.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_27.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_28.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_29.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_30.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_31.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_32.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_33.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_34.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_35.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_36.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_37.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_38.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_39.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_40.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_41.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_42.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_43.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_44.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_45.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_46.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_47.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_48.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_49.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_50.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_51.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_52.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_53.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_54.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_55.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_56.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_57.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_58.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_59.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_60.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_61.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_62.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_63.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_64.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_65.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_66.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_67.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_68.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_69.jpg" title="死亡守卫 瘟疫战士" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_70.jpg" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_02.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_03.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_04.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_05.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_06.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_07.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_08.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_09.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_10.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_11.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_12.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_13.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_14.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_15.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_16.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_17.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_18.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_19.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_20.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_21.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_22.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_23.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_24.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_25.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_26.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_27.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_28.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_29.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_30.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_31.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_32.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_33.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_34.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_35.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_36.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_37.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_38.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_39.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_40.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_41.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_42.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_43.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_44.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_45.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_46.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_47.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_48.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_49.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_50.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_51.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_52.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_53.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_54.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_55.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_56.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_57.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_58.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_59.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_60.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_61.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_62.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_63.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_64.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_65.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_66.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_67.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_68.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_69.webp" title="死亡守卫 瘟疫战士" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_70.webp" title="死亡守卫 瘟疫战士" >}}
 </div>
 
 <div class="space-y-4 my-4">

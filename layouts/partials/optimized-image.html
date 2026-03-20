@@ -9,6 +9,7 @@
 {{ $result = replace $src ".jpg" "_web.jpg" }}
 {{ $result = replace $result ".jpeg" "_web.jpeg" }}
 {{ $result = replace $result ".png" "_web.png" }}
+{{ $result = replace $result ".webp" "_web.webp" }}
 {{ else }}
 {{ $path := replace $src "https://photo.viiyd.com/" "" }}
 {{ $result = printf "https://photo.viiyd.com/cdn-cgi/image/width=1600,quality=80,format=auto/%s" $path }}

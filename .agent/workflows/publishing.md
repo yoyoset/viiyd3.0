@@ -21,39 +21,38 @@ description: VIIYD 3.0 内容发布流水线 (Image → R2 → Hugo → Git → 
 ### 1.1 放置原始图片
 将相机导出的图片放入 `need_upload/` 文件夹
 
-### 1.2 批量重命名
+### 1.2 批量处理与 WebP 转换
 ```powershell
-cd F:\mysite\viiyd3.0
-node scripts/rename_images.js ./need_upload [PROJECT_CODE]
+cd F:\my_ai\viiyd3.0
+# 参数: [源文件夹] [项目代码] [可选日期YYYYMMDD]
+node scripts/rename_images.js ./need_upload [PROJECT_CODE] 20260318
 ```
 
-**命名规范:**
-- 格式: `viiyd[YYYYMMDD][CODE]_[NN].jpg`
-- 示例: `viiyd20260120lion_01.jpg`
-- CODE: 4-6字符项目代码，全小写，如 `lion`, `kasrkin`, `tzeent`
+**输出说明:**
+- 格式: `viiyd[DATE][CODE]_[NN].webp` (高清原图，90%质量)
+- 缩略图: `viiyd[DATE][CODE]_[NN]_web.webp` (1600px，80%质量)
+- **优势**: 本地预生成缩略图，完全避开 CDN 实时缩放费用。
 
 ---
 
 ## 2. 资产上传 (Asset Upload)
 
-### 2.1 上传到 R2 (使用 Wrangler)
+### 2.1 上传到 R2 (带 --remote 参数)
 
 R2 存储结构: `viiyd-art-photos/[YYYY]/[MM]/[CODE]/`
 
 ```powershell
-# 自动使用 YYYY/MM 结构
-# 参数: [源文件夹] [Bucket名] [R2路径]
-node scripts/upload_r2.js ./need_upload viiyd-art-photos [YYYY]/[MM]/[CODE]
+# 必须加 --remote 确保上传到生产环境
+node scripts/fast_upload_r2.js ./need_upload viiyd-art-photos [YYYY]/[MM]/[CODE]
 ```
 
 > **示例:**
-> 如果脚本 `rename_images.js` 推荐路径是 `2026/01/bullg/`:
 > ```powershell
-> node scripts/upload_r2.js ./need_upload viiyd-art-photos 2026/01/bullg
+> node scripts/fast_upload_r2.js ./need_upload viiyd-art-photos 2026/03/lion
 > ```
 
 > [!IMPORTANT]
-> **URL 格式**: `https://photo.viiyd.com/[YYYY]/[MM]/[CODE]/[FILENAME]`
+> **格式要求**: 全部图片必须为 `.webp`。
 
 ### 2.2 验证上传
 直接访问 `https://photo.viiyd.com/[YYYY]/[MM]/[CODE]/[FILENAME]` 确认
@@ -91,9 +90,10 @@ mkdir "F:\mysite\viiyd3.0\content\work\[project-slug]"
 title: "[Project Name]: [Subtitle]"
 date: YYYY-MM-DDTHH:MM:SS+08:00
 summary: "[One-line summary, max 100 chars]"
-tags: ["Category", "Faction", "Unit Type"]  # ZH版添加 "委托"
-cover: "https://photo.viiyd.com/[YYYY]/[MM]/[CODE]/[FILENAME].jpg"
+tags: ["Category", "Faction", "Unit Type"] 
+cover: "https://photo.viiyd.com/[YYYY]/[MM]/[CODE]/[FILENAME].webp"
 layout: "project"
+optimized: true  # 必须开启，启用本地 WebP 缩略图同步
 tier: "[Battleline|Specialist|Spec Ops|Master|Legend]"
 time_log: "XXh XXm"
 model_count: N
