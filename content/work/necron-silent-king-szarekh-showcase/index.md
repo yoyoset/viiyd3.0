@@ -1,5 +1,5 @@
 ---
-title: "The Silent King: Szarekh on the Barge of Ages"
+title: "The Silent King Szarekh Showcase"
 date: 2026-05-23T16:00:00+08:00
 summary: "The supreme ruler of the Necron dynasties, painted with deep void-black armour and cascading gauss-green OSL across the entire Barge of Ages."
 tags: ["Warhammer 40,000", "Necrons", "Silent King", "Centerpiece", "Commission"]

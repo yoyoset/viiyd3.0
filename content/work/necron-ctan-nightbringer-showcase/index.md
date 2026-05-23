@@ -1,5 +1,5 @@
 ---
-title: "C'tan Shard of the Nightbringer: Death Incarnate"
+title: "C'tan Shard of the Nightbringer Showcase"
 date: 2026-05-23T18:00:00+08:00
 summary: "The C'tan god of death, sharded and bound. Purple-void robes dissolving into cascading gauss-green necrodermis tendrils across the base."
 tags: ["Warhammer 40,000", "Necrons", "C'tan", "Nightbringer", "Commission"]
