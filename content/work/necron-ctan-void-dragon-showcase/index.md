@@ -1,6 +1,6 @@
 ---
 title: "C'tan Shard of the Void Dragon Showcase"
-date: 2026-05-24T10:00:00+08:00
+date: 2026-05-23T20:00:00+08:00
 summary: "The C'tan god of machines, sharded and bound. Silver god-form wreathed in violent gauss-green lightning across serpentine coils and Necron ruin base."
 tags: ["Warhammer 40,000", "Necrons", "C'tan", "Void Dragon", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/void-dragon/viiyd20260524void-dragon_01.webp"
