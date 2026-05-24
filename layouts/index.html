@@ -1,285 +1,130 @@
 {{ define "main" }}
-<div class="max-w-7xl mx-auto py-12">
-    <!-- Hero Section -->
 
+{{/* Latest post */}}
+{{ $latest := index (first 1 (where .Site.RegularPages "Section" "work")) 0 }}
+{{ $orientation := "landscape" }}
+{{ with $latest }}{{ with .Params.hero_orientation }}{{ $orientation = . }}{{ end }}{{ end }}
 
-    <!-- Bento Grid (Portal System) -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+{{/* Header */}}
+<header style="padding:20px var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);">
+  <div style="display:flex;align-items:center;gap:12px;">
+    {{ partial "badge.html" (dict "size" 28) }}
+    <a href="{{ .Site.BaseURL }}" style="color:var(--ink);">VIIYD STUDIO</a>
+    <span>· Shanghai · Est. 2024</span>
+  </div>
+  <nav style="display:flex;gap:24px;align-items:center;">
+    <a href="{{ relLangURL "work" }}" style="color:var(--ink);">{{ T "nav_work" | default "Work" }}</a>
+    <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">{{ T "nav_painter" | default "Painter" }}</a>
+    <span style="color:var(--ink-soft);">
+      {{ range .AllTranslations }}
+        <a href="{{ .RelPermalink }}" onclick="localStorage.setItem('viiyd_lang_pref','{{ .Lang }}')" style="{{ if eq .Lang $.Lang }}color:var(--ink);{{ end }}">{{ .Language.Params.isoCode | default (.Lang | upper) }}</a>{{ if ne .Lang (index (last 1 $.AllTranslations) 0).Lang }} · {{ end }}
+      {{ end }}
+    </span>
+  </nav>
+</header>
 
-        <!-- Card 1: Studio / About (Large) -->
-        <a href="{{ relLangURL "about" }}"
-            class="md:col-span-2 md:row-span-2 relative group rounded-2xl overflow-hidden border border-white/10 hover:border-gold-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(234,179,8,0.3)]">
-            <div class="absolute inset-0 z-0">
-                <img src="/img/card_studio_illustrative_v2.png"
-                    class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter contrast-125 saturate-150">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-            </div>
+{{/* Hero */}}
+{{ with $latest }}
+  {{ $cover := .Params.cover }}
+  {{ $title  := .Title }}
+  {{ $faction := .Params.faction | default (index .Params.tags 0) }}
+  {{ $tier    := .Params.tier }}
+  {{ $eyebrow := printf "NEW · %s · № %s" (.Date.Format "JAN 2006" | upper) (.Params.file_no | default "—") }}
 
-            <!-- Logo (Right Side) -->
-            <div class="absolute top-8 right-8 z-20 opacity-80 group-hover:opacity-100 transition-opacity">
-                <!-- Maximize Logo Size -->
-                <img src="/img/viiyd_logo.png" alt="VIIYD Logo" class="w-32 md:w-64 h-auto drop-shadow-2xl">
-            </div>
-
-
-            <div class="absolute bottom-0 left-0 p-8 z-10 w-full">
-                <span
-                    class="text-gold-400 font-mono text-xs font-black tracking-widest uppercase mb-2 block animate-pulse">///
-                    {{ T "identity" }}</span>
-                <h2 class="text-4xl font-black font-serif text-white mb-2 drop-shadow-xl">{{ T "studio_title" }}</h2>
-                <p class="text-gray-100 font-bold text-sm max-w-md drop-shadow-md">{{ T "studio_motto" }}</p>
-            </div>
-        </a>
-
-        <!-- 01: Protocol -->
-        <a href="{{ relLangURL "process" }}"
-            class="relative group rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-            <div class="absolute inset-0 z-0">
-                <img src="/img/card_protocol_illustrative_v2.png"
-                    class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter contrast-125 saturate-150 brightness-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-            </div>
-            <div class="absolute bottom-0 left-0 p-6 z-10 w-full group-hover:opacity-100 transition-opacity">
-                <span class="text-cyan-400 font-mono text-xs font-black tracking-widest uppercase mb-1 block">///
-                    {{ T "protocol_label" }}</span>
-                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">{{ T "process_title" }}</h3>
-                <ul class="space-y-1 mb-4 hidden md:block">
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_1" }}</li>
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_2" }}</li>
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_3" }}</li>
-                    <li class="text-xs font-bold text-cyan-100 drop-shadow-md">{{ T "proc_4" }}</li>
-                </ul>
-                <span
-                    class="inline-block bg-cyan-500 hover:bg-cyan-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg mt-2">
-                    {{ T "view_schema" }}
-                </span>
-            </div>
-        </a>
-
-        <!-- 02: Tiers (Rates) -->
-        <a href="{{ relLangURL "rates" }}"
-            class="relative group rounded-2xl overflow-hidden border border-white/10 hover:border-gold-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(234,179,8,0.3)]">
-            <div class="absolute inset-0 z-0">
-                <img src="/img/card_tiers_illustrative_v2.png"
-                    class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter contrast-125 saturate-150 brightness-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-            </div>
-            <!-- Compact Content Container -->
-            <div class="absolute bottom-0 left-0 p-4 z-20 w-full">
-                <span class="text-gold-400 font-mono text-[10px] font-black tracking-widest uppercase mb-1 block">///
-                    {{ T "tiers_label" }}</span>
-                <h3 class="text-xl font-black font-serif text-white drop-shadow-lg mb-2">{{ T "rates_title" }}</h3>
-
-                <!-- 3-Tier Price List -->
-                <div class="flex flex-col gap-0.5 mb-2 font-mono text-[10px] font-bold text-white drop-shadow-md">
-                    <div class="flex justify-between items-center border-b border-white/10 pb-0.5">
-                        <span class="text-gray-300">{{ T "tier_battle" }}</span>
-                        <span class="text-gold-400">$5+</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b border-white/10 pb-0.5">
-                        <span class="text-gray-300">{{ T "tier_parade" }}</span>
-                        <span class="text-gold-400">$15+</span>
-                    </div>
-                    <div class="flex justify-between items-center pb-0.5">
-                        <span class="text-gray-300">{{ T "tier_master" }}</span>
-                        <span class="text-gold-400">$45+</span>
-                    </div>
-                </div>
-
-
-                <!-- Gold Button with Inline Style -->
-                <span
-                    class="inline-block text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg"
-                    style="background-color: #eab308;">
-                    {{ T "full_rate_card" }}
-                </span>
-            </div>
-        </a>
-
-        <!-- 03: Start Comm (Shrink to 1x1) -->
-        <a href="{{ relLangURL "contact" }}"
-            class="group relative overflow-hidden rounded-2xl border border-white/5 bg-neutral-900 transition-all hover:scale-[1.01] hover:border-green-500/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]">
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-green-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100">
-            </div>
-            <img src="/img/card_comm_illustrative_v2.png" alt="Start Commission"
-                class="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100">
-
-            <div class="absolute top-4 left-4 z-20">
-                <span
-                    class="flex items-center gap-2 rounded bg-green-900/50 px-2 py-1 font-mono text-[10px] uppercase text-green-400 backdrop-blur border border-green-500/30">
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                    {{ T "status_open" }}
-                </span>
-            </div>
-
-            <div class="absolute bottom-6 left-6 right-6 z-20">
-                <h3
-                    class="text-2xl font-black font-serif italic text-white mb-2 leading-none group-hover:translate-x-1 transition-transform">
-                    {{ T "start_comm" | safeHTML }}</h3>
-                <div class="flex items-center gap-2 mt-2 group-hover:gap-3 transition-all">
-                    <!-- Green Button (Badge Style) -->
-                    <span
-                        class="inline-block bg-green-500 hover:bg-green-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg">
-                        {{ T "initiate_uplink" }}
-                    </span>
-                </div>
-            </div>
-        </a>
-
-        <!-- 04: Logs (New 5th Card) -->
-        <a href="{{ relLangURL "work" }}"
-            class="group relative overflow-hidden rounded-2xl border border-white/5 bg-neutral-900 transition-all hover:scale-[1.02] hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100">
-            </div>
-            <!-- Boom Image -->
-            <img src="/img/card-boom.png" alt="Database"
-                class="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100 filter hue-rotate-15">
-
-            <div class="absolute bottom-6 left-6 w-full pr-12 z-20">
-                <!-- Text Color Changed to White/80 -->
-                <span class="text-white/80 font-mono text-xs font-black tracking-widest uppercase mb-1 block">///
-                    {{ T "database_label" }}</span>
-                <h3 class="text-2xl font-black font-serif text-white drop-shadow-lg mb-3">{{ T "logs_title" }}</h3>
-                <!-- Purple Button (Badge Style) -->
-                <span
-                    class="inline-block bg-purple-500 hover:bg-purple-400 text-black text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest transition-colors shadow-lg relative z-50">
-                    {{ T "view_archive" }}
-                </span>
-            </div>
-        </a>
-
-    </div>
-
-    <!-- Latest Deliveries Section -->
-    <div class="mt-20 border-t border-white/10 pt-12">
-        <div class="flex justify-between items-end mb-8">
-            <h3 class="text-xs font-mono font-bold tracking-[0.2em] text-white uppercase">{{ T "latest_deliveries" }}
-            </h3>
-            <a href="{{ relLangURL "work" }}"
-                class="text-xs font-mono text-gold-500 hover:text-white transition-colors">{{ T "view_all_archives"
-                }}</a>
+  {{ if eq $orientation "portrait" }}
+  <section class="home-hero-portrait">
+    <div class="hero-portrait-grid">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;padding:32px 4px 8px 4px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:18px;">{{ $eyebrow }}</div>
+          <h1 class="hero-title-xl">
+            {{ $title }}
+          </h1>
+          {{ with .Params.tagline }}
+          <div style="margin-top:24px;font-family:var(--font-serif);font-style:italic;font-size:22px;color:var(--ink-soft);max-width:520px;line-height:1.35;">"{{ . }}"</div>
+          {{ end }}
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {{ range first 3 (where .Site.RegularPages "Section" "work") }}
-            <a href="{{ .RelPermalink }}"
-                class="group block bg-neutral-900 border border-white/5 rounded-xl overflow-hidden hover:border-gold-500/30 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-
-                <!-- Cover Top (Standardized 16/10) -->
-                <div class="aspect-[16/10] relative overflow-hidden bg-neutral-950 border-b border-white/5">
-                    {{ $finalSrc := "" }}
-                    {{ $cover := .Params.cover }}
-
-                    {{ if $cover }}
-                    {{ if strings.HasPrefix $cover "http" }}
-                    {{ $finalSrc = $cover }}
-                    {{ else }}
-                    {{ with .Resources.GetMatch $cover }}
-                    {{ $finalSrc = .RelPermalink }}
-                    {{ else }}
-                    {{/* Fallback: Append filename to page permalink */}}
-                    {{ $finalSrc = printf "%s%s" .RelPermalink $cover }}
-                    {{ end }}
-                    {{ end }}
-                    {{ end }}
-
-                    {{ if not $finalSrc }}
-                    {{ with .Params.images }}
-                    {{ $finalSrc = index . 0 }}
-                    {{ end }}
-                    {{ end }}
-
-                    {{ if $finalSrc }}
-                    {{ $finalSrc = partial "optimized-image" (dict "src" $finalSrc "optimized" .Params.optimized) }}
-                    <img src="{{ $finalSrc }}" alt="{{ .Title }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100 group-hover:contrast-110">
-                    {{ else }}
-                    <div
-                        class="w-full h-full flex flex-col items-center justify-center text-gray-700 bg-neutral-900 pattern-grid-sm">
-                        <div class="w-8 h-8 border-2 border-dashed border-gray-600 rounded-full animate-spin"></div>
-                    </div>
-                    {{ end }}
-
-                    <!-- Badges (Top Right) -->
-                    <div class="absolute flex flex-col items-end gap-2 z-50" style="top: 12px; right: 12px;">
-                        <!-- Tier Badge -->
-                        {{ with .Params.tier }}
-                        <span
-                            class="text-[9px] font-mono font-black uppercase bg-black/80 text-gold-500 px-2 py-1 rounded border border-gold-500/30 backdrop-blur-md shadow-lg">
-                            {{ T (printf "tier_%s" (replace . " " "_" | lower)) | default . }}
-                        </span>
-                        {{ end }}
-
-                        <!-- Asset Count Badge -->
-                        {{ $assetCount := 0 }}
-                        {{ if .Params.images }}
-                        {{ $assetCount = len .Params.images }}
-                        {{ else }}
-                        {{ $assetCount = len (findRE "<img|lightbox" .Content) }} {{ end }} {{ if gt $assetCount 0 }}
-                            <span
-                            class="text-[9px] font-mono font-bold uppercase bg-neutral-900/80 text-cyan-400 px-2 py-1 rounded border border-cyan-500/30 backdrop-blur-md shadow-lg flex items-center gap-1.5">
-                            <!-- Photo Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <polyline points="21 15 16 10 5 21"></polyline>
-                            </svg>
-                            {{ $assetCount }}
-                            </span>
-                            {{ end }}
-                    </div>
-                </div>
-
-                <!-- Content Bottom -->
-                <div class="p-6 flex flex-col h-auto bg-neutral-900">
-                    <!-- Header Meta -->
-                    <div class="flex justify-between items-center mb-3">
-                        <!-- Tag -->
-                        {{ with .Params.tags }}
-                        <span class="text-[10px] font-mono font-bold uppercase text-cyan-500 tracking-widest">
-                            {{ index . 0 }}
-                        </span>
-                        {{ end }}
-                        <!-- Date -->
-                        <span class="text-[10px] font-mono text-gray-600 uppercase">{{ .Date.Format "2006.01.02"
-                            }}</span>
-                    </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-xl font-bold font-serif text-white mb-3 leading-tight group-hover:text-gold-400 transition-colors line-clamp-1">
-                        {{ .Title }}
-                    </h2>
-
-                    <!-- Summary -->
-                    <p class="text-xs text-gray-400 font-sans line-clamp-3 leading-relaxed mb-4">
-                        {{ .Params.summary | default .Params.description | default .Summary | truncate 150 }}
-                    </p>
-
-                    <!-- Footer Action -->
-                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="text-[10px] font-mono text-gray-500 group-hover:text-white transition-colors">{{ T
-                            "access_log" }}
-                            -></span>
-                        <div class="flex gap-1">
-                            <div
-                                class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-gold-500 transition-colors delay-75">
-                            </div>
-                            <div
-                                class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-cyan-500 transition-colors delay-100">
-                            </div>
-                            <div
-                                class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-fuchsia-500 transition-colors delay-150">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            {{ end }}
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div style="font-size:12px;letter-spacing:0.06em;color:var(--ink-soft);">{{ $faction }}{{ with .Params.scale }} · {{ . }}{{ end }}</div>
+          <a href="{{ .RelPermalink }}" class="btn btn-outline">{{ T "read_dossier" | default "Read the dossier →" }}</a>
         </div>
+      </div>
+      <div class="photo" style="aspect-ratio:3/4;">
+        {{ if $cover }}<img src="{{ $cover }}" alt="{{ $title }}" loading="eager">{{ end }}
+      </div>
     </div>
-</div>
+  </section>
+
+  {{ else }}
+  <section class="home-hero-landscape">
+    <div style="position:relative;">
+      <div class="photo" style="aspect-ratio:16/9;">
+        {{ if $cover }}<img src="{{ $cover }}" alt="{{ $title }}" loading="eager">{{ end }}
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 50%);"></div>
+      </div>
+      <div style="position:absolute;left:32px;bottom:28px;right:32px;color:#f6f3ea;display:flex;justify-content:space-between;align-items:flex-end;">
+        <div>
+          <div style="font-size:11px;letter-spacing:0.22em;opacity:0.78;margin-bottom:14px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ $eyebrow }}</div>
+          <h1 style="font-family:var(--font-serif);font-style:italic;font-size:96px;line-height:0.92;letter-spacing:-0.02em;text-shadow:0 2px 12px rgba(0,0,0,0.4);">{{ $title }}</h1>
+          <div style="font-size:12px;margin-top:14px;letter-spacing:0.06em;opacity:0.85;text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ $faction }}{{ with .Params.scale }} · {{ . }}{{ end }}</div>
+        </div>
+        <a href="{{ .RelPermalink }}" class="btn btn-ghost">{{ T "read_dossier" | default "Read the dossier →" }}</a>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+{{ end }}
+
+{{/* Identity statement */}}
+<section style="padding:36px var(--page-pad) 28px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);">
+  <div class="sans" style="font-size:44px;font-weight:500;line-height:1.05;letter-spacing:-0.025em;text-wrap:balance;max-width:1000px;">
+    V., a studio for hand-painted miniatures —
+    <span style="color:var(--ink-soft);"> Warhammer, Kill Team, JoyToy figures, the occasional commission no one else will take.</span>
+  </div>
+</section>
+
+{{/* Recent · 6 */}}
+<section style="padding:32px var(--page-pad) 20px;">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
+    <span style="color:var(--ink);">// Recent · {{ len (where .Site.RegularPages "Section" "work") }} pieces</span>
+    <a href="{{ relLangURL "work" }}" style="color:var(--ink-soft);">{{ T "see_archive" | default "See the whole archive →" }}</a>
+  </div>
+  <div class="recent-grid">
+    {{ range first 6 (where .Site.RegularPages "Section" "work") }}
+    <a href="{{ .RelPermalink }}">
+      <div class="recent-thumb">
+        {{ with .Params.cover }}<img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
+      </div>
+      <div class="recent-meta">
+        <span>{{ .Date.Format "Jan 2006" }}</span>
+        <span>{{ index .Params.tags 0 | upper }}</span>
+      </div>
+      <div class="recent-title">{{ .Title }}</div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+{{/* Commission strip */}}
+<section style="margin:40px var(--page-pad) 0;">
+  <div class="commission-strip">
+    <div>
+      <div class="eyebrow" style="opacity:0.55;">COMMISSIONS · {{ now.Format "2006" }}</div>
+      <div style="font-family:var(--font-serif);font-size:36px;line-height:1.1;margin-top:8px;">
+        Two display slots open. <a href="{{ relLangURL "contact" }}" style="color:var(--yellow);font-style:italic;">WeChat me.</a>
+      </div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-label">Tabletop</div>
+      <div class="tier-price sans">from ¥120 / model</div>
+      <div class="tier-sub">Edge highlights, simple base</div>
+    </div>
+    <div class="tier-card highlighted">
+      <div class="tier-label">Display</div>
+      <div class="tier-price sans">from ¥600 / model</div>
+      <div class="tier-sub">Layered, freehand, custom base</div>
+    </div>
+  </div>
+</section>
+
 {{ end }}

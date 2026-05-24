@@ -1,0 +1,235 @@
+{{ define "main" }}
+
+{{/* ── helpers ─── */}}
+{{ $cover   := .Params.cover }}
+{{ $title   := .Title }}
+{{ $faction := .Params.faction | default (index .Params.tags 0) }}
+{{ $scale   := .Params.scale | default "28mm" }}
+{{ $tier    := .Params.tier }}
+{{ $hrs     := .Params.hours | default .Params.time_log }}
+{{ $fileNo  := .Params.file_no | default "—" }}
+{{ $tagline := .Params.tagline | default .Params.summary }}
+{{ $paints  := .Params.paints }}
+{{ $captions := .Params.captions }}
+
+{{/* Build photo list from R2 — derive base URL from cover */}}
+{{ $baseURL  := "" }}
+{{ $baseName := "" }}
+{{ if $cover }}
+  {{ $parts := split $cover "_" }}
+  {{/* cover is like https://…/viiyd20260523silent-king_01.webp
+       strip the _01.webp suffix to get the base */}}
+  {{ $noExt := strings.TrimSuffix ".webp" $cover }}
+  {{ $baseURL  = strings.TrimSuffix "_01" $noExt }}
+{{ end }}
+
+{{/* ── 01 · Cinematic hero ─────────────────── */}}
+<div class="dossier-hero">
+  {{ if $cover }}
+  <img class="dossier-hero-bg" src="{{ $cover }}" alt="{{ $title }}" loading="eager">
+  {{ end }}
+  <div class="dossier-hero-vignette"></div>
+
+  <div class="dossier-hero-content">
+    {{/* Top meta row */}}
+    <div style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.78;">
+      <div style="display:flex;gap:10px;align-items:center;">
+        {{ partial "badge.html" (dict "size" 22) }}
+        <span>VIIYD STUDIO · SPECIMEN DOSSIER</span>
+      </div>
+      <span>FILE № VY-{{ $fileNo }}</span>
+      <span>{{ .Date.Format "02 · JAN · 2006" | upper }}</span>
+    </div>
+
+    {{/* Big editorial title */}}
+    <div style="margin-top:auto;max-width:1000px;">
+      <div style="font-size:11px;letter-spacing:0.24em;opacity:0.7;margin-bottom:24px;text-transform:uppercase;">
+        SPECIMEN · {{ $faction | upper }} · {{ $scale }} · {{ $tier | upper }} TIER
+      </div>
+      <h1 class="dossier-title">{{ $title }}</h1>
+      {{ with $tagline }}
+      <div style="margin-top:22px;font-family:var(--font-serif);font-style:italic;font-size:22px;opacity:0.82;max-width:680px;line-height:1.35;">
+        "{{ . }}"
+      </div>
+      {{ end }}
+
+      <div style="margin-top:56px;display:flex;gap:32px;font-size:11px;letter-spacing:0.14em;opacity:0.85;text-transform:uppercase;flex-wrap:wrap;">
+        {{ with $hrs }}<span>Painted in <strong style="color:var(--yellow);font-weight:500;">{{ . }}</strong></span>{{ end }}
+        {{ with .Params.piece_count }}<span>· {{ . }}</span>{{ end }}
+        <span>· 1 of 1, never to be repeated</span>
+      </div>
+    </div>
+
+    <div style="position:absolute;right:var(--dossier-pad);bottom:24px;font-size:10px;letter-spacing:0.22em;opacity:0.5;text-transform:uppercase;">↓ scroll the dossier</div>
+  </div>
+</div>
+
+{{/* ── 02 · Specimen card ─────────────────── */}}
+<div style="padding:72px var(--dossier-pad) 24px;">
+  <div class="section-label">
+    <span>// SPECIMEN CARD</span>
+    <span>EDITION 1 / 1</span>
+  </div>
+  <div class="specimen-card" style="margin-top:18px;">
+    {{/* Photo — use _04 if exists, else cover */}}
+    <div class="photo" style="aspect-ratio:4/5;">
+      {{ if $baseURL }}
+      <img src="{{ $baseURL }}_04.webp" alt="{{ $title }} detail" loading="lazy" onerror="this.src='{{ $cover }}'">
+      {{ else if $cover }}
+      <img src="{{ $cover }}" alt="{{ $title }}" loading="lazy">
+      {{ end }}
+    </div>
+    <div class="specimen-info">
+      <div style="font-family:var(--font-serif);font-size:36px;line-height:1;letter-spacing:-0.01em;">{{ .Params.subject | default $title }}</div>
+      {{ with .Params.description }}
+      <div style="font-size:12px;color:var(--ink-soft);line-height:1.7;">{{ . }}</div>
+      {{ end }}
+      <div class="specimen-stats">
+        <div><div class="stat-label">SCALE</div><div class="stat-value">{{ $scale }} · heroic</div></div>
+        <div><div class="stat-label">KIT</div><div class="stat-value">{{ .Params.kit | default "GW" }}</div></div>
+        <div><div class="stat-label">BASE</div><div class="stat-value">{{ .Params.base | default "—" }}</div></div>
+        <div><div class="stat-label">VARNISH</div><div class="stat-value">{{ .Params.varnish | default "Satin" }}</div></div>
+        <div><div class="stat-label">TIME ON DESK</div><div class="stat-value">{{ $hrs | default "—" }}</div></div>
+        <div><div class="stat-label">STARTED</div><div class="stat-value">{{ with .Params.started }}{{ . }}{{ end }}</div></div>
+        <div><div class="stat-label">FINISHED</div><div class="stat-value">{{ .Date.Format "02 · Jan · 2006" }}</div></div>
+        <div><div class="stat-label">PHOTOS</div><div class="stat-value">{{ .Params.model_count | default "—" }} · archive on R2</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/* ── 03 · Painter's notes ─────────────────── */}}
+{{ with .Params.painters_note }}
+<div style="padding:40px var(--dossier-pad) 16px;">
+  <div class="section-label"><span>// PAINTER'S NOTES</span><span>A LETTER FROM THE STUDIO</span></div>
+  <div class="painters-notes" style="margin-top:18px;">
+    <div class="pull-quote">
+      "{{ .quote }}"
+      <div class="pull-quote-attr">— V., studio</div>
+    </div>
+    <div class="notes-body">{{ .body | markdownify }}</div>
+  </div>
+</div>
+{{ end }}
+
+{{/* ── 04 · Plates gallery ─────────────────── */}}
+<div style="padding:48px var(--dossier-pad) 16px;">
+  <div class="section-label"><span>// PLATES</span><span>CLICK TO ENLARGE</span></div>
+
+  {{ if $baseURL }}
+  {{/* Structured plates layout from R2 images */}}
+  <div class="plates-grid" style="margin-top:18px;">
+    {{ $photos := slice
+      (dict "src" (printf "%s_01.webp" $baseURL) "aspect" "3/4"  "n" "I"    "span" 8  "cap" (index $captions 0  | default "front"))
+      (dict "src" (printf "%s_04.webp" $baseURL) "aspect" "3/4"  "n" "II"   "span" 4  "cap" (index $captions 3  | default "3/4 angle"))
+      (dict "src" (printf "%s_02.webp" $baseURL) "aspect" "1/1"  "n" "III"  "span" 4  "cap" (index $captions 1  | default "left profile"))
+      (dict "src" (printf "%s_03.webp" $baseURL) "aspect" "1/1"  "n" "IV"   "span" 4  "cap" (index $captions 2  | default "right profile"))
+      (dict "src" (printf "%s_05.webp" $baseURL) "aspect" "1/1"  "n" "V"    "span" 4  "cap" (index $captions 4  | default "rear"))
+      (dict "src" (printf "%s_06.webp" $baseURL) "aspect" "21/9" "n" "VI"   "span" 12 "cap" (index $captions 5  | default "detail"))
+      (dict "src" (printf "%s_07.webp" $baseURL) "aspect" "1/1"  "n" "VII"  "span" 3  "cap" (index $captions 6  | default "close up"))
+      (dict "src" (printf "%s_09.webp" $baseURL) "aspect" "1/1"  "n" "VIII" "span" 3  "cap" (index $captions 8  | default "detail"))
+      (dict "src" (printf "%s_08.webp" $baseURL) "aspect" "1/1"  "n" "IX"   "span" 3  "cap" (index $captions 7  | default "detail"))
+      (dict "src" (printf "%s_12.webp" $baseURL) "aspect" "1/1"  "n" "X"    "span" 3  "cap" (index $captions 11 | default "study"))
+      (dict "src" (printf "%s_10.webp" $baseURL) "aspect" "3/2"  "n" "XI"   "span" 6  "cap" (index $captions 9  | default "detail"))
+      (dict "src" (printf "%s_11.webp" $baseURL) "aspect" "3/2"  "n" "XII"  "span" 6  "cap" (index $captions 10 | default "detail"))
+      (dict "src" (printf "%s_13.webp" $baseURL) "aspect" "21/9" "n" "XIII" "span" 12 "cap" (index $captions 12 | default "base"))
+    }}
+    {{ range $photos }}
+    <div class="plate lightbox-trigger" style="grid-column:span {{ .span }};aspect-ratio:{{ .aspect }};" data-src="{{ .src }}">
+      <img src="{{ .src }}" alt="{{ $.Title }} — {{ .cap }}" loading="lazy">
+      <div class="plate-n">plate {{ .n }}</div>
+      <div class="plate-caption">{{ .cap }}</div>
+    </div>
+    {{ end }}
+  </div>
+
+  {{ else }}
+  {{/* Fallback: render existing shortcode content */}}
+  <div style="margin-top:18px;">{{ .Content }}</div>
+  {{ end }}
+</div>
+
+{{/* ── 05 · Paint manifest ─────────────────── */}}
+{{ with $paints }}
+<div style="padding:40px var(--dossier-pad) 8px;">
+  <div class="section-label"><span>// WHAT'S IN THE PAINT</span><span>{{ len . }} PIGMENTS · CITADEL</span></div>
+  <div class="paint-grid" style="margin-top:18px;grid-template-columns:repeat({{ len . }},1fr);">
+    {{ range . }}
+    <div class="paint-swatch">
+      <a href="{{ .link }}" target="_blank" rel="noopener">
+        <div class="color" style="background:{{ .hex }};"></div>
+      </a>
+      <div class="name">{{ .name }}</div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{/* ── 06 · Wax seal + certificate ─────────────────── */}}
+<div style="padding:72px var(--dossier-pad) 56px;">
+  <div class="certificate">
+    <div style="display:flex;justify-content:center;align-items:center;">
+      {{ partial "seal.html" (dict "size" 220) }}
+    </div>
+    <div>
+      <div class="eyebrow" style="opacity:0.55;">CERTIFICATE OF COMPLETION</div>
+      <div style="font-family:var(--font-serif);font-size:44px;line-height:1.05;margin-top:12px;letter-spacing:-0.01em;">
+        Painted by hand at <em style="color:var(--yellow);">VIIYD Studio</em>,<br>Shanghai · {{ .Date.Format "January, 2006" }}.
+      </div>
+      <div style="margin-top:22px;font-size:13px;opacity:0.75;line-height:1.7;max-width:520px;">
+        This dossier is yours to keep. The piece is 1 of 1 — the technique log,
+        photographs, and notes above are the only record. The studio doesn't repaint the same character for another client.
+      </div>
+      <div style="margin-top:24px;display:flex;gap:12px;align-items:center;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.85;flex-wrap:wrap;">
+        <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='copied ✓';setTimeout(()=>this.textContent='↗ Share this dossier',2000)})" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;border-bottom:1px solid currentColor;padding-bottom:2px;">↗ Share this dossier</button>
+        <span>· <button onclick="window.print()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;">save as PDF</button></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/* ── 07 · Loop-back ─────────────────── */}}
+<div style="padding:0 var(--dossier-pad) 56px;">
+  <div class="loop-back">
+    <div>
+      <div class="eyebrow">FROM THE STUDIO</div>
+      <div style="font-family:var(--font-serif);font-size:40px;line-height:1.05;margin-top:8px;letter-spacing:-0.01em;">
+        If you have a piece that deserves this, I'd love to paint it next.
+      </div>
+      <div style="margin-top:16px;font-size:13px;color:var(--ink-soft);line-height:1.7;max-width:560px;">
+        Two display slots open each quarter. Reach me however we already talk — WeChat, 小红书, IG — or use the form on viiyd.com. A reference picture and a deadline is enough to start.
+      </div>
+    </div>
+    <div class="loop-back-actions">
+      <a href="{{ relLangURL "contact" }}" class="btn btn-yellow" style="text-align:center;">[ Commission a piece → ]</a>
+      <a href="{{ relLangURL "work" }}" class="btn btn-outline" style="text-align:center;">← Back to the archive</a>
+    </div>
+  </div>
+</div>
+
+{{/* ── Footer override (dossier-specific) */}}
+<footer style="padding:14px var(--dossier-pad);border-top:1px solid var(--line-soft);font-size:10px;letter-spacing:0.16em;color:var(--ink-soft);display:flex;justify-content:space-between;text-transform:uppercase;">
+  <span>Private dossier · {{ if $fileNo }}#VY-{{ $fileNo }} · {{ end }}{{ $title | lower }}</span>
+  <span>viiyd.com</span>
+</footer>
+
+{{ end }}
+
+{{ define "scripts" }}
+{{ $js := resources.Get "js/lightbox.js" }}
+{{ if $js }}
+  {{ if hugo.IsProduction }}{{ $js = $js | minify | fingerprint }}{{ end }}
+  <script src="{{ $js.RelPermalink }}"></script>
+{{ end }}
+<style>
+  /* Dossier print styles */
+  @media print {
+    .dossier-hero { min-height: 400px !important; }
+    .dossier-title { font-size: 72px !important; }
+    .loop-back, footer:last-of-type { display: none; }
+    .plates-grid { grid-template-columns: repeat(4, 1fr) !important; }
+    .plate { grid-column: span 1 !important; }
+  }
+</style>
+{{ end }}

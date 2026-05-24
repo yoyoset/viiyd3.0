@@ -1,0 +1,16 @@
+{{- $size := .size | default 40 -}}
+<svg class="badge-svg" width="{{ $size }}" height="{{ $size }}" viewBox="0 0 64 64" aria-label="VIIYD" style="display:block;flex-shrink:0;">
+  <defs>
+    <radialGradient id="vb-grad-{{ $size }}" cx="35%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#ffe27a" />
+      <stop offset="60%" stop-color="#f5c64a" />
+      <stop offset="100%" stop-color="#c89518" />
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#vb-grad-{{ $size }})" />
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#1a1410" stroke-width="1.2" opacity="0.55" />
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#1a1410" stroke-width="0.6" opacity="0.45" />
+  <path d="M18 20 L32 48 L46 20" fill="none" stroke="#1a1410" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="14" cy="32" r="0.9" fill="#1a1410" opacity="0.6" />
+  <circle cx="50" cy="32" r="0.9" fill="#1a1410" opacity="0.6" />
+</svg>

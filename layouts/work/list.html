@@ -1,0 +1,175 @@
+{{ define "main" }}
+
+{{/* ── Top strip ─── */}}
+<div class="top-strip">
+  <span>VIIYD STUDIO · ARCHIVE · v3.0</span>
+  <span>SHANGHAI 31.230° N · 121.474° E</span>
+  <span>
+    {{ range .AllTranslations }}
+      <a href="{{ .RelPermalink }}" onclick="localStorage.setItem('viiyd_lang_pref','{{ .Lang }}')" style="{{ if eq .Lang $.Lang }}color:var(--bg);{{ end }}">{{ .Language.Params.isoCode | default (.Lang | upper) }}</a>{{ if ne .Lang (index (last 1 $.AllTranslations) 0).Lang }} / {{ end }}
+    {{ end }}
+  </span>
+</div>
+
+{{/* ── Masthead ─── */}}
+<div class="archive-masthead">
+  {{ partial "badge.html" (dict "size" 64) }}
+  <div style="flex:1;">
+    <a href="{{ relLangURL "" }}"><div class="archive-wordmark">VIIYD</div></a>
+    <div class="eyebrow" style="margin-top:6px;">A studio for hand-painted miniatures · Est. 2024</div>
+  </div>
+  <div style="text-align:right;font-size:11px;color:var(--ink-soft);letter-spacing:0.08em;">
+    <div>&gt; {{ len .Pages }} pieces archived</div>
+    <div>&gt; 02 client slots / Q{{ div (now.Month | int | add 2) 3 }}</div>
+  </div>
+</div>
+
+{{/* ── Nav ─── */}}
+<nav style="padding:14px var(--page-pad);border-bottom:1px solid var(--line-soft);display:flex;gap:28px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;">
+  <span style="background:var(--ink);color:var(--bg);padding:4px 10px;">Archive</span>
+  <a href="{{ relLangURL "contact" }}" style="color:var(--ink-soft);">Commissions</a>
+  <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">Studio</a>
+  <a href="{{ relLangURL "contact" }}" style="color:var(--ink-soft);">Contact</a>
+  <a href="{{ relLangURL "" }}" style="margin-left:auto;color:var(--ink-soft);">← Home</a>
+</nav>
+
+{{/* ── Headline + filters ─── */}}
+<section style="padding:40px var(--page-pad) 20px;">
+  <div class="sans" style="font-size:56px;line-height:1;font-weight:500;letter-spacing:-0.025em;max-width:900px;text-wrap:balance;">
+    Every miniature painted by the studio, listed and indexed.
+    <span style="color:var(--ink-soft);"> Filter by faction, scale, or year.</span>
+  </div>
+
+  {{/* Build faction list from all pages */}}
+  {{ $factions := slice }}
+  {{ range .Pages }}
+    {{ $f := .Params.faction | default (index .Params.tags 0) | default "" }}
+    {{ if $f }}{{ $factions = $factions | append $f }}{{ end }}
+  {{ end }}
+  {{ $factions = $factions | uniq | sort }}
+
+  <div class="filter-chips" style="margin-top:36px;" id="filter-chips">
+    <button class="filter-chip active" data-faction="all" onclick="filterArchive('all',this)">
+      ALL <span class="count">{{ len .Pages }}</span>
+    </button>
+    {{ range $factions }}
+    <button class="filter-chip" data-faction="{{ . | urlize }}" onclick="filterArchive('{{ . | urlize }}',this)">
+      {{ . | upper }} <span class="count"></span>
+    </button>
+    {{ end }}
+  </div>
+</section>
+
+{{/* ── Archive table ─── */}}
+<section style="padding:8px var(--page-pad) 24px;">
+  <div class="archive-head">
+    <span>№</span>
+    <span>Subject</span>
+    <span>Faction / Series</span>
+    <span>Scale</span>
+    <span>Tier</span>
+    <span>Hours</span>
+    <span>Delivered</span>
+    <span></span>
+  </div>
+
+  {{ $pages := .Pages }}
+  {{ range $i, $p := $pages }}
+  {{ $faction := $p.Params.faction | default (index $p.Params.tags 0) | default "—" }}
+  {{ $num := printf "%03d" (sub (len $pages) $i) }}
+  <a href="{{ $p.RelPermalink }}" class="archive-row{{ if eq $i 0 }} active{{ end }}" data-faction="{{ $faction | urlize }}">
+    <span class="num">{{ $num }}</span>
+    <span class="subj">
+      <span class="thumb">
+        {{ with $p.Params.cover }}<img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
+      </span>
+      {{ $p.Title }}
+    </span>
+    <span class="fac">{{ $faction }}</span>
+    <span class="scale">{{ $p.Params.scale | default "28mm" }}</span>
+    <span>
+      {{ $tier := $p.Params.tier | default "" }}
+      {{ $tierClass := $tier | lower | replaceRE "[^a-z]" "-" }}
+      <span class="tier-pill {{ $tierClass }}">{{ $tier }}</span>
+    </span>
+    <span class="hrs" style="color:var(--ink-soft);">{{ $p.Params.hours | default $p.Params.time_log | default "—" }}</span>
+    <span class="date">{{ $p.Date.Format "02·Jan·06" | upper }}</span>
+    <span class="arrow">→</span>
+  </a>
+  {{ end }}
+</section>
+
+{{/* ── Featured · this season ─── */}}
+<section style="padding:40px var(--page-pad) 32px;border-top:1px solid var(--line);">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;">
+    <div class="sans" style="font-size:28px;font-weight:600;letter-spacing:-0.02em;">// Featured · this season</div>
+    <span style="font-size:11px;color:var(--ink-soft);letter-spacing:0.12em;">SCROLL →</span>
+  </div>
+  <div class="featured-grid">
+    {{ range first 4 .Pages }}
+    {{ $faction := .Params.faction | default (index .Params.tags 0) | default "" }}
+    <a href="{{ .RelPermalink }}">
+      <div class="feature-thumb">
+        {{ with .Params.cover }}<img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11px;letter-spacing:0.05em;color:var(--ink-soft);">
+        <span>{{ .Date.Format "Jan 2006" }}</span>
+        <span>{{ $faction | upper }}</span>
+      </div>
+      <div class="sans" style="font-weight:500;font-size:16px;margin-top:4px;letter-spacing:-0.01em;">{{ .Title }}</div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+{{/* ── Commission strip ─── */}}
+<section style="margin:24px var(--page-pad) 28px;">
+  <div style="padding:28px;background:var(--ink);color:var(--bg);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:28px;">
+    <div style="grid-column:span 2;">
+      <div class="eyebrow" style="opacity:0.55;">COMMISSION_REQUEST</div>
+      <div class="sans" style="font-size:36px;font-weight:500;letter-spacing:-0.02em;margin-top:10px;line-height:1.05;">Want me to paint something?</div>
+      <div style="font-size:12px;opacity:0.65;margin-top:14px;line-height:1.6;">
+        Send your piece list, a reference image, and a deadline.<br>
+        I'll reply within 48h with a quote and a queue slot.
+      </div>
+    </div>
+    <div style="padding:18px;border:1px solid rgba(255,255,255,0.2);">
+      <div class="eyebrow" style="opacity:0.7;">Tabletop</div>
+      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">¥120 / model</div>
+      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">Tournament-ready, base + edge highlight</div>
+    </div>
+    <div style="padding:18px;background:var(--yellow);color:var(--ink);">
+      <div class="eyebrow" style="opacity:0.7;">Display</div>
+      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">from ¥600 / model</div>
+      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">Layered, freehand, custom base</div>
+    </div>
+  </div>
+</section>
+
+{{/* ── Filter JS ─── */}}
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+function filterArchive(faction, btn) {
+  // update chips
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  // filter rows
+  document.querySelectorAll('.archive-row').forEach(row => {
+    row.style.display = (faction === 'all' || row.dataset.faction === faction) ? '' : 'none';
+  });
+  // update URL hash
+  history.replaceState(null, '', faction === 'all' ? window.location.pathname : '#faction=' + faction);
+}
+// restore from hash
+(function(){
+  var h = window.location.hash;
+  if (h.startsWith('#faction=')) {
+    var f = h.replace('#faction=','');
+    var btn = document.querySelector('[data-faction="'+f+'"]');
+    if (btn) filterArchive(f, btn);
+  }
+})();
+</script>
+{{ end }}

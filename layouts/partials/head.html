@@ -1,81 +1,39 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
-    <!-- Language Persistence Script -->
-    <script>
-        (function () {
-            const pref = localStorage.getItem('viiyd_lang_pref');
-            const path = window.location.pathname;
+  <!-- Language redirect -->
+  <script>
+    (function(){
+      var p=localStorage.getItem('viiyd_lang_pref'),pa=window.location.pathname;
+      if(pa==='/'&&p==='zh'){window.location.replace('/zh/');}
+      else if(pa==='/zh/'&&p==='en'){window.location.replace('/');}
+    })();
+  </script>
 
-            // Only redirect on homepage roots to avoid interfering with deep links
-            if (path === '/' && pref === 'zh') {
-                window.location.replace('/zh/');
-            } else if (path === '/zh/' && pref === 'en') {
-                window.location.replace('/');
-            }
-        })();
-    </script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
+  {{ $style := resources.Get "css/main.css" }}
+  {{ $style = $style | css.PostCSS }}
+  {{ if hugo.IsProduction }}{{ $style = $style | minify | fingerprint }}{{ end }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+  <!-- SEO -->
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.description | default .Summary | default .Site.Params.description }}{{ end }}">
+  <link rel="canonical" href="{{ .Permalink }}">
 
-    <!-- CSS -->
-    {{ $style := resources.Get "css/main.css" }}
-    {{ $style = $style | css.PostCSS }}
-    {{ if hugo.IsProduction }}
-    {{ $style = $style | minify | fingerprint }}
-    {{ end }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
-    <link rel="canonical" href="{{ .Permalink }}">
-
-    <!-- Open Graph -->
-    <meta property="og:title"
-        content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-    <meta property="og:description"
-        content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
-    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
-    <meta property="og:url" content="{{ .Permalink }}">
-    {{ if .Params.cover }}
-    <meta property="og:image" content="{{ .Params.cover | absURL }}">
-    {{ else if .Params.featured_image }}
-    <meta property="og:image" content="{{ .Params.featured_image | absURL }}">
-    {{ end }}
-    <meta property="og:site_name" content="{{ .Site.Title }}">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-    <meta name="twitter:description"
-        content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
-    {{ if .Params.cover }}
-    <meta name="twitter:image" content="{{ .Params.cover | absURL }}">
-    {{ end }}
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "VIIYD Miniature Painting Studio",
-      "description": "Professional Warhammer and miniature painting commission service",
-      "url": "https://viiyd.com",
-      "email": "maylyy8@gmail.com",
-      "sameAs": [
-        "https://www.instagram.com/viiyang.yingying/"
-      ],
-      "image": "{{ absURL "/img/card_studio_illustrative_v2.png" }}",
-      "priceRange": "$$$"
-    }
-    </script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.description | default .Summary | default .Site.Params.description }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{ if .Params.cover }}<meta property="og:image" content="{{ .Params.cover }}">{{ end }}
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {{ if .Params.cover }}<meta name="twitter:image" content="{{ .Params.cover }}">{{ end }}
 </head>
