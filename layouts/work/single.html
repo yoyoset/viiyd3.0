@@ -126,19 +126,18 @@
   {{ if $baseURL }}
   <div class="plates-grid" style="margin-top:18px;">
     {{ $photos := slice
-      (dict "src" (printf "%s_01.webp" $baseURL) "aspect" "3/4"  "n" "I"    "span" 8  "cap" (index $captions 0  | default "front"))
-      (dict "src" (printf "%s_04.webp" $baseURL) "aspect" "3/4"  "n" "II"   "span" 4  "cap" (index $captions 3  | default "3/4 angle"))
+      (dict "src" (printf "%s_01.webp" $baseURL) "aspect" "4/5"  "n" "I"    "span" 8  "cap" (index $captions 0  | default "front throne"))
+      (dict "src" (printf "%s_04.webp" $baseURL) "aspect" "4/5"  "n" "II"   "span" 4  "cap" (index $captions 3  | default "3/4 angle"))
       (dict "src" (printf "%s_02.webp" $baseURL) "aspect" "1/1"  "n" "III"  "span" 4  "cap" (index $captions 1  | default "left profile"))
       (dict "src" (printf "%s_03.webp" $baseURL) "aspect" "1/1"  "n" "IV"   "span" 4  "cap" (index $captions 2  | default "right profile"))
       (dict "src" (printf "%s_05.webp" $baseURL) "aspect" "1/1"  "n" "V"    "span" 4  "cap" (index $captions 4  | default "rear"))
-      (dict "src" (printf "%s_06.webp" $baseURL) "aspect" "21/9" "n" "VI"   "span" 12 "cap" (index $captions 5  | default "detail"))
-      (dict "src" (printf "%s_07.webp" $baseURL) "aspect" "1/1"  "n" "VII"  "span" 3  "cap" (index $captions 6  | default "close up"))
-      (dict "src" (printf "%s_09.webp" $baseURL) "aspect" "1/1"  "n" "VIII" "span" 3  "cap" (index $captions 8  | default "detail"))
-      (dict "src" (printf "%s_08.webp" $baseURL) "aspect" "1/1"  "n" "IX"   "span" 3  "cap" (index $captions 7  | default "detail"))
-      (dict "src" (printf "%s_12.webp" $baseURL) "aspect" "1/1"  "n" "X"    "span" 3  "cap" (index $captions 11 | default "study"))
-      (dict "src" (printf "%s_10.webp" $baseURL) "aspect" "3/2"  "n" "XI"   "span" 6  "cap" (index $captions 9  | default "detail"))
-      (dict "src" (printf "%s_11.webp" $baseURL) "aspect" "3/2"  "n" "XII"  "span" 6  "cap" (index $captions 10 | default "detail"))
-      (dict "src" (printf "%s_13.webp" $baseURL) "aspect" "21/9" "n" "XIII" "span" 12 "cap" (index $captions 12 | default "base"))
+      (dict "src" (printf "%s_06.webp" $baseURL) "aspect" "3/4"  "n" "VI"   "span" 4  "cap" (index $captions 5  | default "gauss throne"))
+      (dict "src" (printf "%s_07.webp" $baseURL) "aspect" "3/4"  "n" "VII"  "span" 4  "cap" (index $captions 6  | default "gold armour"))
+      (dict "src" (printf "%s_09.webp" $baseURL) "aspect" "3/4"  "n" "VIII" "span" 4  "cap" (index $captions 7  | default "crescent scythe"))
+      (dict "src" (printf "%s_08.webp" $baseURL) "aspect" "4/5"  "n" "IX"   "span" 6  "cap" (index $captions 8  | default "bodyguard constructs"))
+      (dict "src" (printf "%s_12.webp" $baseURL) "aspect" "4/5"  "n" "X"    "span" 6  "cap" (index $captions 9  | default "OSL bleed study"))
+      (dict "src" (printf "%s_10.webp" $baseURL) "aspect" "4/3"  "n" "XI"   "span" 6  "cap" (index $captions 10 | default "menhir obelisks"))
+      (dict "src" (printf "%s_13.webp" $baseURL) "aspect" "4/3"  "n" "XII"  "span" 6  "cap" (index $captions 11 | default "base · ashen ground"))
     }}
     {{ range $photos }}
     <div class="plate lightbox-trigger" style="grid-column:span {{ .span }};aspect-ratio:{{ .aspect }};" data-src="{{ .src }}">
