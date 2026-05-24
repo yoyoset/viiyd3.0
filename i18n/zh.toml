@@ -419,3 +419,99 @@ other = "联系我"
 
 [reach_me_body]
 other = "发一张参考图和截止时间，48 小时内回复报价。"
+
+
+# ── 档案页字符串 ─────────────────────────────────────────────
+
+[dossier_specimen_label]
+other = "// 标本档案"
+
+[dossier_specimen_edition]
+other = "版本 1 / 1"
+
+[dossier_notes_label]
+other = "// 涂师手记"
+
+[dossier_notes_sub]
+other = "来自工作室"
+
+[dossier_plates_label]
+other = "// 图版"
+
+[dossier_plates_hint]
+other = "点击放大"
+
+[dossier_paint_label]
+other = "// 调色清单"
+
+[dossier_cert_label]
+other = "完工证书"
+
+[dossier_cert_intro]
+other = "手涂于"
+
+[dossier_cert_body]
+other = "这份档案由您永久保存。此件为 1/1 唯一之作——以上技法记录、照片与手记是唯一留存。工作室不会为其他客户重涂同一角色。"
+
+[dossier_share]
+other = "↗ 分享此档案"
+
+[dossier_save_pdf]
+other = "保存为 PDF"
+
+[dossier_from_studio]
+other = "来自工作室"
+
+[dossier_loopback_title]
+other = "若您有值得如此记录的作品，我很愿意成为下一位涂师。"
+
+[dossier_loopback_body]
+other = "每季开放两个展示委托名额。通过微信、小红书、IG 联系我，或使用 viiyd.com 的表单。一张参考图和截止日期，就够了。"
+
+[dossier_commission_btn]
+other = "[ 委托一件作品 → ]"
+
+[dossier_private]
+other = "私人档案"
+
+[dossier_scroll]
+other = "↓ 向下翻阅"
+
+[dossier_painted_in]
+other = "历时"
+
+[dossier_one_of_one]
+other = "· 唯一之作，永不重复"
+
+[dossier_stat_scale]
+other = "比例"
+
+[dossier_stat_kit]
+other = "套件"
+
+[dossier_stat_base]
+other = "底座"
+
+[dossier_stat_varnish]
+other = "保护漆"
+
+[dossier_stat_hours]
+other = "桌前时数"
+
+[dossier_stat_started]
+other = "开始日期"
+
+[dossier_stat_finished]
+other = "完成日期"
+
+[dossier_stat_photos]
+other = "照片数"
+
+[dossier_r2]
+other = "存档于 R2"
+
+[dossier_tier_suffix]
+other = "等级"
+
+[dossier_heroic]
+other = "英雄比例"

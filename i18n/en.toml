@@ -400,3 +400,99 @@ other = "Previous"
 
 [next]
 other = "Next"
+
+
+# ── Dossier page strings ─────────────────────────────────────
+
+[dossier_specimen_label]
+other = "// SPECIMEN CARD"
+
+[dossier_specimen_edition]
+other = "EDITION 1 / 1"
+
+[dossier_notes_label]
+other = "// PAINTER'S NOTES"
+
+[dossier_notes_sub]
+other = "A LETTER FROM THE STUDIO"
+
+[dossier_plates_label]
+other = "// PLATES"
+
+[dossier_plates_hint]
+other = "CLICK TO ENLARGE"
+
+[dossier_paint_label]
+other = "// WHAT'S IN THE PAINT"
+
+[dossier_cert_label]
+other = "CERTIFICATE OF COMPLETION"
+
+[dossier_cert_intro]
+other = "Painted by hand at"
+
+[dossier_cert_body]
+other = "This dossier is yours to keep. The piece is 1 of 1 — the technique log, photographs, and notes above are the only record. The studio doesn't repaint the same character for another client."
+
+[dossier_share]
+other = "↗ Share this dossier"
+
+[dossier_save_pdf]
+other = "save as PDF"
+
+[dossier_from_studio]
+other = "FROM THE STUDIO"
+
+[dossier_loopback_title]
+other = "If you have a piece that deserves this, I'd love to paint it next."
+
+[dossier_loopback_body]
+other = "Two display slots open each quarter. Reach me however we already talk — WeChat, 小红书, IG — or use the form on viiyd.com. A reference picture and a deadline is enough to start."
+
+[dossier_commission_btn]
+other = "[ Commission a piece → ]"
+
+[dossier_private]
+other = "Private dossier"
+
+[dossier_scroll]
+other = "↓ scroll the dossier"
+
+[dossier_painted_in]
+other = "Painted in"
+
+[dossier_one_of_one]
+other = "· 1 of 1, never to be repeated"
+
+[dossier_stat_scale]
+other = "SCALE"
+
+[dossier_stat_kit]
+other = "KIT"
+
+[dossier_stat_base]
+other = "BASE"
+
+[dossier_stat_varnish]
+other = "VARNISH"
+
+[dossier_stat_hours]
+other = "TIME ON DESK"
+
+[dossier_stat_started]
+other = "STARTED"
+
+[dossier_stat_finished]
+other = "FINISHED"
+
+[dossier_stat_photos]
+other = "PHOTOS"
+
+[dossier_r2]
+other = "archive on R2"
+
+[dossier_tier_suffix]
+other = "TIER"
+
+[dossier_heroic]
+other = "heroic"
