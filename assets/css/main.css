@@ -505,7 +505,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ── Responsive ─── */
 @media (max-width: 768px) {
-  :root { --page-pad: 16px; --dossier-pad: 16px; }
+  :root { --page-pad: 10px; --dossier-pad: 10px; }
 
   /* ── Home hero portrait: photo above, text below ── */
   .hero-portrait-grid { grid-template-columns: 1fr; }
