@@ -109,19 +109,19 @@
 <section style="margin:40px var(--page-pad) 0;">
   <div class="commission-strip">
     <div>
-      <div class="eyebrow" style="opacity:0.55;">COMMISSIONS · {{ now.Format "2006" }}</div>
+      <div class="eyebrow" style="opacity:0.55;">{{ T "commissions_label" }} {{ now.Format "2006" }}</div>
       <div style="font-family:var(--font-serif);font-size:36px;line-height:1.1;margin-top:8px;">
-        Two display slots open. <button onclick="openCommissionModal()" style="background:none;border:none;padding:0;color:var(--yellow);font-style:italic;font:inherit;font-family:var(--font-serif);cursor:pointer;">WeChat me.</button>
+        {{ T "commission_cta" }} <button onclick="openCommissionModal()" style="background:none;border:none;padding:0;color:var(--yellow);font-style:italic;font:inherit;font-family:var(--font-serif);cursor:pointer;">{{ T "commission_wechat" }}</button>
       </div>
     </div>
     <div class="tier-card">
       <div class="tier-label">{{ T "tier_tabletop_label" | default "Tabletop" }}</div>
-      <div class="tier-price sans">from ¥120 / model</div>
+      <div class="tier-price sans">{{ T "tier_tabletop_price" | default "from ¥120 / model" }}</div>
       <div class="tier-sub">{{ T "tier_tabletop_sub" | default "Edge highlights, simple base" }}</div>
     </div>
     <div class="tier-card highlighted">
       <div class="tier-label">{{ T "tier_display_label" | default "Display" }}</div>
-      <div class="tier-price sans">from ¥600 / model</div>
+      <div class="tier-price sans">{{ T "tier_display_price" | default "from ¥600 / model" }}</div>
       <div class="tier-sub">{{ T "tier_display_sub" | default "Layered, freehand, custom base" }}</div>
     </div>
   </div>

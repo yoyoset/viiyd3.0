@@ -628,3 +628,9 @@ other = "Back to the archive"
 
 [cm_success_another]
 other = "Send another"
+
+[tier_tabletop_price]
+other = "from ¥120 / model"
+
+[tier_display_price]
+other = "from ¥600 / model"

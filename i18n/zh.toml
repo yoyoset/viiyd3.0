@@ -647,3 +647,9 @@ other = "返回作品库"
 
 [cm_success_another]
 other = "再发一条"
+
+[tier_tabletop_price]
+other = "¥120 起 / 件"
+
+[tier_display_price]
+other = "¥600 起 / 件"
