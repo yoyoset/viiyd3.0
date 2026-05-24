@@ -16,21 +16,21 @@
   {{ partial "badge.html" (dict "size" 64) }}
   <div style="flex:1;">
     <a href="{{ relLangURL "" }}"><div class="archive-wordmark">VIIYD</div></a>
-    <div class="eyebrow" style="margin-top:6px;">A studio for hand-painted miniatures · Est. 2024</div>
+    <div class="eyebrow" style="margin-top:6px;">{{ T "masthead_tagline" | default "A studio for hand-painted miniatures · Est. 2024" }}</div>
   </div>
   <div style="text-align:right;font-size:11px;color:var(--ink-soft);letter-spacing:0.08em;">
-    <div>&gt; {{ len .Pages }} pieces archived</div>
-    <div>&gt; 02 client slots / Q{{ div (now.Month | int | add 2) 3 }}</div>
+    <div>&gt; {{ len .Pages }} {{ T "pieces_archived" | default "pieces archived" }}</div>
+    <div>&gt; {{ T "client_slots" | default "02 client slots" }} / Q{{ div (now.Month | int | add 2) 3 }}</div>
   </div>
 </div>
 
 {{/* Nav */}}
 <nav style="padding:14px var(--page-pad);border-bottom:1px solid var(--line-soft);display:flex;gap:28px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;align-items:center;">
-  <span style="background:var(--ink);color:var(--bg);padding:4px 10px;">Archive</span>
-  <button onclick="openCommissionModal()" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">Commissions</button>
-  <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">Studio</a>
-  <button onclick="vpOpen('contact')" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">Contact</button>
-  <a href="{{ relLangURL "" }}" style="margin-left:auto;color:var(--ink-soft);">← Home</a>
+  <span style="background:var(--ink);color:var(--bg);padding:4px 10px;">{{ T "nav_archive" | default "Archive" }}</span>
+  <button onclick="openCommissionModal()" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">{{ T "nav_commissions" | default "Commissions" }}</button>
+  <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">{{ T "nav_painter" | default "Painter" }}</a>
+  <button onclick="vpOpen('contact')" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">{{ T "nav_contact" | default "Contact" }}</button>
+  <a href="{{ relLangURL "" }}" style="margin-left:auto;color:var(--ink-soft);">{{ T "nav_home" | default "← Home" }}</a>
 </nav>
 
 {{/* ── Slide panels ──────────────────────────────────────── */}}
@@ -43,33 +43,35 @@
 
   {{/* Commissions panel */}}
   <div id="vp-commissions" class="vp-content" style="display:none;padding:32px var(--page-pad) 48px;">
-    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">COMMISSIONS · {{ now.Format "2006" }}</div>
+    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">{{ T "commissions_label" | default "Commissions ·" }} {{ now.Format "2006" }}</div>
     <div style="font-family:var(--font-serif);font-size:36px;line-height:1.05;letter-spacing:-0.02em;margin-bottom:28px;">
-      Two display slots open.<br><em style="color:var(--yellow);">WeChat me.</em>
+      {{ T "commission_cta" | default "Two display slots open." }}<br><em style="color:var(--yellow);">{{ T "commission_wechat" | default "WeChat me." }}</em>
     </div>
 
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
       <div style="padding:16px 18px;border:1px solid var(--line-soft);">
-        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);">TABLETOP</div>
-        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">from ¥120 / model</div>
-        <div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">Edge highlights, simple base</div>
+        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);">{{ T "tier_tabletop_label" | default "Tabletop" }}</div>
+        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_tabletop_price" | default "from ¥120 / model" }}</div>
+        <div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">{{ T "tier_tabletop_sub" | default "Edge highlights, simple base" }}</div>
       </div>
       <div style="padding:16px 18px;background:var(--yellow);color:#0c0c0a;">
-        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.7;">DISPLAY</div>
-        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">from ¥600 / model</div>
-        <div style="font-size:11px;opacity:0.7;margin-top:4px;">Layered, freehand, custom base</div>
+        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.7;">{{ T "tier_display_label" | default "Display" }}</div>
+        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_display_price" | default "from ¥600 / model" }}</div>
+        <div style="font-size:11px;opacity:0.7;margin-top:4px;">{{ T "tier_display_sub" | default "Layered, freehand, custom base" }}</div>
       </div>
     </div>
 
     <div style="font-size:12px;color:var(--ink-soft);line-height:1.7;margin-bottom:24px;">
-      Send your piece list, a reference image, and a deadline.<br>
-      I'll reply within 48h with a quote and a queue slot.
+      {{ T "commission_body" | safeHTML | default "Send your piece list, a reference image, and a deadline.<br>I'll reply within 48h with a quote and a queue slot." }}
     </div>
 
     <div style="display:flex;flex-direction:column;gap:8px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--yellow);color:#0c0c0a;">
-        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;">WeChat</span>
-        <span class="sans" style="font-weight:600;">viiyd_studio</span>
+      <div style="padding:16px;background:var(--yellow);border:1px solid #c89518;display:flex;gap:14px;align-items:center;">
+        <img src="/img/mywechat.jpg" alt="WeChat QR" style="width:80px;height:80px;object-fit:cover;flex-shrink:0;display:block;">
+        <div>
+          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);">WeChat</div>
+          <div class="sans" style="font-weight:600;margin-top:4px;color:var(--ink);">{{ T "cm_field_refs_zh" | default "扫码添加" }}</div>
+        </div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--paper);border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">小红书</span>
@@ -77,26 +79,29 @@
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--paper);border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Email</span>
-        <a href="mailto:hello@viiyd.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">hello@viiyd.com</a>
+        <a href="mailto:maylyy8@gmail.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">maylyy8@gmail.com</a>
       </div>
     </div>
   </div>
 
   {{/* Contact panel */}}
   <div id="vp-contact" class="vp-content" style="display:none;padding:32px var(--page-pad) 48px;">
-    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">CONTACT · VIIYD STUDIO</div>
+    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">{{ T "nav_contact" | default "Contact" }} · VIIYD STUDIO</div>
     <div style="font-family:var(--font-serif);font-style:italic;font-size:32px;line-height:1.15;letter-spacing:-0.02em;margin-bottom:28px;">
-      Send a reference picture and a deadline. I'll reply within 48h.
+      {{ T "reach_me_body" | default "Send a reference picture and a deadline. I'll reply within 48h." }}
     </div>
 
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:28px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--yellow);color:#0c0c0a;">
-        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;">WeChat</span>
-        <span class="sans" style="font-weight:600;">viiyd_studio</span>
+      <div style="padding:16px;background:var(--yellow);border:1px solid #c89518;display:flex;gap:14px;align-items:center;">
+        <img src="/img/mywechat.jpg" alt="WeChat QR" style="width:80px;height:80px;object-fit:cover;flex-shrink:0;display:block;">
+        <div>
+          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);">WeChat</div>
+          <div class="sans" style="font-weight:600;margin-top:4px;color:var(--ink);">扫码添加</div>
+        </div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Email</span>
-        <a href="mailto:hello@viiyd.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">hello@viiyd.com</a>
+        <a href="mailto:maylyy8@gmail.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">maylyy8@gmail.com</a>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">小红书</span>
@@ -109,8 +114,8 @@
     </div>
 
     <div style="padding:20px;background:var(--paper);border:1px solid var(--line-soft);font-size:12px;color:var(--ink-soft);line-height:1.7;">
-      Prefer the full form?
-      <a href="{{ relLangURL "contact" }}" style="color:var(--ink);border-bottom:1px solid var(--line-soft);">Open contact page →</a>
+      {{ T "contact_prefer_form" | default "Prefer the full form?" }}
+      <a href="{{ relLangURL "contact" }}" style="color:var(--ink);border-bottom:1px solid var(--line-soft);">{{ T "contact_open_page" | default "Open contact page →" }}</a>
     </div>
   </div>
 </aside>
@@ -118,8 +123,8 @@
 {{/* Headline + filters */}}
 <section style="padding:40px var(--page-pad) 20px;">
   <div class="sans archive-headline" style="line-height:1;font-weight:500;letter-spacing:-0.025em;max-width:900px;text-wrap:balance;">
-    Every miniature painted by the studio, listed and indexed.
-    <span style="color:var(--ink-soft);"> Filter by faction, scale, or year.</span>
+    {{ T "archive_headline" | default "Every miniature painted by the studio, listed and indexed." }}
+    <span style="color:var(--ink-soft);"> {{ T "archive_filter_hint" | default "Filter by faction, scale, or year." }}</span>
   </div>
 
   {{ $factions := slice }}
@@ -131,7 +136,7 @@
 
   <div class="filter-chips" style="margin-top:36px;" id="filter-chips">
     <button class="filter-chip active" data-faction="all" onclick="filterArchive('all',this)">
-      ALL <span class="count">{{ len .Pages }}</span>
+      {{ T "filter_all" | default "ALL" }} <span class="count">{{ len .Pages }}</span>
     </button>
     {{ range $factions }}
     <button class="filter-chip" data-faction="{{ . | urlize }}" onclick="filterArchive('{{ . | urlize }}',this)">
@@ -145,12 +150,12 @@
 <section style="padding:8px var(--page-pad) 24px;">
   <div class="archive-head">
     <span>№</span>
-    <span>Subject</span>
-    <span>Faction / Series</span>
-    <span>Scale</span>
-    <span>Tier</span>
-    <span>Hours</span>
-    <span>Delivered</span>
+    <span>{{ T "col_subject" | default "Subject" }}</span>
+    <span>{{ T "col_faction" | default "Faction / Series" }}</span>
+    <span>{{ T "col_scale" | default "Scale" }}</span>
+    <span>{{ T "tier" | default "Tier" }}</span>
+    <span>{{ T "col_hours" | default "Hours" }}</span>
+    <span>{{ T "col_delivered" | default "Delivered" }}</span>
     <span></span>
   </div>
 
@@ -183,8 +188,8 @@
 {{/* Featured · this season */}}
 <section style="padding:40px var(--page-pad) 32px;border-top:1px solid var(--line);">
   <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;">
-    <div class="sans" style="font-size:28px;font-weight:600;letter-spacing:-0.02em;">// Featured · this season</div>
-    <span style="font-size:11px;color:var(--ink-soft);letter-spacing:0.12em;">SCROLL →</span>
+    <div class="sans" style="font-size:28px;font-weight:600;letter-spacing:-0.02em;">{{ T "featured_this_season" | default "// Featured · this season" }}</div>
+    <span style="font-size:11px;color:var(--ink-soft);letter-spacing:0.12em;">{{ T "scroll_label" | default "SCROLL →" }}</span>
   </div>
   <div class="featured-grid">
     {{ range first 4 .Pages }}
@@ -207,25 +212,24 @@
 <section style="margin:24px var(--page-pad) 28px;">
   <div class="archive-comm-strip" style="padding:28px;background:var(--panel);color:var(--panel-text);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:28px;">
     <div style="grid-column:span 2;">
-      <div class="eyebrow" style="opacity:0.55;">COMMISSION_REQUEST</div>
-      <div class="sans" style="font-size:36px;font-weight:500;letter-spacing:-0.02em;margin-top:10px;line-height:1.05;">Want me to paint something?</div>
+      <div class="eyebrow" style="opacity:0.55;">{{ T "commissions_label" | default "Commissions ·" | upper }}</div>
+      <div class="sans" style="font-size:36px;font-weight:500;letter-spacing:-0.02em;margin-top:10px;line-height:1.05;">{{ T "commission_cta_headline" | default "Want me to paint something?" }}</div>
       <div style="font-size:12px;opacity:0.65;margin-top:14px;line-height:1.6;">
-        Send your piece list, a reference image, and a deadline.<br>
-        I'll reply within 48h with a quote and a queue slot.
+        {{ T "commission_body" | safeHTML | default "Send your piece list, a reference image, and a deadline.<br>I'll reply within 48h with a quote and a queue slot." }}
       </div>
       <button onclick="openCommissionModal()" style="margin-top:20px;background:var(--yellow);color:#0c0c0a;border:1px solid var(--yellow-dark);padding:12px 22px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
-        [ Start a commission → ]
+        {{ T "start_commission_btn" | default "[ Start a commission → ]" }}
       </button>
     </div>
     <div style="padding:18px;border:1px solid rgba(255,255,255,0.2);">
-      <div class="eyebrow" style="opacity:0.7;">Tabletop</div>
-      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">¥120 / model</div>
-      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">Tournament-ready, base + edge highlight</div>
+      <div class="eyebrow" style="opacity:0.7;">{{ T "tier_tabletop_label" | default "Tabletop" }}</div>
+      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_tabletop_price_short" | default "¥120 / model" }}</div>
+      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">{{ T "tier_tabletop_sub2" | default "Tournament-ready, base + edge highlight" }}</div>
     </div>
     <div style="padding:18px;background:var(--yellow);color:#0c0c0a;">
-      <div class="eyebrow" style="opacity:0.7;">Display</div>
-      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">from ¥600 / model</div>
-      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">Layered, freehand, custom base</div>
+      <div class="eyebrow" style="opacity:0.7;">{{ T "tier_display_label" | default "Display" }}</div>
+      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_display_price" | default "from ¥600 / model" }}</div>
+      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">{{ T "tier_display_sub" | default "Layered, freehand, custom base" }}</div>
     </div>
   </div>
 </section>
@@ -236,13 +240,16 @@
 <script>
 /* ── Slide panels ── */
 var _vpOpen = false;
+var _vpTitles = {
+  commissions: '{{ T "nav_commissions" | default "Commissions" }}',
+  contact:     '{{ T "nav_contact"     | default "Contact"     }}'
+};
 function vpOpen(which) {
   document.querySelectorAll('.vp-content').forEach(el => el.style.display = 'none');
   var content = document.getElementById('vp-' + which);
   if (!content) return;
   content.style.display = 'block';
-  var titles = { commissions: 'Commissions', contact: 'Contact' };
-  document.getElementById('vp-title').textContent = titles[which] || which;
+  document.getElementById('vp-title').textContent = _vpTitles[which] || which;
   var panel = document.getElementById('vp-panel');
   var overlay = document.getElementById('vp-overlay');
   panel.style.display = 'block';

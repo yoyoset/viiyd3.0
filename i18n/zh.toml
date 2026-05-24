@@ -653,3 +653,77 @@ other = "¥120 起 / 件"
 
 [tier_display_price]
 other = "¥600 起 / 件"
+
+# ── 档案列表页 ─────────────────────────────────────────────────
+
+[nav_archive]
+other = "档案馆"
+
+[nav_commissions]
+other = "委托"
+
+[nav_contact]
+other = "联系"
+
+[nav_home]
+other = "← 首页"
+
+[masthead_tagline]
+other = "手涂模型工作室 · 成立于 2024"
+
+[pieces_archived]
+other = "件入档"
+
+[client_slots]
+other = "02 个委托位"
+
+[archive_headline]
+other = "工作室出品的每一件模型，悉数入档。"
+
+[archive_filter_hint]
+other = "按派系、比例或年份筛选。"
+
+[filter_all]
+other = "全部"
+
+[col_subject]
+other = "作品"
+
+[col_faction]
+other = "派系 / 系列"
+
+[col_scale]
+other = "比例"
+
+[col_hours]
+other = "工时"
+
+[col_delivered]
+other = "交付"
+
+[featured_this_season]
+other = "// 本季精选"
+
+[scroll_label]
+other = "滑动 →"
+
+[commission_cta_headline]
+other = "想委托我涂装吗？"
+
+[commission_body]
+other = "发来模型清单、参考图和截止日期。<br>48 小时内回复报价和排期。"
+
+[start_commission_btn]
+other = "[ 发起委托 → ]"
+
+[tier_tabletop_price_short]
+other = "¥120 / 件"
+
+[tier_tabletop_sub2]
+other = "赛场级，底色 + 边缘高光"
+
+[contact_prefer_form]
+other = "更喜欢表单？"
+
+[contact_open_page]
+other = "打开联系页 →"
