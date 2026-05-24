@@ -364,8 +364,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  font-size: 132px;
-  line-height: 0.88;
+  font-size: clamp(28px, 9vw, 96px);
+  line-height: 0.9;
   letter-spacing: -0.025em;
   color: var(--ink);
 }
@@ -506,7 +506,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .painter-hero  { grid-template-columns: 1fr; }
   .painter-initial { font-size: 96px; }
   .hero-portrait-grid { grid-template-columns: 1fr; }
-  .hero-title-xl { font-size: 72px; }
+  /* hero-title-xl handled by clamp() */
   .archive-masthead { flex-direction: column; }
   .archive-wordmark { font-size: 56px; }
   .painter-hero .photo { order: -1; }

@@ -292,3 +292,130 @@ other = "提交委托"
 
 [contact_direct]
 other = "或直接发邮件"
+
+# ── v3 UI strings ────────────────────────────────────────────
+
+[nav_work]
+other = "作品"
+
+[nav_painter]
+other = "涂师"
+
+[read_dossier]
+other = "阅读档案 →"
+
+[see_archive]
+other = "查看全部档案 →"
+
+[back_archive]
+other = "返回档案馆"
+
+[identity_statement]
+other = "V.，一间手涂模型工作室 —"
+
+[identity_sub]
+other = "战锤、杀戮小队、JoyToy 公仔，以及那些别人不愿接的委托。"
+
+[recent_label]
+other = "// 最近作品 ·"
+
+[recent_pieces]
+other = "件"
+
+[commissions_label]
+other = "委托 ·"
+
+[commission_cta]
+other = "两个展示位开放中。"
+
+[commission_wechat]
+other = "微信我。"
+
+[tier_tabletop_label]
+other = "桌游级"
+
+[tier_display_label]
+other = "展示级"
+
+[tier_tabletop_sub]
+other = "边缘高光，简单地台"
+
+[tier_display_sub]
+other = "多层渐变，手绘，定制地台"
+
+# ── Painter page ─────────────────────────────────────────────
+
+[the_painter]
+other = "涂师"
+
+[painter_bio]
+other = "在成都一间小公寓里涂装战锤模型。一支笔、一盏灯、一个模型。"
+
+[painter_since]
+other = "涂装始于 · 2019"
+
+[painter_pieces]
+other = "已交付 · 42 件"
+
+[painter_hours]
+other = "桌前时数 · 2,300+"
+
+[painter_story_1]
+other = "2019 年一时冲动买了第一个星际战士，底漆喷错了颜色，洗了两遍，高光毁了。两天后买了第二个重来。六年过去，就是现在这样。"
+
+[painter_story_2]
+other = "我涂得不快。薄涂叠色，每个阶段都拍照。如果你找到了这个页面，大概是朋友介绍的，或者你打开了我发给你的档案。"
+
+[painter_story_3]
+other = "工作室是一张靠北窗的桌子，一盏日光灯，一柜子 Citadel 和 Vallejo 颜料。我一次接两个委托，这是我能做到不赶工的极限。"
+
+[painter_story_4]
+other = "我喜欢涂：有布料和手绘空间的角色、有真实做旧感的载具、有故事的一切。我不涂：NMM 金色（请找竞技专家）、截止时间不到三周的任何东西。"
+
+[painter_yes_label]
+other = "乐于接受"
+
+[painter_no_label]
+other = "不在擅长范围"
+
+[painter_yes_1]
+other = "单个角色与命名英雄（展示级）"
+
+[painter_yes_2]
+other = "5–10 人小队（桌游级或展示级）"
+
+[painter_yes_3]
+other = "JoyToy / 1:18 公仔改涂与头部替换"
+
+[painter_yes_4]
+other = "定制地台，12 cm 以内微缩场景"
+
+[painter_yes_5]
+other = "修复与翻新失败的涂装"
+
+[painter_no_1]
+other = "NMM（非金属金属色）金色"
+
+[painter_no_2]
+other = "截止时间少于 3 周的委托"
+
+[painter_no_3]
+other = "整支军队（50+ 模型）"
+
+[painter_no_4]
+other = "非正版 / 翻模模型"
+
+[painter_no_5]
+other = "在别人涂装上继续"
+
+[the_desk]
+other = "工作台"
+
+[desk_sub]
+other = "创作发生的地方"
+
+[reach_me]
+other = "联系我"
+
+[reach_me_body]
+other = "发一张参考图和截止时间，48 小时内回复报价。"

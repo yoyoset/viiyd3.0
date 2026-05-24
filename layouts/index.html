@@ -78,15 +78,15 @@
 {{/* Identity statement */}}
 <section style="padding:36px var(--page-pad) 28px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);">
   <div class="sans" style="font-size:44px;font-weight:500;line-height:1.05;letter-spacing:-0.025em;text-wrap:balance;max-width:1000px;">
-    V., a studio for hand-painted miniatures —
-    <span style="color:var(--ink-soft);"> Warhammer, Kill Team, JoyToy figures, the occasional commission no one else will take.</span>
+    {{ T "identity_statement" | default "V., a studio for hand-painted miniatures —" }}
+    <span style="color:var(--ink-soft);"> {{ T "identity_sub" | default "Warhammer, Kill Team, JoyToy figures, the occasional commission no one else will take." }}</span>
   </div>
 </section>
 
 {{/* Recent · 6 */}}
 <section style="padding:32px var(--page-pad) 20px;">
   <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
-    <span style="color:var(--ink);">// Recent · {{ len (where .Site.RegularPages "Section" "work") }} pieces</span>
+    <span style="color:var(--ink);">{{ T "recent_label" | default "// Recent ·" }} {{ len (where .Site.RegularPages "Section" "work") }} {{ T "recent_pieces" | default "pieces" }}</span>
     <a href="{{ relLangURL "work" }}" style="color:var(--ink-soft);">{{ T "see_archive" | default "See the whole archive →" }}</a>
   </div>
   <div class="recent-grid">
@@ -115,14 +115,14 @@
       </div>
     </div>
     <div class="tier-card">
-      <div class="tier-label">Tabletop</div>
+      <div class="tier-label">{{ T "tier_tabletop_label" | default "Tabletop" }}</div>
       <div class="tier-price sans">from ¥120 / model</div>
-      <div class="tier-sub">Edge highlights, simple base</div>
+      <div class="tier-sub">{{ T "tier_tabletop_sub" | default "Edge highlights, simple base" }}</div>
     </div>
     <div class="tier-card highlighted">
-      <div class="tier-label">Display</div>
+      <div class="tier-label">{{ T "tier_display_label" | default "Display" }}</div>
       <div class="tier-price sans">from ¥600 / model</div>
-      <div class="tier-sub">Layered, freehand, custom base</div>
+      <div class="tier-sub">{{ T "tier_display_sub" | default "Layered, freehand, custom base" }}</div>
     </div>
   </div>
 </section>

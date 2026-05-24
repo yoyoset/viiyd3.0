@@ -259,3 +259,130 @@ other = "Submit Request"
 
 [contact_direct]
 other = "or email directly"
+
+# ── v3 UI strings ────────────────────────────────────────────
+
+[nav_work]
+other = "Work"
+
+[nav_painter]
+other = "Painter"
+
+[read_dossier]
+other = "Read the dossier →"
+
+[see_archive]
+other = "See the whole archive →"
+
+[back_archive]
+other = "Back to the archive"
+
+[identity_statement]
+other = "V., a studio for hand-painted miniatures —"
+
+[identity_sub]
+other = "Warhammer, Kill Team, JoyToy figures, the occasional commission no one else will take."
+
+[recent_label]
+other = "// Recent ·"
+
+[recent_pieces]
+other = "pieces"
+
+[commissions_label]
+other = "Commissions ·"
+
+[commission_cta]
+other = "Two display slots open."
+
+[commission_wechat]
+other = "WeChat me."
+
+[tier_tabletop_label]
+other = "Tabletop"
+
+[tier_display_label]
+other = "Display"
+
+[tier_tabletop_sub]
+other = "Edge highlights, simple base"
+
+[tier_display_sub]
+other = "Layered, freehand, custom base"
+
+# ── Painter page ─────────────────────────────────────────────
+
+[the_painter]
+other = "THE PAINTER"
+
+[painter_bio]
+other = "I paint Warhammer miniatures in a small Chengdu apartment. One brush, one lamp, one figure at a time."
+
+[painter_since]
+other = "Painting since · 2019"
+
+[painter_pieces]
+other = "Pieces shipped · 42"
+
+[painter_hours]
+other = "Hours at the desk · 2,300+"
+
+[painter_story_1]
+other = "I started with a single Space Marine I bought on a whim in 2019 — primed it the wrong colour, washed it twice, ruined the highlights. Two days later I bought a second one to try again. Six years later, here we are."
+
+[painter_story_2]
+other = "I'm not a fast painter. I work in thin layers and I take photos at every stage. If you've found this page, it's probably because a friend pointed you here, or you opened a dossier I sent."
+
+[painter_story_3]
+other = "The studio is one desk by a north-facing window, a daylight lamp, and a cabinet of Citadel and Vallejo paints. I take two commissions at a time — that's the most I can do without rushing."
+
+[painter_story_4]
+other = "What I love painting: characters with cloth and freehand opportunities, vehicles with real weathering, anything with a story. What I won't paint: NMM gold, or anything with a deadline tighter than three weeks."
+
+[painter_yes_label]
+other = "Happy to take on"
+
+[painter_no_label]
+other = "Not my field"
+
+[painter_yes_1]
+other = "Single characters & named heroes (display)"
+
+[painter_yes_2]
+other = "Squads of 5–10 (tabletop or display)"
+
+[painter_yes_3]
+other = "JoyToy / 1:18 figure repaints & head swaps"
+
+[painter_yes_4]
+other = "Custom basing, dioramas under 12 cm"
+
+[painter_yes_5]
+other = "Repaint & rescue of pieces gone wrong"
+
+[painter_no_1]
+other = "NMM (non-metallic metal) gold"
+
+[painter_no_2]
+other = "Anything with a deadline < 3 weeks"
+
+[painter_no_3]
+other = "Whole armies (50+ models)"
+
+[painter_no_4]
+other = "Bootleg / recast minis"
+
+[painter_no_5]
+other = "Painting over someone else's work"
+
+[the_desk]
+other = "THE DESK"
+
+[desk_sub]
+other = "WHERE THE WORK HAPPENS"
+
+[reach_me]
+other = "Reach Me"
+
+[reach_me_body]
+other = "Send a reference picture and a deadline. I'll reply within 48h."
