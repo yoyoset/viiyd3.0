@@ -1,14 +1,16 @@
 {{ define "main" }}
 
 {{/* helpers */}}
-{{ $cover   := .Params.cover }}
-{{ $title   := .Title }}
-{{ $faction := .Params.faction | default (index .Params.tags 0) }}
-{{ $scale   := .Params.scale | default "28mm" }}
-{{ $tier    := .Params.tier }}
-{{ $hrs     := .Params.hours | default .Params.time_log }}
-{{ $fileNo  := .Params.file_no | default "—" }}
-{{ $tagline := .Params.tagline | default .Params.summary }}
+{{ $cover      := .Params.cover }}
+{{ $title      := .Title }}
+{{ $heroTitle  := .Params.hero_title | default $title }}
+{{ $accent     := .Params.title_accent | default "" }}
+{{ $faction    := .Params.faction | default (index .Params.tags 0) }}
+{{ $scale      := .Params.scale | default "28mm" }}
+{{ $tier       := .Params.tier }}
+{{ $hrs        := .Params.hours | default .Params.time_log }}
+{{ $fileNo     := .Params.file_no | default "" }}
+{{ $tagline    := .Params.tagline | default .Params.summary }}
 {{ $paints  := .Params.paints }}
 {{ $captions := .Params.captions }}
 
@@ -34,13 +36,13 @@
         <span style="opacity:0.4;">·</span>
         <a href="{{ relLangURL "work" }}" style="color:inherit;">← {{ T "back_archive" | default "ARCHIVE" }}</a>
       </div>
-      <span>FILE № VY-{{ $fileNo }}</span>
+      <span>FILE № VY-{{ if $fileNo }}{{ $fileNo }}{{ else }}—{{ end }}</span>
       <div style="display:flex;gap:6px;align-items:center;">
         {{ range .AllTranslations }}
           <a href="{{ .RelPermalink }}" onclick="localStorage.setItem('viiyd_lang_pref','{{ .Lang }}')" style="color:#fff;{{ if eq .Lang $.Lang }}opacity:1;{{ else }}opacity:0.45;{{ end }}">{{ .Language.Params.isoCode | default (.Lang | upper) }}</a>{{ if ne .Lang (index (last 1 $.AllTranslations) 0).Lang }}<span style="opacity:0.3;"> / </span>{{ end }}
         {{ end }}
         <span style="opacity:0.3;margin:0 4px;">·</span>
-        <span>{{ .Date.Format "02 · JAN · 2006" | upper }}</span>
+        <span>{{ .Date.Format "02 · Jan · 2006" | upper }}</span>
       </div>
     </div>
 
@@ -48,7 +50,11 @@
       <div style="font-size:11px;letter-spacing:0.24em;opacity:0.7;margin-bottom:24px;text-transform:uppercase;">
         SPECIMEN · {{ $faction | upper }} · {{ $scale }} · {{ $tier | upper }} {{ T "dossier_tier_suffix" | default "TIER" }}
       </div>
-      <h1 class="dossier-title">{{ $title }}</h1>
+      {{ if $accent }}
+      <h1 class="dossier-title">{{ replace $heroTitle $accent (printf "<span class=\"dossier-title-accent\">%s</span>" $accent) | safeHTML }}</h1>
+      {{ else }}
+      <h1 class="dossier-title">{{ $heroTitle }}</h1>
+      {{ end }}
       {{ with $tagline }}
       <div style="margin-top:22px;font-family:var(--font-serif);font-style:italic;font-size:22px;opacity:0.82;max-width:680px;line-height:1.35;">
         "{{ . }}"

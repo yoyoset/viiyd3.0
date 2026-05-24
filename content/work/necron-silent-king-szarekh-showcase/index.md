@@ -1,6 +1,11 @@
 ---
 title: "The Silent King Szarekh Showcase"
+hero_title: "The Silent King"
+title_accent: "Silent King"
+file_no: "034"
 date: 2026-05-23T16:00:00+08:00
+tagline: "Sixty million years of silence — broken to retake what was lost. Szarekh upon his Barge of Ages, gauss-lit and gold."
+piece_count: "SZAREKH + BARGE OF AGES + 2 MENHIRS + 4 CONSTRUCTS"
 summary: "The supreme ruler of the Necron dynasties, painted with deep void-black armour and cascading gauss-green OSL across the entire Barge of Ages."
 tags: ["Warhammer 40,000", "Necrons", "Silent King", "Centerpiece", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01.webp"

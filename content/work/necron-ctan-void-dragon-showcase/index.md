@@ -1,6 +1,10 @@
 ---
 title: "C'tan Shard of the Void Dragon Showcase"
+hero_title: "The Void Dragon"
+title_accent: "Void Dragon"
+file_no: "036"
 date: 2026-05-23T20:00:00+08:00
+tagline: "The machine god, sharded and eternal. Silver form wreathed in violent gauss-green lightning across serpentine coils."
 summary: "The C'tan god of machines, sharded and bound. Silver god-form wreathed in violent gauss-green lightning across serpentine coils and Necron ruin base."
 tags: ["Warhammer 40,000", "Necrons", "C'tan", "Void Dragon", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/void-dragon/viiyd20260524void-dragon_01.webp"

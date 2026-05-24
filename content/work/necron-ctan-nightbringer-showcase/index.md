@@ -1,6 +1,10 @@
 ---
 title: "C'tan Shard of the Nightbringer Showcase"
+hero_title: "The Nightbringer"
+title_accent: "Nightbringer"
+file_no: "035"
 date: 2026-05-23T18:00:00+08:00
+tagline: "The god of death, sharded and bound. Purple-void robes unravelling into cascading gauss-green necrodermis tendrils."
 summary: "The C'tan god of death, sharded and bound. Purple-void robes dissolving into cascading gauss-green necrodermis tendrils across the base."
 tags: ["Warhammer 40,000", "Necrons", "C'tan", "Nightbringer", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/nightbringer/viiyd20260523nightbringer_01.webp"
