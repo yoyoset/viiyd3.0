@@ -25,13 +25,95 @@
 </div>
 
 {{/* Nav */}}
-<nav style="padding:14px var(--page-pad);border-bottom:1px solid var(--line-soft);display:flex;gap:28px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;">
+<nav style="padding:14px var(--page-pad);border-bottom:1px solid var(--line-soft);display:flex;gap:28px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;align-items:center;">
   <span style="background:var(--ink);color:var(--bg);padding:4px 10px;">Archive</span>
-  <a href="{{ relLangURL "contact" }}" style="color:var(--ink-soft);">Commissions</a>
+  <button onclick="vpOpen('commissions')" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">Commissions</button>
   <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">Studio</a>
-  <a href="{{ relLangURL "contact" }}" style="color:var(--ink-soft);">Contact</a>
+  <button onclick="vpOpen('contact')" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">Contact</button>
   <a href="{{ relLangURL "" }}" style="margin-left:auto;color:var(--ink-soft);">← Home</a>
 </nav>
+
+{{/* ── Slide panels ──────────────────────────────────────── */}}
+<div id="vp-overlay" onclick="vpClose()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:900;backdrop-filter:blur(2px);"></div>
+<aside id="vp-panel" style="display:none;position:fixed;top:0;right:0;bottom:0;width:min(460px,100vw);background:var(--bg);border-left:1px solid var(--line);z-index:901;overflow-y:auto;overscroll-behavior:contain;">
+  <button onclick="vpClose()" style="position:sticky;top:0;left:0;right:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px var(--page-pad);background:var(--bg);border-bottom:1px solid var(--line-soft);font:inherit;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;border-left:none;border-right:none;border-top:none;">
+    <span id="vp-title">—</span>
+    <span style="font-size:18px;line-height:1;">×</span>
+  </button>
+
+  {{/* Commissions panel */}}
+  <div id="vp-commissions" class="vp-content" style="display:none;padding:32px var(--page-pad) 48px;">
+    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">COMMISSIONS · {{ now.Format "2006" }}</div>
+    <div style="font-family:var(--font-serif);font-size:36px;line-height:1.05;letter-spacing:-0.02em;margin-bottom:28px;">
+      Two display slots open.<br><em style="color:var(--yellow);">WeChat me.</em>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
+      <div style="padding:16px 18px;border:1px solid var(--line-soft);">
+        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);">TABLETOP</div>
+        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">from ¥120 / model</div>
+        <div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">Edge highlights, simple base</div>
+      </div>
+      <div style="padding:16px 18px;background:var(--yellow);color:#0c0c0a;">
+        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.7;">DISPLAY</div>
+        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">from ¥600 / model</div>
+        <div style="font-size:11px;opacity:0.7;margin-top:4px;">Layered, freehand, custom base</div>
+      </div>
+    </div>
+
+    <div style="font-size:12px;color:var(--ink-soft);line-height:1.7;margin-bottom:24px;">
+      Send your piece list, a reference image, and a deadline.<br>
+      I'll reply within 48h with a quote and a queue slot.
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--yellow);color:#0c0c0a;">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;">WeChat</span>
+        <span class="sans" style="font-weight:600;">viiyd_studio</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--paper);border:1px solid var(--line-soft);">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">小红书</span>
+        <span class="sans" style="font-weight:500;">@viiyd</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--paper);border:1px solid var(--line-soft);">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Email</span>
+        <a href="mailto:hello@viiyd.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">hello@viiyd.com</a>
+      </div>
+    </div>
+  </div>
+
+  {{/* Contact panel */}}
+  <div id="vp-contact" class="vp-content" style="display:none;padding:32px var(--page-pad) 48px;">
+    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">CONTACT · VIIYD STUDIO</div>
+    <div style="font-family:var(--font-serif);font-style:italic;font-size:32px;line-height:1.15;letter-spacing:-0.02em;margin-bottom:28px;">
+      Send a reference picture and a deadline. I'll reply within 48h.
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:28px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--yellow);color:#0c0c0a;">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;">WeChat</span>
+        <span class="sans" style="font-weight:600;">viiyd_studio</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Email</span>
+        <a href="mailto:hello@viiyd.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">hello@viiyd.com</a>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">小红书</span>
+        <span class="sans" style="font-weight:500;">@viiyd</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Instagram</span>
+        <a href="https://instagram.com/viiyd.studio" target="_blank" rel="noopener" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">@viiyd.studio</a>
+      </div>
+    </div>
+
+    <div style="padding:20px;background:var(--paper);border:1px solid var(--line-soft);font-size:12px;color:var(--ink-soft);line-height:1.7;">
+      Prefer the full form?
+      <a href="{{ relLangURL "contact" }}" style="color:var(--ink);border-bottom:1px solid var(--line-soft);">Open contact page →</a>
+    </div>
+  </div>
+</aside>
 
 {{/* Headline + filters */}}
 <section style="padding:40px var(--page-pad) 20px;">
@@ -149,6 +231,42 @@
 
 {{ define "scripts" }}
 <script>
+/* ── Slide panels ── */
+var _vpOpen = false;
+function vpOpen(which) {
+  document.querySelectorAll('.vp-content').forEach(el => el.style.display = 'none');
+  var content = document.getElementById('vp-' + which);
+  if (!content) return;
+  content.style.display = 'block';
+  var titles = { commissions: 'Commissions', contact: 'Contact' };
+  document.getElementById('vp-title').textContent = titles[which] || which;
+  var panel = document.getElementById('vp-panel');
+  var overlay = document.getElementById('vp-overlay');
+  panel.style.display = 'block';
+  overlay.style.display = 'block';
+  /* animate in */
+  panel.style.transform = 'translateX(100%)';
+  panel.style.transition = 'transform 0.28s cubic-bezier(0.32,0,0.2,1)';
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    panel.style.transform = 'translateX(0)';
+  }); });
+  document.body.style.overflow = 'hidden';
+  _vpOpen = true;
+}
+function vpClose() {
+  var panel = document.getElementById('vp-panel');
+  var overlay = document.getElementById('vp-overlay');
+  panel.style.transform = 'translateX(100%)';
+  setTimeout(function(){
+    panel.style.display = 'none';
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+    _vpOpen = false;
+  }, 280);
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && _vpOpen) vpClose(); });
+
+/* ── Archive filter ── */
 function filterArchive(faction, btn) {
   document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
