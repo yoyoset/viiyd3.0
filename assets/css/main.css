@@ -482,7 +482,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 @media (max-width: 768px) {
   :root { --page-pad: 16px; --dossier-pad: 16px; }
 
-  /* dossier-title uses clamp(), no override needed */
+  .dossier-title { font-size: 36px; line-height: 1; }
   .recent-grid   { grid-template-columns: repeat(3, 1fr); }
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
   .specimen-card { grid-template-columns: 1fr; }
