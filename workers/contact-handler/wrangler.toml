@@ -9,3 +9,9 @@ ALLOWED_ORIGIN = "https://viiyd.com"
 [[r2_buckets]]
 binding = "CONTACT_IMAGES"
 bucket_name = "viiyd-contact-images"
+
+# D1 — 存委托记录 (已存在，无需重建)
+[[d1_databases]]
+binding = "DB"
+database_name = "viiyd-db"
+database_id = "59f939a7-b5cb-40e7-bc1d-79b7c94209a8"
