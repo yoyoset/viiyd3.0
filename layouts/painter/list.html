@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-{{/* ── Header ─── */}}
+{{/* Header */}}
 <header style="padding:20px var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line-soft);">
   <div style="display:flex;align-items:center;gap:12px;">
     {{ partial "badge.html" (dict "size" 24) }}
@@ -17,7 +17,7 @@
   </nav>
 </header>
 
-{{/* ── Hero · portrait + name ─── */}}
+{{/* Hero */}}
 <section style="padding:64px var(--page-pad) 48px;display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:end;">
   <div>
     <div class="photo" style="aspect-ratio:4/5;background:var(--paper);">
@@ -25,12 +25,14 @@
     </div>
   </div>
   <div>
-    <div style="font-size:11px;letter-spacing:0.22em;color:var(--ink-soft);margin-bottom:18px;text-transform:uppercase;">THE PAINTER</div>
+    <div style="font-size:11px;letter-spacing:0.22em;color:var(--ink-soft);margin-bottom:18px;text-transform:uppercase;">
+      {{ T "the_painter" | default "THE PAINTER" }}
+    </div>
     <h1 style="font-family:var(--font-serif);font-weight:400;font-size:clamp(96px,12vw,156px);line-height:0.85;letter-spacing:-0.04em;margin:0;">
       V<span style="color:var(--yellow);">.</span>
     </h1>
     <div class="sans" style="margin-top:18px;font-size:24px;line-height:1.35;letter-spacing:-0.01em;max-width:540px;text-wrap:balance;">
-      {{ T "painter_bio" | default "I paint Warhammer miniatures in a small Shanghai apartment. One brush, one lamp, one figure at a time." }}
+      {{ T "painter_bio" | default "I paint Warhammer miniatures in a small Chengdu apartment. One brush, one lamp, one figure at a time." }}
     </div>
     <div style="margin-top:24px;display:flex;gap:24px;font-size:11px;letter-spacing:0.14em;color:var(--ink-soft);text-transform:uppercase;flex-wrap:wrap;">
       <span>{{ T "painter_since" | default "Painting since · 2019" }}</span>
@@ -40,7 +42,7 @@
   </div>
 </section>
 
-{{/* ── Narrative ─── */}}
+{{/* Narrative */}}
 <section style="padding:24px var(--page-pad) 56px;">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;font-size:16px;line-height:1.7;color:var(--ink);">
     <div class="sans">
@@ -53,20 +55,22 @@
     </div>
     <div class="sans">
       <p style="margin-top:0;">
-        {{ T "painter_story_3" | default "The studio is one desk by a north‑facing window, a daylight lamp, and a cabinet of Citadel and Vallejo paints. I take two commissions at a time — that's the most I can do without rushing." }}
+        {{ T "painter_story_3" | default "The studio is one desk by a north-facing window, a daylight lamp, and a cabinet of Citadel and Vallejo paints. I take two commissions at a time — that's the most I can do without rushing." }}
       </p>
       <p>
-        {{ T "painter_story_4" | default "What I love painting: characters with cloth and freehand opportunities, vehicles with real weathering, anything with a story. What I won't paint: NMM gold (you should hire a tournament specialist), or anything with a deadline tighter than three weeks." }}
+        {{ T "painter_story_4" | default "What I love painting: characters with cloth and freehand opportunities, vehicles with real weathering, anything with a story. What I won't paint: NMM gold, or anything with a deadline tighter than three weeks." }}
       </p>
     </div>
   </div>
 </section>
 
-{{/* ── What I'll paint / what I won't ─── */}}
+{{/* Commission cards */}}
 <section style="padding:8px var(--page-pad) 56px;">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
     <div style="padding:24px;background:var(--paper);border:1px solid var(--line-soft);">
-      <div style="font-size:10px;letter-spacing:0.18em;color:var(--ink-soft);margin-bottom:14px;text-transform:uppercase;">✓ {{ T "painter_yes_label" | default "Happy to take on" }}</div>
+      <div style="font-size:10px;letter-spacing:0.18em;color:var(--ink-soft);margin-bottom:14px;text-transform:uppercase;">
+        ✓ {{ T "painter_yes_label" | default "Happy to take on" }}
+      </div>
       <ul class="sans" style="margin:0;padding:0;list-style:none;font-size:14px;line-height:2;">
         <li>· {{ T "painter_yes_1" | default "Single characters &amp; named heroes (display)" }}</li>
         <li>· {{ T "painter_yes_2" | default "Squads of 5–10 (tabletop or display)" }}</li>
@@ -76,9 +80,11 @@
       </ul>
     </div>
     <div style="padding:24px;background:#fff;border:1px solid var(--line);">
-      <div style="font-size:10px;letter-spacing:0.18em;color:var(--ink-soft);margin-bottom:14px;text-transform:uppercase;">✗ {{ T "painter_no_label" | default "Not my field" }}</div>
+      <div style="font-size:10px;letter-spacing:0.18em;color:var(--ink-soft);margin-bottom:14px;text-transform:uppercase;">
+        ✗ {{ T "painter_no_label" | default "Not my field" }}
+      </div>
       <ul class="sans" style="margin:0;padding:0;list-style:none;font-size:14px;line-height:2;color:var(--ink-soft);">
-        <li>· {{ T "painter_no_1" | default "NMM (non‑metallic metal) gold" }}</li>
+        <li>· {{ T "painter_no_1" | default "NMM (non-metallic metal) gold" }}</li>
         <li>· {{ T "painter_no_2" | default "Anything with a deadline &lt; 3 weeks" }}</li>
         <li>· {{ T "painter_no_3" | default "Whole armies (50+ models)" }}</li>
         <li>· {{ T "painter_no_4" | default "Bootleg / recast minis" }}</li>
@@ -88,11 +94,11 @@
   </div>
 </section>
 
-{{/* ── Workspace strip ─── */}}
+{{/* Workspace strip */}}
 <section style="padding:0 var(--page-pad) 32px;">
   <div class="section-label">
-    <span>// THE DESK</span>
-    <span>WHERE THE WORK HAPPENS</span>
+    <span>// {{ T "the_desk" | default "THE DESK" }}</span>
+    <span>{{ T "desk_sub" | default "WHERE THE WORK HAPPENS" }}</span>
   </div>
   <div style="margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
     <div class="photo" style="aspect-ratio:4/5;background:var(--paper);">
@@ -107,10 +113,10 @@
   </div>
 </section>
 
-{{/* ── Seen on strip ─── */}}
+{{/* Seen on */}}
 <section style="margin:24px var(--page-pad) 32px;padding:24px 28px;background:var(--ink);color:var(--bg);display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;flex-wrap:wrap;gap:12px;">
   <span style="opacity:0.55;">SEEN ON ·</span>
-  <a href="https://www.xiaohongshu.com/user/profile/viiyd" target="_blank" rel="noopener" style="color:var(--bg);">小红书 · @viiyd</a>
+  <a href="https://www.xiaohongshu.com" target="_blank" rel="noopener" style="color:var(--bg);">小红书 · @viiyd</a>
   <span style="opacity:0.4;">·</span>
   <a href="https://instagram.com/viiyd.studio" target="_blank" rel="noopener" style="color:var(--bg);">Instagram · @viiyd.studio</a>
   <span style="opacity:0.4;">·</span>
@@ -119,32 +125,30 @@
   <span>Reddit · r/minipainting</span>
 </section>
 
-{{/* ── Reach me ─── */}}
+{{/* Reach me */}}
 <section style="padding:0 var(--page-pad) 40px;">
   <div style="padding:40px;background:var(--paper);border:1px solid var(--line-soft);display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;">
     <div>
-      <div style="font-size:11px;letter-spacing:0.18em;color:var(--ink-soft);text-transform:uppercase;">{{ T "reach_me" | default "Reach Me" }}</div>
+      <div style="font-size:11px;letter-spacing:0.18em;color:var(--ink-soft);text-transform:uppercase;">
+        {{ T "reach_me" | default "Reach Me" }}
+      </div>
       <div style="font-family:var(--font-serif);font-style:italic;font-size:44px;line-height:1.05;margin-top:8px;letter-spacing:-0.01em;max-width:480px;text-wrap:balance;">
         {{ T "reach_me_body" | default "Send a reference picture and a deadline. I'll reply within 48h." }}
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;">
-      {{/* WeChat — primary / yellow */}}
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--yellow);border:1px solid #c89518;">
         <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink);text-transform:uppercase;">WeChat</span>
         <span class="sans" style="font-weight:500;">viiyd_studio</span>
       </div>
-      {{/* Email */}}
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#fff;border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink-soft);text-transform:uppercase;">Email</span>
         <a href="mailto:hello@viiyd.com" class="sans" style="font-weight:500;color:var(--ink);">hello@viiyd.com</a>
       </div>
-      {{/* 小红书 */}}
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#fff;border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink-soft);text-transform:uppercase;">小红书</span>
         <span class="sans" style="font-weight:500;">@viiyd</span>
       </div>
-      {{/* Instagram */}}
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#fff;border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink-soft);text-transform:uppercase;">Instagram</span>
         <a href="https://instagram.com/viiyd.studio" target="_blank" rel="noopener" class="sans" style="font-weight:500;color:var(--ink);">@viiyd.studio</a>
@@ -153,9 +157,9 @@
   </div>
 </section>
 
-{{/* ── Footer ─── */}}
+{{/* Footer */}}
 <footer style="padding:20px var(--page-pad);border-top:1px solid var(--line-soft);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);display:flex;justify-content:space-between;">
-  <span>© {{ now.Year }} V. · VIIYD STUDIO</span>
+  <span>© {{ now.Year }} V. · VIIYD STUDIO · Chengdu</span>
   <a href="{{ relLangURL "work" }}" style="color:var(--ink-soft);">← {{ T "back_archive" | default "Back to the archive" }}</a>
 </footer>
 

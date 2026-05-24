@@ -342,7 +342,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-family: var(--font-serif);
   font-weight: 400;
   font-style: italic;
-  font-size: 168px;
+  font-size: clamp(44px, 13vw, 168px);
   line-height: 0.84;
   letter-spacing: -0.03em;
   margin: 0;
@@ -482,7 +482,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 @media (max-width: 768px) {
   :root { --page-pad: 16px; --dossier-pad: 16px; }
 
-  .dossier-title { font-size: 64px; }
+  /* dossier-title uses clamp(), no override needed */
   .recent-grid   { grid-template-columns: repeat(3, 1fr); }
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
   .specimen-card { grid-template-columns: 1fr; }
