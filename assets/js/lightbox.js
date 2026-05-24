@@ -129,8 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isZoomed) resetZoom();
 
         const src = imageList[currentIndex];
-        const webSrc  = src.getAttribute('data-web-src')  || src.src;
-        const fullSrc = src.getAttribute('data-full-res') || src.src;
+        // Support: <img src="…">, <div data-src="…">, <div data-web-src="…">
+        const rawSrc = src.getAttribute('data-web-src')
+                    || src.getAttribute('data-src')
+                    || (src.tagName === 'IMG' ? src.src : null)
+                    || src.querySelector('img')?.src
+                    || '';
+        const webSrc  = rawSrc;
+        const fullSrc = src.getAttribute('data-full-res') || src.getAttribute('data-src') || rawSrc;
 
         imgEl.src = webSrc;
         imgEl.dataset.webSrc  = webSrc;
