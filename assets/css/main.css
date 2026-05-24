@@ -2,9 +2,11 @@
 
 /* ── Design tokens ─── */
 :root {
-  color-scheme: only light;
+  color-scheme: light dark;
   --bg:           #fafaf6;
   --paper:        #f3f0e6;
+  --panel:        #0c0c0a;
+  --panel-text:   #fafaf6;
   --ink:          #0c0c0a;
   --ink-soft:     #6e6c66;
   --line:         #1a1a18;
@@ -21,6 +23,23 @@
   --page-width:   1280px;
   --page-pad:     28px;
   --dossier-pad:  48px;
+}
+
+/* ── Dark theme ─── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:          #0e0c08;
+    --paper:       #1a1714;
+    --panel:       #1f1b16;
+    --panel-text:  #f1ece0;
+    --ink:         #f1ece0;
+    --ink-soft:    #8c8579;
+    --line:        #3a342a;
+    --line-soft:   #241f18;
+    --yellow:      #f5c64a;
+    --yellow-dark: #c89518;
+    --hero-dark:   #050403;
+  }
 }
 
 /* ── Reset ─── */
@@ -87,7 +106,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   text-transform: uppercase;
   cursor: pointer;
 }
-.btn-yellow  { background: var(--yellow); color: var(--ink); }
+.btn-yellow  { background: var(--yellow); color: #0c0c0a; }
 .btn-outline { border: 1px solid var(--ink); color: var(--ink); }
 .btn-ghost   { border: 1px solid rgba(246,243,234,0.5); color: #f6f3ea; background: rgba(0,0,0,0.22); backdrop-filter: blur(4px); }
 
@@ -154,7 +173,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.tier-pill.display   { background: var(--yellow); }
+.tier-pill.display   { background: var(--yellow); color: #0c0c0a; }
 .tier-pill.standard  { background: var(--line-soft); }
 .tier-pill.tabletop,
 .tier-pill.tabletop-plus { border: 1px solid var(--line); }
@@ -217,8 +236,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ── Commission strip ─── */
 .commission-strip {
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--panel);
+  color: var(--panel-text);
   display: grid;
   grid-template-columns: 1.1fr 0.45fr 0.45fr;
   gap: 28px;
@@ -228,7 +247,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .tier-card {
   padding: 14px 16px;
 }
-.tier-card.highlighted { background: var(--yellow); color: var(--ink); }
+.tier-card.highlighted { background: var(--yellow); color: #0c0c0a; }
 .tier-card .tier-label { font-size: 10px; letter-spacing: 0.18em; opacity: 0.7; text-transform: uppercase; }
 .tier-card .tier-price { font-family: var(--font-sans); font-size: 22px; font-weight: 500; margin-top: 4px; }
 .tier-card .tier-sub   { font-size: 11px; opacity: 0.7; margin-top: 4px; }
@@ -240,8 +259,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   gap: 48px;
   align-items: center;
   padding: 40px;
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--panel);
+  color: var(--panel-text);
 }
 
 /* ── Loop-back panel ─── */
@@ -350,6 +369,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .dossier-title-accent { color: var(--yellow); font-style: normal; }
 
+/* ── Identity statement ─── */
+.identity-text { font-size: 44px; }
+
 /* ── Home hero ─── */
 .home-hero-landscape { padding: 8px var(--page-pad) 28px; }
 .home-hero-portrait  { padding: 24px var(--page-pad) 28px; }
@@ -380,6 +402,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .recent-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .recent-meta { display: flex; justify-content: space-between; margin-top: 8px; font-size: 10px; color: var(--ink-soft); letter-spacing: 0.05em; }
 .recent-title { font-family: var(--font-sans); font-weight: 500; font-size: 14px; margin-top: 2px; }
+
+/* ── Archive headline ─── */
+.archive-headline { font-size: 56px; }
 
 /* ── Archive masthead ─── */
 .archive-masthead {
@@ -482,33 +507,94 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 @media (max-width: 768px) {
   :root { --page-pad: 16px; --dossier-pad: 16px; }
 
-  .dossier-title { font-size: 36px; line-height: 1; }
-  .recent-grid   { grid-template-columns: repeat(3, 1fr); }
-  .featured-grid { grid-template-columns: repeat(2, 1fr); }
-  .specimen-card { grid-template-columns: 1fr; }
-  .specimen-card .photo { aspect-ratio: 4/3; }
-  .certificate   { grid-template-columns: 1fr; }
-  .loop-back     { grid-template-columns: 1fr; }
-  .painters-notes { grid-template-columns: 1fr; }
-  .notes-body    { columns: 1; }
-  .commission-strip { grid-template-columns: 1fr; }
-  .plates-grid   { grid-template-columns: repeat(4, 1fr); }
-  .archive-head,
-  .archive-row   { grid-template-columns: 40px 1fr 80px 40px; }
-  .archive-head span:nth-child(3),
-  .archive-head span:nth-child(4),
-  .archive-head span:nth-child(5),
-  .archive-head span:nth-child(6),
+  /* ── Home hero portrait: photo above, text below ── */
+  .hero-portrait-grid { grid-template-columns: 1fr; }
+  .hero-portrait-grid .photo { order: -1; aspect-ratio: 3/4; }
+  .home-hero-portrait  { padding: 0 0 24px; }
+  .home-hero-portrait .hero-portrait-grid > div:first-child { padding: 20px 16px 0; }
+
+  /* ── Home title ── */
+  .hero-title-xl { font-size: 56px; line-height: 0.92; }
+
+  /* ── Recent grid: 2-col ── */
+  .recent-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  /* ── Commission strip: stacked column ── */
+  .commission-strip { grid-template-columns: 1fr; gap: 10px; }
+
+  /* ── Archive ── */
+  .archive-masthead { flex-direction: column; gap: 10px; }
+  .archive-wordmark { font-size: 48px; }
+  .archive-head { display: none; }
+  .archive-row {
+    grid-template-columns: 1fr 70px 30px;
+    gap: 8px;
+  }
+  .archive-row .num   { display: none; }
+  .archive-row .thumb { width: 48px; height: 48px; }
   .archive-row .fac,
   .archive-row .scale,
   .archive-row .hrs,
-  .archive-row .date { display: none; }
-  .painter-hero  { grid-template-columns: 1fr; }
-  .painter-initial { font-size: 96px; }
-  .hero-portrait-grid { grid-template-columns: 1fr; }
-  /* hero-title-xl handled by clamp() */
-  .archive-masthead { flex-direction: column; }
-  .archive-wordmark { font-size: 56px; }
+  .archive-row .date  { display: none; }
+
+  /* ── Featured grid ── */
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Dossier hero: photo above, text below ── */
+  .dossier-hero { display: flex; flex-direction: column; }
+  .dossier-hero-bg {
+    position: static;
+    width: 100%;
+    aspect-ratio: 3/4;
+    opacity: 1;
+    object-fit: cover;
+    height: auto;
+    flex-shrink: 0;
+  }
+  .dossier-hero-vignette { display: none; }
+  .dossier-hero-content {
+    position: static;
+    min-height: unset;
+    padding: 24px var(--dossier-pad) 32px;
+  }
+  .dossier-title { font-size: 72px; line-height: 0.86; }
+
+  /* ── Dossier plates: 2-col ── */
+  .plates-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+  /* ── Specimen card ── */
+  .specimen-card { grid-template-columns: 1fr; }
+  .specimen-card .photo { aspect-ratio: 4/3; }
+
+  /* ── Painter notes ── */
+  .painters-notes { grid-template-columns: 1fr; }
+  .notes-body { columns: 1; }
+
+  /* ── Certificate + loop-back ── */
+  .certificate { grid-template-columns: 1fr; padding: 24px 20px; }
+  .loop-back   { grid-template-columns: 1fr; padding: 24px 20px; }
+
+  /* ── Dossier plates: force all spans to 1 on 2-col grid ── */
+  .plates-grid .plate { grid-column: span 1 !important; aspect-ratio: 1/1 !important; }
+
+  /* ── Paint grid: 5-col on mobile ── */
+  .paint-grid { grid-template-columns: repeat(5, 1fr) !important; }
+
+  /* ── Hide dossier scroll hint (absolute positioned, breaks mobile layout) ── */
+  .dossier-hero-content > div:last-child[style*="position:absolute"] { display: none; }
+
+  /* ── Identity statement responsive size ── */
+  .identity-text { font-size: 22px; }
+
+  /* ── Archive headline ── */
+  .archive-headline { font-size: 24px; line-height: 1.2; }
+
+  /* ── Archive commission strip: stacked ── */
+  .archive-comm-strip { grid-template-columns: 1fr !important; }
+
+  /* ── Painter page ── */
+  .painter-hero { grid-template-columns: 1fr; }
   .painter-hero .photo { order: -1; }
+  .painter-initial { font-size: 96px; }
   .desk-grid { grid-template-columns: 1fr 1fr; }
 }
