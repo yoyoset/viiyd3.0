@@ -20,12 +20,8 @@
 {{/* Hero */}}
 <section style="padding:64px var(--page-pad) 48px;display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:end;">
   <div>
-    <div class="photo" style="aspect-ratio:4/5;background:var(--paper);display:flex;align-items:center;justify-content:center;">
-      <img src="https://photo.viiyd.com/studio/v_portrait.webp" alt="V. — painter" loading="eager"
-           style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"
-           onerror="this.style.display='none'">
-      {{/* fallback monogram shown when photo not yet uploaded */}}
-      <span style="font-family:var(--font-serif);font-size:120px;line-height:1;color:var(--line);font-style:italic;user-select:none;position:relative;z-index:0;">V.</span>
+    <div class="photo" style="aspect-ratio:4/5;">
+      <img src="/img/avatar.jpg" alt="V. — painter" loading="eager">
     </div>
   </div>
   <div>
@@ -104,16 +100,37 @@
     <span>// {{ T "the_desk" | default "THE DESK" }}</span>
     <span>{{ T "desk_sub" | default "WHERE THE WORK HAPPENS" }}</span>
   </div>
-  <div style="margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-    {{/* desk_01–03 not yet uploaded to R2 — swap src when ready */}}
-    <div class="photo desk-photo-slot" style="aspect-ratio:4/5;background:var(--paper);">
-      <img src="https://photo.viiyd.com/studio/desk_01.webp" alt="The desk, morning" loading="lazy" onerror="this.style.display='none'">
+  <div style="margin-top:18px;display:grid;grid-template-columns:repeat(12,1fr);gap:8px;">
+    {{/* Row 1 — action hero + tall paint tower */}}
+    <div class="photo" style="grid-column:span 8;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0419.jpg" alt="Painting in progress" loading="lazy">
     </div>
-    <div class="photo desk-photo-slot" style="aspect-ratio:4/5;background:var(--paper);">
-      <img src="https://photo.viiyd.com/studio/desk_02.webp" alt="Paints and brushes" loading="lazy" onerror="this.style.display='none'">
+    <div class="photo" style="grid-column:span 4;aspect-ratio:2/3;">
+      <img src="/img/studio/_WER0413.jpg" alt="Paint rack" loading="lazy">
     </div>
-    <div class="photo desk-photo-slot" style="aspect-ratio:4/5;background:var(--paper);">
-      <img src="https://photo.viiyd.com/studio/desk_03.webp" alt="The lamp" loading="lazy" onerror="this.style.display='none'">
+    {{/* Row 2 — three process shots */}}
+    <div class="photo" style="grid-column:span 4;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0423.jpg" alt="Brush work" loading="lazy">
+    </div>
+    <div class="photo" style="grid-column:span 4;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0425.jpg" alt="Brush work" loading="lazy">
+    </div>
+    <div class="photo" style="grid-column:span 4;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0410.jpg" alt="Desk flat lay" loading="lazy">
+    </div>
+    {{/* Row 3 — desk overview */}}
+    <div class="photo" style="grid-column:span 6;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0411.jpg" alt="The desk" loading="lazy">
+    </div>
+    <div class="photo" style="grid-column:span 6;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0412.jpg" alt="The desk" loading="lazy">
+    </div>
+    {{/* Row 4 — materials */}}
+    <div class="photo" style="grid-column:span 4;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0414.jpg" alt="Wall paint rack" loading="lazy">
+    </div>
+    <div class="photo" style="grid-column:span 8;aspect-ratio:3/2;">
+      <img src="/img/studio/_WER0426.jpg" alt="Paints and palette" loading="lazy">
     </div>
   </div>
 </section>
@@ -124,10 +141,6 @@
   <a href="https://www.xiaohongshu.com" target="_blank" rel="noopener" style="color:var(--panel-text);">小红书 · @viiyd</a>
   <span style="opacity:0.4;">·</span>
   <a href="https://instagram.com/viiyd.studio" target="_blank" rel="noopener" style="color:var(--panel-text);">Instagram · @viiyd.studio</a>
-  <span style="opacity:0.4;">·</span>
-  <span>YouTube · VIIYD Painting</span>
-  <span style="opacity:0.4;">·</span>
-  <span>Reddit · r/minipainting</span>
 </section>
 
 {{/* Reach me */}}
@@ -142,18 +155,27 @@
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--yellow);border:1px solid #c89518;">
-        <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink);text-transform:uppercase;">WeChat</span>
-        <span class="sans" style="font-weight:500;">viiyd_studio</span>
+      {{/* WeChat — QR code */}}
+      <div style="padding:16px;background:var(--yellow);border:1px solid #c89518;display:flex;gap:16px;align-items:center;">
+        <img src="/img/mywechat.jpg" alt="WeChat QR code"
+             style="width:96px;height:96px;object-fit:cover;flex-shrink:0;display:block;">
+        <div>
+          <div style="font-size:10px;letter-spacing:0.18em;color:var(--ink);text-transform:uppercase;margin-bottom:4px;">WeChat</div>
+          <div class="sans" style="font-weight:500;font-size:14px;color:var(--ink);">扫码添加</div>
+          <div style="font-size:11px;color:var(--ink);opacity:0.65;margin-top:4px;">or open commission form ↑</div>
+        </div>
       </div>
+      {{/* Email */}}
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg);border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink-soft);text-transform:uppercase;">Email</span>
-        <a href="mailto:hello@viiyd.com" class="sans" style="font-weight:500;color:var(--ink);">hello@viiyd.com</a>
+        <a href="mailto:maylyy8@gmail.com" class="sans" style="font-weight:500;color:var(--ink);">maylyy8@gmail.com</a>
       </div>
+      {{/* 小红书 */}}
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg);border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink-soft);text-transform:uppercase;">小红书</span>
         <span class="sans" style="font-weight:500;">@viiyd</span>
       </div>
+      {{/* Instagram */}}
       <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg);border:1px solid var(--line-soft);">
         <span style="font-size:11px;letter-spacing:0.14em;color:var(--ink-soft);text-transform:uppercase;">Instagram</span>
         <a href="https://instagram.com/viiyd.studio" target="_blank" rel="noopener" class="sans" style="font-weight:500;color:var(--ink);">@viiyd.studio</a>
