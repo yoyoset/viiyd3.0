@@ -496,3 +496,135 @@ other = "TIER"
 
 [dossier_heroic]
 other = "heroic"
+
+
+# ── Commission Modal (POP) ─────────────────────────────────────
+
+[cm_start_label]
+other = "start a commission"
+
+[cm_headline]
+other = "Send me a piece,"
+
+[cm_headline_accent]
+other = "and a deadline."
+
+[cm_body]
+other = "That's enough to start. I'll reply within 48h on whichever channel you prefer — WeChat, email, Discord, Telegram."
+
+[cm_body_zh]
+other = "每次只接两单，请耐心。"
+
+[cm_field_name]
+other = "What should I call you?"
+
+[cm_field_name_zh]
+other = "您的称呼"
+
+[cm_name_placeholder]
+other = "Just a name or handle"
+
+[cm_field_contact]
+other = "How can I reach you?"
+
+[cm_field_contact_zh]
+other = "联络方式"
+
+[cm_contact_placeholder]
+other = "WeChat / Email / Discord / Telegram"
+
+[cm_contact_hint]
+other = "Use the channel you check most. Whatever's easiest."
+
+[cm_field_project]
+other = "What is it?"
+
+[cm_field_project_zh]
+other = "项目类型"
+
+[cm_project_vehicle]
+other = "Vehicle / war engine"
+
+[cm_project_diorama]
+other = "Diorama / display"
+
+[cm_project_repair]
+other = "Repair / touch-up"
+
+[cm_field_tier]
+other = "Tier"
+
+[cm_field_tier_zh]
+other = "档次"
+
+[cm_tier_unsure]
+other = "Not sure — let's talk"
+
+[cm_field_deadline]
+other = "When do you need it by?"
+
+[cm_field_deadline_zh]
+other = "截止日期（如有）"
+
+[cm_deadline_placeholder]
+other = 'A rough date is fine — "end of year", "before my birthday in May"'
+
+[cm_deadline_hint]
+other = "If urgent (under 3 weeks) please say so up front — I might pass."
+
+[cm_field_refs]
+other = "Reference picture"
+
+[cm_field_refs_zh]
+other = "参考图片（可选）"
+
+[cm_drop_prompt]
+other = "Drop a photo, or click to browse"
+
+[cm_drop_hint]
+other = "Multiple OK · JPG / PNG / HEIC · up to 20 MB total"
+
+[cm_field_notes]
+other = "Anything else I should know?"
+
+[cm_field_notes_zh]
+other = "还有什么想告诉我的？"
+
+[cm_notes_placeholder]
+other = "Colour preferences · custom basing ideas · references you love · what you don't want"
+
+[cm_privacy_note]
+other = "By sending, you agree your message lands on my phone as a Telegram pin. I usually reply same day, but always within 48h."
+
+[cm_submit_disabled]
+other = "Fill the fields above"
+
+[cm_submit_ready]
+other = "Send →"
+
+[cm_submit_sending]
+other = "Sending…"
+
+[cm_error_upload]
+other = "Image upload failed — please try again or remove the photos."
+
+[cm_error_submit]
+other = "Something went wrong. Please try again."
+
+[cm_success_sent]
+other = "Sent."
+
+[cm_success_headline]
+other = "Your note is pinned on my phone."
+
+[cm_success_body]
+other = "I'll be in touch within 48 hours on the channel you gave me."
+
+[cm_ticket_label]
+other = "Your reference"
+
+[cm_success_back]
+other = "Back to the archive"
+
+[cm_success_another]
+other = "Send another"

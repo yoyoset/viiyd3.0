@@ -1,13 +1,13 @@
 ---
-title: "沉默王萨雷克展示"
-hero_title: "沉默王"
-title_accent: "沉默王"
+title: "寂静王萨雷克展示"
+hero_title: "寂静王"
+title_accent: "寂静王"
 file_no: "034"
 tagline: "六千万年的沉默——为夺回失去的一切而打破。萨雷克立于永恒之舟，高斯绿光与黄金交映。"
 piece_count: "萨雷克 + 永恒之舟 + 2座石碑 + 4具卫士"
 date: 2026-05-23T16:00:00+08:00
 summary: "涅克隆王朝的最高统治者。虚空黑装甲与全身蔓延的幽绿高斯OSL光效，永恒之舟震慑全场。"
-tags: ["战锤 40,000", "涅克隆", "沉默王者", "核心展品", "代工展示"]
+tags: ["战锤 40,000", "涅克隆", "寂静王", "核心展品", "代工展示"]
 cover: "https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01.webp"
 layout: "project"
 optimized: true
@@ -43,11 +43,11 @@ paints:
     role: "SHADE"
     hex: "#2B2B2B"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
-description: "涅克隆沉默王者萨雷克代工展示。虚空黑舟体配合高斯绿全域OSL，黄金萨雷克本体与青石方尖碑形成强烈视觉对比。共14张展示照。"
+description: "涅克隆寂静王萨雷克代工展示。虚空黑舟体配合高斯绿全域OSL，黄金萨雷克本体与青石方尖碑形成强烈视觉对比。共14张展示照。"
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01.webp" title="沉默王者 - 王座正面" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01.webp" title="寂静王 - 王座正面" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_02.webp" title="永恒之舟 - 左侧全景" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_03.webp" title="永恒之舟 - 右侧全景" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_04.webp" title="萨雷克本体 - 3/4 视角" >}}
@@ -60,7 +60,7 @@ description: "涅克隆沉默王者萨雷克代工展示。虚空黑舟体配合
 {{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_11.webp" title="门希尔方尖碑 - 侧面轮廓" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_12.webp" title="OSL 光效 - 面板漫射研究" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_13.webp" title="地台细节 - 灰烬战场" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_14.webp" title="沉默王者 - 完整构图" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_14.webp" title="寂静王 - 完整构图" >}}
 </div>
 
 <div class="space-y-4 my-4">
@@ -68,7 +68,7 @@ description: "涅克隆沉默王者萨雷克代工展示。虚空黑舟体配合
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-green-500 p-6 rounded-r-lg">
     <h3 class="text-xl font-bold text-white mb-2">⚡ 最高意志：王朝的重生</h3>
     <p class="text-gray-300 leading-relaxed">
-        萨雷克，最后的沉默王者，带着一个目的从流放中归来——重新统一支离破碎的涅克隆王朝，直面混沌的威胁。这件代工要求一件能够统治全场的核心展品：虚空黑舟体吞噬一切光线，唯有高斯能量从每一根导管与线圈中喷涌而出，划破沉寂。门希尔方尖碑以古朴青石独立其外，裂纹与岁月共存，提醒着所有人：这个文明用肉身换取了永恒。
+        萨雷克，最后的寂静王，带着一个目的从流放中归来——重新统一支离破碎的涅克隆王朝，直面混沌的威胁。这件代工要求一件能够统治全场的核心展品：虚空黑舟体吞噬一切光线，唯有高斯能量从每一根导管与线圈中喷涌而出，划破沉寂。门希尔方尖碑以古朴青石独立其外，裂纹与岁月共存，提醒着所有人：这个文明用肉身换取了永恒。
     </p>
 </div>
 

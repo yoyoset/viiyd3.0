@@ -1,0 +1,16 @@
+{
+  "name": "viiyd-commission",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create commissions-db",
+    "db:migrate": "wrangler d1 execute commissions-db --file=schema.sql",
+    "db:migrate:remote": "wrangler d1 execute commissions-db --file=schema.sql --remote",
+    "kv:create": "wrangler kv:namespace create RATE_LIMIT"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

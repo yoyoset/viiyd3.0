@@ -1,0 +1,633 @@
+{{/* Commission Modal — POP overlay, included once in baseof.html.
+     Opens via openCommissionModal() from any page. */}}
+<div id="cm-backdrop" role="dialog" aria-modal="true" aria-labelledby="cm-headline" aria-hidden="true"
+  style="display:none;position:fixed;inset:0;z-index:1000;">
+
+  {{/* blur + dark tint */}}
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,4,0.78),rgba(8,6,4,0.94));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);"></div>
+
+  {{/* scrollable wrapper — click outside modal to close */}}
+  <div id="cm-scroll" onclick="if(event.target===this)cmClose()"
+    style="position:relative;z-index:2;height:100%;overflow-y:auto;overflow-x:hidden;padding:80px 20px 80px;">
+
+    {{/* close row */}}
+    <div style="max-width:560px;margin:0 auto 10px;display:flex;justify-content:flex-end;">
+      <button onclick="cmClose()" aria-label="Close"
+        style="background:none;border:none;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(241,236,224,0.7);cursor:pointer;padding:4px 8px;">
+        Close ×
+      </button>
+    </div>
+
+    {{/* modal card */}}
+    <div id="cm-card"
+      style="max-width:560px;margin:0 auto;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,0.5),0 8px 30px rgba(0,0,0,0.28);border:1px solid var(--line-soft);position:relative;">
+
+      {{/* ── FORM STATE ── */}}
+      <div id="cm-form-body" style="padding:40px 40px 32px;">
+        <div style="display:flex;align-items:center;gap:10px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-soft);">
+          {{ partial "badge.html" (dict "size" 18) }}
+          <span>VIIYD STUDIO · {{ T "cm_start_label" }}</span>
+        </div>
+
+        <h2 id="cm-headline"
+          style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;font-size:52px;line-height:0.95;letter-spacing:-0.02em;margin:14px 0 12px;">
+          {{ T "cm_headline" }}&thinsp;<span style="color:var(--yellow);font-style:normal;">{{ T "cm_headline_accent" }}</span>
+        </h2>
+
+        <p style="font-family:'Geist',sans-serif;font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 22px;">
+          {{ T "cm_body" }}<br>
+          <span style="color:var(--ink);">{{ T "cm_body_zh" }}</span>
+        </p>
+
+        <form id="cm-form" novalidate>
+
+          {{/* Name */}}
+          <div class="cm-field">
+            <div class="cm-label-row">
+              <span>{{ T "cm_field_name" }}</span>
+              <span class="cm-label-zh">· {{ T "cm_field_name_zh" }}</span>
+            </div>
+            <input id="cm-name" name="name" type="text" autocomplete="name"
+              placeholder="{{ T "cm_name_placeholder" }}" required
+              class="cm-input" oninput="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
+          </div>
+
+          {{/* Contact */}}
+          <div class="cm-field">
+            <div class="cm-label-row">
+              <span>{{ T "cm_field_contact" }}</span>
+              <span class="cm-label-zh">· {{ T "cm_field_contact_zh" }}</span>
+            </div>
+            <input id="cm-contact" name="contact" type="text"
+              placeholder="{{ T "cm_contact_placeholder" }}" required
+              class="cm-input" oninput="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
+            <div class="cm-hint">{{ T "cm_contact_hint" }}</div>
+          </div>
+
+          {{/* Project + Tier */}}
+          <div class="cm-grid-2">
+            <div class="cm-field">
+              <div class="cm-label-row">
+                <span>{{ T "cm_field_project" }}</span>
+                <span class="cm-label-zh">· {{ T "cm_field_project_zh" }}</span>
+              </div>
+              <div class="cm-select-wrap">
+                <select id="cm-project" name="project" required
+                  class="cm-select" onchange="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
+                  <option value="">{{ T "form_select_option" }}…</option>
+                  <option value="single">{{ T "form_project_single" }}</option>
+                  <option value="squad">{{ T "form_project_squad" }}</option>
+                  <option value="vehicle">{{ T "cm_project_vehicle" }}</option>
+                  <option value="diorama">{{ T "cm_project_diorama" }}</option>
+                  <option value="repair">{{ T "cm_project_repair" }}</option>
+                  <option value="other">{{ T "form_project_other" }}</option>
+                </select>
+                <span class="cm-select-arrow">▾</span>
+              </div>
+            </div>
+            <div class="cm-field">
+              <div class="cm-label-row">
+                <span>{{ T "cm_field_tier" }}</span>
+                <span class="cm-label-zh">· {{ T "cm_field_tier_zh" }}</span>
+              </div>
+              <div class="cm-select-wrap">
+                <select id="cm-tier" name="tier" required
+                  class="cm-select" onchange="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
+                  <option value="">{{ T "form_select_option" }}…</option>
+                  <option value="tabletop">{{ T "tier_tabletop_label" }} · ¥120+</option>
+                  <option value="display">{{ T "tier_display_label" }} · ¥600+</option>
+                  <option value="unsure">{{ T "cm_tier_unsure" }}</option>
+                </select>
+                <span class="cm-select-arrow">▾</span>
+              </div>
+            </div>
+          </div>
+
+          {{/* Deadline */}}
+          <div class="cm-field">
+            <div class="cm-label-row">
+              <span>{{ T "cm_field_deadline" }}</span>
+              <span class="cm-label-zh">· {{ T "cm_field_deadline_zh" }}</span>
+            </div>
+            <input id="cm-deadline" name="deadline" type="text"
+              placeholder="{{ T "cm_deadline_placeholder" }}"
+              class="cm-input" oninput="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
+            <div class="cm-hint">{{ T "cm_deadline_hint" }}</div>
+          </div>
+
+          {{/* Reference photos */}}
+          <div class="cm-field">
+            <div class="cm-label-row">
+              <span>{{ T "cm_field_refs" }}</span>
+              <span class="cm-label-zh">· {{ T "cm_field_refs_zh" }}</span>
+            </div>
+            <div id="cm-drop"
+              onclick="document.getElementById('cm-files').click()"
+              ondragover="event.preventDefault();this.classList.add('cm-drop-hover')"
+              ondragleave="this.classList.remove('cm-drop-hover')"
+              ondrop="cmHandleDrop(event)"
+              style="margin-top:8px;padding:20px 16px;border:1px dashed var(--line-soft);background:var(--paper);display:flex;align-items:center;gap:14px;font-size:13px;font-family:'Geist',sans-serif;cursor:pointer;transition:border-color 0.15s;">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--line-soft);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;line-height:1;">+</div>
+              <div>
+                <div style="color:var(--ink);">{{ T "cm_drop_prompt" }}</div>
+                <div class="cm-hint" style="margin-top:2px;">{{ T "cm_drop_hint" }}</div>
+              </div>
+            </div>
+            <div id="cm-files-list"></div>
+            <input type="file" id="cm-files" name="refs" multiple accept="image/*,.heic" style="display:none;" onchange="cmHandleFiles(this.files)">
+          </div>
+
+          {{/* Notes */}}
+          <div class="cm-field" style="margin-top:18px;">
+            <div class="cm-label-row">
+              <span>{{ T "cm_field_notes" }}</span>
+              <span class="cm-label-zh">· {{ T "cm_field_notes_zh" }}</span>
+            </div>
+            <textarea id="cm-notes" name="notes" rows="3"
+              placeholder="{{ T "cm_notes_placeholder" }}"
+              class="cm-textarea" oninput="cmValidate()" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--line-soft)'"></textarea>
+          </div>
+
+          {{/* Honeypot */}}
+          <input name="website" type="text" style="position:absolute;left:-9999px;opacity:0;" tabindex="-1" autocomplete="off">
+
+          {{/* Turnstile — only rendered if sitekey is configured */}}
+          {{ with .Site.Params.turnstileSiteKey }}
+          <div class="cf-turnstile" data-sitekey="{{ . }}" data-theme="auto" data-callback="cmTurnstileCallback" style="margin-top:16px;"></div>
+          {{ end }}
+
+          {{/* Submit row */}}
+          <div class="cm-submit-row">
+            <div class="cm-privacy-text">{{ T "cm_privacy_note" }}</div>
+            <button id="cm-submit" type="submit" disabled class="cm-btn-submit cm-btn-disabled">
+              {{ T "cm_submit_disabled" }}
+            </button>
+          </div>
+
+          <div id="cm-error" style="display:none;margin-top:12px;font-size:13px;color:#c84a4a;font-family:'Geist',sans-serif;"></div>
+        </form>
+      </div>
+
+      {{/* ── SUCCESS STATE ── */}}
+      <div id="cm-success-body" style="display:none;text-align:center;padding:48px 40px 40px;">
+        <div style="display:flex;justify-content:center;margin-bottom:24px;" class="cm-seal-animate">
+          {{ partial "seal.html" (dict "size" 150) }}
+        </div>
+        <div style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.24em;color:var(--ink-soft);text-transform:uppercase;" id="cm-timestamp"></div>
+        <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;font-size:60px;line-height:0.95;letter-spacing:-0.02em;margin:10px 0 14px;color:var(--ink);">
+          <span style="color:var(--yellow);font-style:normal;">{{ T "cm_success_sent" }}</span> {{ T "cm_success_headline" }}
+        </h2>
+        <p style="font-family:'Geist',sans-serif;font-size:14px;line-height:1.65;color:var(--ink-soft);max-width:460px;margin:0 auto 24px;">
+          {{ T "cm_success_body" }}<br>
+          <span style="color:var(--ink);">请耐心一两天 ❤️</span>
+        </p>
+        <div id="cm-ticket"
+          style="padding:14px 18px;background:var(--paper);border:1px dashed var(--line-soft);display:inline-flex;flex-direction:column;align-items:center;gap:4px;font-family:'Geist Mono',monospace;">
+          <span style="font-size:10px;letter-spacing:0.18em;color:var(--ink-soft);text-transform:uppercase;">{{ T "cm_ticket_label" }}</span>
+          <span id="cm-ticket-id" style="font-size:18px;color:var(--ink);letter-spacing:0.08em;">—</span>
+        </div>
+        <div style="margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+          <button onclick="cmClose()"
+            style="background:var(--yellow);color:#0c0c0a;border:1px solid var(--yellow-dark);padding:12px 20px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+            [ {{ T "cm_success_back" }} ]
+          </button>
+          <button onclick="cmReset()"
+            style="background:transparent;color:var(--ink);border:1px solid var(--line);padding:12px 20px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+            {{ T "cm_success_another" }}
+          </button>
+        </div>
+      </div>
+
+    </div>{{/* /cm-card */}}
+
+    {{/* privacy footnote */}}
+    <div style="max-width:560px;margin:12px auto 0;padding:0 4px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(241,236,224,0.55);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;">
+      <span>· Stored on Cloudflare D1 · forwarded to my private Telegram ·</span>
+      <span>nothing else, ever</span>
+    </div>
+
+  </div>{{/* /cm-scroll */}}
+</div>{{/* /cm-backdrop */}}
+
+<style>
+/* Commission Modal shared styles */
+.cm-field { margin-top: 14px; }
+
+.cm-label-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.cm-label-zh {
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  font-size: 11px;
+}
+.cm-hint {
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+  font-family: 'Geist', sans-serif;
+}
+.cm-input {
+  margin-top: 6px;
+  width: 100%;
+  padding: 11px 14px;
+  background: transparent;
+  color: var(--ink);
+  border: none;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: 'Geist', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+.cm-input::placeholder { color: var(--ink-soft); }
+.cm-select-wrap {
+  position: relative;
+  margin-top: 6px;
+}
+.cm-select {
+  width: 100%;
+  padding: 11px 36px 11px 14px;
+  background: transparent;
+  color: var(--ink);
+  border: none;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: 'Geist', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.cm-select option { background: var(--bg); color: var(--ink); }
+.cm-select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-soft);
+  pointer-events: none;
+  font-size: 12px;
+}
+.cm-textarea {
+  margin-top: 8px;
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 14px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line-soft);
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+.cm-textarea::placeholder { color: var(--ink-soft); }
+.cm-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.cm-submit-row {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cm-privacy-text {
+  flex: 1;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  font-family: 'Geist', sans-serif;
+}
+.cm-btn-submit {
+  padding: 13px 22px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  border: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.cm-btn-disabled {
+  background: var(--line-soft);
+  color: var(--ink-soft);
+  border: 1px solid var(--line-soft);
+  cursor: not-allowed;
+}
+.cm-btn-ready {
+  background: var(--yellow);
+  color: #0c0c0a;
+  border: 1px solid var(--yellow-dark);
+  cursor: pointer;
+}
+.cm-btn-ready:hover { background: var(--yellow-light, #ffe27a); }
+.cm-drop-hover { border-color: var(--yellow) !important; background: color-mix(in srgb, var(--yellow) 8%, var(--paper)) !important; }
+.cm-file-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+}
+.cm-file-item:last-child { border-bottom: none; }
+.cm-file-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  background: var(--line-soft);
+  flex-shrink: 0;
+}
+.cm-file-remove {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 6px;
+  font-family: 'Geist Mono', monospace;
+}
+.cm-seal-animate { animation: cmSealDrop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes cmSealDrop {
+  from { transform: scale(0.4) translateY(-30px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Mobile overrides */
+@media (max-width: 639px) {
+  #cm-scroll { padding: 24px 12px 40px; }
+  #cm-form-body,
+  #cm-success-body { padding: 28px 22px 24px !important; }
+  #cm-headline { font-size: 38px !important; }
+  #cm-success-body h2 { font-size: 44px !important; }
+  .cm-grid-2 { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .cm-submit-row { flex-direction: column-reverse !important; }
+  .cm-btn-submit { width: 100% !important; justify-content: center; }
+  .cm-privacy-text { text-align: center !important; }
+}
+</style>
+
+<script>
+(function () {
+  /* ── state ── */
+  var _cmOpen = false;
+  var _uploadedFiles = [];  /* {file, key} objects once uploaded */
+  var _pendingFiles = [];   /* File objects waiting */
+  var _turnstileToken = null;
+  var _hasTurnstile = document.querySelector('[data-sitekey]') !== null;
+
+  /* ── open / close ── */
+  window.openCommissionModal = function () {
+    var el = document.getElementById('cm-backdrop');
+    if (!el) return;
+    el.style.display = 'block';
+    el.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+    _cmOpen = true;
+    /* scroll modal to top */
+    var scr = document.getElementById('cm-scroll');
+    if (scr) scr.scrollTop = 0;
+    /* focus first input */
+    setTimeout(function () {
+      var inp = document.getElementById('cm-name');
+      if (inp) inp.focus();
+    }, 50);
+  };
+
+  window.cmClose = function () {
+    var el = document.getElementById('cm-backdrop');
+    if (!el) return;
+    el.style.display = 'none';
+    el.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    _cmOpen = false;
+  };
+
+  /* ── reset to empty form ── */
+  window.cmReset = function () {
+    var form = document.getElementById('cm-form');
+    if (form) form.reset();
+    _pendingFiles = [];
+    _uploadedFiles = [];
+    _turnstileToken = null;
+    var filesList = document.getElementById('cm-files-list');
+    if (filesList) filesList.innerHTML = '';
+    document.getElementById('cm-success-body').style.display = 'none';
+    document.getElementById('cm-form-body').style.display = 'block';
+    cmValidate();
+    var scr = document.getElementById('cm-scroll');
+    if (scr) scr.scrollTop = 0;
+  };
+
+  /* ── keyboard close ── */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && _cmOpen) cmClose();
+  });
+
+  /* ── field focus/blur helpers ── */
+  window.cmFocus = function (el) {
+    el.style.borderBottomColor = 'var(--ink)';
+  };
+  window.cmBlur = function (el) {
+    el.style.borderBottomColor = el.value ? 'var(--ink)' : 'var(--line-soft)';
+  };
+
+  /* ── Turnstile callback ── */
+  window.cmTurnstileCallback = function (token) {
+    _turnstileToken = token;
+    cmValidate();
+  };
+
+  /* ── validation ── */
+  window.cmValidate = function () {
+    var name = (document.getElementById('cm-name') || {}).value || '';
+    var contact = (document.getElementById('cm-contact') || {}).value || '';
+    var project = (document.getElementById('cm-project') || {}).value || '';
+    var tier = (document.getElementById('cm-tier') || {}).value || '';
+    var filled = name.trim() && contact.trim() && project && tier;
+    /* if turnstile is present, also require its token */
+    var turnstileOk = !_hasTurnstile || !!_turnstileToken;
+    var btn = document.getElementById('cm-submit');
+    if (!btn) return;
+    if (filled && turnstileOk) {
+      btn.disabled = false;
+      btn.className = 'cm-btn-submit cm-btn-ready';
+      btn.textContent = '{{ T "cm_submit_ready" }}';
+    } else {
+      btn.disabled = true;
+      btn.className = 'cm-btn-submit cm-btn-disabled';
+      btn.textContent = '{{ T "cm_submit_disabled" }}';
+    }
+  };
+
+  /* ── file handling ── */
+  window.cmHandleDrop = function (e) {
+    e.preventDefault();
+    var drop = document.getElementById('cm-drop');
+    if (drop) drop.classList.remove('cm-drop-hover');
+    cmHandleFiles(e.dataTransfer.files);
+  };
+
+  window.cmHandleFiles = function (fileList) {
+    for (var i = 0; i < fileList.length; i++) {
+      if (_pendingFiles.length + _uploadedFiles.length >= 5) break;
+      _pendingFiles.push(fileList[i]);
+    }
+    cmRenderFiles();
+  };
+
+  function cmRenderFiles () {
+    var list = document.getElementById('cm-files-list');
+    if (!list) return;
+    var all = _pendingFiles.concat(_uploadedFiles.map(function (u) { return u.file; }));
+    if (all.length === 0) { list.innerHTML = ''; return; }
+    var html = '';
+    all.forEach(function (f, idx) {
+      var url = URL.createObjectURL(f);
+      html += '<div class="cm-file-item">'
+        + '<img class="cm-file-thumb" src="' + url + '" alt="">'
+        + '<div><div style="color:var(--ink);font-weight:500;">' + f.name + '</div>'
+        + '<div style="color:var(--ink-soft);font-size:11px;margin-top:2px;">' + (f.size > 1048576 ? (f.size/1048576).toFixed(1)+' MB' : (f.size/1024).toFixed(0)+' KB') + '</div></div>'
+        + '<button class="cm-file-remove" type="button" onclick="cmRemoveFile(' + idx + ')">✕</button>'
+        + '</div>';
+    });
+    list.innerHTML = html;
+  }
+
+  window.cmRemoveFile = function (idx) {
+    var total = _pendingFiles.length;
+    if (idx < total) {
+      _pendingFiles.splice(idx, 1);
+    } else {
+      _uploadedFiles.splice(idx - total, 1);
+    }
+    cmRenderFiles();
+  };
+
+  /* ── submit ── */
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('cm-form');
+    if (!form) return;
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('cm-submit');
+      var errEl = document.getElementById('cm-error');
+
+      /* honeypot check client-side */
+      var hp = form.querySelector('[name="website"]');
+      if (hp && hp.value) { cmClose(); return; }
+
+      btn.disabled = true;
+      btn.textContent = '{{ T "cm_submit_sending" }}';
+      if (errEl) errEl.style.display = 'none';
+
+      /* upload any pending files first */
+      var refKeys = _uploadedFiles.map(function(u){ return u.key; });
+      try {
+        for (var i = 0; i < _pendingFiles.length; i++) {
+          var key = await cmUploadFile(_pendingFiles[i]);
+          refKeys.push(key);
+        }
+        _uploadedFiles = _pendingFiles.map(function(f, j){ return {file: f, key: refKeys[j]}; });
+        _pendingFiles = [];
+      } catch (err) {
+        if (errEl) { errEl.textContent = '{{ T "cm_error_upload" }}'; errEl.style.display = 'block'; }
+        btn.disabled = false;
+        btn.className = 'cm-btn-submit cm-btn-ready';
+        btn.textContent = '{{ T "cm_submit_ready" }}';
+        return;
+      }
+
+      /* submit commission */
+      var payload = {
+        name: document.getElementById('cm-name').value.trim(),
+        contact: document.getElementById('cm-contact').value.trim(),
+        project: document.getElementById('cm-project').value,
+        tier: document.getElementById('cm-tier').value,
+        deadline: document.getElementById('cm-deadline').value.trim(),
+        notes: document.getElementById('cm-notes').value.trim(),
+        reference_keys: refKeys,
+        turnstile_token: _turnstileToken || ''
+      };
+
+      try {
+        var res = await fetch('/api/commission', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+        var data = await res.json();
+        if (data.ok) {
+          cmShowSuccess(data.ticket);
+        } else {
+          throw new Error(data.error || 'Server error');
+        }
+      } catch (err) {
+        if (errEl) { errEl.textContent = err.message || '{{ T "cm_error_submit" }}'; errEl.style.display = 'block'; }
+        btn.disabled = false;
+        btn.className = 'cm-btn-submit cm-btn-ready';
+        btn.textContent = '{{ T "cm_submit_ready" }}';
+      }
+    });
+  });
+
+  async function cmUploadFile (file) {
+    /* get presigned URL from Worker */
+    var res = await fetch('/api/commission/upload', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ filename: file.name, size: file.size })
+    });
+    var data = await res.json();
+    if (!data.url || !data.key) throw new Error('Upload URL failed');
+    /* upload directly to R2 */
+    await fetch(data.url, { method: 'PUT', body: file, headers: {'Content-Type': file.type || 'application/octet-stream'} });
+    return data.key;
+  }
+
+  function cmShowSuccess (ticket) {
+    document.getElementById('cm-form-body').style.display = 'none';
+    var success = document.getElementById('cm-success-body');
+    success.style.display = 'block';
+    /* timestamp */
+    var now = new Date();
+    var h = now.getHours().toString().padStart(2,'0');
+    var m = now.getMinutes().toString().padStart(2,'0');
+    var tsEl = document.getElementById('cm-timestamp');
+    if (tsEl) tsEl.textContent = 'Received · ' + h + ':' + m + ' CST';
+    /* ticket ID */
+    var ticketEl = document.getElementById('cm-ticket-id');
+    if (ticketEl) ticketEl.textContent = ticket || '—';
+    /* scroll to top of modal */
+    var scr = document.getElementById('cm-scroll');
+    if (scr) scr.scrollTop = 0;
+  }
+
+})();
+</script>

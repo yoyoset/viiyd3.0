@@ -1,0 +1,30 @@
+name = "viiyd-commission"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Route — all commission API calls on the main domain
+# Uncomment and fill in your Cloudflare zone ID after deploying:
+# routes = [
+#   { pattern = "viiyd.com/api/commission*", zone_name = "viiyd.com" }
+# ]
+
+[[d1_databases]]
+binding = "COMMISSIONS_DB"
+database_name = "commissions-db"
+database_id = ""     # fill in after: wrangler d1 create commissions-db
+
+[[r2_buckets]]
+binding = "REFS_BUCKET"
+bucket_name = "viiyd-commission-refs"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = ""              # fill in after: wrangler kv:namespace create RATE_LIMIT
+
+# Secrets — set via: wrangler secret put <KEY>
+# Required:
+#   TELEGRAM_BOT_TOKEN   — from @BotFather
+#   TELEGRAM_CHAT_ID     — your private chat ID (use @userinfobot to find it)
+# Optional:
+#   TURNSTILE_SECRET_KEY — from Cloudflare Turnstile dashboard

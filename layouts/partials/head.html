@@ -24,6 +24,11 @@
   {{ if hugo.IsProduction }}{{ $style = $style | minify | fingerprint }}{{ end }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
+  <!-- Cloudflare Turnstile (deferred — only fires when modal opens) -->
+  {{ with .Site.Params.turnstile_site_key }}
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {{ end }}
+
   <!-- SEO -->
   <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.description | default .Summary | default .Site.Params.description }}{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">

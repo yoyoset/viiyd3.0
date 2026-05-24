@@ -206,7 +206,7 @@
       </div>
     </div>
     <div class="loop-back-actions">
-      <a href="{{ relLangURL "contact" }}" class="btn btn-yellow" style="text-align:center;">{{ T "dossier_commission_btn" | default "[ Commission a piece → ]" }}</a>
+      <button onclick="openCommissionModal()" class="btn btn-yellow" style="text-align:center;cursor:pointer;font:inherit;">{{ T "dossier_commission_btn" | default "[ Commission a piece → ]" }}</button>
       <a href="{{ relLangURL "work" }}" class="btn btn-outline" style="text-align:center;">← {{ T "back_archive" | default "Back to the archive" }}</a>
     </div>
   </div>

@@ -515,3 +515,135 @@ other = "等级"
 
 [dossier_heroic]
 other = "英雄比例"
+
+
+# ── 委托弹窗 (POP) ─────────────────────────────────────
+
+[cm_start_label]
+other = "发起委托"
+
+[cm_headline]
+other = "把作品交给我，"
+
+[cm_headline_accent]
+other = "和一个截止日期。"
+
+[cm_body]
+other = "这就够了。我会在 48 小时内通过您选择的渠道回复——微信、邮件、Discord 或 Telegram。"
+
+[cm_body_zh]
+other = "每次只接两单，请耐心。"
+
+[cm_field_name]
+other = "怎么称呼您？"
+
+[cm_field_name_zh]
+other = "您的称呼"
+
+[cm_name_placeholder]
+other = "名字或昵称都可以"
+
+[cm_field_contact]
+other = "如何联络您？"
+
+[cm_field_contact_zh]
+other = "联络方式"
+
+[cm_contact_placeholder]
+other = "微信 / 邮箱 / Discord / Telegram"
+
+[cm_contact_hint]
+other = "用您最常用的渠道就好。"
+
+[cm_field_project]
+other = "是什么项目？"
+
+[cm_field_project_zh]
+other = "项目类型"
+
+[cm_project_vehicle]
+other = "载具 / 战争引擎"
+
+[cm_project_diorama]
+other = "场景 / 展示台"
+
+[cm_project_repair]
+other = "修复 / 补色"
+
+[cm_field_tier]
+other = "档次"
+
+[cm_field_tier_zh]
+other = "档次"
+
+[cm_tier_unsure]
+other = "不确定，聊一聊"
+
+[cm_field_deadline]
+other = "需要什么时候完成？"
+
+[cm_field_deadline_zh]
+other = "截止日期（如有）"
+
+[cm_deadline_placeholder]
+other = "大概日期即可——年底前、生日前都可以"
+
+[cm_deadline_hint]
+other = "如果非常紧急（不足三周），请提前说明——我可能会婉拒。"
+
+[cm_field_refs]
+other = "参考图片"
+
+[cm_field_refs_zh]
+other = "可选"
+
+[cm_drop_prompt]
+other = "拖拽图片，或点击浏览"
+
+[cm_drop_hint]
+other = "支持多张 · JPG / PNG / HEIC · 总计不超过 20 MB"
+
+[cm_field_notes]
+other = "还有什么想说的？"
+
+[cm_field_notes_zh]
+other = "备注"
+
+[cm_notes_placeholder]
+other = "颜色偏好 · 底座想法 · 喜欢的参考 · 不想要的风格"
+
+[cm_privacy_note]
+other = "提交即代表您同意您的信息以 Telegram Pin 消息的形式发送到我的手机。我通常当天回复，最迟 48 小时内。"
+
+[cm_submit_disabled]
+other = "请先填写必填项"
+
+[cm_submit_ready]
+other = "发送 →"
+
+[cm_submit_sending]
+other = "发送中…"
+
+[cm_error_upload]
+other = "图片上传失败，请重试或删除图片。"
+
+[cm_error_submit]
+other = "出错了，请重试。"
+
+[cm_success_sent]
+other = "已发送。"
+
+[cm_success_headline]
+other = "您的消息已固定在我的手机上。"
+
+[cm_success_body]
+other = "我将在 48 小时内通过您提供的渠道联系您。"
+
+[cm_ticket_label]
+other = "您的委托编号"
+
+[cm_success_back]
+other = "返回作品库"
+
+[cm_success_another]
+other = "再发一条"

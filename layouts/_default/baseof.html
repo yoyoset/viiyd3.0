@@ -4,6 +4,7 @@
 <body>
   {{ block "main" . }}{{ end }}
   {{ partial "site-footer.html" . }}
+  {{ partial "commission-modal.html" . }}
   {{ block "scripts" . }}
     {{ $js := resources.Get "js/lightbox.js" }}
     {{ if $js }}

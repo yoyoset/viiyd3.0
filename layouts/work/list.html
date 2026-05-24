@@ -27,7 +27,7 @@
 {{/* Nav */}}
 <nav style="padding:14px var(--page-pad);border-bottom:1px solid var(--line-soft);display:flex;gap:28px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;align-items:center;">
   <span style="background:var(--ink);color:var(--bg);padding:4px 10px;">Archive</span>
-  <button onclick="vpOpen('commissions')" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">Commissions</button>
+  <button onclick="openCommissionModal()" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">Commissions</button>
   <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">Studio</a>
   <button onclick="vpOpen('contact')" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">Contact</button>
   <a href="{{ relLangURL "" }}" style="margin-left:auto;color:var(--ink-soft);">← Home</a>
@@ -213,6 +213,9 @@
         Send your piece list, a reference image, and a deadline.<br>
         I'll reply within 48h with a quote and a queue slot.
       </div>
+      <button onclick="openCommissionModal()" style="margin-top:20px;background:var(--yellow);color:#0c0c0a;border:1px solid var(--yellow-dark);padding:12px 22px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+        [ Start a commission → ]
+      </button>
     </div>
     <div style="padding:18px;border:1px solid rgba(255,255,255,0.2);">
       <div class="eyebrow" style="opacity:0.7;">Tabletop</div>
