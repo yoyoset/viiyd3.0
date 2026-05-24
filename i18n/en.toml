@@ -386,3 +386,17 @@ other = "Reach Me"
 
 [reach_me_body]
 other = "Send a reference picture and a deadline. I'll reply within 48h."
+
+# ── Legacy _default layout strings ───────────────────────────
+
+[archive_index]
+other = "/// Archive Index"
+
+[cta_ready]
+other = "Ready to start a project?"
+
+[prev]
+other = "Previous"
+
+[next]
+other = "Next"
