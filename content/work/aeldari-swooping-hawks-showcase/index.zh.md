@@ -5,6 +5,7 @@ summary: "灵族道途武士：飞鹰小队。配备机械动力翼，擅长高�
 tags: ["战锤 40,000", "灵族", "飞鹰", "道途武士", "代工展示"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-swooping-hawks/viiyd20260401aeldari-swooping-hawks_01.webp"
 layout: "project"
+photos: 50
 optimized: true
 tier: "Specialist"
 time_log: "35h 00m"

@@ -10,6 +10,7 @@ summary: "The supreme ruler of the Necron dynasties, painted with deep void-blac
 tags: ["Warhammer 40,000", "Necrons", "Silent King", "Centerpiece", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01.webp"
 layout: "project"
+photos: 14
 optimized: true
 tier: "Legend"
 time_log: "60h 00m"

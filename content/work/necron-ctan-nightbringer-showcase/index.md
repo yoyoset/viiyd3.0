@@ -9,6 +9,7 @@ summary: "The C'tan god of death, sharded and bound. Purple-void robes dissolvin
 tags: ["Warhammer 40,000", "Necrons", "C'tan", "Nightbringer", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/nightbringer/viiyd20260523nightbringer_01.webp"
 layout: "project"
+photos: 9
 optimized: true
 tier: "Master"
 time_log: "30h 00m"

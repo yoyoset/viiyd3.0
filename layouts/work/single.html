@@ -14,11 +14,16 @@
 {{ $paints  := .Params.paints }}
 {{ $captions := .Params.captions }}
 
-{{/* Build photo list from R2 — derive base URL from cover */}}
+{{/* Build photo base URL and extension from cover */}}
 {{ $baseURL  := "" }}
+{{ $photoExt := ".webp" }}
 {{ if $cover }}
-  {{ $noExt := strings.TrimSuffix ".webp" $cover }}
-  {{ $baseURL  = strings.TrimSuffix "_01" $noExt }}
+  {{ $noExt    := replaceRE `\.(webp|jpg|jpeg|png)$` "" $cover }}
+  {{ $stripped := replaceRE `_\d+$` "" $noExt }}
+  {{ if ne $stripped $noExt }}
+    {{ $baseURL  = $stripped }}
+    {{ $photoExt = replaceRE `.*\.` "." $cover }}
+  {{ end }}
 {{ end }}
 
 {{/* 01 · Cinematic hero */}}
@@ -123,27 +128,25 @@
 <div style="padding:48px var(--dossier-pad) 16px;">
   <div class="section-label"><span>{{ T "dossier_plates_label" | default "// PLATES" }}</span><span>{{ T "dossier_plates_hint" | default "CLICK TO ENLARGE" }}</span></div>
 
-  {{ if $baseURL }}
+  {{ $photoCount := .Params.photos | default 0 }}
+  {{ if and $baseURL (gt $photoCount 0) }}
   <div class="plates-grid" style="margin-top:18px;">
-    {{ $photos := slice
-      (dict "src" (printf "%s_01.webp" $baseURL) "aspect" "4/5"  "n" "I"    "span" 8  "cap" (index $captions 0  | default "front throne"))
-      (dict "src" (printf "%s_04.webp" $baseURL) "aspect" "4/5"  "n" "II"   "span" 4  "cap" (index $captions 3  | default "3/4 angle"))
-      (dict "src" (printf "%s_02.webp" $baseURL) "aspect" "1/1"  "n" "III"  "span" 4  "cap" (index $captions 1  | default "left profile"))
-      (dict "src" (printf "%s_03.webp" $baseURL) "aspect" "1/1"  "n" "IV"   "span" 4  "cap" (index $captions 2  | default "right profile"))
-      (dict "src" (printf "%s_05.webp" $baseURL) "aspect" "1/1"  "n" "V"    "span" 4  "cap" (index $captions 4  | default "rear"))
-      (dict "src" (printf "%s_06.webp" $baseURL) "aspect" "3/4"  "n" "VI"   "span" 4  "cap" (index $captions 5  | default "gauss throne"))
-      (dict "src" (printf "%s_07.webp" $baseURL) "aspect" "3/4"  "n" "VII"  "span" 4  "cap" (index $captions 6  | default "gold armour"))
-      (dict "src" (printf "%s_09.webp" $baseURL) "aspect" "3/4"  "n" "VIII" "span" 4  "cap" (index $captions 7  | default "crescent scythe"))
-      (dict "src" (printf "%s_08.webp" $baseURL) "aspect" "4/5"  "n" "IX"   "span" 6  "cap" (index $captions 8  | default "bodyguard constructs"))
-      (dict "src" (printf "%s_12.webp" $baseURL) "aspect" "4/5"  "n" "X"    "span" 6  "cap" (index $captions 9  | default "OSL bleed study"))
-      (dict "src" (printf "%s_10.webp" $baseURL) "aspect" "4/3"  "n" "XI"   "span" 6  "cap" (index $captions 10 | default "menhir obelisks"))
-      (dict "src" (printf "%s_13.webp" $baseURL) "aspect" "4/3"  "n" "XII"  "span" 6  "cap" (index $captions 11 | default "base · ashen ground"))
-    }}
-    {{ range $photos }}
-    <div class="plate lightbox-trigger" style="grid-column:span {{ .span }};aspect-ratio:{{ .aspect }};" data-src="{{ .src }}">
-      <img src="{{ .src }}" alt="{{ $.Title }} — {{ .cap }}" loading="lazy" onerror="this.closest('.plate').style.display='none'">
-      <div class="plate-n">plate {{ .n }}</div>
-      <div class="plate-caption">{{ .cap }}</div>
+    {{ range $v := seq 1 $photoCount }}
+      {{ $padded := printf "%02d" $v }}
+      {{ $src    := printf "%s_%s%s" $baseURL $padded $photoExt }}
+      {{ $cap    := "" }}
+      {{ if $captions }}{{ $cap = index $captions (sub $v 1) | default "" }}{{ end }}
+      {{/* layout: hero pair for 1-2, 3-col for 3-12, 4-col for 13+ */}}
+      {{ $span   := 4 }}
+      {{ $aspect := "3/2" }}
+      {{ if eq $v 1 }}{{ $span = 8 }}{{ $aspect = "4/5" }}
+      {{ else if eq $v 2 }}{{ $span = 4 }}{{ $aspect = "4/5" }}
+      {{ else if gt $v 12 }}{{ $span = 3 }}{{ $aspect = "4/3" }}
+      {{ end }}
+    <div class="plate lightbox-trigger" style="grid-column:span {{ $span }};aspect-ratio:{{ $aspect }};" data-src="{{ $src }}">
+      <img src="{{ $src }}" alt="{{ $.Title }} — plate {{ $v }}" loading="{{ if le $v 4 }}eager{{ else }}lazy{{ end }}" onerror="this.closest('.plate').style.display='none'">
+      <div class="plate-n">plate {{ printf "%02d" $v }}</div>
+      {{ with $cap }}<div class="plate-caption">{{ . }}</div>{{ end }}
     </div>
     {{ end }}
   </div>

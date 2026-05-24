@@ -5,6 +5,7 @@ summary: "High-contrast Grand Cathay cavalry recolor featuring royal gold armor 
 tags: ["Warhammer", "Grand Cathay", "Cavalry", "Commission"]
 cover: "https://photo.viiyd.com/2026/02/cathay/viiyd20260227cathay_01.jpg"
 layout: "project"
+photos: 25
 tier: "Specialist"
 time_log: "12h 00m"
 model_count: 5

@@ -685,6 +685,9 @@ other = "Delivered"
 [col_tier]
 other = "Tier"
 
+[col_photos]
+other = "Photos"
+
 [wechat_hint]
 other = "or open commission form ↑"
 

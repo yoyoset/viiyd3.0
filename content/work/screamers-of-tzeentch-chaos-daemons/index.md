@@ -5,6 +5,7 @@ summary: "Nightmare creatures gliding through air and warp, leaving twisted real
 tags: ["Warhammer", "Tzeentch", "Chaos Daemons", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251031cds_01.jpg"
 layout: "project"
+photos: 30
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 5

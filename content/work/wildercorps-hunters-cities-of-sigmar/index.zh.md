@@ -5,6 +5,7 @@ summary: "西格玛之城粗犷的侦察兵，由他们忠诚的追踪犬陪伴�
 tags: ["西格玛时代", "西格玛之城", "荒野军团猎人", "人类", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251118wh_01.jpg"
 layout: "project"
+photos: 55
 tier: "Spec Ops"
 time_log: "28h 00m"
 model_count: 11

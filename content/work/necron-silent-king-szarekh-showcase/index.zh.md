@@ -10,6 +10,7 @@ summary: "涅克隆王朝的最高统治者。虚空黑装甲与全身蔓延的�
 tags: ["战锤 40,000", "涅克隆", "寂静王", "核心展品", "代工展示"]
 cover: "https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01.webp"
 layout: "project"
+photos: 14
 optimized: true
 tier: "Legend"
 time_log: "60h 00m"

@@ -5,6 +5,7 @@ summary: "粉色惧妖分裂后的残余。对冷色调蓝色渐变和魔法火�
 tags: ["战锤40k", "奸奇", "恶魔", "混沌"]
 cover: "https://photo.viiyd.com/viiyd20251104bhot_01.jpg"
 layout: "project"
+photos: 24
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 10

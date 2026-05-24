@@ -5,6 +5,7 @@ summary: "死亡守卫的腐朽老兵战士，展示了高阶的战损表现与�
 tags: ["战锤 40,000", "死亡守卫", "纳垢", "混沌星际战士", "委托"]
 cover: "https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.webp"
 layout: "project"
+photos: 70
 optimized: true
 tier: "Spec Ops"
 time_log: "60h 00m"

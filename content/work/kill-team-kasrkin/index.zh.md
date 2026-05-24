@@ -5,6 +5,7 @@ summary: "全套卡舍津杀戮小队委托，经典卡迪亚迷彩涂装与城�
 tags: ["战锤40K", "杀戮小队", "星界军", "帝国卫队", "卡舍津", "委托"]
 cover: "https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_01.jpg"
 layout: "project"
+photos: 19
 tier: "Spec Ops"
 time_log: "35h 00m"
 model_count: 10

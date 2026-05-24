@@ -5,6 +5,7 @@ summary: "A heavily converted Sanctifier Kill Team, featuring OSL plasma effects
 tags: ["Kill Team", "Sisters of Battle", "Sanctifiers", "Imperium", "Warhammer 40k", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251014ktbz_01.jpg"
 layout: "project"
+photos: 66
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 10

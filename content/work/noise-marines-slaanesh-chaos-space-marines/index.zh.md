@@ -5,6 +5,7 @@ summary: "声波武器和鲜艳的色彩。一队用震耳欲聋的嘈杂声荣�
 tags: ["混沌星际战士", "色孽", "噪音战士", "帝皇之子", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251013nm_01.jpg"
 layout: "project"
+photos: 48
 tier: "Spec Ops"
 time_log: "25h 00m"
 model_count: 10

@@ -5,6 +5,7 @@ summary: "The inner circle of the First Legion. Painted to a Master standard."
 tags: ["Warhammer 40k", "Dark Angels", "Deathwing", "Terminators", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20260103DALDC_01.jpg"
 layout: "project"
+photos: 26
 tier: "Master"
 time_log: "20h 00m"
 model_count: 5

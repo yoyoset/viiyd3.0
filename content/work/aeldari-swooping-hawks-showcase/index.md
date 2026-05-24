@@ -5,6 +5,7 @@ summary: "Aspect Warriors of the Aeldari, featuring mechanical jump-wings and hi
 tags: ["Warhammer 40,000", "Aeldari", "Swooping Hawks", "Aspect Warriors", "Commission"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-swooping-hawks/viiyd20260401aeldari-swooping-hawks_01.webp"
 layout: "project"
+photos: 50
 optimized: true
 tier: "Specialist"
 time_log: "35h 00m"

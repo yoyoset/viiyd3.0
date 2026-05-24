@@ -5,6 +5,7 @@ summary: "A complete showcase of the Cities of Sigmar army project. Full detachm
 tags: ["Warhammer Age of Sigmar", "Cities of Sigmar", "Army Showcase", "Commission"]
 cover: "https://photo.viiyd.com/viiyd_20250830_01.jpg"
 layout: "project"
+photos: 60
 tier: "Specialist"
 time_log: "20h 00m"
 model_count: 60

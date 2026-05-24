@@ -5,6 +5,7 @@ summary: "The Lioness of the Parch rides into battle. A centerpice model for the
 tags: ["Age of Sigmar", "Cities of Sigmar", "Tahlia Vedra", "Manticore", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251203tvlotp_01.jpg"
 layout: "project"
+photos: 10
 tier: "Spec Ops"
 time_log: "25h 00m"
 model_count: 1

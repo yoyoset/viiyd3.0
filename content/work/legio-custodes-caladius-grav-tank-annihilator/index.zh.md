@@ -5,6 +5,7 @@ summary: "帝皇神选的重型反坦克火力。涂装为精英级标准。"
 tags: ["禁军", "战锤40k", "载具", "帝国", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251010tank_01.jpg"
 layout: "project"
+photos: 5
 tier: "Elite"
 time_log: "32h 00m"
 model_count: 1

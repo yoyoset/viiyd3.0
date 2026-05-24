@@ -5,6 +5,7 @@ summary: "灵族两款经典 HQ 角色：携带双背旗的 Autarch 与掌控星
 tags: ["战锤 40,000", "Aeldari", "HQ", "Autarch", "Farseer", "委托"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-hq/viiyd20260401aeldari-hq_01.webp"
 layout: "project"
+photos: 10
 optimized: true
 tier: "Specialist"
 time_log: "30h 00m"

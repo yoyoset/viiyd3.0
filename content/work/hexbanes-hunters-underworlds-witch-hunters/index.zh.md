@@ -5,6 +5,7 @@ summary: "来自阿吉尔教团的冷酷猎巫人，誓要清除冥土迷宫中�
 tags: ["战锤冥土世界", "西格玛之城", "猎巫人", "秩序", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251118wuhh_01.jpg"
 layout: "project"
+photos: 30
 tier: "Specialist"
 time_log: "25h 00m"
 model_count: 6

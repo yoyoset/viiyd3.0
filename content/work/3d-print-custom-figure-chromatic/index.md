@@ -5,6 +5,7 @@ summary: "A study in chromatic reconstruction on 3D printed resin. Overcoming la
 tags: ["3D Print", "Custom Figure", "Color Theory", "OSL"]
 cover: "https://photo.viiyd.com/viiyd20251217AF_01.jpg"
 layout: "project"
+photos: 30
 tier: "Spec Ops"
 time_log: "20h 00m"
 paints:

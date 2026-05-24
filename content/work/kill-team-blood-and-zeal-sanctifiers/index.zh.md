@@ -5,6 +5,7 @@ summary: "一支经过重度改造的纯洁者杀戮小队，以此这展现OSL�
 tags: ["杀戮小队", "战斗修女", "纯洁者", "帝国", "战锤40k", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251014ktbz_01.jpg"
 layout: "project"
+photos: 66
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 10

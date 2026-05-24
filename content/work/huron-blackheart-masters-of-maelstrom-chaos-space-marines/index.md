@@ -5,6 +5,7 @@ summary: "Legendary Chaos Lord Huron Blackheart and his elite inner circle of th
 tags: ["Warhammer 40,000", "Chaos Space Marines", "Red Corsairs", "Commission"]
 cover: "https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.webp"
 layout: "project"
+photos: 35
 optimized: true
 tier: "Master"
 time_log: "45h 00m"

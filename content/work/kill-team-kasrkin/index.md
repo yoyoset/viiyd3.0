@@ -5,6 +5,7 @@ summary: "High-spec Kasrkin Kill Team commission featuring classic Cadian camouf
 tags: ["Warhammer 40k", "Kill Team", "Astra Militarum", "Imperial Guard", "Kasrkin", "Commission"]
 cover: "https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_01.jpg"
 layout: "project"
+photos: 19
 tier: "Spec Ops"
 time_log: "35h 00m"
 model_count: 10

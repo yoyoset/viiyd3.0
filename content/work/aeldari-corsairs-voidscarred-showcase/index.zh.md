@@ -5,6 +5,7 @@ summary: "灵族精英佣兵：拥有多样化装备与星空主题装甲的虚�
 tags: ["战锤 40,000", "Aeldari", "海盗", "Kill Team", "委托"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-corsairs/viiyd20260401aeldari-corsairs_01.webp"
 layout: "project"
+photos: 50
 optimized: true
 tier: "Specialist"
 time_log: "45h 00m"

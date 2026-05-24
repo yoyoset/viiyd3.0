@@ -5,6 +5,7 @@ summary: "Twisted creatures born from warp energy, shrieking laughs echoing thro
 tags: ["Warhammer", "Tzeentch", "Chaos Daemons", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251104phot_01.jpg"
 layout: "project"
+photos: 51
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 10

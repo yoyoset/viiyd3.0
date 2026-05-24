@@ -10,6 +10,7 @@ tags: ["战锤 40,000", "涅克隆", "星神", "虚空龙", "代工展示"]
 cover: "https://photo.viiyd.com/2026/05/void-dragon/viiyd20260524void-dragon_01.webp"
 hero_orientation: "portrait"
 layout: "project"
+photos: 9
 optimized: true
 tier: "Legend"
 time_log: "35h 00m"

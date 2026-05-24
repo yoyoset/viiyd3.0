@@ -5,6 +5,7 @@ summary: "Elite mercenary adventurers of the Aeldari, featuring eclectic equipme
 tags: ["Warhammer 40,000", "Aeldari", "Corsairs", "Kill Team", "Commission"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-corsairs/viiyd20260401aeldari-corsairs_01.webp"
 layout: "project"
+photos: 50
 optimized: true
 tier: "Specialist"
 time_log: "45h 00m"

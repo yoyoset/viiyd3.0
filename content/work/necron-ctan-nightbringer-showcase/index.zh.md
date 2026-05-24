@@ -9,6 +9,7 @@ summary: "涅克隆死神星神的碎片，永恒禁锢。紫黑虚空袍体向�
 tags: ["战锤 40,000", "涅克隆", "星神", "夜使者", "代工展示"]
 cover: "https://photo.viiyd.com/2026/05/nightbringer/viiyd20260523nightbringer_01.webp"
 layout: "project"
+photos: 9
 optimized: true
 tier: "Master"
 time_log: "30h 00m"

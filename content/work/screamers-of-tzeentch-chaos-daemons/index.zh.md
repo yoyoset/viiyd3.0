@@ -5,6 +5,7 @@ summary: "在空气和亚空间中滑翔的噩梦生物，在身后留下扭曲�
 tags: ["战锤", "奸奇", "混沌恶魔", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251031cds_01.jpg"
 layout: "project"
+photos: 30
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 5

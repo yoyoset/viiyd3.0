@@ -5,6 +5,7 @@ summary: "A dual showcase featuring the commanding Freeguild Cavalier-Marshal an
 tags: ["Freeguild", "Cavalry", "Artillery", "Cities of Sigmar", "Age of Sigmar", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20250909cos_01.jpg"
 layout: "project"
+photos: 21
 tier: "Specialist"
 time_log: "25h 00m"
 model_count: 2

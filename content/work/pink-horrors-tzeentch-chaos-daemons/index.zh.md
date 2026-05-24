@@ -5,6 +5,7 @@ summary: "诞生于亚空间能量的扭曲生物，尖锐的笑声回荡在战�
 tags: ["战锤", "奸奇", "混沌恶魔", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251104phot_01.jpg"
 layout: "project"
+photos: 51
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 10

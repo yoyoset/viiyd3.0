@@ -5,6 +5,7 @@ summary: "A regiment of Freeguild Cavaliers painted in a bold red and gold schem
 tags: ["Freeguild", "Cavalry", "Cities of Sigmar", "Age of Sigmar", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013cosrh_02.jpg"
 layout: "project"
+photos: 49
 tier: "Battleline"
 time_log: "20h 00m"
 model_count: 5

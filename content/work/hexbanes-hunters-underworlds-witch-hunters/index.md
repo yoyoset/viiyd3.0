@@ -5,6 +5,7 @@ summary: "The grim witch hunters of the Order of Azyr, seeking to purge corrupti
 tags: ["Warhammer Underworlds", "Cities of Sigmar", "Witch Hunters", "Order", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251118wuhh_01.jpg"
 layout: "project"
+photos: 30
 tier: "Specialist"
 time_log: "25h 00m"
 model_count: 6

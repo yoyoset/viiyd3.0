@@ -5,6 +5,7 @@ summary: "Sonic weaponry and vibrant colors. A Noise Marine squad honoring Slaan
 tags: ["Chaos Space Marines", "Slaanesh", "Noise Marines", "Emperor's Children", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013nm_01.jpg"
 layout: "project"
+photos: 48
 tier: "Spec Ops"
 time_log: "25h 00m"
 model_count: 10

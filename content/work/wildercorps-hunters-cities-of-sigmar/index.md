@@ -5,6 +5,7 @@ summary: "Rugged scouts of the Cities of Sigmar, accompanied by their loyal Trai
 tags: ["Age of Sigmar", "Cities of Sigmar", "Wildercorps Hunters", "Humans", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251118wh_01.jpg"
 layout: "project"
+photos: 55
 tier: "Spec Ops"
 time_log: "28h 00m"
 model_count: 11

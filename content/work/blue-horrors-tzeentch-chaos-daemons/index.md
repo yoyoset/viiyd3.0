@@ -5,6 +5,7 @@ summary: "The grumbling remnants of Pink Horrors. A study in cold blue gradients
 tags: ["Warhammer 40k", "Tzeentch", "Daemons", "Chaos"]
 cover: "https://photo.viiyd.com/viiyd20251104bhot_01.jpg"
 layout: "project"
+photos: 24
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 10

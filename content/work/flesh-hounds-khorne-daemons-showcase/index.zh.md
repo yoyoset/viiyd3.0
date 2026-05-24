@@ -5,6 +5,7 @@ summary: "恐虐的猎犬。SPEC OPS级别涂装，高对比度和桌面耐用�
 tags: ["战锤40k", "恐虐", "恶魔", "地狱犬", "委托"]
 cover: "https://photo.viiyd.com/viiyd20250909fh_01.jpg"
 layout: "project"
+photos: 21
 tier: "Specialist"
 time_log: "20h 00m"
 model_count: 5

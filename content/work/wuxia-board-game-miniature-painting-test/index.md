@@ -5,6 +5,7 @@ summary: "Character miniatures from a Wuxia-themed board game. Exploring differe
 tags: ["Board Game", "Wuxia", "Miniature Painting", "Test", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251031wxfg_02.jpg"
 layout: "project"
+photos: 26
 tier: "Spec Ops"
 time_log: "15h 00m"
 model_count: 5

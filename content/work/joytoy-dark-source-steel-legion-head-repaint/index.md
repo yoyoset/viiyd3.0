@@ -5,6 +5,7 @@ summary: "A custom head repaint project for JoyToy Dark Source and Steel Legion 
 tags: ["JoyToy", "Dark Source", "Steel Legion", "Action Figure", "Repaint", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251011ay_01.jpg"
 layout: "project"
+photos: 22
 tier: "Specialist"
 time_log: "20h 00m"
 model_count: 3

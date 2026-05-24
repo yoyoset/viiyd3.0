@@ -152,6 +152,7 @@
     <span>{{ T "col_tier" | default "Tier" }}</span>
     <span>{{ T "col_hours" | default "Hours" }}</span>
     <span>{{ T "col_delivered" | default "Delivered" }}</span>
+    <span>{{ T "col_photos" | default "Photos" }}</span>
     <span></span>
   </div>
 
@@ -176,6 +177,7 @@
     </span>
     <span class="hrs" style="color:var(--ink-soft);">{{ $p.Params.hours | default $p.Params.time_log | default "—" }}</span>
     <span class="date">{{ $p.Date.Format "02·Jan·06" | upper }}</span>
+    <span class="photos" style="color:var(--ink-soft);">{{ $p.Params.photos | default "—" }}</span>
     <span class="arrow">→</span>
   </a>
   {{ end }}

@@ -5,6 +5,7 @@ summary: "武侠主题桌游的角色微缩模型。探索不同的调色板和�
 tags: ["桌游", "武侠", "微缩模型涂装", "测试", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251031wxfg_02.jpg"
 layout: "project"
+photos: 26
 tier: "Spec Ops"
 time_log: "15h 00m"
 model_count: 5

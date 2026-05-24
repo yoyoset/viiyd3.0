@@ -5,6 +5,7 @@ summary: "第一军团之主归来。大师级涂装标准。"
 tags: ["战锤40k", "暗黑天使", "基因原体", "人物", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251013lej_12.jpg"
 layout: "project"
+photos: 12
 tier: "Master"
 time_log: "45h 00m"
 model_count: 1

@@ -5,6 +5,7 @@ summary: "A stylized 'Chibi' interpretation of the Monkey King, balancing cute p
 tags: ["Black Myth Wukong", "Chibi", "3D Print", "Commission", "Character"]
 cover: "https://photo.viiyd.com/viiyd20251222BMWK_01.jpg"
 layout: "project"
+photos: 5
 tier: "Specialist"
 time_log: "20h 00m"
 paints:

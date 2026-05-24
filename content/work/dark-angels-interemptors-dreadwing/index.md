@@ -5,6 +5,7 @@ summary: "The destroyers of the First Legion. High-contrast OSL plasma effects o
 tags: ["Warhammer 40k", "Dark Angels", "Dreadwing", "Interemptors", "OSL"]
 cover: "https://photo.viiyd.com/viiyd20260104DADIS_01.jpg"
 layout: "project"
+photos: 21
 tier: "Elite"
 time_log: "20h 00m"
 model_count: 5

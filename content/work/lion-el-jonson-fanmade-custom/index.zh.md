@@ -5,6 +5,7 @@ summary: "一件独特的饭制基因原体莱昂·庄森自定义雕塑，探�
 tags: ["战锤40k", "暗黑天使", "基因原体", "饭制", "自定义雕塑", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251115trsn_01.jpg"
 layout: "project"
+photos: 13
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 1

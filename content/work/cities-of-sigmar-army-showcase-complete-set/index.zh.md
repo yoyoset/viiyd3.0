@@ -5,6 +5,7 @@ summary: "西格玛之城军队项目的完整展示。为桌面部署准备的�
 tags: ["战锤西格玛时代", "西格玛之城", "军队展示", "委托"]
 cover: "https://photo.viiyd.com/viiyd_20250830_01.jpg"
 layout: "project"
+photos: 60
 tier: "Specialist"
 time_log: "20h 00m"
 model_count: 60

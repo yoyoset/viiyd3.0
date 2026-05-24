@@ -5,6 +5,7 @@ summary: "莫塔里安的不屈子嗣。经典的死亡守卫配色方案，专�
 tags: ["战锤40k", "死亡守卫", "纳垢", "混沌星际战士", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251016ng_01.jpg"
 layout: "project"
+photos: 30
 tier: "Spec Ops"
 time_log: "22h 00m"
 model_count: 7

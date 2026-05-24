@@ -5,6 +5,7 @@ summary: "The hounds of Khorne. Painted to a Spec Ops standard for high contrast
 tags: ["Warhammer 40k", "Khorne", "Daemons", "Flesh Hounds", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20250909fh_01.jpg"
 layout: "project"
+photos: 21
 tier: "Specialist"
 time_log: "20h 00m"
 model_count: 5

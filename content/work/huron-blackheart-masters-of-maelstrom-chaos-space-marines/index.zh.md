@@ -5,6 +5,7 @@ summary: "传奇混沌领主休伦·黑心及其红海盗精英内圈成员。"
 tags: ["战锤 40,000", "混沌星际战士", "红海盗", "委托"]
 cover: "https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.webp"
 layout: "project"
+photos: 35
 optimized: true
 tier: "Master"
 time_log: "45h 00m"

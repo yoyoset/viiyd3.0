@@ -5,6 +5,7 @@ summary: "The Pontifex of the Cult of the Great Wheel, borne into battle on a sa
 tags: ["Age of Sigmar", "Cities of Sigmar", "Zenestra", "Great Wheel", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251016pz_01.jpg"
 layout: "project"
+photos: 9
 tier: "Spec Ops"
 time_log: "35h 00m"
 model_count: 1

@@ -5,6 +5,7 @@ summary: "A regiment of Freeguild Cavaliers painted in a striking blue and silve
 tags: ["Freeguild", "Cavalry", "Cities of Sigmar", "Age of Sigmar", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013cosbh_02.jpg"
 layout: "project"
+photos: 50
 tier: "Battleline"
 time_log: "20h 00m"
 model_count: 5

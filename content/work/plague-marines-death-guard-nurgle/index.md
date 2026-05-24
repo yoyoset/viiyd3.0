@@ -5,6 +5,7 @@ summary: "The unyielding sons of Mortarion. Classic Death Guard scheme with a fo
 tags: ["Warhammer 40k", "Death Guard", "Nurgle", "Chaos Space Marines", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251016ng_01.jpg"
 layout: "project"
+photos: 30
 tier: "Spec Ops"
 time_log: "22h 00m"
 model_count: 7

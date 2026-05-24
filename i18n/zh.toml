@@ -704,6 +704,9 @@ other = "交付"
 [col_tier]
 other = "档次"
 
+[col_photos]
+other = "图片"
+
 [wechat_hint]
 other = "或点击上方发起委托"
 

@@ -5,6 +5,7 @@ summary: "A unique fanmade custom sculpt of the Primarch Lion El'Jonson, explori
 tags: ["Warhammer 40k", "Dark Angels", "Primarch", "Fanmade", "Custom Sculpt", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251115trsn_01.jpg"
 layout: "project"
+photos: 13
 tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 1

@@ -5,6 +5,7 @@ summary: "高对比度的震旦天朝骑兵改色方案，金色铠甲搭配深�
 tags: ["Warhammer", "Grand Cathay", "Cavalry", "委托"]
 cover: "https://photo.viiyd.com/2026/02/cathay/viiyd20260227cathay_01.jpg"
 layout: "project"
+photos: 25
 tier: "Specialist"
 time_log: "12h 00m"
 model_count: 5

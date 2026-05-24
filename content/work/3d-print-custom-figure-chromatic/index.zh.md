@@ -5,6 +5,7 @@ summary: "针对3D打印树脂件的色彩重构研究。通过高饱和度渐�
 tags: ["3D打印", "定制模型", "色彩理论", "OSL"]
 cover: "https://photo.viiyd.com/viiyd20251217AF_01.jpg"
 layout: "project"
+photos: 30
 tier: "Spec Ops"
 time_log: "20h 00m"
 paints:

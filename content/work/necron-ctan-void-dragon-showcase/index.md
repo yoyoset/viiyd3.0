@@ -10,6 +10,7 @@ tags: ["Warhammer 40,000", "Necrons", "C'tan", "Void Dragon", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/void-dragon/viiyd20260524void-dragon_01.webp"
 hero_orientation: "portrait"
 layout: "project"
+photos: 9
 optimized: true
 tier: "Legend"
 time_log: "35h 00m"

@@ -5,6 +5,7 @@ summary: "对美猴王的风格化'Q版'诠释，平衡可爱比例与粗糙、�
 tags: ["黑神话悟空", "Q版", "3D打印", "委托", "角色"]
 cover: "https://photo.viiyd.com/viiyd20251222BMWK_01.jpg"
 layout: "project"
+photos: 5
 tier: "Specialist"
 time_log: "20h 00m"
 paints:

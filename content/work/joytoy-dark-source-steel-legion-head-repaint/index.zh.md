@@ -5,6 +5,7 @@ summary: "为暗源和钢铁军团可动人偶定制的头部重涂项目，旨�
 tags: ["暗源", "JoyToy", "钢铁军团", "可动人偶", "重涂", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251011ay_01.jpg"
 layout: "project"
+photos: 22
 tier: "Specialist"
 time_log: "20h 00m"
 model_count: 3

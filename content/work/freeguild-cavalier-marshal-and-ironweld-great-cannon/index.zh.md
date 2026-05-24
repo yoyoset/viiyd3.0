@@ -5,6 +5,7 @@ summary: "双重展示：指挥若定的自由公会骑兵元帅与毁灭性的�
 tags: ["自由公会", "骑兵", "火炮", "西格玛之城", "西格玛时代", "委托"]
 cover: "https://photo.viiyd.com/viiyd20250909cos_01.jpg"
 layout: "project"
+photos: 21
 tier: "Specialist"
 time_log: "25h 00m"
 model_count: 2

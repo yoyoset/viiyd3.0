@@ -5,6 +5,7 @@ summary: "第一军团的内环。大师级涂装标准。"
 tags: ["战锤40k", "暗黑天使", "死翼", "终结者", "委托"]
 cover: "https://photo.viiyd.com/viiyd20260103DALDC_01.jpg"
 layout: "project"
+photos: 26
 tier: "Master"
 time_log: "20h 00m"
 model_count: 5

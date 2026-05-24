@@ -5,6 +5,7 @@ summary: "帕奇的雌狮骑着狮鹫奔赴战场。这是西格玛之城的核�
 tags: ["西格玛时代", "西格玛之城", "塔莉亚·维德拉", "狮鹫", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251203tvlotp_01.jpg"
 layout: "project"
+photos: 10
 tier: "Spec Ops"
 time_log: "25h 00m"
 model_count: 1

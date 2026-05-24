@@ -5,6 +5,7 @@ summary: "Elegant leaders of the Aeldari, featuring deep blue armor, ornate back
 tags: ["Warhammer 40,000", "Aeldari", "HQ", "Autarch", "Farseer", "Commission"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-hq/viiyd20260401aeldari-hq_01.webp"
 layout: "project"
+photos: 10
 optimized: true
 tier: "Specialist"
 time_log: "30h 00m"

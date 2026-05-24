@@ -5,6 +5,7 @@ summary: "一队涂装为醒目蓝银配色的自由公会骑士，作为西格�
 tags: ["自由公会", "骑兵", "西格玛之城", "西格玛时代", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251013cosbh_02.jpg"
 layout: "project"
+photos: 50
 tier: "Battleline"
 time_log: "20h 00m"
 model_count: 5

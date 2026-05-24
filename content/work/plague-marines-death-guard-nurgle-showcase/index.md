@@ -5,6 +5,7 @@ summary: "Decaying veteran warriors of the Death Guard, featuring advanced weath
 tags: ["Warhammer 40,000", "Death Guard", "Nurgle", "Chaos Space Marines", "Commission"]
 cover: "https://photo.viiyd.com/2026/03/plague/viiyd20260318plague_01.webp"
 layout: "project"
+photos: 70
 optimized: true
 tier: "Spec Ops"
 time_log: "60h 00m"

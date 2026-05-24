@@ -5,6 +5,7 @@ summary: "大转轮教派的教宗，乘坐神圣的轿子奔赴战场。这是�
 tags: ["西格玛时代", "西格玛之城", "泽内斯特拉", "大转轮", "委托"]
 cover: "https://photo.viiyd.com/viiyd20251016pz_01.jpg"
 layout: "project"
+photos: 9
 tier: "Spec Ops"
 time_log: "35h 00m"
 model_count: 1

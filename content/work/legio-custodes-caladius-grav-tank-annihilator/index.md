@@ -5,6 +5,7 @@ summary: "Heavy anti-tank firepower for the Emperor's chosen. Painted to an Elit
 tags: ["Legio Custodes", "Warhammer 40k", "Vehicle", "Imperial", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251010tank_01.jpg"
 layout: "project"
+photos: 5
 tier: "Elite"
 time_log: "32h 00m"
 model_count: 1
