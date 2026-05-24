@@ -2,6 +2,7 @@
 
 /* ── Design tokens ─── */
 :root {
+  color-scheme: only light;
   --bg:           #fafaf6;
   --paper:        #f3f0e6;
   --ink:          #0c0c0a;

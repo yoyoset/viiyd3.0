@@ -4,6 +4,7 @@ date: 2026-05-23T20:00:00+08:00
 summary: "涅克隆机械星神的碎片，永恒禁锢。银色神体环绕强烈高斯绿闪电，蛇形脊椎盘绕，立于涅克隆废墟地台之上。"
 tags: ["战锤 40,000", "涅克隆", "星神", "虚空龙", "代工展示"]
 cover: "https://photo.viiyd.com/2026/05/void-dragon/viiyd20260524void-dragon_01.webp"
+hero_orientation: "portrait"
 layout: "project"
 optimized: true
 tier: "Legend"
