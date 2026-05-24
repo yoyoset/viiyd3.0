@@ -701,6 +701,12 @@ other = "工时"
 [col_delivered]
 other = "交付"
 
+[col_tier]
+other = "档次"
+
+[wechat_hint]
+other = "或点击上方发起委托"
+
 [featured_this_season]
 other = "// 本季精选"
 

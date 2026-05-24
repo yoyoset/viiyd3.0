@@ -547,8 +547,7 @@
       btn.textContent = '{{ T "cm_submit_sending" }}';
       if (errEl) errEl.style.display = 'none';
 
-
-            try {
+      try {
         var fd = new FormData();
         fd.append('name', document.getElementById('cm-name').value.trim());
         fd.append('contact', document.getElementById('cm-contact').value.trim());
@@ -557,7 +556,6 @@
         fd.append('deadline', document.getElementById('cm-deadline').value.trim());
         fd.append('notes', document.getElementById('cm-notes').value.trim());
         if (_turnstileToken) fd.append('cf-turnstile-response', _turnstileToken);
-        /* attach pending files directly */
         for (var i = 0; i < _pendingFiles.length; i++) {
           fd.append('refs', _pendingFiles[i]);
         }

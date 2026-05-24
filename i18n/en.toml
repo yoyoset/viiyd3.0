@@ -682,6 +682,12 @@ other = "Hours"
 [col_delivered]
 other = "Delivered"
 
+[col_tier]
+other = "Tier"
+
+[wechat_hint]
+other = "or open commission form ↑"
+
 [featured_this_season]
 other = "// Featured · this season"
 
