@@ -15,6 +15,17 @@ optimized: true
 tier: "Legend"
 time_log: "35h 00m"
 model_count: 1
+share_caption: "The Adeptus Mechanicus call him the Omnissiah.
+
+He's been sealed under Mars for sixty million years, and they built a religion around a prison.
+
+Silver necrodermis layered until it catches light like real metal. Three-stage lightning — Warpstone to Moot Green to Flash Gitz at the tips — arcing across every coil and joint. One light source. Everything bends toward it.
+
+35 hours. Legend tier. One of one.
+
+Commission open — two display slots.
+DM or viiyd.com 🎨"
+share_tags: "#warhammer40k #necrons #ctan #voiddragon #omnissiah #adeptusmechanicus #miniaturepainting #warhammercommunity #paintingminiatures #osl #gloweffects #commissionsopen #citadelminiatures #gamesworkshop #40k #minipainting"
 paints:
   - name: "Leadbelcher"
     role: "BODY BASE"

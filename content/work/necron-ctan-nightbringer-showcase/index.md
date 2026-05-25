@@ -14,6 +14,18 @@ optimized: true
 tier: "Master"
 time_log: "30h 00m"
 model_count: 1
+share_caption: "The first being in the universe to understand death.
+
+Every mortal race carries the memory of him in their genes. That cold instinct when you look into the dark — that's him.
+
+Purple-black robes dissolving at the hem. Not tearing. Dissolving — into cascading gauss-green necrodermis tendrils. The scythe is cold steel. Canoptek Scarabs feed at the base like the energy is leaking out and they can't help themselves.
+
+Absolute stillness above. Complete dissolution below.
+
+30 hours. Master tier. One of one.
+
+Commission open — DM or viiyd.com 🎨"
+share_tags: "#warhammer40k #necrons #ctan #nightbringer #deathscythe #miniaturepainting #warhammercommunity #paintingminiatures #osl #gloweffects #commissionsopen #citadelminiatures #gamesworkshop #40k #minipainting"
 paints:
   - name: "Abaddon Black"
     role: "BASE"
