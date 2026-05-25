@@ -10,6 +10,7 @@ tags: ["Warhammer 40,000", "Necrons", "C'tan", "Nightbringer", "Commission"]
 cover: "https://photo.viiyd.com/2026/05/nightbringer/viiyd20260523nightbringer_01.webp"
 layout: "project"
 photos: 9
+video_360: "https://photo.viiyd.com/video/nightbringer.mp4"
 optimized: true
 tier: "Master"
 time_log: "30h 00m"

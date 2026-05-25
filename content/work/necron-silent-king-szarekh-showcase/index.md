@@ -11,6 +11,8 @@ tags: ["Warhammer 40,000", "Necrons", "Silent King", "Centerpiece", "Commission"
 cover: "https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01.webp"
 layout: "project"
 photos: 14
+video_360: "https://photo.viiyd.com/video/silent-king.mp4"
+video_360_menhir: "https://photo.viiyd.com/video/menhir.mp4"
 optimized: true
 tier: "Legend"
 time_log: "60h 00m"

@@ -11,6 +11,7 @@ cover: "https://photo.viiyd.com/2026/05/void-dragon/viiyd20260524void-dragon_01.
 hero_orientation: "portrait"
 layout: "project"
 photos: 9
+video_360: "https://photo.viiyd.com/video/void-dragon.mp4"
 optimized: true
 tier: "Legend"
 time_log: "35h 00m"
