@@ -15,6 +15,15 @@ optimized: true
 tier: "Legend"
 time_log: "60h 00m"
 model_count: 1
+share_caption: "Sixty million years of silence — broken.
+
+Szarekh on his Barge of Ages. Void-black panels that drink the light. Gauss-green OSL bleeding across every coil and conduit. Gold that shouldn't look warm but does. Teal Menhir obelisks that feel older than the barge itself.
+
+60 hours. Legend tier. One of one.
+
+Commission open — two slots, display work only.
+DM or viiyd.com 🎨"
+share_tags: "#warhammer40k #necrons #silentking #szarekh #bargeofages #miniaturepainting #warhammercommunity #paintingminiatures #osl #gloweffects #commissionsopen #citadelminiatures #gamesworkshop #40k #minipainting"
 paints:
   - name: "Abaddon Black"
     role: "BASE"
