@@ -10,6 +10,8 @@ optimized: true
 tier: "Spec Ops"
 time_log: "60h 00m"
 model_count: 20
+share_caption: "Death Guard Plague Marines — 60hrs of layered rot, rust, and organic mutation. Full squad of 20. Commission open 接单中 🎨"
+share_tags: "#warhammer40k #deathguard #nurgle #chaosspacemarines #miniaturepainting #warhammercommunity #paintingminiatures #commissionsopen #citadelminiatures #gamesworkshop"
 paints:
   - name: "Death Guard Green"
     role: "BASE"

@@ -191,34 +191,26 @@
         <button id="vd-share-btn" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;border-bottom:1px solid currentColor;padding-bottom:2px;">{{ T "dossier_share" | default "↗ Share this dossier" }}</button>
         <span>· <button onclick="window.print()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;">{{ T "dossier_save_pdf" | default "save as PDF" }}</button></span>
       </div>
+
+      {{/* ── Share data injected by Hugo at build time ── */}}
+      {{ $caption := .Params.share_caption | default .Params.summary | default .Title }}
+      {{ $userTags := .Params.share_tags }}
+      {{ if not $userTags }}
+        {{/* auto-build hashtags from tags array + studio defaults */}}
+        {{ $ht := slice "#miniaturepainting" "#warhammercommunity" "#paintingminiatures" "#commissionsopen" }}
+        {{ range .Params.tags }}
+          {{ $slug := . | replaceRE `[^\p{L}\p{N}]` "" }}
+          {{ if $slug }}{{ $ht = $ht | append (printf "#%s" $slug) }}{{ end }}
+        {{ end }}
+        {{ $userTags = delimit $ht " " }}
+      {{ end }}
       <script>
-      (function(){
-        var btn = document.getElementById('vd-share-btn');
-        var orig = btn.textContent;
-        btn.addEventListener('click', function(){
-          if (navigator.share) {
-            navigator.share({
-              title: document.title,
-              text: '{{ .Title }} — VIIYD Studio dossier',
-              url: window.location.href
-            }).catch(function(){});
-          } else {
-            navigator.clipboard.writeText(window.location.href).then(function(){
-              btn.textContent = 'link copied ✓';
-              setTimeout(function(){ btn.textContent = orig; }, 2200);
-            }).catch(function(){
-              var inp = document.createElement('input');
-              inp.value = window.location.href;
-              document.body.appendChild(inp);
-              inp.select();
-              document.execCommand('copy');
-              document.body.removeChild(inp);
-              btn.textContent = 'link copied ✓';
-              setTimeout(function(){ btn.textContent = orig; }, 2200);
-            });
-          }
-        });
-      })();
+      var _vdShare = {
+        title:   {{ .Title | jsonify }},
+        url:     {{ .Permalink | jsonify }},
+        caption: {{ $caption | jsonify }},
+        tags:    {{ $userTags | jsonify }}
+      };
       </script>
     </div>
   </div>
@@ -242,6 +234,102 @@
     </div>
   </div>
 </div>
+
+{{/* ── Share Modal ── */}}
+<div id="vd-share-overlay" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.72);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
+  <div style="background:var(--bg);border:1px solid var(--line);max-width:520px;width:calc(100% - 32px);padding:0;position:relative;">
+    {{/* header */}}
+    <div style="padding:18px 24px 14px;border-bottom:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-soft);">// SHARE THIS DOSSIER</span>
+      <button onclick="document.getElementById('vd-share-overlay').style.display='none'" style="background:none;border:none;color:var(--ink-soft);font-size:18px;cursor:pointer;line-height:1;padding:0;">×</button>
+    </div>
+    {{/* editable copy preview */}}
+    <div style="padding:20px 24px 14px;">
+      <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;">COPY TEXT</div>
+      <textarea id="vd-share-text" rows="5"
+        style="width:100%;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:13px;line-height:1.6;padding:12px;resize:vertical;box-sizing:border-box;outline:none;"></textarea>
+      <div style="font-size:10px;color:var(--ink-soft);margin-top:6px;opacity:0.6;">可直接编辑 · editable before copying</div>
+    </div>
+    {{/* platform row */}}
+    <div style="padding:0 24px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+      <button id="vd-copy-ig"
+        style="padding:12px 8px;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+        Instagram
+      </button>
+      <button id="vd-copy-wechat"
+        style="padding:12px 8px;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+        微信 WeChat
+      </button>
+      <button id="vd-tweet"
+        style="padding:12px 8px;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+        Twitter / X
+      </button>
+    </div>
+    {{/* copy all */}}
+    <div style="padding:0 24px 24px;">
+      <button id="vd-copy-all"
+        style="width:100%;padding:14px;background:var(--yellow);border:none;color:#111;font-family:var(--font-sans);font-weight:600;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;">
+        复制全部文案 + 链接
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ── helpers ──────────────────────────────────────────────
+  function copyText(str, btn, label) {
+    var orig = btn.textContent;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(str).then(done).catch(fallback);
+    } else { fallback(); }
+    function done() { btn.textContent = '✓ copied'; setTimeout(function(){ btn.textContent = label || orig; }, 2000); }
+    function fallback() {
+      var el = document.createElement('textarea');
+      el.value = str; el.style.position = 'fixed'; el.style.opacity = '0';
+      document.body.appendChild(el); el.select();
+      try { document.execCommand('copy'); done(); } catch(e) {}
+      document.body.removeChild(el);
+    }
+  }
+
+  // ── build text variants ───────────────────────────────────
+  function igText()     { return _vdShare.caption + '\n\n' + _vdShare.url + '\n\n' + _vdShare.tags; }
+  function wechatText() { return _vdShare.caption + '\n\n' + _vdShare.url; }
+  function allText()    { return igText(); }
+
+  // ── populate textarea on open ────────────────────────────
+  function openModal() {
+    var ov = document.getElementById('vd-share-overlay');
+    document.getElementById('vd-share-text').value = igText();
+    ov.style.display = 'flex';
+  }
+
+  // ── close on backdrop click ──────────────────────────────
+  document.getElementById('vd-share-overlay').addEventListener('click', function(e){
+    if (e.target === this) this.style.display = 'none';
+  });
+
+  // ── share button ─────────────────────────────────────────
+  document.getElementById('vd-share-btn').addEventListener('click', openModal);
+
+  // ── platform buttons ─────────────────────────────────────
+  document.getElementById('vd-copy-ig').addEventListener('click', function(){
+    copyText(igText(), this, 'Instagram');
+  });
+  document.getElementById('vd-copy-wechat').addEventListener('click', function(){
+    copyText(wechatText(), this, '微信 WeChat');
+  });
+  document.getElementById('vd-tweet').addEventListener('click', function(){
+    var t = encodeURIComponent(_vdShare.caption.slice(0, 200) + ' ' + _vdShare.url);
+    window.open('https://twitter.com/intent/tweet?text=' + t, '_blank');
+  });
+  document.getElementById('vd-copy-all').addEventListener('click', function(){
+    var txt = document.getElementById('vd-share-text').value;
+    copyText(txt, this, '复制全部文案 + 链接');
+  });
+})();
+</script>
 
 {{/* Footer override (dossier-specific) */}}
 <footer style="padding:14px var(--dossier-pad);border-top:1px solid var(--line-soft);font-size:10px;letter-spacing:0.16em;color:var(--ink-soft);display:flex;justify-content:space-between;text-transform:uppercase;">
