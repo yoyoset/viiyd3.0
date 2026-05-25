@@ -188,9 +188,38 @@
         {{ T "dossier_cert_body" | default "This dossier is yours to keep. The piece is 1 of 1 — the technique log, photographs, and notes above are the only record. The studio doesn't repaint the same character for another client." }}
       </div>
       <div style="margin-top:24px;display:flex;gap:12px;align-items:center;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.85;flex-wrap:wrap;">
-        <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='copied ✓';setTimeout(()=>this.textContent='{{ T "dossier_share" | default "↗ Share this dossier" }}',2000)})" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;border-bottom:1px solid currentColor;padding-bottom:2px;">{{ T "dossier_share" | default "↗ Share this dossier" }}</button>
+        <button id="vd-share-btn" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;border-bottom:1px solid currentColor;padding-bottom:2px;">{{ T "dossier_share" | default "↗ Share this dossier" }}</button>
         <span>· <button onclick="window.print()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;">{{ T "dossier_save_pdf" | default "save as PDF" }}</button></span>
       </div>
+      <script>
+      (function(){
+        var btn = document.getElementById('vd-share-btn');
+        var orig = btn.textContent;
+        btn.addEventListener('click', function(){
+          if (navigator.share) {
+            navigator.share({
+              title: document.title,
+              text: '{{ .Title }} — VIIYD Studio dossier',
+              url: window.location.href
+            }).catch(function(){});
+          } else {
+            navigator.clipboard.writeText(window.location.href).then(function(){
+              btn.textContent = 'link copied ✓';
+              setTimeout(function(){ btn.textContent = orig; }, 2200);
+            }).catch(function(){
+              var inp = document.createElement('input');
+              inp.value = window.location.href;
+              document.body.appendChild(inp);
+              inp.select();
+              document.execCommand('copy');
+              document.body.removeChild(inp);
+              btn.textContent = 'link copied ✓';
+              setTimeout(function(){ btn.textContent = orig; }, 2200);
+            });
+          }
+        });
+      })();
+      </script>
     </div>
   </div>
 </div>
@@ -230,11 +259,43 @@
 {{ end }}
 <style>
   @media print {
-    .dossier-hero { min-height: 400px !important; }
-    .dossier-title { font-size: 72px !important; }
-    .loop-back, footer:last-of-type { display: none; }
-    .plates-grid { grid-template-columns: repeat(4, 1fr) !important; }
-    .plate { grid-column: span 1 !important; }
+    /* hide chrome */
+    header, nav, .loop-back, footer, #vd-share-btn,
+    .dossier-scroll-hint, .lightbox-overlay { display: none !important; }
+
+    /* page setup */
+    @page { margin: 18mm 15mm; }
+    body { background: #fff !important; color: #111 !important; font-size: 11pt; }
+
+    /* hero — compact */
+    .dossier-hero {
+      min-height: 260px !important;
+      max-height: 340px !important;
+      page-break-after: avoid;
+    }
+    .dossier-title { font-size: 56pt !important; }
+    .dossier-hero-bg { opacity: 0.18 !important; }
+
+    /* specimen card */
+    .specimen-card { page-break-inside: avoid; }
+
+    /* notes section */
+    .painters-notes { grid-template-columns: 1fr !important; }
+    .pull-quote { page-break-after: avoid; }
+
+    /* plates: 4-col compact grid, hide plate numbers */
+    .plates-grid {
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 6px !important;
+    }
+    .plate { grid-column: span 1 !important; aspect-ratio: 4/3 !important; }
+    .plate-n, .plate-caption { display: none !important; }
+
+    /* paint swatches */
+    .paint-grid { grid-template-columns: repeat(8, 1fr) !important; }
+
+    /* certificate */
+    .certificate { grid-template-columns: 1fr !important; page-break-before: always; }
   }
 </style>
 {{ end }}
