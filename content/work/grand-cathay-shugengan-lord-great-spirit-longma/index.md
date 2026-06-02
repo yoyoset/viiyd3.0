@@ -1,8 +1,8 @@
 ---
-title: "妙影：震旦天朝风暴天龙"
+title: "Grand Cathay Shugengan Lord on Great Spirit Longma"
 date: 2026-06-02T11:00:00+08:00
-summary: "妙影，长城北境守卫，骑乘天朝神龙出征。翡翠龙鳞、象牙龙翼、金甲统帅，全军核心。"
-tags: ["Warhammer", "Grand Cathay", "角色", "委托"]
+summary: "Shugengan Lord mounted on a Great Spirit Longma — jade dragon, ivory wings, gold command armor. Grand Cathay centrepiece character."
+tags: ["Warhammer", "Grand Cathay", "Character", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_01.webp"
 layout: "project"
 optimized: true
@@ -42,26 +42,26 @@ paints:
     role: "BASE"
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
-description: "妙影骑乘天朝神龙——翡翠龙鳞、透光象牙龙翼配橙红血管纹路、金甲骑手与红金手绘披风。震旦天朝军阵的绝对焦点。"
+description: "Grand Cathay Shugengan Lord on Great Spirit Longma — jade scales, translucent ivory wings with red veining, gold-trimmed command armor and freehand cape. The centrepiece of any Grand Cathay force."
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_01.webp" title="妙影与天朝神龙 — 正面展示" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_02.webp" title="背面 — 龙翼展开" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_03.webp" title="侧面 — 龙身轮廓" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_04.webp" title="龙翼翼膜细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_05.webp" title="龙头与鹿角细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_06.webp" title="骑手 — 金甲细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_07.webp" title="披风手绘细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_08.webp" title="最终展示" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_01.webp" title="Shugengan Lord on Great Spirit Longma — Front" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_02.webp" title="Rear View — Wing Spread" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_03.webp" title="Side Profile — Longma Body" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_04.webp" title="Wing Membrane Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_05.webp" title="Longma Head & Antlers Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_06.webp" title="Rider — Gold Armor Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_07.webp" title="Cape & Freehand Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_08.webp" title="Final Showcase" >}}
 </div>
 
 <div class="space-y-4 my-4">
 
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
-<h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 全军核心</h3>
+<h3 class="text-xl font-bold text-white mb-2">🔥 Use Case: Army Centrepiece</h3>
 <p class="text-gray-300 leading-relaxed">
-长城北境守卫，骑龙出阵。妙影的天朝神龙承载了震旦配色的全部精华——翡翠龙鳞、透光象牙翼膜配橙红血管、骑手的金甲统帅气息与手绘红金披风，每一个角度都将视线牢牢锁定。
+A Shugengan Lord astride the Great Spirit Longma — the arcane heart of any Grand Cathay army. The Longma's jade scales and translucent ivory wings with orange-red veining carry the full weight of the Cathay palette, while the rider's gold armor and freehand red cape command attention from every angle.
 </p>
 </div>
 
@@ -71,25 +71,25 @@ description: "妙影骑乘天朝神龙——翡翠龙鳞、透光象牙龙翼配
 <div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
 <h4 class="font-bold text-emerald-400 flex items-center gap-2">
 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-调色配方
+The Alchemy
 </h4>
-<span class="text-[10px] uppercase text-gray-500">颜色数据</span>
+<span class="text-[10px] uppercase text-gray-500">Color Data</span>
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>🐉 龙鳞</span>
+<span>🐉 Longma Scales</span>
 <span class="font-mono text-emerald-200">Sotek Green / Temple Guard Blue</span>
 </li>
 <li class="flex justify-between">
-<span>🪶 翼膜</span>
+<span>🪶 Wing Membrane</span>
 <span class="font-mono text-yellow-200/80">Ushabti Bone / Screaming Skull</span>
 </li>
 <li class="flex justify-between">
-<span>🔴 血管纹路与披风</span>
+<span>🔴 Wing Veins & Cape</span>
 <span class="font-mono text-red-200/80">Mephiston Red</span>
 </li>
 <li class="flex justify-between">
-<span>👑 骑手铠甲</span>
+<span>👑 Rider Armor</span>
 <span class="font-mono text-yellow-200/60">Retributor Armour</span>
 </li>
 </ul>
@@ -99,15 +99,15 @@ description: "妙影骑乘天朝神龙——翡翠龙鳞、透光象牙龙翼配
 <div class="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
 <h4 class="font-bold text-cyan-400 flex items-center gap-2">
 <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
-战术规程
+Tactical Protocol
 </h4>
-<span class="text-[10px] uppercase text-gray-500">方法论</span>
+<span class="text-[10px] uppercase text-gray-500">Methodology</span>
 </div>
-<p class="text-sm text-gray-400 mb-2">关键技法：</p>
+<p class="text-sm text-gray-400 mb-2">Key techniques deployed:</p>
 <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside marker:text-cyan-500">
-<li><strong>龙鳞叠色:</strong> Sotek Green 逐层堆至 Temple Guard Blue，数百片鳞片单独提亮，层次分明。</li>
-<li><strong>透光翼膜:</strong> 骨色系薄釉叠染模拟翼膜透光质感，血管纹路最后覆上。</li>
-<li><strong>披风手绘:</strong> 金龙纹样直接在红色布面上手绘，不使用贴纸。</li>
+<li><strong>Scale Layering:</strong> Sotek Green built up to Temple Guard Blue across individual scales for texture and depth.</li>
+<li><strong>Translucent Wing:</strong> Bone palette glazed thin to simulate membrane light transmission — veins applied over the top.</li>
+<li><strong>Cape Freehand:</strong> Gold dragon motifs painted directly onto the red cloth, no transfers.</li>
 </ul>
 </div>
 
