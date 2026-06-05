@@ -61,6 +61,7 @@ description: "震旦天朝天灯战争机械——象牙纸灯笼灯身罩以红
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_05.webp" title="低角度 — 战船吊舱" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_06.webp" title="全身 — 灯口与绳网" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_07.webp" title="吊舱甲板与红漆船身" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_34.webp" title="挂饰 — 红流苏与金牌坠" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_08.webp" title="乘员 — 炮手，火雷在手" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_09.webp" title="乘员 — 炮手，背面" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_10.webp" title="乘员 — 炮手，侧面" >}}

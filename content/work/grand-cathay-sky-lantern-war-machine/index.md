@@ -61,6 +61,7 @@ description: "Grand Cathay Sky Lantern war machine — an ivory paper hull caged
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_05.webp" title="Low Angle — War-Junk Gondola" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_06.webp" title="Full Height — Collar & Rope Net" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_07.webp" title="Gondola Deck & Lacquer Hull" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_34.webp" title="Hanging Ornaments — Tassels & Gold Medallion" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_08.webp" title="Crew — Bombardier, Firebomb" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_09.webp" title="Crew — Bombardier, Rear" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_10.webp" title="Crew — Bombardier, Side" >}}
