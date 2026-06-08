@@ -6,6 +6,7 @@ tags: ["Warhammer 40K", "Chaos Space Marines", "Terminators", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/mutilators/viiyd20260605mutilators_01.webp"
 layout: "project"
 optimized: true
+photos: 20
 tier: "Master"
 time_log: "33h 00m"
 model_count: 3

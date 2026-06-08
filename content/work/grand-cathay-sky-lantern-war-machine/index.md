@@ -6,6 +6,7 @@ tags: ["Warhammer", "Grand Cathay", "War Machine", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_01.webp"
 layout: "project"
 optimized: true
+photos: 34
 tier: "Master"
 time_log: "32h 00m"
 model_count: 7

@@ -6,6 +6,7 @@ tags: ["Warhammer", "Grand Cathay", "Monster", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/miaoyingdragon/viiyd20260605miaoyingdragon_07.webp"
 layout: "project"
 optimized: true
+photos: 7
 tier: "Legend"
 time_log: "48h 00m"
 model_count: 1

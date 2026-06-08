@@ -16,6 +16,7 @@ summary: "[One-line punchy summary for list page. Max 100 chars.]"
 tags: ["[Category]", "[Faction]", "[Unit Type]", "委托"]  # Chinese posts add "委托"
 cover: "https://photo.viiyd.com/[PHOTO_PREFIX]_01.jpg"
 layout: "project"
+photos: [N]  # REQUIRED. Number of gallery images (_01.._NN). Drives the plates grid + click-to-enlarge lightbox. Omit it and the lightbox WILL NOT work.
 tier: "[Tier]"  # ENUM: Battleline | Specialist | Spec Ops | Master | Legend
 time_log: "[X]h [X]m"  # Format: "XXh XXm" (e.g., "45h 30m")
 model_count: [N]  # Integer. Number of models. Defaults to 1.
@@ -38,6 +39,7 @@ description: "[Longer narrative description for SEO/social. 150-200 chars.]"
 | date | ✅ | ISO 8601 format |
 | cover | ✅ | Must be `https://photo.viiyd.com/` URL |
 | layout | ✅ | Must be `"project"` |
+| photos | ✅ | Integer = number of `_01.._NN` gallery images. Required for the click-to-enlarge lightbox. Must match the `{{< lightbox >}}` count in the body. |
 | tier | ✅ | One of: Battleline, Specialist, Spec Ops, Master, Legend |
 | time_log | ✅ | Regex: `^\d+h \d+m$` |
 | paints | ✅ | MUST be comprehensive: Armor, Cloth, Metal, Leather. Min 5-6 items. |
@@ -68,6 +70,12 @@ Example: `viiyd20251104phot` → Photos from 2025-11-04, project code "phot"
 <!-- Add more images as needed -->
 </div>
 ```
+
+> ⚠️ **Lightbox requirement:** the live gallery + click-to-enlarge is rendered by the
+> `photos: N` frontmatter (the plates grid in `layouts/work/single.html`), **not** by these
+> shortcodes — when `photos:` is set, the body `.Content` is not rendered at all. Always set
+> `photos:` to the number of images. Run `node scripts/audit_content.js` to catch a missing
+> `photos:` (it fails with a `MissingPhotos` error).
 
 ### 3.2 Content Wrapper
 ```html

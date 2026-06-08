@@ -6,6 +6,7 @@ tags: ["Warhammer", "Grand Cathay", "炮兵", "委托"]
 cover: "https://photo.viiyd.com/2026/06/cathayguns/viiyd20260602cathayguns_01.webp"
 layout: "project"
 optimized: true
+photos: 47
 tier: "Battleline"
 time_log: "16h 00m"
 model_count: 2

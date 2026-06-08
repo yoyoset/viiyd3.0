@@ -37,6 +37,16 @@ function walk(dir) {
                 if (content.includes('待确认') || content.includes('To be confirmed') || content.includes('Automated migrated content')) {
                     issues.push({ file: path.basename(path.dirname(filePath)), type: 'Placeholder' });
                 }
+
+                // Check lightbox wiring: a gallery built from {{< lightbox >}} shortcodes
+                // only gets click-to-enlarge when `photos: N` drives the plates grid in
+                // layouts/work/single.html. Missing `photos:` = broken lightbox (the
+                // June-2026 regression). Flag any such page in both languages.
+                const usesLightbox = content.includes('{{< lightbox');
+                const hasPhotos = /^photos:\s*\d+/m.test(content);
+                if (usesLightbox && !hasPhotos) {
+                    issues.push({ file: path.basename(path.dirname(filePath)), type: 'MissingPhotos', detail: 'uses {{< lightbox >}} but has no `photos: N` — lightbox will not work' });
+                }
             }
         }
     });
@@ -49,3 +59,14 @@ const report = {
 };
 fs.writeFileSync('audit_report.json', JSON.stringify(report, null, 2));
 console.log('Report written to audit_report.json');
+
+if (issues.length) {
+    console.log(`\n⚠  ${issues.length} issue(s) found:`);
+    issues.forEach(i => console.log(`   [${i.type}] ${i.file}${i.detail ? ' — ' + i.detail : ''}`));
+    if (issues.some(i => i.type === 'MissingPhotos')) {
+        console.log('\n   Fix: add `photos: N` to the frontmatter (N = number of _01.._NN images).');
+        process.exitCode = 1;
+    }
+} else {
+    console.log('No issues found.');
+}

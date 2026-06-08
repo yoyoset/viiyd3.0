@@ -6,6 +6,7 @@ tags: ["Warhammer 40K", "Chaos Space Marines", "Daemon Engine", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/defiler/viiyd20260605defiler_01.webp"
 layout: "project"
 optimized: true
+photos: 24
 tier: "Master"
 time_log: "40h 00m"
 model_count: 2

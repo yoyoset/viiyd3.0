@@ -6,6 +6,7 @@ tags: ["Warhammer", "Grand Cathay", "Cavalry", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathaycav2/viiyd20260602cathaycav2_01.webp"
 layout: "project"
 optimized: true
+photos: 8
 tier: "Battleline"
 time_log: "22h 00m"
 model_count: 15

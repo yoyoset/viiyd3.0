@@ -6,6 +6,7 @@ tags: ["Warhammer", "Grand Cathay", "Character", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_01.webp"
 layout: "project"
 optimized: true
+photos: 8
 tier: "Specialist"
 time_log: "10h 00m"
 model_count: 1

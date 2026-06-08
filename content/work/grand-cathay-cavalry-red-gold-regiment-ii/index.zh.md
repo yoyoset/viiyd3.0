@@ -6,6 +6,7 @@ tags: ["Warhammer", "Grand Cathay", "骑兵", "委托"]
 cover: "https://photo.viiyd.com/2026/06/cathaycav2/viiyd20260602cathaycav2_01.webp"
 layout: "project"
 optimized: true
+photos: 8
 tier: "Battleline"
 time_log: "22h 00m"
 model_count: 15

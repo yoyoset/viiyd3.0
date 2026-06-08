@@ -6,6 +6,7 @@ tags: ["Warhammer 40K", "Chaos Space Marines", "Iron Warriors", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/kravekmorne/viiyd20260605kravekmorne_01.webp"
 layout: "project"
 optimized: true
+photos: 8
 tier: "Master"
 time_log: "26h 00m"
 model_count: 1

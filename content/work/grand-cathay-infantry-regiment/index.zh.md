@@ -6,6 +6,7 @@ tags: ["Warhammer", "Grand Cathay", "步兵", "委托"]
 cover: "https://photo.viiyd.com/2026/06/cathayinf/viiyd20260602cathayinf_01.webp"
 layout: "project"
 optimized: true
+photos: 12
 tier: "Battleline"
 time_log: "18h 00m"
 model_count: 30
