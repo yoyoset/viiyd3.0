@@ -166,7 +166,7 @@
       {{ else if eq $v 2 }}{{ $span = 4 }}{{ $aspect = "4/5" }}
       {{ else if gt $v 12 }}{{ $span = 3 }}{{ $aspect = "4/3" }}
       {{ end }}
-    <div class="plate lightbox-trigger" style="grid-column:span {{ $span }};aspect-ratio:{{ $aspect }};" data-src="{{ $src }}">
+    <div class="plate lightbox-trigger" style="{{ printf "grid-column:span %d;aspect-ratio:%s;" $span $aspect | safeCSS }}" data-src="{{ $src }}">
       <img src="{{ $src }}" alt="{{ $.Title }} — plate {{ $v }}" loading="{{ if le $v 4 }}eager{{ else }}lazy{{ end }}" onerror="this.closest('.plate').style.display='none'">
       <div class="plate-n">plate {{ printf "%02d" $v }}</div>
       {{ with $cap }}<div class="plate-caption">{{ . }}</div>{{ end }}
