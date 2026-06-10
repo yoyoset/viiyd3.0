@@ -33,3 +33,6 @@ backup/
 
 # Temporary Uploads
 need_upload/
+
+# Private business docs (repo is PUBLIC — never commit these)
+private/
