@@ -7,7 +7,7 @@ theme = []
   # Site-wide fallback social share image (pages with a cover override it)
   ogImage = "https://photo.viiyd.com/2026/05/silent-king/viiyd20260523silent-king_01_web.webp"
   # Cloudflare Web Analytics beacon token — grab from dash.cloudflare.com → Analytics → Web Analytics
-  cfBeaconToken = ""
+  cfBeaconToken = "8217e1c246824a018a743776dbb7aa71"
 
 # Multilingual Config
 defaultContentLanguage = 'en'
