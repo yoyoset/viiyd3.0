@@ -93,6 +93,7 @@ summary: "[One-line summary, max 100 chars]"
 tags: ["Category", "Faction", "Unit Type"] 
 cover: "https://photo.viiyd.com/[YYYY]/[MM]/[CODE]/[FILENAME].webp"
 layout: "project"
+photos: N  # 必填！= 画廊图片张数 (_01.._NN)。驱动 plates 网格和灯箱；漏写则页面布局错误且无法点击放大
 optimized: true  # 必须开启，启用本地 WebP 缩略图同步
 tier: "[Battleline|Specialist|Spec Ops|Master|Legend]"
 time_log: "XXh XXm"
@@ -115,6 +116,11 @@ description: "[SEO description, 150-200 chars]"
 ...
 </div>
 ```
+
+> ⚠️ 注意：当 frontmatter 设置了 `photos: N` 时，真正渲染画廊的是
+> `layouts/work/single.html` 的 plates 网格（正文 `.Content` 不会输出）。
+> 上面的 shortcodes 仅作为冗余备份保留。`photos:` 漏写会被 pre-commit
+> 审计（`node scripts/audit_content.js`）拦截。
 
 关键组件:
 1. Hook Block (Use Case)
