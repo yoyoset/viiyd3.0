@@ -29,7 +29,7 @@
 {{/* 01 · Cinematic hero */}}
 <div class="dossier-hero">
   {{ if $cover }}
-  <img class="dossier-hero-bg" src="{{ $cover }}" alt="{{ $title }}" loading="eager">
+  <img class="dossier-hero-bg" src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="eager">
   {{ end }}
   <div class="dossier-hero-vignette"></div>
 
@@ -53,7 +53,7 @@
 
     <div style="margin-top:auto;max-width:1000px;">
       <div style="font-size:11px;letter-spacing:0.24em;opacity:0.7;margin-bottom:24px;text-transform:uppercase;">
-        SPECIMEN · {{ $faction | upper }} · {{ $scale }} · {{ $tier | upper }} {{ T "dossier_tier_suffix" | default "TIER" }}
+        SPECIMEN · {{ $faction | upper }} · {{ $scale }}{{ with $tier }} · {{ . | upper }} {{ T "dossier_tier_suffix" | default "TIER" }}{{ end }}
       </div>
       {{ if $accent }}
       <h1 class="dossier-title">{{ replace $heroTitle $accent (printf "<span class=\"dossier-title-accent\">%s</span>" $accent) | safeHTML }}</h1>
@@ -86,9 +86,9 @@
   <div class="specimen-card" style="margin-top:18px;">
     <div class="photo" style="aspect-ratio:4/5;">
       {{ if $baseURL }}
-      <img src="{{ $baseURL }}_04.webp" alt="{{ $title }} detail" loading="lazy" onerror="this.src='{{ $cover }}'">
+      <img src="{{ partial "optimized-image" (dict "src" (printf "%s_04%s" $baseURL $photoExt) "optimized" .Params.optimized) }}" alt="{{ $title }} detail" loading="lazy" onerror="this.src='{{ $cover }}'">
       {{ else if $cover }}
-      <img src="{{ $cover }}" alt="{{ $title }}" loading="lazy">
+      <img src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="lazy">
       {{ end }}
     </div>
     <div class="specimen-info">
@@ -166,8 +166,9 @@
       {{ else if eq $v 2 }}{{ $span = 4 }}{{ $aspect = "4/5" }}
       {{ else if gt $v 12 }}{{ $span = 3 }}{{ $aspect = "4/3" }}
       {{ end }}
-    <div class="plate lightbox-trigger" style="{{ printf "grid-column:span %d;aspect-ratio:%s;" $span $aspect | safeCSS }}" data-src="{{ $src }}">
-      <img src="{{ $src }}" alt="{{ $.Title }} — plate {{ $v }}" loading="{{ if le $v 4 }}eager{{ else }}lazy{{ end }}" onerror="this.closest('.plate').style.display='none'">
+      {{ $webSrc := partial "optimized-image" (dict "src" $src "optimized" $.Params.optimized) }}
+    <div class="plate lightbox-trigger" style="{{ printf "grid-column:span %d;aspect-ratio:%s;" $span $aspect | safeCSS }}" data-web-src="{{ $webSrc }}" data-full-res="{{ $src }}" data-src="{{ $src }}">
+      <img src="{{ $webSrc }}" alt="{{ $.Title }} — plate {{ $v }}" loading="{{ if le $v 4 }}eager{{ else }}lazy{{ end }}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='{{ $src }}'}else{this.closest('.plate').style.display='none'}">
       <div class="plate-n">plate {{ printf "%02d" $v }}</div>
       {{ with $cap }}<div class="plate-caption">{{ . }}</div>{{ end }}
     </div>

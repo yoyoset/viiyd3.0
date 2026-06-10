@@ -5,8 +5,6 @@ summary: "开始您的战锤微缩模型涂装之旅的综合指南。涵盖基�
 tags: ["战锤", "涂装指南", "教程", "新手", "工作室"]
 cover: "/images/warhammer-painting-example.jpeg"
 layout: "project"
-tier: "N/A"
-time_log: "N/A"
 model_count: 1
 paints:
   - name: "Macragge Blue"

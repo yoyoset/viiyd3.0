@@ -6,7 +6,7 @@ tags: ["Warhammer 40k", "Dark Angels", "Dreadwing", "Interemptors", "OSL"]
 cover: "https://photo.viiyd.com/viiyd20260104DADIS_01.jpg"
 layout: "project"
 photos: 21
-tier: "Elite"
+tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 5
 paints:
@@ -77,7 +77,7 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>🛡�?Armor</span>
+<span>🛡�?Armor</span>
 <span class="font-mono text-emerald-200">Abaddon Black + Dark Reaper</span>
 </li>
 <li class="flex justify-between">

@@ -6,7 +6,7 @@ tags: ["战锤40k", "暗黑天使", "死翼", "截击小队", "OSL"]
 cover: "https://photo.viiyd.com/viiyd20260104DADIS_01.jpg"
 layout: "project"
 photos: 21
-tier: "Elite"
+tier: "Spec Ops"
 time_log: "20h 00m"
 model_count: 5
 paints:

@@ -1,11 +1,19 @@
-{{/* Input: dict "src" $url "optimized" bool */}}
+{{/* Input: dict "src" $url "optimized" bool (optional) "width" int (optional)
+     - width given     → cdn-cgi resize to that width (thumbnails, cards)
+     - optimized: true → pre-generated _web.webp 1600px sibling on R2
+     - otherwise       → cdn-cgi resize to 1600px
+     Non-R2 sources are returned untouched. */}}
 {{ $src := .src }}
 {{ $optimized := .optimized | default false }}
+{{ $width := .width | default 0 }}
 {{ $isViiyd := in $src "photo.viiyd.com" }}
 
 {{ $result := $src }}
 {{ if $isViiyd }}
-{{ if $optimized }}
+{{ if gt $width 0 }}
+{{ $path := replace $src "https://photo.viiyd.com/" "" }}
+{{ $result = printf "https://photo.viiyd.com/cdn-cgi/image/width=%d,quality=80,format=auto/%s" $width $path }}
+{{ else if $optimized }}
 {{ $result = replace $src ".jpg" "_web.jpg" }}
 {{ $result = replace $result ".jpeg" "_web.jpeg" }}
 {{ $result = replace $result ".png" "_web.png" }}

@@ -164,16 +164,16 @@
     <span class="num">{{ $num }}</span>
     <span class="subj">
       <span class="thumb">
-        {{ with $p.Params.cover }}<img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
+        {{ with $p.Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 200) }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
       </span>
       {{ $p.Title }}
     </span>
     <span class="fac">{{ $faction }}</span>
     <span class="scale">{{ $p.Params.scale | default "28mm" }}</span>
     <span>
-      {{ $tier := $p.Params.tier | default "" }}
-      {{ $tierClass := $tier | lower | replaceRE "[^a-z]" "-" }}
-      <span class="tier-pill {{ $tierClass }}">{{ $tier }}</span>
+      {{ with $p.Params.tier }}
+      <span class="tier-pill {{ . | lower | replaceRE "[^a-z]" "-" }}">{{ . }}</span>
+      {{ else }}<span style="color:var(--ink-soft);">—</span>{{ end }}
     </span>
     <span class="hrs" style="color:var(--ink-soft);">{{ $p.Params.hours | default $p.Params.time_log | default "—" }}</span>
     <span class="date">{{ $p.Date.Format "02·Jan·06" | upper }}</span>
@@ -194,7 +194,7 @@
     {{ $faction := .Params.faction | default (index .Params.tags 0) | default "" }}
     <a href="{{ .RelPermalink }}">
       <div class="feature-thumb">
-        {{ with .Params.cover }}<img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
+        {{ with .Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 800) }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
       </div>
       <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11px;letter-spacing:0.05em;color:var(--ink-soft);">
         <span>{{ .Date.Format "Jan 2006" }}</span>

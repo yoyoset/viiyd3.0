@@ -2,6 +2,9 @@
 # Pre-commit hook: Check for leading spaces in Hugo URL functions
 # This prevents broken links like {{ relLangURL " contact/" }}
 
+echo "🔍 Auditing content (photos/tier/placeholders)..."
+node scripts/audit_content.js || exit 1
+
 echo "🔍 Checking for leading spaces in URL functions..."
 
 # Pattern: relLangURL/relURL/absURL followed by quote-space

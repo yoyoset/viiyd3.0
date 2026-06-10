@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "audit": "node scripts/audit_content.js",
+    "build": "node scripts/audit_content.js && hugo --gc --minify"
   },
   "keywords": [],
   "author": "",

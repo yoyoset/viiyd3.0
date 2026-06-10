@@ -6,7 +6,7 @@ tags: ["Legio Custodes", "Warhammer 40k", "Vehicle", "Imperial", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251010tank_01.jpg"
 layout: "project"
 photos: 5
-tier: "Elite"
+tier: "Spec Ops"
 time_log: "32h 00m"
 model_count: 1
 paints:
@@ -61,11 +61,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>ðŸ›¡ï¸?Armor Base</span>
+<span>ðŸ›¡ï¿½?Armor Base</span>
 <span class="font-mono text-emerald-200">Retributor Gold</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Highlight</span>
+<span>ï¿½?Highlight</span>
 <span class="font-mono text-cyan-200">Auric Armour</span>
 </li>
 </ul>

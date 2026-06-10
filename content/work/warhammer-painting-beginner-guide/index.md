@@ -5,8 +5,6 @@ summary: "A comprehensive guide to starting your journey into Warhammer miniatur
 tags: ["Warhammer", "Painting Guide", "Tutorial", "Beginner", "Studio"]
 cover: "/images/warhammer-painting-example.jpeg"
 layout: "project"
-tier: "N/A"
-time_log: "N/A"
 model_count: 1
 paints:
   - name: "Macragge Blue"

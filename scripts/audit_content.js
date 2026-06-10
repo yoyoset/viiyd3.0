@@ -17,12 +17,18 @@ function walk(dir) {
             const content = fs.readFileSync(filePath, 'utf8');
             const slug = path.basename(path.dirname(filePath));
 
-            if (file.endsWith('.zh.md')) {
-                // Check Tier
-                const tierMatch = content.match(/^tier:\s*["']?([^"'\n]+)["']?/m);
-                if (tierMatch) {
-                    tiers.add(tierMatch[1].trim());
+            // Tier must be one of the WORK_TEMPLATE enum values (both languages)
+            const TIER_ENUM = ['Battleline', 'Specialist', 'Spec Ops', 'Master', 'Legend'];
+            const tierMatch = content.match(/^tier:\s*["']?([^"'\n]+)["']?/m);
+            if (tierMatch) {
+                const tier = tierMatch[1].trim();
+                tiers.add(tier);
+                if (!TIER_ENUM.includes(tier)) {
+                    issues.push({ file: slug + '/' + file, type: 'InvalidTier', detail: `tier "${tier}" is not in the enum: ${TIER_ENUM.join(' | ')}` });
                 }
+            }
+
+            if (file.endsWith('.zh.md')) {
 
                 // Check Title
                 const titleMatch = content.match(/^title:\s*["']?([^"'\n]+)["']?/m);
@@ -69,8 +75,9 @@ console.log('Report written to audit_report.json');
 if (issues.length) {
     console.log(`\n⚠  ${issues.length} issue(s) found:`);
     issues.forEach(i => console.log(`   [${i.type}] ${i.file}${i.detail ? ' — ' + i.detail : ''}`));
-    if (issues.some(i => i.type === 'MissingPhotos')) {
-        console.log('\n   Fix: add `photos: N` to the frontmatter (N = number of _01.._NN images).');
+    if (issues.some(i => i.type === 'MissingPhotos' || i.type === 'InvalidTier')) {
+        console.log('\n   MissingPhotos fix: add `photos: N` to the frontmatter (N = number of _01.._NN images).');
+        console.log('   InvalidTier fix: use one of Battleline | Specialist | Spec Ops | Master | Legend, or remove the line.');
         process.exitCode = 1;
     }
 } else {

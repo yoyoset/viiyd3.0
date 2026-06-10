@@ -13,10 +13,18 @@
     })();
   </script>
 
-  <!-- Fonts -->
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts (non-blocking: swap in after load, <noscript> fallback) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
   <!-- CSS -->
   {{ $style := resources.Get "css/main.css" }}
@@ -30,16 +38,68 @@
   {{ end }}
 
   <!-- SEO -->
-  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.description | default .Summary | default .Site.Params.description }}{{ end }}">
+  {{ $desc := "" }}
+  {{ if .IsHome }}{{ $desc = .Site.Params.description }}{{ else }}{{ $desc = .Params.description | default .Summary | default .Site.Params.description }}{{ end }}
+  <meta name="description" content="{{ $desc }}">
   <link rel="canonical" href="{{ .Permalink }}">
 
-  <!-- Open Graph -->
+  <!-- hreflang alternates -->
+  {{ if .IsTranslated }}
+  {{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ if eq .Lang "zh" }}zh-CN{{ else }}{{ .Lang }}{{ end }}" href="{{ .Permalink }}">
+  {{ end }}
+  {{ range where .AllTranslations "Lang" "en" }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{ end }}
+  {{ end }}
+
+  <!-- Open Graph / Twitter -->
+  {{ $ogImage := .Params.cover | default .Site.Params.ogImage }}
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-  <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.description | default .Summary | default .Site.Params.description }}{{ end }}">
+  <meta property="og:description" content="{{ $desc }}">
   <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  {{ if .Params.cover }}<meta property="og:image" content="{{ .Params.cover }}">{{ end }}
+  <meta property="og:locale" content="{{ if eq .Lang "zh" }}zh_CN{{ else }}en_US{{ end }}">
+  {{ with $ogImage }}<meta property="og:image" content="{{ . }}">{{ end }}
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta name="twitter:card" content="summary_large_image">
-  {{ if .Params.cover }}<meta name="twitter:image" content="{{ .Params.cover }}">{{ end }}
+  {{ with $ogImage }}<meta name="twitter:image" content="{{ . }}">{{ end }}
+
+  <!-- Structured data -->
+  {{ if .IsHome }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "VIIYD Studio",
+    "url": {{ .Site.BaseURL | jsonify }},
+    "description": {{ .Site.Params.description | jsonify }},
+    "image": {{ .Site.Params.ogImage | jsonify }},
+    "address": { "@type": "PostalAddress", "addressLocality": "Chengdu", "addressCountry": "CN" },
+    "areaServed": "Worldwide",
+    "sameAs": ["https://instagram.com/viiyang.yingying"],
+    "knowsAbout": ["Warhammer 40,000", "Age of Sigmar", "miniature painting commission", "NMM", "OSL", "tabletop miniatures"]
+  }
+  </script>
+  {{ else if and (eq .Section "work") .Params.cover }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VisualArtwork",
+    "name": {{ .Title | jsonify }},
+    "url": {{ .Permalink | jsonify }},
+    "image": {{ .Params.cover | jsonify }},
+    "description": {{ $desc | jsonify }},
+    "artMedium": "Acrylic on plastic miniature",
+    "artform": "Miniature painting",
+    "dateCreated": {{ .Date.Format "2006-01-02" | jsonify }},
+    "creator": { "@type": "Organization", "name": "VIIYD Studio", "url": {{ .Site.BaseURL | jsonify }} }
+  }
+  </script>
+  {{ end }}
+
+  <!-- Cloudflare Web Analytics -->
+  {{ with .Site.Params.cfBeaconToken }}
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ . }}"}'></script>
+  {{ end }}
 </head>
