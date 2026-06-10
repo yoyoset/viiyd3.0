@@ -13,10 +13,11 @@ function walk(dir) {
         const stat = fs.statSync(filePath);
         if (stat && stat.isDirectory()) {
             walk(filePath);
-        } else {
-            if (file.endsWith('.zh.md')) {
-                const content = fs.readFileSync(filePath, 'utf8');
+        } else if (file.endsWith('.md')) {
+            const content = fs.readFileSync(filePath, 'utf8');
+            const slug = path.basename(path.dirname(filePath));
 
+            if (file.endsWith('.zh.md')) {
                 // Check Tier
                 const tierMatch = content.match(/^tier:\s*["']?([^"'\n]+)["']?/m);
                 if (tierMatch) {
@@ -28,29 +29,34 @@ function walk(dir) {
                 if (titleMatch) {
                     const title = titleMatch[1];
                     // Simple heuristic: if title has no Chinese characters, flag it
-                    if (!/[\u4e00-\u9fa5]/.test(title)) {
-                        titles.push({ file: path.basename(path.dirname(filePath)), title: title });
+                    if (!/[一-龥]/.test(title)) {
+                        titles.push({ file: slug, title: title });
                     }
                 }
 
                 // Check Bad Keywords
                 if (content.includes('待确认') || content.includes('To be confirmed') || content.includes('Automated migrated content')) {
-                    issues.push({ file: path.basename(path.dirname(filePath)), type: 'Placeholder' });
+                    issues.push({ file: slug, type: 'Placeholder' });
                 }
+            }
 
-                // Check lightbox wiring: a gallery built from {{< lightbox >}} shortcodes
-                // only gets click-to-enlarge when `photos: N` drives the plates grid in
-                // layouts/work/single.html. Missing `photos:` = broken lightbox (the
-                // June-2026 regression). Flag any such page in both languages.
-                const usesLightbox = content.includes('{{< lightbox');
-                const hasPhotos = /^photos:\s*\d+/m.test(content);
-                if (usesLightbox && !hasPhotos) {
-                    issues.push({ file: path.basename(path.dirname(filePath)), type: 'MissingPhotos', detail: 'uses {{< lightbox >}} but has no `photos: N` — lightbox will not work' });
-                }
+            // Check lightbox wiring (both languages): showcase pages whose cover
+            // follows the R2 `[PREFIX]_NN.webp` pattern render their gallery from
+            // the `photos: N` plates grid in layouts/work/single.html. Missing
+            // `photos:` drops the page to the raw .Content branch = broken layout
+            // (the June-2026 regression). Pages with non-R2 covers (e.g. local
+            // guide articles) legitimately rely on shortcodes and are exempt.
+            const coverMatch = content.match(/^cover:\s*["']?(https:\/\/photo\.viiyd\.com\/\S*_\d+\.(webp|jpe?g|png))["']?/m);
+            const usesLightbox = content.includes('{{< lightbox');
+            const hasPhotos = /^photos:\s*\d+/m.test(content);
+            if (coverMatch && usesLightbox && !hasPhotos) {
+                issues.push({ file: slug + '/' + file, type: 'MissingPhotos', detail: 'uses {{< lightbox >}} but has no `photos: N` — lightbox will not work' });
             }
         }
     });
 }
+
+walk(workDir);
 
 const report = {
     tiers: Array.from(tiers),
