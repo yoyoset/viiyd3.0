@@ -2,38 +2,41 @@
 
 This document serves as the source of truth for design, copywriting, and technical implementation standards for the VIIYD project.
 
-## 1. Copywriting Standard: "The Master & Commander"
+> Frontend design source of truth: `DOCS/DESIGN_SYSTEM.md`.
+> The current visual standard is the Claude redesign: dossier/archive, handmade studio, restrained premium editorial. Older cyber / PMC / bento language in this file is legacy and must not be used as precedent for new frontend work.
 
-All project descriptions and site copy must adhere to the **"Master & Commander"** persona. We are not just painting toys; we are executing military-grade operations for tabletop deployment.
+## 1. Copywriting Standard: "Archive Studio"
 
-*   **Tone:** Authoritative, Professional, Kinetic, Engaging.
-*   **Keywords:** Deployment, Logistics, Protocol, Alchemy, Ballistics, Tactics, High-Impact, Precision.
-*   **Vibe:** Think "High-Tech Mercenary PMC" meets "Artisan Studio".
-*   **Don't say:** "Here are the colors we used."
-*   **Do say:** "The Alchemy: Color Data."
-*   **Don't say:** "We painted it nicely."
-*   **Do say:** "Optimized for tabletop dominance and maximum visual impact."
+All site copy should support the current VIIYD positioning: a selective, hand-painted miniature studio with archival documentation for each commission.
+
+*   **Tone:** Calm, precise, personal, premium, trustworthy.
+*   **Keywords:** hand-painted, dossier, archive, reference, deadline, commission slot, certificate, studio, Chengdu, painted by hand.
+*   **Vibe:** Private art archive meets working painter's desk.
+*   **Don't say:** "Optimized for tabletop dominance and maximum visual impact."
+*   **Do say:** "Painted by hand at VIIYD Studio, Chengdu."
+*   **Don't say:** "Initiate deployment protocol."
+*   **Do say:** "Send a reference picture and a deadline. I usually reply within 48h."
 
 ### Component Naming Conventions
-*   **Recipes** → `The Alchemy` / `Pigment Analysis`
-*   **Techniques** → `Tactical Protocol` / `Methodology`
-*   **Stats** → `Mission Data` / `Field Report`
+*   **Project pages** → `Dossier` / `Archive`
+*   **Photos** → `Plates`
+*   **Painter commentary** → `Painter's Notes`
+*   **Completion proof** → `Certificate`
+*   **Commercial entry** → `Commission` / `Quote`
+*   **Technical stats** → `Specimen Card`
 
 ## 2. Layout & Design Patterns
 
-### The "Bento" Grid
-*   **Structure:** All image galleries must use the `.image-grid` class.
-*   **Spacing:** Strictly `gap-2` (8px) on all sides.
-*   **Aspect Ratio:** strictly `aspect-square`.
-*   **Responsiveness:**
-    *   Mobile: 3 columns (`grid-cols-3`)
-    *   Tablet: 5 columns (`md:grid-cols-5`)
-    *   Desktop: 6 columns (`lg:grid-cols-6`)
+### Archive / Dossier Layout
+*   **Structure:** New frontend work should follow `DOCS/DESIGN_SYSTEM.md`.
+*   **Surfaces:** Prefer full-width bands, hairline separators, archive tables, document panels, and photographic grids.
+*   **Spacing:** Use the CSS tokens in `assets/css/main.css`, especially `--page-pad` and `--dossier-pad`.
+*   **Aspect Ratios:** Use stable ratios such as `16/9`, `4/5`, `3/4`, `4/3`, or `1/1`; do not allow dynamic content to shift image layouts.
+*   **Cards:** Avoid generic rounded card stacks. Cards are for repeated items, modals, forms, and explicit framed tools only.
 
-### Content Cards
-*   **Style:** Dark glassmorphism backgrounds (`bg-neutral-800/30`) with subtle colored borders (`border-white/5` or `border-[color]-500/20`).
-*   **Interaction:** Hover effects should include slight border brightening and/or glow.
-*   **Typography:** Use Emoji icons sparingly but effectively to anchor headers (e.g., 🔥, 🎯, 💎).
+### Legacy Patterns
+*   **Bento grids, glassmorphism, emoji-anchored cards, neon/glow panels, and cyber/PMC copy are deprecated.**
+*   Existing pages that still use these patterns are migration targets, not examples to copy.
 
 ## 3. Technical Implementation Rules
 
