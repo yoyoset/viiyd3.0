@@ -5,7 +5,7 @@ summary: "Six Khorne Bloodcrushers painted for a daemon cavalry commission."
 tags: ["Daemons of Khorne", "Warhammer 40k", "Bloodcrushers", "Cavalry", "Commission"]
 cover: "https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_01.webp"
 layout: "project"
-photos: 47
+photos: 48
 optimized: true
 tier: "Specialist"
 time_log: "40h 00m"
@@ -56,7 +56,7 @@ description: "Six Bloodcrushers of Khorne painted as a daemon cavalry commission
 {{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_31.webp" title="Bloodcrusher unit charging formation" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_36.webp" title="Bloodcrusher close-up muscle detail" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_41.webp" title="Bloodcrusher base and hoof detail" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_47.webp" title="Bloodcrushers commission full unit shot" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_48.webp" title="Bloodcrushers commission full unit shot" >}}
 </div>
 
 <div class="space-y-4 my-4">

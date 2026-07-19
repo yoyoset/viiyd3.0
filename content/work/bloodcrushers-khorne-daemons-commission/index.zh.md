@@ -5,7 +5,7 @@ summary: "六只 Khorne Bloodcrushers 血神魔仆骑兵涂装委托。"
 tags: ["血神魔仆", "战锤40k", "嗜血狂奔者", "骑兵", "委托"]
 cover: "https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_01.webp"
 layout: "project"
-photos: 47
+photos: 48
 optimized: true
 tier: "Specialist"
 time_log: "40h 00m"
@@ -56,7 +56,7 @@ description: "六只嗜血狂奔者（Bloodcrushers）血神魔仆骑兵涂装�
 {{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_31.webp" title="嗜血狂奔者冲锋编队" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_36.webp" title="肌肉与皮肤近景细节" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_41.webp" title="底座与蹄部细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_47.webp" title="嗜血狂奔者全编队展示" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_48.webp" title="嗜血狂奔者全编队展示" >}}
 </div>
 
 <div class="space-y-4 my-4">
