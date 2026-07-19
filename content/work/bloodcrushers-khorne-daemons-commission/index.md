@@ -6,6 +6,7 @@ tags: ["Daemons of Khorne", "Warhammer 40k", "Bloodcrushers", "Cavalry", "Commis
 cover: "https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_01.webp"
 layout: "project"
 photos: 48
+video_360: "https://photo.viiyd.com/video/bloodcrushers.mp4"
 optimized: true
 tier: "Specialist"
 time_log: "40h 00m"

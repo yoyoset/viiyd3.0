@@ -6,6 +6,7 @@ tags: ["血神魔仆", "战锤40k", "嗜血狂奔者", "骑兵", "委托"]
 cover: "https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_01.webp"
 layout: "project"
 photos: 48
+video_360: "https://photo.viiyd.com/video/bloodcrushers.mp4"
 optimized: true
 tier: "Specialist"
 time_log: "40h 00m"
