@@ -522,6 +522,24 @@ other = "英雄比例"
 [cm_start_label]
 other = "发起委托"
 
+[cm_qr_headline]
+other = "最快的方式："
+
+[cm_qr_accent]
+other = "加微信。"
+
+[cm_qr_body]
+other = "扫码添加，发一张参考图和交付时间就够了。通常当天回复。"
+
+[cm_qr_scan_hint]
+other = "扫码添加微信"
+
+[cm_no_wechat_btn]
+other = "没有微信？填写表单 →"
+
+[cm_back_to_qr]
+other = "← 返回微信二维码"
+
 [cm_headline]
 other = "把作品交给我，"
 

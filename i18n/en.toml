@@ -503,6 +503,24 @@ other = "heroic"
 [cm_start_label]
 other = "start a commission"
 
+[cm_qr_headline]
+other = "Fastest way:"
+
+[cm_qr_accent]
+other = "WeChat."
+
+[cm_qr_body]
+other = "Scan the code, send a reference picture and a deadline. I usually reply the same day."
+
+[cm_qr_scan_hint]
+other = "Scan to add me on WeChat"
+
+[cm_no_wechat_btn]
+other = "No WeChat? Use the form →"
+
+[cm_back_to_qr]
+other = "← Back to WeChat QR"
+
 [cm_headline]
 other = "Send me a piece,"
 

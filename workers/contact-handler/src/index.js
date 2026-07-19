@@ -102,18 +102,22 @@ async function handleCommission(request, env, allowedOrigin, isLocalhost) {
                 deadline || null, notes || null, JSON.stringify(imageUrls)
             ).run();
         } catch (dbErr) {
-            // 如果表还没建，先建表再重试
-            if (dbErr.message && dbErr.message.includes('no such table')) {
-                await createCommissionsTable(env.DB);
-                await env.DB.prepare(
-                    `INSERT INTO commissions (id, created_at, name, contact, project, tier, deadline, notes, reference_urls, status)
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'new')`
-                ).bind(
-                    ticket, createdAt, name, contact, project, tier,
-                    deadline || null, notes || null, JSON.stringify(imageUrls)
-                ).run();
-            } else {
-                console.error('[D1] commission insert error:', dbErr);
+            // 如果表还没建，先建表再重试；D1 失败绝不能阻断 Telegram 通知（那才是真正的客源）
+            try {
+                if (dbErr.message && dbErr.message.includes('no such table')) {
+                    await createCommissionsTable(env.DB);
+                    await env.DB.prepare(
+                        `INSERT INTO commissions (id, created_at, name, contact, project, tier, deadline, notes, reference_urls, status)
+                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'new')`
+                    ).bind(
+                        ticket, createdAt, name, contact, project, tier,
+                        deadline || null, notes || null, JSON.stringify(imageUrls)
+                    ).run();
+                } else {
+                    console.error('[D1] commission insert error:', dbErr);
+                }
+            } catch (retryErr) {
+                console.error('[D1] commission insert retry failed:', retryErr);
             }
         }
     }
@@ -197,23 +201,12 @@ function generateTicket() {
 }
 
 async function createCommissionsTable(db) {
-    await db.exec(`
-        CREATE TABLE IF NOT EXISTS commissions (
-            id                  TEXT    PRIMARY KEY,
-            created_at          INTEGER NOT NULL,
-            name                TEXT    NOT NULL,
-            contact             TEXT    NOT NULL,
-            project             TEXT    NOT NULL,
-            tier                TEXT    NOT NULL,
-            deadline            TEXT,
-            notes               TEXT,
-            reference_urls      TEXT,
-            status              TEXT    DEFAULT 'new',
-            telegram_message_id INTEGER
-        );
-        CREATE INDEX IF NOT EXISTS idx_commissions_status     ON commissions(status);
-        CREATE INDEX IF NOT EXISTS idx_commissions_created_at ON commissions(created_at DESC);
-    `);
+    // D1 的 db.exec() 按行执行，多行 SQL 会报 "incomplete input"，必须用 prepare 逐条执行
+    await db.prepare(
+        `CREATE TABLE IF NOT EXISTS commissions (id TEXT PRIMARY KEY, created_at INTEGER NOT NULL, name TEXT NOT NULL, contact TEXT NOT NULL, project TEXT NOT NULL, tier TEXT NOT NULL, deadline TEXT, notes TEXT, reference_urls TEXT, status TEXT DEFAULT 'new', telegram_message_id INTEGER)`
+    ).run();
+    await db.prepare(`CREATE INDEX IF NOT EXISTS idx_commissions_status ON commissions(status)`).run();
+    await db.prepare(`CREATE INDEX IF NOT EXISTS idx_commissions_created_at ON commissions(created_at DESC)`).run();
 }
 
 async function sendCommissionTelegram({ ticket, name, contact, project, tier, deadline, notes, imageUrls }, env) {
