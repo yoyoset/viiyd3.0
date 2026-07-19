@@ -6,6 +6,7 @@ tags: ["血神魔仆", "战锤40k", "血神先驱", "英雄", "委托"]
 cover: "https://photo.viiyd.com/2026/07/bldm/viiyd20260715bldm_01.webp"
 layout: "project"
 photos: 9
+video_360: "https://photo.viiyd.com/video/bloodmaster.mp4"
 optimized: true
 tier: "Master"
 time_log: "22h 00m"
