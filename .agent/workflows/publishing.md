@@ -63,6 +63,35 @@ node scripts/fast_upload_r2.js ./need_upload viiyd-art-photos [YYYY]/[MM]/[CODE]
 Remove-Item "F:\mysite\viiyd3.0\need_upload\*" -Force
 ```
 
+### 2.4 360° 展示视频（可选，强烈推荐）
+
+360° 视频是高毛利加售项，也是社媒最强素材，有条件每个项目都做。
+
+**R2 存储约定:** `viiyd-art-photos/video/[slug简称].mp4`（扁平目录，不按日期分层）
+
+```powershell
+# 上传视频（fast_upload_r2.js 只认图片扩展名，视频必须用 wrangler 直传）
+wrangler r2 object put viiyd-art-photos/video/[NAME].mp4 --file "[本地视频路径]" --remote
+```
+
+> **示例（Bloodcrushers 实际发布记录）:**
+> ```powershell
+> wrangler r2 object put viiyd-art-photos/video/bloodcrushers.mp4 --file "F:\shortvideo\Bloodcrushers-30s.mp4" --remote
+> ```
+> 访问 `https://photo.viiyd.com/video/[NAME].mp4` 验证。
+
+**接入页面 — frontmatter 加一行（双语两个文件都要加）:**
+
+```yaml
+video_360: "https://photo.viiyd.com/video/[NAME].mp4"
+```
+
+- 模板 `layouts/work/single.html` 的 `04a · 360° video(s)` 区块自动渲染：16:9 容器、autoplay/loop/muted/playsinline + controls，位置在 Field Notes 之后、Plates 网格之前。
+- 双视频场景（如寂静王的本体+石碑）：第二条用 `video_360_menhir` 字段，自动变双列网格。
+- **视频规格建议**: 15-30 秒、1080p、H.264 MP4、20-40MB。转台匀速一圈，深色背景与站点视觉一致。
+
+**验证:** 构建后 `grep -o "video src=[^ ]*" public/work/[slug]/index.html` 应输出视频 URL；中英两个页面都要查。
+
 ---
 
 ## 3. 内容创建 (Content Generation)
@@ -267,5 +296,5 @@ git push origin main
 
 ---
 
-**Last Updated**: 2026-01-20
-**Version**: 3.3
+**Last Updated**: 2026-07-20
+**Version**: 3.4 (新增 2.4 · 360° 视频发布)
