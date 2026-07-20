@@ -1,5 +1,8 @@
 ---
 title: "作业流程"
+noindex: true
+sitemap:
+  disable: true
 date: 2026-01-17
 layout: "process"
 description: "VIIYD 委托作业协议。四阶段执行循环。"

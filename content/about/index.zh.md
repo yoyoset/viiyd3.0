@@ -1,5 +1,8 @@
 ---
 title: "关于工作室"
+noindex: true
+sitemap:
+  disable: true
 date: 2026-01-17
 layout: "about"
 summary: "不仅仅是涂装，我们为桌面战争锻造灵魂。"

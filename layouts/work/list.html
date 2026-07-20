@@ -111,7 +111,7 @@
 
     <div style="padding:20px;background:var(--paper);border:1px solid var(--line-soft);font-size:12px;color:var(--ink-soft);line-height:1.7;">
       {{ T "contact_prefer_form" | default "Prefer the full form?" }}
-      <a href="{{ relLangURL "contact" }}" style="color:var(--ink);border-bottom:1px solid var(--line-soft);">{{ T "contact_open_page" | default "Open contact page →" }}</a>
+      <button onclick="openCommissionModal()" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:var(--ink);border-bottom:1px solid var(--line-soft);">{{ T "contact_open_page" | default "Open commission form →" }}</button>
     </div>
   </div>
 </aside>

@@ -436,6 +436,8 @@
 <script>
 (function () {
   /* ── state ── */
+  /* EN 访客多为海外客户（无微信）→ 默认直落表单；ZH 默认二维码优先 */
+  var _cmDefaultQR = {{ if eq .Site.Language.Lang "zh" }}true{{ else }}false{{ end }};
   var _cmOpen = false;
   var _uploadedFiles = [];  /* {file, key} objects once uploaded */
   var _pendingFiles = [];   /* File objects waiting */
@@ -450,9 +452,9 @@
     el.removeAttribute('aria-hidden');
     document.body.style.overflow = 'hidden';
     _cmOpen = true;
-    /* always land on the WeChat QR state first */
-    document.getElementById('cm-qr-body').style.display = 'block';
-    document.getElementById('cm-form-body').style.display = 'none';
+    /* ZH → QR 优先；EN → 直落表单 */
+    document.getElementById('cm-qr-body').style.display = _cmDefaultQR ? 'block' : 'none';
+    document.getElementById('cm-form-body').style.display = _cmDefaultQR ? 'none' : 'block';
     document.getElementById('cm-success-body').style.display = 'none';
     /* scroll modal to top */
     var scr = document.getElementById('cm-scroll');

@@ -1,5 +1,8 @@
 ---
 title: "The Studio"
+noindex: true
+sitemap:
+  disable: true
 date: 2026-01-17
 layout: "about"
 summary: "We don't just paint miniatures. We forge digital souls for tabletop warfare."

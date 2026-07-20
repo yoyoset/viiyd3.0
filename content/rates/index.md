@@ -1,5 +1,8 @@
 ---
 title: "Deployment Rates"
+noindex: true
+sitemap:
+  disable: true
 date: 2026-01-17
 layout: "services"
 summary: "Choose your engagement level."

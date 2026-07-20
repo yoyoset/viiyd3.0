@@ -1,5 +1,8 @@
 ---
 title: "服务标准"
+noindex: true
+sitemap:
+  disable: true
 date: 2026-01-17
 layout: "services"
 summary: "选择您的介入等级。"

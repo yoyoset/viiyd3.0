@@ -1,5 +1,8 @@
 ---
 title: "Protocol"
+noindex: true
+sitemap:
+  disable: true
 date: 2026-01-17
 layout: "process"
 description: "The VIIYD Commission Protocol. 4-Stage Execution Cycle."
