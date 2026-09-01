@@ -6,10 +6,12 @@
   {{ partial "site-footer.html" . }}
   {{ partial "commission-modal.html" . }}
   {{ block "scripts" . }}
-    {{ $js := resources.Get "js/lightbox.js" }}
-    {{ if $js }}
-      {{ if hugo.IsProduction }}{{ $js = $js | minify | fingerprint }}{{ end }}
-      <script src="{{ $js.RelPermalink }}"></script>
+    {{ range slice "js/lightbox.js" "js/reveal.js" }}
+      {{ with resources.Get . }}
+        {{ $js := . }}
+        {{ if hugo.IsProduction }}{{ $js = $js | minify | fingerprint }}{{ end }}
+        <script src="{{ $js.RelPermalink }}" defer></script>
+      {{ end }}
     {{ end }}
   {{ end }}
 </body>

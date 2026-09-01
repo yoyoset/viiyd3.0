@@ -103,4 +103,12 @@
   {{ with .Site.Params.cfBeaconToken }}
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ . }}"}'></script>
   {{ end }}
+  <script>
+    /* .reveal elements start hidden only when the reveal script can run;
+       if it never loads, this timeout unhides everything. */
+    document.documentElement.classList.add('js-reveal');
+    setTimeout(function () {
+      if (!window.__viiydReveal) document.documentElement.classList.remove('js-reveal');
+    }, 2500);
+  </script>
 </head>

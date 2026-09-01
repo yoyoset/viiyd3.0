@@ -2,8 +2,6 @@
 
 {{/* Latest post */}}
 {{ $latest := index (first 1 (where .Site.RegularPages "Section" "work")) 0 }}
-{{ $orientation := "landscape" }}
-{{ with $latest }}{{ with .Params.hero_orientation }}{{ $orientation = . }}{{ end }}{{ end }}
 
 {{/* Header */}}
 <header class="home-header" style="padding:20px var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);">
@@ -28,57 +26,32 @@
   {{ $cover := .Params.cover }}
   {{ $title  := .Title }}
   {{ $faction := .Params.faction | default (index .Params.tags 0) }}
-  {{ $tier    := .Params.tier }}
-  {{ $eyebrow := printf "NEW · %s" (.Date.Format "Jan 2006" | upper) }}
+    {{ $eyebrow := printf "NEW · %s" (.Date.Format "Jan 2006" | upper) }}
   {{ with .Params.file_no }}{{ $eyebrow = printf "%s · № %s" $eyebrow . }}{{ end }}
 
-  {{ if eq $orientation "portrait" }}
-  <section class="home-hero-portrait">
-    <div class="hero-portrait-grid">
-      <div style="display:flex;flex-direction:column;justify-content:space-between;padding:32px 4px 8px 4px;">
-        <div>
-          <div class="eyebrow" style="margin-bottom:18px;">{{ $eyebrow }}</div>
-          <h1 class="hero-title-xl">
-            {{ $title }}
-          </h1>
-          {{ with .Params.tagline }}
-          <div style="margin-top:24px;font-family:var(--font-serif);font-style:italic;font-size:22px;color:var(--ink-soft);max-width:520px;line-height:1.35;">"{{ . }}"</div>
-          {{ end }}
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
-          <div style="font-size:12px;letter-spacing:0.06em;color:var(--ink-soft);">{{ $faction }}{{ with .Params.scale }} · {{ . }}{{ end }}</div>
+  <section class="hero">
+    <div class="hero-inner">
+      <figure class="hero-figure">
+        {{ if $cover }}<img src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="eager" fetchpriority="high">{{ end }}
+      </figure>
+      <div class="hero-copy">
+        <div class="eyebrow reveal">{{ $eyebrow }}</div>
+        <div class="hero-copy-bottom">
+        <h1 class="hero-title reveal">{{ $title }}</h1>
+        {{ with .Params.tagline }}<p class="hero-tagline reveal">"{{ . }}"</p>{{ end }}
+        <div class="hero-foot reveal">
+          <span class="hero-meta">{{ $faction }}{{ with .Params.scale }} · {{ . }}{{ end }}</span>
           <a href="{{ .RelPermalink }}" class="btn btn-outline">{{ T "read_dossier" | default "Read the dossier →" }}</a>
         </div>
-      </div>
-      <div class="photo" style="aspect-ratio:3/4;">
-        {{ if $cover }}<img src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="eager">{{ end }}
-      </div>
-    </div>
-  </section>
-
-  {{ else }}
-  <section class="home-hero-landscape">
-    <div class="hero-landscape-frame">
-      <div class="photo hero-landscape-photo">
-        {{ if $cover }}<img src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="eager">{{ end }}
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 50%);"></div>
-      </div>
-      <div style="position:absolute;left:32px;bottom:28px;right:32px;color:#f6f3ea;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;">
-        <div class="hero-overlay-text">
-          <div style="font-size:11px;letter-spacing:0.22em;opacity:0.78;margin-bottom:14px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ $eyebrow }}</div>
-          <h1 class="hero-title-landscape">{{ $title }}</h1>
-          <div style="font-size:12px;margin-top:14px;letter-spacing:0.06em;opacity:0.85;text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ $faction }}{{ with .Params.scale }} · {{ . }}{{ end }}</div>
         </div>
-        <a href="{{ .RelPermalink }}" class="btn btn-ghost">{{ T "read_dossier" | default "Read the dossier →" }}</a>
       </div>
     </div>
   </section>
-  {{ end }}
 {{ end }}
 
 {{/* Identity statement */}}
 <section style="padding:36px var(--page-pad) 28px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);">
-  <div class="sans identity-text" style="font-weight:500;line-height:1.05;letter-spacing:-0.025em;text-wrap:balance;max-width:1000px;">
+  <div class="sans identity-text reveal" style="font-weight:500;line-height:1.05;letter-spacing:-0.025em;text-wrap:balance;max-width:1000px;">
     {{ T "identity_statement" | default "V., a studio for hand-painted miniatures —" }}
     <span style="color:var(--ink-soft);"> {{ T "identity_sub" | default "Warhammer, Kill Team, JoyToy figures, the occasional commission no one else will take." }}</span>
   </div>
@@ -92,7 +65,7 @@
   </div>
   <div class="recent-grid">
     {{ range first 6 (where .Site.RegularPages "Section" "work") }}
-    <a href="{{ .RelPermalink }}">
+    <a href="{{ .RelPermalink }}" class="reveal">
       <div class="recent-thumb">
         {{ with .Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 800) }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
       </div>
@@ -108,7 +81,7 @@
 
 {{/* Commission strip */}}
 <section style="margin:40px var(--page-pad) 0;">
-  <div class="commission-strip">
+  <div class="commission-strip reveal">
     <div>
       <div class="eyebrow" style="opacity:0.55;">{{ T "commissions_label" }} {{ now.Format "2006" }}</div>
       <div style="font-family:var(--font-serif);font-size:36px;line-height:1.1;margin-top:8px;">
