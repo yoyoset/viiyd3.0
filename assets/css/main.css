@@ -374,6 +374,30 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ── Home hero ─── */
 .home-hero-landscape { padding: 8px var(--page-pad) 28px; }
+
+/* Hero photo is sized by HEIGHT first: covers are square or 4:3, so a
+   full-bleed 16/9 box on a wide screen cropped the model's head off and
+   pushed everything else below the fold. Height cap keeps the fold usable;
+   max-width keeps the box from ever getting wider than 3:2. */
+.hero-landscape-frame {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--hero-h) * 3 / 2);
+  margin-inline: auto;
+  --hero-h: min(66vh, 700px);
+}
+.hero-landscape-photo { height: var(--hero-h); }
+.hero-landscape-frame .hero-overlay-text { max-width: 66%; }
+.hero-landscape-frame .btn { white-space: nowrap; }
+
+.hero-title-landscape {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 60px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
 .home-hero-portrait  { padding: 24px var(--page-pad) 28px; }
 
 .hero-portrait-grid {
@@ -515,6 +539,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
   /* ── Home title ── */
   .hero-title-xl { font-size: 56px; line-height: 0.92; }
+  .hero-landscape-frame { --hero-h: min(62vh, 480px); max-width: none; }
+
+  /* Header: drop the location line and tighten the nav so it stays one row */
+  .home-header { gap: 10px; }
+  .home-header-tagline { display: none; }
+  .home-header nav { gap: 14px; white-space: nowrap; }
+  .home-header > div:first-child { gap: 8px; white-space: nowrap; }
 
   /* ── Recent grid: 2-col ── */
   .recent-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }

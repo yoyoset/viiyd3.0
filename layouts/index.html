@@ -6,11 +6,11 @@
 {{ with $latest }}{{ with .Params.hero_orientation }}{{ $orientation = . }}{{ end }}{{ end }}
 
 {{/* Header */}}
-<header style="padding:20px var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);">
+<header class="home-header" style="padding:20px var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);">
   <div style="display:flex;align-items:center;gap:12px;">
     {{ partial "badge.html" (dict "size" 28) }}
     <a href="{{ .Site.BaseURL }}" style="color:var(--ink);">VIIYD STUDIO</a>
-    <span>· Chengdu · Est. 2024</span>
+    <span class="home-header-tagline">· Chengdu · Est. 2024</span>
   </div>
   <nav style="display:flex;gap:24px;align-items:center;">
     <a href="{{ relLangURL "work" }}" style="color:var(--ink);">{{ T "nav_work" | default "Work" }}</a>
@@ -29,7 +29,8 @@
   {{ $title  := .Title }}
   {{ $faction := .Params.faction | default (index .Params.tags 0) }}
   {{ $tier    := .Params.tier }}
-  {{ $eyebrow := printf "NEW · %s · № %s" (.Date.Format "JAN 2006" | upper) (.Params.file_no | default "—") }}
+  {{ $eyebrow := printf "NEW · %s" (.Date.Format "Jan 2006" | upper) }}
+  {{ with .Params.file_no }}{{ $eyebrow = printf "%s · № %s" $eyebrow . }}{{ end }}
 
   {{ if eq $orientation "portrait" }}
   <section class="home-hero-portrait">
@@ -57,15 +58,15 @@
 
   {{ else }}
   <section class="home-hero-landscape">
-    <div style="position:relative;">
-      <div class="photo" style="aspect-ratio:16/9;">
+    <div class="hero-landscape-frame">
+      <div class="photo hero-landscape-photo">
         {{ if $cover }}<img src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="eager">{{ end }}
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 50%);"></div>
       </div>
-      <div style="position:absolute;left:32px;bottom:28px;right:32px;color:#f6f3ea;display:flex;justify-content:space-between;align-items:flex-end;">
-        <div>
+      <div style="position:absolute;left:32px;bottom:28px;right:32px;color:#f6f3ea;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;">
+        <div class="hero-overlay-text">
           <div style="font-size:11px;letter-spacing:0.22em;opacity:0.78;margin-bottom:14px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ $eyebrow }}</div>
-          <h1 style="font-family:var(--font-serif);font-style:italic;font-size:96px;line-height:0.92;letter-spacing:-0.02em;text-shadow:0 2px 12px rgba(0,0,0,0.4);">{{ $title }}</h1>
+          <h1 class="hero-title-landscape">{{ $title }}</h1>
           <div style="font-size:12px;margin-top:14px;letter-spacing:0.06em;opacity:0.85;text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ $faction }}{{ with .Params.scale }} · {{ . }}{{ end }}</div>
         </div>
         <a href="{{ .RelPermalink }}" class="btn btn-ghost">{{ T "read_dossier" | default "Read the dossier →" }}</a>
