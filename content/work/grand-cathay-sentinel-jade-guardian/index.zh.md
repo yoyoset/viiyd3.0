@@ -1,7 +1,7 @@
 ---
-title: "震旦哨卫：玉石守望者"
+title: "陶俑哨卫：玉石守望者"
 date: 2026-09-01T20:30:00+08:00
-summary: "冷青绿玉石质感的震旦哨卫——云纹护甲、双刃武器、蓝宝石与风化石台。"
+summary: "冷青绿玉石质感的陶俑哨卫——云纹护甲、双刃武器、蓝宝石与风化石台。"
 tags: ["Warhammer", "Grand Cathay", "巨兽", "委托"]
 cover: "https://photo.viiyd.com/2026/09/cathaysentinel/viiyd20260901cathaysentinel_01.webp"
 layout: "project"
@@ -52,7 +52,7 @@ paints:
     role: "BASE"
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
-description: "一座以活玉石质感呈现的震旦哨卫——冷青绿岩层层叠至 Temple Guard Blue，护甲与双刃武器上密布云纹浮雕，胸口与头盔镶嵌蓝宝石，立于斑驳铜绿的风化石台之上。"
+description: "一座以活玉石质感呈现的陶俑哨卫——冷青绿岩层层叠至 Temple Guard Blue，护甲与双刃武器上密布云纹浮雕，胸口与头盔镶嵌蓝宝石，立于斑驳铜绿的风化石台之上。"
 ---
 
 <div class="image-grid">
@@ -71,7 +71,7 @@ description: "一座以活玉石质感呈现的震旦哨卫——冷青绿岩层
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
 <h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 古老城墙守望者</h3>
 <p class="text-gray-300 leading-relaxed">
-一座以活玉石呈现的震旦哨卫——冷青绿岩读起来像雕刻出的遗迹而非涂装的塑料。护甲与双刃武器上布满云纹浮雕，蓝宝石在胸口与头盔中燃烧，风化石台把它根植于某座古老震旦城门的废墟中。这是对常规红金震旦配色的刻意突破。
+一座以活玉石呈现的陶俑哨卫——冷青绿岩读起来像雕刻出的遗迹而非涂装的塑料。护甲与双刃武器上布满云纹浮雕，蓝宝石在胸口与头盔中燃烧，风化石台把它根植于某座古老震旦城门的废墟中。这是对常规红金震旦配色的刻意突破。
 </p>
 </div>
 

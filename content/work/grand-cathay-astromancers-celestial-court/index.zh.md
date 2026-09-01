@@ -1,7 +1,7 @@
 ---
-title: "天庭星相师：宫廷法师与灵兽"
+title: "震旦司天丞：宫廷法师与灵兽"
 date: 2026-09-01T20:00:00+08:00
-summary: "骑乘星相师、步行法师与飞禽灵兽，金甲配绯红与天蓝长袍——震旦宫廷的魔法核心。"
+summary: "骑乘司天丞、步行法师与飞禽灵兽，金甲配绯红与天蓝长袍——震旦宫廷的魔法核心。"
 tags: ["Warhammer", "Grand Cathay", "法师", "委托"]
 cover: "https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_01.webp"
 layout: "project"
@@ -55,17 +55,17 @@ paints:
     role: "SHADE"
     hex: "#A5834A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Seraphim-Sepia-2022"
-description: "三位天庭星相师——龙驹上的金甲法师、黑金步行法师与携带紫色法球的灰黑飞禽灵兽。绯红、橙红与天蓝飘带长袍点缀金边与宝石，构成震旦宫廷的魔法核心。"
+description: "三位震旦司天丞——龙驹上的金甲法师、黑金步行法师与携带紫色法球的灰黑飞禽灵兽。绯红、橙红与天蓝飘带长袍点缀金边与宝石，构成震旦宫廷的魔法核心。"
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_01.webp" title="骑乘星相师与坐骑 正面全身" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_01.webp" title="骑乘司天丞与坐骑 正面全身" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_02.webp" title="骑乘模型 左前侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_03.webp" title="骑乘模型 右侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_04.webp" title="骑乘模型 背面" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_05.webp" title="骑乘模型 左后侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_06.webp" title="骑乘模型 右后侧" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_07.webp" title="骑乘星相师与坐骑 正面近景" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_07.webp" title="骑乘司天丞与坐骑 正面近景" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_08.webp" title="步行法师 正面特写" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_09.webp" title="步行法师 左侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_10.webp" title="步行法师 右侧" >}}
@@ -90,7 +90,7 @@ description: "三位天庭星相师——龙驹上的金甲法师、黑金步行
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
 <h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 宫廷魔法核心</h3>
 <p class="text-gray-300 leading-relaxed">
-震旦宫廷的魔法核心——龙驹上的金甲星相师、黑金步行法师与携带紫色法球的灰黑飞禽灵兽。绯红、橙红与天蓝飘带披风承载全套宫廷配色，金边勾线与宝石点缀收尾。
+震旦宫廷的魔法核心——龙驹上的金甲司天丞、黑金步行法师与携带紫色法球的灰黑飞禽灵兽。绯红、橙红与天蓝飘带披风承载全套宫廷配色，金边勾线与宝石点缀收尾。
 </p>
 </div>
 

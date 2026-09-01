@@ -1,7 +1,7 @@
 ---
-title: "震旦农民征召军：从田间到战场"
+title: "震旦役农征召军：从田间到战场"
 date: 2026-09-01T20:55:00+08:00
-summary: "二十四名农民征召兵——红衣、象牙白布、草帽与蓝腰带，农具化作战场之刃。"
+summary: "二十四名役农征召兵——红衣、象牙白布、草帽与蓝腰带，农具化作战场之刃。"
 tags: ["Warhammer", "Grand Cathay", "步兵", "委托"]
 cover: "https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_01.webp"
 layout: "project"
@@ -51,11 +51,11 @@ paints:
     role: "SHADE"
     hex: "#2A2A2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
-description: "二十四名震旦农民征召兵——红衣、象牙白布与蓝腰带，草帽、木柄与铁农具诉说征召故事。兵团配色锁定保持整体齐整，面容、姿态与简易武器让每个模型依然鲜活。"
+description: "二十四名震旦役农征召兵——红衣、象牙白布与蓝腰带，草帽、木柄与铁农具诉说征召故事。兵团配色锁定保持整体齐整，面容、姿态与简易武器让每个模型依然鲜活。"
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_01.webp" title="农民征召军 全队正面合照" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_01.webp" title="役农征召兵 全队正面合照" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_02.webp" title="全队 左前侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_03.webp" title="全队 右前侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_04.webp" title="前排步兵近景" >}}
@@ -78,15 +78,15 @@ description: "二十四名震旦农民征召兵——红衣、象牙白布与蓝
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_21.webp" title="武器、木柄与皮革近景" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_22.webp" title="服装配色和底座展示" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_23.webp" title="整队侧面合照" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_24.webp" title="农民征召军 完整收尾合照" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_24.webp" title="役农征召兵 完整收尾合照" >}}
 </div>
 
 <div class="space-y-4 my-4">
 
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
-<h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 征召兵战线</h3>
+<h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 役农征召战线</h3>
 <p class="text-gray-300 leading-relaxed">
-二十四名自田间被征召的农民——红衣、象牙白布与蓝腰带瞬间读出震旦兵线，而草帽、木柄与铁农具诉说征召故事。配色锁定让整支队伍浑然一体；面容、姿态与简易武器让每个模型依然鲜活。
+二十四名自田间被征召的役农——红衣、象牙白布与蓝腰带瞬间读出震旦兵线，而草帽、木柄与铁农具诉说征召故事。配色锁定让整支队伍浑然一体；面容、姿态与简易武器让每个模型依然鲜活。
 </p>
 </div>
 

@@ -1,5 +1,5 @@
 ---
-title: "风暴龙妙影：人形化身"
+title: "「飙龙」妙影：人形化身"
 date: 2026-09-01T20:50:00+08:00
 summary: "人形妙影——紫晶长袍衬象牙白内袍、白发高髻、金饰粉宝石，长袍手绘白色龙纹与云纹。"
 tags: ["Warhammer", "Grand Cathay", "巨兽", "英雄", "委托"]
@@ -51,7 +51,7 @@ paints:
     role: "SHADE"
     hex: "#3B2A5A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Druchii-Violet-2019"
-description: "人形妙影，与完整风暴龙同谱系的紫晶与象牙白配色——紫晶长袍衬象牙白内袍、白发高髻、金饰、粉宝石，长袍上手绘白色龙纹与云纹，立于碎石底座之上。"
+description: "人形妙影，与完整飙龙同谱系的紫晶与象牙白配色——紫晶长袍衬象牙白内袍、白发高髻、金饰、粉宝石，长袍上手绘白色龙纹与云纹，立于碎石底座之上。"
 ---
 
 <div class="image-grid">
@@ -70,7 +70,7 @@ description: "人形妙影，与完整风暴龙同谱系的紫晶与象牙白配
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
 <h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 人间的巨龙</h3>
 <p class="text-gray-300 leading-relaxed">
-人形妙影——与完整风暴龙同款的紫晶象牙白语言，两件作品读作同一个角色。紫晶长袍衬象牙白内袍，白发在高耸发饰下流泻，金饰与粉宝石点缀，长袍上手绘白色龙纹与云纹。碎石底座把她锚定在魔力消散的战场残景中。
+人形妙影——与完整飙龙同款的紫晶象牙白语言，两件作品读作同一个角色。紫晶长袍衬象牙白内袍，白发在高耸发饰下流泻，金饰与粉宝石点缀，长袍上手绘白色龙纹与云纹。碎石底座把她锚定在魔力消散的战场残景中。
 </p>
 </div>
 

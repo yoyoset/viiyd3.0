@@ -1,7 +1,7 @@
 ---
-title: "天门卫：红白堡垒守卫"
+title: "门下督：红白堡垒守卫"
 date: 2026-09-01T21:00:00+08:00
-summary: "八名天门卫，红、象牙白、蓝与银的统一配色——红盾、银鳞甲、白围巾与白色手绘龙旗。"
+summary: "八名门下督，红、象牙白、蓝与银的统一配色——红盾、银鳞甲、白围巾与白色手绘龙旗。"
 tags: ["Warhammer", "Grand Cathay", "步兵", "委托"]
 cover: "https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_01.webp"
 layout: "project"
@@ -55,11 +55,11 @@ paints:
     role: "SHADE"
     hex: "#2A2A2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
-description: "八名天门卫，红、象牙白、蓝与银的锁定配色——黑心红盾、银鳞甲与长枪、金龙饰件，个体差异化的面容，以及一面白色手绘龙旗。"
+description: "八名门下督，红、象牙白、蓝与银的锁定配色——黑心红盾、银鳞甲与长枪、金龙饰件，个体差异化的面容，以及一面白色手绘龙旗。"
 ---
 
 <div class="image-grid">
-{{< lightbox src="https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_01.webp" title="天门卫 全队正面合照" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_01.webp" title="门下督 全队正面合照" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_02.webp" title="全队 左前侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_03.webp" title="全队 右前侧" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_04.webp" title="前排模型与盾牌" >}}
@@ -82,7 +82,7 @@ description: "八名天门卫，红、象牙白、蓝与银的锁定配色——
 <div class="bg-gradient-to-r from-neutral-800 to-transparent border-l-4 border-gold-500 p-6 rounded-r-lg">
 <h3 class="text-xl font-bold text-white mb-2">🔥 作战定位: 堡垒城门守卫</h3>
 <p class="text-gray-300 leading-relaxed">
-八名天门卫镇守震旦城门。红、象牙白、蓝与银的锁定配色在桌面上瞬间读出震旦军阵——黑心红盾、银鳞甲与长枪、金龙饰件，指挥位一面白色手绘龙旗压阵。
+八名门下督镇守震旦城门。红、象牙白、蓝与银的锁定配色在桌面上瞬间读出震旦军阵——黑心红盾、银鳞甲与长枪、金龙饰件，指挥位一面白色手绘龙旗压阵。
 </p>
 </div>
 
