@@ -9,7 +9,16 @@ html { -webkit-text-size-adjust: 100%; }
 
 body{
   margin: 0;
-  background: var(--ink);
+  /* 碳纤维织纹：两层对角细线错开半格叠加。
+     background-color 必须单独写 —— 渐变不铺满时（如超宽屏）要有实底兜着。 */
+  background-color: var(--ink);
+  background-image:
+    repeating-linear-gradient( 45deg, var(--weave-ink) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(-45deg, var(--weave-ink) 0 1px, transparent 1px 3px);
+  background-size: var(--weave-size) var(--weave-size);
+  background-position: 0 0, calc(var(--weave-size) / 2) calc(var(--weave-size) / 2);
+  /* 不用 background-attachment:fixed —— iOS WKWebView 与微信内置浏览器上
+     它有已知的渲染与性能问题，而客户几乎全从微信打开。让纹理跟着滚就行。 */
   color: var(--fg-body);
   font-family: var(--font-body);
   font-size: var(--fs-body);

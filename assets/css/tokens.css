@@ -38,6 +38,15 @@
   --font-body:          'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
   --font-mono:          'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
+  /* ── 碳纤维底纹 ──
+     两组 ±45° 细线错开半格，形成编织的错觉。
+     强度只由 --weave-ink 一个值控制：调这一个数就能整体加深/减弱。
+     刻意压到几乎看不见 —— 设计语言第一条是「暗是为了让模型跳出来」，
+     纹理一旦看得清就会跟照片抢注意力。
+     颜色取月白的极低透明度，不引入第七种色。 */
+  --weave-ink:  rgba(214,236,240,.040);
+  --weave-size: 6px;
+
   /* ── 版式 ──
      REDESIGN_4.0_PLAN.md §2-E：推翻设计稿的「全宽无容器」。
      1440 = 视觉稿画布宽，所以稿子里的所有数值仍然对得上。 */

@@ -319,11 +319,11 @@ other = "War engines"
 [flow_1_name]
 other = "Send photos"
 [flow_1_desc]
-other = "A few shots of the models and the tier you want"
+other = "A few photos of the models and what you want them to look like"
 [flow_2_name]
-other = "Agree the tier"
+other = "Work out the scope"
 [flow_2_desc]
-other = "Align on scope and turnaround"
+other = "Hours and turnaround, once I have seen the photos"
 [flow_3_name]
 other = "Deposit and slot"
 [flow_3_desc]
@@ -331,7 +331,7 @@ other = "Your slot is locked in"
 [flow_4_name]
 other = "Progress shots"
 [flow_4_desc]
-other = "Checkpoints along the way"
+other = "Sent to you stage by stage — still adjustable"
 [flow_5_name]
 other = "Shipped back"
 [flow_5_desc]
@@ -388,7 +388,7 @@ other = "I started taking commissions in 2024. The reason was simple: my own arm
 [about_bio_2]
 other = "The commissions I take have one thing in common — either the volume needs scheduling, or the detail needs a magnifier. Anything in between, someone else can do."
 [about_bio_3]
-other = "What I turn down, plainly: rush jobs that cut the tier, haggling, and quotes asked for without photos of the actual models."
+other = "What I turn down, plainly: rush jobs that cut corners, haggling, and quotes asked for without photos of the actual models."
 [about_shot_1_cap]
 other = "The bench"
 [about_shot_2_cap]
@@ -485,7 +485,7 @@ other = "01 · Where to start"
 [hook_title]
 other = "Talk first, scope later"
 [hook_body]
-other = "You do not need to decide on a tier or a plan beforehand. Send a few photos of the models and tell me roughly what you want them to end up like — solid on the table, or something for the cabinet. We work out the rest together."
+other = "You do not need a plan worked out beforehand. Send a few photos of the models and tell me roughly what you want them to end up like — solid on the table, or something for the cabinet. We work out the rest together."
 [hook_1_k]
 other = "Send photos"
 [hook_1_v]

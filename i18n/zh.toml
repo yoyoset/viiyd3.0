@@ -338,23 +338,23 @@ other = "发图聊聊 →"
 [flow_1_name]
 other = "发图询价"
 [flow_1_desc]
-other = "微信或邮件，几张模型照片 + 想要的等级"
+other = "微信或邮件，几张模型照片 + 你想要的效果"
 [flow_2_name]
-other = "确认等级"
+other = "一起把体量说清"
 [flow_2_desc]
-other = "对齐 EIU 体量与工期"
+other = "看过照片再谈 EIU 与工期"
 [flow_3_name]
 other = "定金排期"
 [flow_3_desc]
-other = "锁定档期"
+other = "锁定档期，开工前不催你"
 [flow_4_name]
 other = "进度照片"
 [flow_4_desc]
-other = "分阶段确认，不满意可调"
+other = "分阶段发给你看，不满意还能调"
 [flow_5_name]
 other = "成品寄回"
 [flow_5_desc]
-other = "同时收录进作品档案"
+other = "顺便收录进作品档案"
 
 [faq_1_q]
 other = "EIU 到底怎么算的？"
@@ -413,7 +413,7 @@ other = "我从 2024 年开始接委托。起因很简单：自己的军团涂�
 [about_bio_2]
 other = "我接的单子有个共同点——要么量大到需要排期，要么细到需要在放大镜下画。中间地带的活儿别人也能做，不必找我。"
 [about_bio_3]
-other = "不接的也说清楚：赶工期压等级的不接，砍价的不接，看不到实物照片就要报价的不接。"
+other = "不接的也说清楚：赶工期压质量的不接，砍价的不接，看不到实物照片就要报价的不接。"
 [about_shot_1_cap]
 other = "工作台"
 [about_shot_2_cap]
@@ -501,7 +501,7 @@ other = "01 · 怎么开始"
 [hook_title]
 other = "先聊几句，再谈体量"
 [hook_body]
-other = "不用先想好要什么等级、什么方案。发几张模型照片过来，说说你希望它最后是什么样子——上桌能用就好，还是想进展示柜。剩下的我们一起理。"
+other = "不用先想好要什么方案。发几张模型照片过来，说说你希望它最后是什么样子——上桌能用就好，还是想进展示柜。剩下的我们一起理。"
 [hook_1_k]
 other = "发图"
 [hook_1_v]
