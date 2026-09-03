@@ -6,7 +6,12 @@
   <div class="wrap site-head__inner">
 
     <a class="site-head__brand" href="{{ .Site.BaseURL }}">
+      {{ with resources.Get "img/panda-mark.png" }}
+      {{ $m := .Process "resize 96x webp q90" }}
+      <img class="site-head__ring" src="{{ $m.RelPermalink }}" width="28" height="28" alt="" aria-hidden="true">
+      {{ else }}
       <span class="site-head__ring" aria-hidden="true">V</span>
+      {{ end }}
       <span class="site-head__word">VIIYD STUDIO</span>
       <span class="site-head__sub">{{ T "head_locality" | default "CHENGDU · EST. 2024" }}</span>
     </a>

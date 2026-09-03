@@ -510,3 +510,5 @@ other = "e.g. a full unit for the table / one display piece / match a specific s
 other = "Scroll left"
 [rail_next]
 other = "Scroll right"
+[panda_alt]
+other = "Studio mascot: a panda painting a miniature under a desk lamp"

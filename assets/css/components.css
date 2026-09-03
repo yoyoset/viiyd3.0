@@ -179,6 +179,9 @@
   width:28px; height:28px; border:1px solid var(--gold); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   font-family:var(--font-latin-display); font-size:13px; color:var(--gold);
+  /* 全站两处 border-radius 例外之一。图片版要 object-fit 才不会被圆环切歪，
+     底色补 --ink：熊猫图的黑底和页面底色不完全相同，差一点点在圆环里看得出来。 */
+  object-fit:cover; background:var(--ink); flex:0 0 auto;
 }
 .site-head__word{
   font-family:var(--font-mono); font-size:12px; letter-spacing:.22em; color:var(--fg);
@@ -415,7 +418,9 @@
 .about-hero{ position:relative; min-height:420px; display:flex; align-items:flex-end; overflow:hidden; }
 .about-hero__img{ position:absolute; top:0; right:0; bottom:0; left:0; inset:0; width:100%; height:100%; object-fit:cover; border:0; }
 .about-hero__title{ position:relative; z-index:2; padding:40px; }
-.about-bio{ display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start; }
+/* 自述那一屏：序号 / 正文 / 插画三列。插画列固定宽，正文仍守 44ch。 */
+.about-bio{ display:grid; grid-template-columns:auto 1fr 300px; gap:40px; align-items:start; }
+.about-panda{ width:100%; height:auto; }
 .about-bio__text p{ max-width:44ch; margin:0 0 18px; }
 .about-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .about-shot{ margin:0; display:flex; flex-direction:column; gap:10px; }
@@ -430,6 +435,7 @@
   .about-hero{ min-height:300px; }
   .about-hero__title{ padding:20px; }
   .about-bio, .about-split{ grid-template-columns:1fr; gap:20px; }
+  .about-panda{ max-width:240px; margin-inline:auto; }
   .about-grid{ grid-template-columns:1fr; }
 }
 
@@ -494,7 +500,11 @@ a.paint__name:hover{ color:var(--primary); }
 
 /* ══ 首页定制沟通钩子 ══
    取代被移除的「五个等级」那一屏。 */
-.custom-hook{ display:flex; flex-direction:column; gap:28px; }
+/* 桌面：图占左列并跨满三行，文案/步骤/CTA 走右列。
+   图不设边框不设圆角 —— 它自己是暗底，和页面连成一片。 */
+.custom-hook{ display:grid; grid-template-columns:340px 1fr; gap:28px 44px; align-items:start; }
+.custom-hook > .hook-panda{ grid-row:1 / span 3; width:100%; height:auto; align-self:center; }
+.custom-hook__lede, .custom-hook__steps, .custom-hook__cta{ grid-column:2; }
 .custom-hook__lede .label{ margin-bottom:14px; }
 .custom-hook__title{ color:var(--fg); max-width:20ch; }
 .custom-hook__body{ margin-top:16px; max-width:52ch; }
@@ -505,6 +515,10 @@ a.paint__name:hover{ color:var(--primary); }
 .custom-hook__cta{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
 .custom-hook__note{ color:var(--fg-muted); }
 @media (max-width:768px){
+  /* 移动端回到单列，图挪到最上面并收窄 —— 满宽会把 CTA 挤到折叠线以下 */
+  .custom-hook{ grid-template-columns:1fr; gap:24px; }
+  .custom-hook > .hook-panda{ grid-row:auto; max-width:260px; margin-inline:auto; }
+  .custom-hook__lede, .custom-hook__steps, .custom-hook__cta{ grid-column:1; }
   .custom-hook__steps{ grid-template-columns:1fr; }
   .custom-hook__cta .btn-action{ width:100%; }
 }
