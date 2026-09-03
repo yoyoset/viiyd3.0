@@ -52,6 +52,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "震旦天朝天灯战争机械——象牙纸灯笼灯身罩以红绳网，手绘朱红龙纹镂空遍布灯面，金色天界灯口与红漆战船吊舱满载火箭与火炮。乘员为投掷火雷的炮手与手执金钥法杖的术士长老。"
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

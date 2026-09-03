@@ -1,4 +1,4 @@
-﻿---
+---
 title: "赫克斯班的猎手：冥土世界猎巫人"
 date: 2024-01-01
 summary: "来自阿吉尔教团的冷酷猎巫人，誓要清除冥土迷宫中的腐败。"
@@ -27,6 +27,8 @@ paints:
     hex: "#fab1a0"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "来自阿吉尔教团的冷酷猎巫人，誓要清除冥土迷宫中的腐败。这支多样化的战帮展现了富有挑战性的纹理，包括猎巫人的磨损皮革、生锈的金属装备以及OSL火焰效果。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

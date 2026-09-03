@@ -56,6 +56,8 @@ paints:
     hex: "#4B2E2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Reikland-Fleshshade-2022"
 description: "A unit of three Chaos Space Marines Mutilators — living battering rams clad in twisted Terminator armour, mutated pink flesh and ivory horns bursting from the seams. Painted in Black Legion black-and-gold with raw fleshmetal weapons: spiked mauls, chain-claws and massive power claws."
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

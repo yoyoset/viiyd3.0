@@ -60,6 +60,8 @@ paints:
     hex: "#4D3A2F"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Agrax-Earthshade-2022"
 description: "Iron Hail Gunners and Crane Gunner Teams as one gunpowder wing — red coats, ivory scarves, blue headwraps and silver-steel guns with gold dragon fittings. Iron Hail hand-guns for the rank, crane-mounted artillery for the battery, painted to a single locked scheme."
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

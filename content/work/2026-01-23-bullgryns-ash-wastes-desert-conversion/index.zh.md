@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Bullgryns: 塔兰 '尘壁' 辅助军"
 date: 2026-01-23T14:30:00+08:00
 summary: "适配塔兰废土作战环境的重型步兵改装项目。"
@@ -44,6 +44,8 @@ paints:
     hex: "#472C25"
     link: "https://www.warhammer.com/en-GB/shop/Base-Rhinox-Hide-2019"
 description: "结合 Necromunda Ash Waste Nomads 零件的废土风格改装，为欧格林增加防尘面罩和生存装备。"
+system: "40k"
+delivered: "2026.01"
 ---
 
 <div class="image-grid">

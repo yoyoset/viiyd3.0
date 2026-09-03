@@ -27,6 +27,8 @@ paints:
     hex: "#9CAE66"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Ogryn-Camo-2019"
 description: "The unyielding sons of Mortarion. Classic Death Guard scheme with a focus on clean basecoating and recess shading. Commissioned as a 'Ready for Weathering' foundation, providing a high-quality factory-fresh look."
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -86,7 +88,7 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>🛡�?Armor Base</span>
+<span>🛡�?Armor Base</span>
 <span class="font-mono text-emerald-200">Death Guard Green</span>
 </li>
 <li class="flex justify-between">

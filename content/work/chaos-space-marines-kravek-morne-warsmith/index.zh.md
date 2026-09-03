@@ -56,6 +56,8 @@ paints:
     hex: "#9A1115"
     link: "https://www.warhammer.com/en-GB/shop/Base-Mephiston-Red-2019"
 description: "钢铁勇士叛军军团战铸长 Kravek Morne——身披重度改装的 Cataphractii 终结者甲，遍布武装机械触手。以钢铁勇士经典枪铁配色搭配黄铜边线、黄黑警示条纹与硬朗战损，手持雷锤 Last Argument 与肩载炼狱喷火器。"
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

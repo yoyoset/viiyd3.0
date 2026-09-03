@@ -23,6 +23,8 @@ paints:
     hex: "#FFFFFF"
     link: "https://www.warhammer.com/en-GB/shop/Layer-White-Scar-2019"
 description: "A complete showcase of the Cities of Sigmar army project. Prepared for tabletop deployment with a focus on durability and visual clarity. The color scheme is optimized for recognition at a distance."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -112,11 +114,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>ðŸ›¡ï¸?Base</span>
+<span>ðŸ›¡ï¿½?Base</span>
 <span class="font-mono text-emerald-200">Standard</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Highlight</span>
+<span>ï¿½?Highlight</span>
 <span class="font-mono text-cyan-200">Layered</span>
 </li>
 </ul>

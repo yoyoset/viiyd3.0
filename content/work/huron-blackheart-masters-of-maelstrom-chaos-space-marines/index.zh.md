@@ -36,6 +36,8 @@ paints:
     hex: "#101010"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "休伦·黑心与大漩涡之主高阶涂装委托项目。包含写实的战损表现与震撼的源光照明（OSL）效果。"
+system: "40k"
+delivered: "2026.03"
 ---
 
 <div class="image-grid">

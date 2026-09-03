@@ -45,6 +45,8 @@ paints:
     hex: "#050505"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "Six Bloodcrushers of Khorne painted as a daemon cavalry commission, with a deep red hide, brass and steel juggernaut armor, and worn leather harnesses for a cohesive charging unit."
+system: "40k"
+delivered: "2026.07"
 ---
 
 <div class="image-grid">

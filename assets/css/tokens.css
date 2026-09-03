@@ -1,0 +1,85 @@
+/* ─── VIIYD 4.0 · 设计令牌 ────────────────────────────────────────
+   来源：handoff/01-设计语言与视觉系统.md §2 §3 §5
+   红线：六色锁定，不引入第七种颜色；全站 0 圆角 0 阴影
+   （唯一例外：Legend 的 2px 金色内嵌左线）
+   ──────────────────────────────────────────────────────────── */
+
+:root{
+  color-scheme: dark;   /* 4.0 是单一墨屏，不做 light/dark 双主题 */
+
+  /* ── 底色与面 ── */
+  --ink:             #0E1113;   /* 页面底 */
+  --ink-raised:      #15191B;   /* 抬起面：Legend 条、局部区块 */
+  --ink-panel:       #131719;   /* 卡片面（勿与 raised 同屏混用） */
+  --hairline:        rgba(214,236,240,.10);  /* 主分隔线 */
+  --hairline-soft:   rgba(214,236,240,.08);  /* 图片边框、列表行线 */
+  --hairline-strong: rgba(214,236,240,.28);  /* 框体：EIU 框 / 估算器 / 二维码块 */
+  --border-btn:      rgba(214,236,240,.35);  /* 次级按钮边框 */
+
+  /* ── 文字 ── */
+  --fg:              #FFFFFF;   /* 标题、关键数值 */
+  --fg-body:         #D6ECF0;   /* 月白 · 正文 · 对底 15.44:1（实测，交接包写的 12.9 不准） */
+  --fg-muted:        #758A99;   /* 墨灰 · 辅助 · 对 --ink 5.28:1；**对 --ink-raised 只有 4.93:1**，
+                                  余量仅 0.43，这是下限，不要再暗 */
+
+  /* ── 强调（一次只用一个） ── */
+  --primary:         #5AA4AE;   /* 天水碧 · 链接/选中态/EIU 单位/倍数 · 对底 6.64:1（实测） */
+  --primary-wash:    rgba(90,164,174,.14);
+  --action:          #FF4C00;   /* 朱砂 · 主行动 · 全站 ≤3 处/屏，永不用于文字段落 */
+  --gold:            #F0C239;   /* 缃色 · 仅 Legend 与 logo，永不用于正文或链接 */
+  --gold-line:       rgba(240,194,57,.50);
+
+  /* ── 字体 ── */
+  /* 回退栈要点名中日韩字体，不能只写 serif/sans-serif ——
+     font-display:swap 期间用户先看到的就是回退字体，
+     而各平台的默认 serif 未必是中文衬线（Windows 上常常退成不合适的字形）。 */
+  --font-display:       'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;
+  --font-latin-display: 'Instrument Serif', Georgia, serif;
+  --font-body:          'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-mono:          'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  /* ── 版式 ──
+     REDESIGN_4.0_PLAN.md §2-E：推翻设计稿的「全宽无容器」。
+     1440 = 视觉稿画布宽，所以稿子里的所有数值仍然对得上。 */
+  --content-max: 1440px;
+  --gut:   40px;   /* 桌面页边距 */
+  --gut-m: 20px;   /* 移动页边距 */
+
+  /* ── 字阶（handoff §3） ── */
+  --fs-display-1: 68px;  --lh-display-1: 1.06;  /* 首页首屏标题 */
+  --fs-display-2: 54px;  --lh-display-2: 1.06;  /* 页面主标题 */
+  --fs-display-3: 40px;  --lh-display-3: 1.55;  /* 首页定义句 */
+  --fs-display-4: 32px;  --lh-display-4: 1.35;  /* 区块内主张 */
+  --fs-title-card: 24px;                        /* 等级卡标题 */
+  --fs-title-item: 15px;                        /* 作品卡标题、流程步骤名 */
+  --fs-body:      15px;  --lh-body:      2.0;
+  --fs-body-s:    13.5px;--lh-body-s:    1.85;
+  --fs-body-xs:   12.5px;--lh-body-xs:   1.75;
+  --fs-label:     10px;                         /* 区块小标 */
+  --fs-label-lg:  11px;                         /* 面包屑、meta 行 */
+  --fs-nav:       13.5px;
+
+  --tracking-display: -.03em;
+  --tracking-label:   .20em;
+  --tracking-data:    .12em;
+
+  /* ── 动效（handoff §7：克制到近乎没有） ── */
+  --t-color: 120ms ease-out;   /* 只过渡颜色与边框，不做位移 */
+  --t-fade:  240ms ease-out;   /* 图片进入视口淡入 */
+  --t-box:   160ms ease-out;   /* 灯箱开合 */
+}
+
+/* 移动端 display 层级降档（handoff §3） */
+@media (max-width: 768px){
+  :root{
+    --fs-display-1: 32px;
+    --fs-display-2: 30px;
+    --fs-display-3: 24px;
+    --fs-display-4: 26px;
+    --fs-body:      14.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  :root{ --t-color: 0ms; --t-fade: 0ms; --t-box: 0ms; }
+}

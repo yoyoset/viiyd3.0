@@ -27,6 +27,8 @@ paints:
     hex: "#002050"
     link: "https://www.warhammer.com/en-GB/shop/Base-Kantor-Blue-2019"
 description: "The Lioness of the Parch rides into battle. A centerpice model for the Cities of Sigmar, featuring a majestic manticore and intricate character details, painted to a high tabletop standard."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

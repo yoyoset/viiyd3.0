@@ -43,6 +43,8 @@ paints:
     hex: "#433322"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Agrax-Earthshade-24ml-2022"
 description: "这是一套按照高桌面标准完成的卡舍津杀戮小队委托，重点展现了经典的卡迪亚迷彩图案、精细的镜头光效以及逼真的城市废墟地台细节。已准备好部署于第41千年的秘密行动中。"
+system: "kill-team"
+delivered: "2026.01"
 ---
 
 <div class="image-grid">

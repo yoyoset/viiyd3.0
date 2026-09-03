@@ -1,4 +1,4 @@
-﻿---
+---
 title: "暗源钢铁军团头部重涂"
 date: 2024-01-01
 summary: "为暗源和钢铁军团可动人偶定制的头部重涂项目，旨在增强面部真实感。"
@@ -27,6 +27,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "为暗源和钢铁军团可动人偶定制的头部重涂项目，旨在增强面部真实感。该项目专注于肤色、眼部细节和微妙的做旧，赋予角色生动的神态。"
+system: "joytoy"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

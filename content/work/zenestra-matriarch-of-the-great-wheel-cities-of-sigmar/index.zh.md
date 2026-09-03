@@ -1,4 +1,4 @@
-﻿---
+---
 title: "泽内斯特拉：大转轮之母"
 date: 2024-01-01
 summary: "大转轮教派的教宗，乘坐神圣的轿子奔赴战场。这是一个核心模型，具有风化的石头、神圣的布料和虔诚的追随者。"
@@ -27,6 +27,8 @@ paints:
     hex: "#9C9C8E"
     link: "https://www.warhammer.com/en-GB/shop/Base-Rakarth-Flesh-2019"
 description: "大转轮教派的教宗，乘坐神圣的轿子奔赴战场。这是一个复杂的核心模型，具有风化的石头纹理、神圣的布料以及西格玛教派的虔诚追随者。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

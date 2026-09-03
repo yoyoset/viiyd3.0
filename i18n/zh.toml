@@ -1,265 +1,4 @@
-[alchemy]
-other = "调色配方"
-
-[protocol]
-other = "涂装规程"
-
-[tier]
-other = "质量等级"
-
-[time_log]
-other = "执行工时"
-
-[unit_count]
-other = "单位数量"
-
-[color_data]
-other = "色彩数据"
-
-[methodology]
-other = "执行方案"
-
-[cta_ready]
-other = "准备好部署了吗？"
-
-[cta_button]
-other = "启动委托程序 ->"
-
-[mission_data]
-other = "任务数据"
-
-[work_log]
-other = "作业日志"
-
-[prev]
-other = "上一作"
-
-[next]
-other = "下一作"
-
-[index]
-other = "目录"
-
-[cta_request]
-other = "建立委托"
-
-[tier_battle]
-other = "战场部署"
-
-[tier_parade]
-other = "阅兵规格"
-
-[tier_master]
-other = "殿堂典藏"
-
-[price_start]
-other = "起步价"
-
-[features]
-other = "战术规格"
-
-[studio_title]
-other = "工作室"
-
-[studio_motto]
-other = "非量产工厂。微缩艺术的庇护所。"
-
-[process_title]
-other = "流程"
-
-[rates_title]
-other = "价格"
-
-[view_schema]
-other = "查看图谱"
-
-[full_rate_card]
-other = "完整价目表"
-
-[initiate_uplink]
-other = "建立链接"
-
-[logs_title]
-other = "日志"
-
-[view_archive]
-other = "查看归档"
-
-[latest_deliveries]
-other = "最新交付"
-
-[view_all_archives]
-other = "查看所有归档 ->"
-
-[proc_1]
-other = "I. 分析"
-
-[proc_2]
-other = "II. 报价"
-
-[proc_3]
-other = "III. 锻造"
-
-[tier_spec_ops]
-other = "特种作战"
-
-[archive_index]
-other = "/// 归档目录"
-
-[tier_elite]
-other = "精英级"
-
-[tier_standard_label]
-other = "/// 等级：标准"
-
-[tier_elite_label]
-other = "/// 等级：精英"
-
-[tier_master_label]
-other = "/// 等级：大师"
-
-[per_infantry]
-other = "单个步兵模型"
-
-[per_character]
-other = "单个角色模型"
-
-[deploy_button]
-other = "启动委托"
-
-[recommended_label]
-other = "推荐"
-
-[unsure_text]
-other = "不确定您的需求？"
-
-[review_protocol]
-other = "查看我们的作业流程 ->"
-
-[feat_zenital]
-other = "天顶高光"
-
-[feat_base_wash]
-other = "底色 + 渍洗"
-
-[feat_std_base]
-other = "标准地台"
-
-[feat_volumetric]
-other = "体积光影"
-
-[feat_edge]
-other = "边缘高光"
-
-[feat_weather]
-other = "做旧效果"
-
-[feat_scenic]
-other = "场景地台"
-
-[feat_nmm]
-other = "NMM (非金属金属色)"
-
-[feat_osl]
-other = "OSL (发光效果)"
-
-[feat_freehand]
-other = "手绘细节"
-
-[feat_diorama]
-other = "微缩场景构图"
-
-[addons_title]
-other = "战略升级"
-
-[addon_prep_title]
-other = "模型预处理"
-[addon_prep_desc]
-other = "去除合模线，填补缝隙，表面打磨。"
-
-[addon_magnet_title]
-other = "磁化改造"
-[addon_magnet_desc]
-other = "为武器和肢体添加磁铁，实现装备替换。"
-
-[addon_terrain_title]
-other = "地形定制"
-[addon_terrain_desc]
-other = "从城市废墟到外星丛林，定制专属战场。"
-
-[addon_print_title]
-other = "3D打印服务"
-[addon_print_desc]
-other = "高精度8K光固化打印，补充缺失零件或定制改件。"
-
-[price_quote]
-other = "按需报价"
-
-[identity]
-other = "身份"
-
-[protocol_label]
-other = "规程"
-
-[tiers_label]
-other = "等级"
-
-[status_open]
-other = "接单中"
-
-[start_comm]
-other = "建立<br>委托"
-
-[database_label]
-other = "数据库"
-
-[signal_lost]
-other = "信号丢失"
-
-[access_log]
-other = "访问日志"
-
-[contact_title]
-other = "通讯扇区"
-
-[footer_contact_title]
-other = "建立链接"
-
-[wechat_label]
-other = "微信通讯协议"
-
-[work_cta_title]
-other = "心仪此作？"
-[work_cta_desc]
-other = "联系我们获取同款定制报价。"
-[work_cta_button]
-other = "获取报价"
-
-[contact_intro]
-other = "发起通讯。我们随时准备接收您的委托详细规格。"
-
-[about_btn_contact]
-other = "联络工作室"
-
-[about_btn_work]
-other = "查看作品"
-
 # Contact Form
-[form_name]
-other = "您的称呼"
-
-[form_name_placeholder]
-other = "怎么称呼您？"
-
-[form_contact]
-other = "联络方式"
-
-[form_contact_placeholder]
-other = "微信 / 邮箱 / Discord / 等等"
-
-[form_project_type]
-other = "项目类型"
-
 [form_select_option]
 other = "请选择..."
 
@@ -269,253 +8,23 @@ other = "单件模型"
 [form_project_squad]
 other = "小队 / 战斗组"
 
-[form_project_army]
-other = "完整军团"
-
 [form_project_other]
 other = "其他 / 定制"
 
-[form_images]
-other = "参考图片 (可选)"
-
-[form_images_hint]
-other = "点击上传 (最多3张)"
-
-[form_description]
-other = "项目详情"
-
-[form_description_placeholder]
-other = "描述您想要的效果：配色方案、截止日期、特殊要求..."
-
-[form_submit]
-other = "提交委托"
-
-[contact_direct]
-other = "或直接发邮件"
-
 # ── v3 UI strings ────────────────────────────────────────────
-
-[nav_work]
-other = "作品"
-
-[nav_painter]
-other = "涂师"
-
-[read_dossier]
-other = "阅读档案 →"
-
-[see_archive]
-other = "查看全部档案 →"
-
-[back_archive]
-other = "返回档案馆"
-
-[identity_statement]
-other = "V.，一间手涂模型工作室 —"
-
-[identity_sub]
-other = "战锤、杀戮小队、JoyToy 公仔，以及那些别人不愿接的委托。"
-
-[recent_label]
-other = "// 最近作品 ·"
-
-[recent_pieces]
-other = "件"
-
-[commissions_label]
-other = "委托 ·"
-
-[commission_cta]
-other = "两个展示位开放中。"
-
-[commission_wechat]
-other = "微信我。"
-
-[tier_tabletop_label]
-other = "桌游级"
-
-[tier_display_label]
-other = "展示级"
-
-[tier_tabletop_sub]
-other = "边缘高光，简单地台"
-
-[tier_display_sub]
-other = "多层渐变，手绘，定制地台"
 
 # ── Painter page ─────────────────────────────────────────────
 
-[the_painter]
-other = "涂师"
-
-[painter_bio]
-other = "在成都一间小公寓里涂装战锤模型。一支笔、一盏灯、一个模型。"
-
-[painter_since]
-other = "涂装始于 · 2019"
-
-[painter_pieces]
-other = "已交付 · 42 件"
-
-[painter_hours]
-other = "桌前时数 · 2,300+"
-
-[painter_story_1]
-other = "2019 年一时冲动买了第一个星际战士，底漆喷错了颜色，洗了两遍，高光毁了。两天后买了第二个重来。六年过去，就是现在这样。"
-
-[painter_story_2]
-other = "我涂得不快。薄涂叠色，每个阶段都拍照。如果你找到了这个页面，大概是朋友介绍的，或者你打开了我发给你的档案。"
-
-[painter_story_3]
-other = "工作室是一张靠北窗的桌子，一盏日光灯，一柜子 Citadel 和 Vallejo 颜料。我一次接两个委托，这是我能做到不赶工的极限。"
-
-[painter_story_4]
-other = "我喜欢涂：有布料和手绘空间的角色、有真实做旧感的载具、有故事的一切。我不涂：NMM 金色（请找竞技专家）、截止时间不到三周的任何东西。"
-
-[painter_yes_label]
-other = "乐于接受"
-
-[painter_no_label]
-other = "非我所长"
-
-[painter_yes_1]
-other = "单个角色与命名英雄（展示级）"
-
-[painter_yes_2]
-other = "5–10 人小队（桌游级或展示级）"
-
-[painter_yes_3]
-other = "JoyToy / 1:18 公仔改涂与头部替换"
-
-[painter_yes_4]
-other = "定制地台，12 cm 以内微缩场景"
-
-[painter_yes_5]
-other = "修复与翻新失败的涂装"
-
-[painter_no_1]
-other = "NMM（非金属金属色）金色"
-
-[painter_no_2]
-other = "截止时间少于 3 周的委托"
-
-[painter_no_3]
-other = "整支军队（50+ 模型）"
-
-[painter_no_4]
-other = "非正版 / 翻模模型"
-
-[painter_no_5]
-other = "在别人涂装上继续"
-
-[the_desk]
-other = "工作台"
-
-[desk_sub]
-other = "创作发生的地方"
-
-[reach_me]
-other = "联系我"
-
-[reach_me_body]
-other = "发一张参考图和截止时间，48 小时内回复报价。"
-
-
 # ── 档案页字符串 ─────────────────────────────────────────────
-
-[dossier_specimen_label]
-other = "// 标本档案"
-
-[dossier_specimen_edition]
-other = "版本 1 / 1"
 
 [dossier_notes_label]
 other = "// 涂师手记"
 
-[dossier_notes_sub]
-other = "来自工作室"
-
 [dossier_plates_label]
 other = "// 图版"
 
-[dossier_plates_hint]
-other = "点击放大"
-
 [dossier_paint_label]
 other = "// 调色清单"
-
-[dossier_cert_label]
-other = "完工证书"
-
-[dossier_cert_intro]
-other = "手涂于"
-
-[dossier_cert_body]
-other = "这份档案由您永久保存。此件为 1/1 唯一之作——以上技法记录、照片与手记是唯一留存。工作室不会为其他客户重涂同一角色。"
-
-[dossier_share]
-other = "↗ 分享此档案"
-
-[dossier_save_pdf]
-other = "保存为 PDF"
-
-[dossier_from_studio]
-other = "来自工作室"
-
-[dossier_loopback_title]
-other = "若您有值得如此记录的作品，我很愿意成为下一位涂师。"
-
-[dossier_loopback_body]
-other = "每季开放两个展示委托名额。通过微信、IG (@viiyang.yingying) 联系我，或使用 viiyd.com 的表单。一张参考图和截止日期，就够了。"
-
-[dossier_commission_btn]
-other = "[ 委托一件作品 → ]"
-
-[dossier_private]
-other = "私人档案"
-
-[dossier_scroll]
-other = "↓ 向下翻阅"
-
-[dossier_painted_in]
-other = "历时"
-
-[dossier_one_of_one]
-other = "· 唯一之作，永不重复"
-
-[dossier_stat_scale]
-other = "比例"
-
-[dossier_stat_kit]
-other = "套件"
-
-[dossier_stat_base]
-other = "底座"
-
-[dossier_stat_varnish]
-other = "保护漆"
-
-[dossier_stat_hours]
-other = "桌前时数"
-
-[dossier_stat_started]
-other = "开始日期"
-
-[dossier_stat_finished]
-other = "完成日期"
-
-[dossier_stat_photos]
-other = "照片数"
-
-[dossier_r2]
-other = "存档于 R2"
-
-[dossier_tier_suffix]
-other = "等级"
-
-[dossier_heroic]
-other = "英雄比例"
-
 
 # ── 委托弹窗 (POP) ─────────────────────────────────────
 
@@ -547,7 +56,7 @@ other = "把作品交给我，"
 other = "和一个截止日期。"
 
 [cm_body]
-other = "这就够了。我会在 48 小时内通过您选择的渠道回复——微信、邮件、Discord 或 Telegram。"
+other = "这就够了。我会在 48 小时内通过你留的联系方式回复 —— 微信优先，邮件也行。"
 
 [cm_body_zh]
 other = "每次只接两单，请耐心。"
@@ -568,7 +77,7 @@ other = "如何联络您？"
 other = "联络方式"
 
 [cm_contact_placeholder]
-other = "微信 / 邮箱 / Discord / Telegram"
+other = "微信 / 邮箱"
 
 [cm_contact_hint]
 other = "用您最常用的渠道就好。"
@@ -589,10 +98,10 @@ other = "场景 / 展示台"
 other = "修复 / 补色"
 
 [cm_field_tier]
-other = "档次"
+other = "涂装等级"
 
 [cm_field_tier_zh]
-other = "档次"
+other = "涂装等级"
 
 [cm_tier_unsure]
 other = "不确定，聊一聊"
@@ -642,9 +151,6 @@ other = "发送 →"
 [cm_submit_sending]
 other = "发送中…"
 
-[cm_error_upload]
-other = "图片上传失败，请重试或删除图片。"
-
 [cm_error_submit]
 other = "出错了，请重试。"
 
@@ -666,91 +172,357 @@ other = "返回作品库"
 [cm_success_another]
 other = "再发一条"
 
-[tier_tabletop_price]
-other = "¥120 起 / 件"
-
-[tier_display_price]
-other = "¥600 起 / 件"
-
 # ── 档案列表页 ─────────────────────────────────────────────────
-
-[nav_archive]
-other = "档案馆"
-
-[nav_commissions]
-other = "委托"
-
-[nav_contact]
-other = "联系"
-
-[nav_home]
-other = "← 首页"
-
-[masthead_tagline]
-other = "手涂模型工作室 · 成立于 2024"
-
-[pieces_archived]
-other = "件入档"
-
-[client_slots]
-other = "02 个委托位"
-
-[archive_headline]
-other = "工作室出品的每一件模型，悉数入档。"
-
-[archive_filter_hint]
-other = "按派系、比例或年份筛选。"
 
 [filter_all]
 other = "全部"
 
-[col_subject]
-other = "作品"
+# ─── VIIYD 4.0 ───────────────────────────────────────────
+[head_locality]
+other = "CHENGDU · EST. 2024"
+[nav_label]
+other = "主导航"
+[nav_inquire]
+other = "询价"
+[nav_menu]
+other = "菜单"
+[foot_city]
+other = "CHENGDU"
 
-[col_faction]
-other = "派系 / 系列"
+[archive_title]
+other = "作品档案"
+[archive_count]
+other = "%d 个委托单"
+[archive_order]
+other = "按交付时间倒序"
+[filter_system]
+other = "游戏类型"
+[filter_tier]
+other = "涂装等级"
+[filter_current]
+other = "当前"
+[filter_all_systems]
+other = "全部游戏"
+[filter_all_tiers]
+other = "全部等级"
+[filter_results]
+other = "个委托单"
+[filter_clear]
+other = "清除筛选"
+[filter_empty]
+other = "这个组合还没有档案。"
+[filter_empty_cta]
+other = "看看全部作品 →"
+[view_grid]
+other = "网格"
+[view_list]
+other = "列表"
+[unit_shots]
+other = "张"
 
-[col_scale]
-other = "比例"
+[sys_40k]
+other = "战锤 40K"
+[sys_old_world]
+other = "旧世界"
+[sys_aos]
+other = "西格玛纪元"
+[sys_kill_team]
+other = "杀戮小队"
+[sys_joytoy]
+other = "JoyToy"
+[sys_other]
+other = "其他"
 
-[col_hours]
-other = "工时"
-
-[col_delivered]
+[meta_delivered]
 other = "交付"
+[dossier_spec_label]
+other = "规格"
+[spec_models]
+other = "模型构成"
+[spec_count]
+other = "模型数"
+[spec_tier]
+other = "涂装等级"
+[spec_hours]
+other = "工时"
+[spec_extras]
+other = "加购项"
+[spec_delivered]
+other = "交付月"
+[cta_same_inquiry]
+other = "同款询价 →"
+[dossier_plates_count]
+other = "%d 张 · 点击放大看笔触"
+[unit_pigments]
+other = "色"
+[dossier_related]
+other = "相近的委托"
 
-[col_tier]
-other = "档次"
+# ─── 服务与计价页 ───────────────────────────────────────
+[svc_title]
+other = "一单一议，慢慢来"
+[svc_lede]
+other = "没有套餐，也没有档位。笔触到什么密度、要不要旧化、地台做成什么样，都看这一单的模型和你的想法。"
+[svc_eiu_note]
+other = "EIU 是我这边的工时单位。你这一单折成多少 EIU，得看过实物照片才好说 —— 发给我，一次聊清楚。"
+[svc_tiers_label]
+other = "四级标准服务"
+[svc_days]
+other = "工期"
+[unit_days]
+other = "天"
+[svc_see_tier]
+other = "看该等级作品 →"
+[svc_legend_cta]
+other = "单独商谈 →"
+[svc_sizes_label]
+other = "体型倍数"
+[svc_extras_note]
+other = "组装 / 磁化 / 定制地台 为可选加购，单列。"
+[svc_estimator_label]
+other = "EIU 估算器"
+[svc_flow_label]
+other = "流程"
 
-[col_photos]
-other = "图片"
+[tier_battleline_desc]
+other = "底漆、大面积块涂、洗色定形、简易地台。整队上桌不掉气质。"
+[tier_specialist_desc]
+other = "边缘高光、金属分色、徽记描线。军团主力档，性价比最高。"
+[tier_specops_desc]
+other = "多层过渡、旧化与污渍、定制地台。小队与角色模型。"
+[tier_master_desc]
+other = "湿混过渡、NMM 金属、自由手绘纹样。展示柜与照片级标准。"
+[tier_legend_desc]
+other = "参赛级 / 改件 / 场景叙事。单件排期，一次只接一件，不套倍数。"
 
-[wechat_hint]
-other = "或点击上方发起委托"
+[size_infantry]
+other = "步兵"
+[size_infantry_eg]
+other = "哥特卫队 / 役农"
+[size_elite]
+other = "精英 / 中型"
+[size_elite_eg]
+other = "终结者 / 铳手"
+[size_cavalry]
+other = "骑乘 / 英雄"
+[size_cavalry_eg]
+other = "司天丞 / 骑将"
+[size_vehicle]
+other = "载具 / 巨兽"
+[size_vehicle_eg]
+other = "天灯 / 妙影"
+[size_titanic]
+other = "泰坦级"
+[size_titanic_eg]
+other = "战争引擎"
 
-[featured_this_season]
-other = "// 本季精选"
+[est_composition]
+other = "模型构成"
+[est_qty]
+other = "数量"
+[est_add_row]
+other = "+ 再加一类模型"
+[est_tier]
+other = "涂装等级"
+[est_legend_note]
+other = "Legend 为单件排期，不走估算"
+[est_result]
+other = "估算体量"
+[est_batch_hint]
+other = "这个体量建议分批交付，我们聊聊排期。"
+[est_disclaimer]
+other = "数字是量级参考，不是报价。实际以模型照片与配色需求为准。"
+[est_cta]
+other = "发图聊聊 →"
 
-[scroll_label]
-other = "滑动 →"
+[flow_1_name]
+other = "发图询价"
+[flow_1_desc]
+other = "微信或邮件，几张模型照片 + 想要的等级"
+[flow_2_name]
+other = "确认等级"
+[flow_2_desc]
+other = "对齐 EIU 体量与工期"
+[flow_3_name]
+other = "定金排期"
+[flow_3_desc]
+other = "锁定档期"
+[flow_4_name]
+other = "进度照片"
+[flow_4_desc]
+other = "分阶段确认，不满意可调"
+[flow_5_name]
+other = "成品寄回"
+[flow_5_desc]
+other = "同时收录进作品档案"
 
-[commission_cta_headline]
-other = "想委托我涂装吗？"
+[faq_1_q]
+other = "EIU 到底怎么算的？"
+[faq_1_a]
+other = "基础价对应的是涂装工时本身。组装、地台、寄回这些要看具体单子 —— 发图给我，一次说清楚。"
+[faq_2_q]
+other = "模型寄成都怎么寄、保不保险？"
+[faq_2_a]
+other = "待补充。"
+[faq_3_q]
+other = "军团单能分批交付吗？"
+[faq_3_a]
+other = "待补充。"
+[faq_4_q]
+other = "能指定配色方案、复刻官方涂装吗？"
+[faq_4_a]
+other = "待补充。"
 
-[commission_body]
-other = "发来模型清单、参考图和截止日期。<br>48 小时内回复报价和排期。"
+# ─── 首页 ───────────────────────────────────────────────
+[home_latest]
+other = "最新交付"
+[home_read_dossier]
+other = "阅读档案 →"
+[home_statement]
+other = "成都的手涂委托工作室。战锤、杀戮小队、JoyToy，以及别人不愿接的委托。"
+[home_recent]
+other = "最近交付"
+[home_all_archive]
+other = "全部 %d 个档案 →"
+[home_tiers]
+other = "五个等级"
+[home_full_services]
+other = "完整服务与计价 →"
+[home_pricing]
+other = "计价"
+[home_open_estimator]
+other = "打开估算器 →"
+[home_schedule]
+other = "档期"
+[home_slots]
+other = "%d 个展示位开放中"
+[home_next_slot]
+other = "下一档期 %s 起。军团单请提前一个月。"
+[home_inquire]
+other = "微信 / 邮件询价 →"
 
-[start_commission_btn]
-other = "[ 发起委托 → ]"
-
-[tier_tabletop_price_short]
-other = "¥120 / 件"
-
-[tier_tabletop_sub2]
-other = "赛场级，底色 + 边缘高光"
-
-[contact_prefer_form]
-other = "更喜欢表单？"
-
-[contact_open_page]
-other = "打开委托表单 →"
+# ─── 关于页 ─────────────────────────────────────────────
+[about_hero_alt]
+other = "VIIYD 工作台实景"
+[about_hero_title]
+other = "一个人，一张工作台"
+[about_bio_label]
+other = "01 · 自述"
+[about_bio_1]
+other = "我从 2024 年开始接委托。起因很简单：自己的军团涂完了，朋友把他的箱子搬过来。"
+[about_bio_2]
+other = "我接的单子有个共同点——要么量大到需要排期，要么细到需要在放大镜下画。中间地带的活儿别人也能做，不必找我。"
+[about_bio_3]
+other = "不接的也说清楚：赶工期压等级的不接，砍价的不接，看不到实物照片就要报价的不接。"
+[about_shot_1_cap]
+other = "工作台"
+[about_shot_2_cap]
+other = "涂料与笔"
+[about_shot_3_cap]
+other = "待涂队列"
+[about_kit_label]
+other = "设备与工艺"
+[about_kit_1_k]
+other = "喷笔"
+[about_kit_1_v]
+other = "待补充"
+[about_kit_2_k]
+other = "常用涂料"
+[about_kit_2_v]
+other = "Citadel · Vallejo · Scale75"
+[about_kit_3_k]
+other = "光箱与拍摄"
+[about_kit_3_v]
+other = "待补充"
+[about_kit_4_k]
+other = "地台材料"
+[about_kit_4_v]
+other = "待补充"
+[about_stats_label]
+other = "资历"
+[about_stat_1_n]
+other = "2024"
+[about_stat_1_k]
+other = "接单起始"
+[about_stat_2_n]
+other = "56"
+[about_stat_2_k]
+other = "已交付委托"
+[about_stat_3_n]
+other = "400+"
+[about_stat_3_k]
+other = "档案图片"
+[about_stat_4_n]
+other = "2"
+[about_stat_4_k]
+other = "每季展示位"
+[load_more]
+other = "加载更多"
+[load_more_rest]
+other = "个剩余"
+[cm_copy_wechat]
+other = "复制微信号"
+[cm_or_email]
+other = "或邮件"
+[foot_contact]
+other = "微信"
+[svc_custom_label]
+other = "为什么不分档位"
+[svc_custom_1]
+other = "同一支队伍里，主角和杂兵该花的工夫本来就不一样。同一个模型，你想让它上桌耐看，和想让它进展示柜，做法也不同。真按档位切，总有一边被将就。"
+[svc_custom_2]
+other = "所以我习惯先看照片再说话：你想要什么效果、这批模型结构麻不麻烦、有没有一定要还原的配色。这些聊完了，体量才算得出来。"
+[svc_custom_3]
+other = "这样确实没法一眼报价，得多花几句话。换来的是你不必为用不上的工序买单，也不会因为选了便宜档而收到一份敷衍的东西。"
+[svc_scope_label]
+other = "哪些地方会影响体量"
+[svc_scope_1_k]
+other = "模型数量与体型"
+[svc_scope_1_v]
+other = "步兵、精英、骑乘、载具、巨兽，工时量级差距很大"
+[svc_scope_2_k]
+other = "笔触密度"
+[svc_scope_2_v]
+other = "块涂洗色，还是多层过渡、湿混、NMM 金属"
+[svc_scope_3_k]
+other = "表面处理"
+[svc_scope_3_v]
+other = "旧化、污渍、战损、自由手绘纹样"
+[svc_scope_4_k]
+other = "地台"
+[svc_scope_4_v]
+other = "简易地台，还是定制场景与叙事元素"
+[svc_scope_5_k]
+other = "交付形态"
+[svc_scope_5_v]
+other = "整队上桌、单件展示、还是分件保留，做法不一样"
+[hook_label]
+other = "01 · 怎么开始"
+[hook_title]
+other = "先聊几句，再谈体量"
+[hook_body]
+other = "不用先想好要什么等级、什么方案。发几张模型照片过来，说说你希望它最后是什么样子——上桌能用就好，还是想进展示柜。剩下的我们一起理。"
+[hook_1_k]
+other = "发图"
+[hook_1_v]
+other = "手机拍的就行，能看清是什么模型、有多少只"
+[hook_2_k]
+other = "说想法"
+[hook_2_v]
+other = "配色有参考图更好，没有也可以聊"
+[hook_3_k]
+other = "我给体量"
+[hook_3_v]
+other = "看完实物照片才谈 EIU 与工期，不隔空报价"
+[hook_cta]
+other = "加微信聊聊 →"
+[hook_note]
+other = "通常当天回复，最迟 48 小时。"
+[unit_models]
+other = "只"
+[cm_field_goal]
+other = "想要的效果"
+[cm_field_goal_zh]
+other = "想要的效果"
+[cm_goal_placeholder]
+other = "比如：整队上桌耐看 / 单件进展示柜 / 想还原某个官图"

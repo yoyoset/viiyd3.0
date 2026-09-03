@@ -1,4 +1,4 @@
-﻿---
+---
 title: "暗黑天使死翼伴侣"
 date: 2024-01-01
 summary: "第一军团的内环。大师级涂装标准。"
@@ -27,6 +27,8 @@ paints:
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "第一军团的内环。大师级涂装标准。旨在成为暗黑天使军队中无可争议的焦点。我们优先处理了长袍的体积照明和忠诚之剑上引人注目的'爆裂能量'效果。"
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

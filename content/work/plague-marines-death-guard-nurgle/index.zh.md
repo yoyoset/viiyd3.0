@@ -1,4 +1,4 @@
-﻿---
+---
 title: "瘟疫战士：死亡守卫"
 date: 2024-01-01
 summary: "莫塔里安的不屈子嗣。经典的死亡守卫配色方案，专注于干净的底漆和凹槽阴影。"
@@ -27,6 +27,8 @@ paints:
     hex: "#9CAE66"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Ogryn-Camo-2019"
 description: "莫塔里安的不屈子嗣。经典的死亡守卫配色方案，专注于干净的底漆和凹槽阴影。作为“准备做旧”的基础委托，提供高质量的“出厂”（相对而言）外观，允许客户稍后应用他们自己的做旧效果。"
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

@@ -36,6 +36,8 @@ paints:
     hex: "#101010"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "A high-tier commission project for Huron Blackheart and the Masters of the Maelstrom. Featuring battle-hardened weathering and intense OSL effects."
+system: "40k"
+delivered: "2026.03"
 ---
 
 <div class="image-grid">

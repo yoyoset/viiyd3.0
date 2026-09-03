@@ -27,6 +27,7 @@ paints:
     hex: "#58C1CD"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Baharroth-Blue-2019"
 description: "Blue-purple gradients and glowing edge highlights showcase the Screamers' elegant glide through the warp. Nightmarish creatures that leave twisted reality in their wake."
+delivered: "2025.10"
 ---
 
 <div class="image-grid">
@@ -90,7 +91,7 @@ The Alchemy
 <span class="font-mono text-emerald-200">Thousand Sons Blue</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Energy Edge</span>
+<span>ï¿½?Energy Edge</span>
 <span class="font-mono text-yellow-200/80">Baharroth Blue</span>
 </li>
 <li class="flex justify-between">

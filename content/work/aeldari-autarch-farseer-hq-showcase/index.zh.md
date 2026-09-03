@@ -36,6 +36,8 @@ paints:
     hex: "#101010"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "灵族指挥官模型展示：一款配备星辰长戈与双背旗的高可玩性 Autarch，以及一位身着手绘星空披风的 Farseer。"
+system: "40k"
+delivered: "2026.04"
 ---
 
 <div class="image-grid">

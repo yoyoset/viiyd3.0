@@ -27,6 +27,8 @@ paints:
     hex: "#636e72"
     link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
 description: "A regiment of Freeguild Cavaliers painted in a bold red and gold scheme, representing the fiery determination of Hammerhal. This unit has been prepared for tabletop deployment with a focus on impact and readiness."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -104,11 +106,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>ðŸ›¡ï¸?Base</span>
+<span>ðŸ›¡ï¿½?Base</span>
 <span class="font-mono text-emerald-200">Mephiston Red</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Highlight</span>
+<span>ï¿½?Highlight</span>
 <span class="font-mono text-cyan-200">Wild Rider Red</span>
 </li>
 </ul>

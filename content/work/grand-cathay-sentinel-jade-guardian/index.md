@@ -53,6 +53,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "A Cathayan Sentinel worked as living jade — cold green-teal stone layered up to Temple Guard Blue, dense cloud-relief carved across armour and twin blades, sapphire gems set in the chest and helm, standing on a weathered stone dais flecked with verdigris."
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

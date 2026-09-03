@@ -44,6 +44,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "30模型震旦天朝步兵，帝国红金改色，与皇家卫队骑兵同系列配色。整体兵团一致性强，桌面战场存在感十足。"
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

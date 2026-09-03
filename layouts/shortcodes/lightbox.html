@@ -1,13 +1,14 @@
-{{ $src := .Get "src" }}
-{{ $title := .Get "title" }}
-{{ $webSrc := partial "optimized-image" (dict "src" $src "optimized" .Page.Params.optimized) }}
+{{/* 4.0 灯箱短代码 —— 用于文章类页面（无 photos 的作品页）的正文图。
+     委托单的图集走 work/single.html 的 plates 网格，不经过这里。
 
-<figure class="my-8">
-    <img src="{{ $webSrc | safeURL }}" data-web-src="{{ $webSrc | safeURL }}" data-full-res="{{ $src }}"
-        alt="{{ $title }}"
-        class="lightbox-trigger w-full h-auto rounded-lg shadow-lg object-cover transition-transform duration-300 hover:brightness-110"
-        loading="lazy">
-    {{ if $title }}
-    <figcaption class="text-center text-sm text-gray-400 mt-2 italic">{{ $title }}</figcaption>
-    {{ end }}
-</figure>
+     两条约定必须保留（CLAUDE.md 红线）：
+     - `.lightbox-trigger` 类：lightbox.js 靠它绑定
+     - `<a href>` 包裹：无 JS 时点击直接打开原图 */}}
+{{ $src := .Get "src" }}
+{{ $title := .Get "title" | default "" }}
+{{ $web := partial "optimized-image" (dict "src" $src "width" 1600) }}
+<a class="plate lightbox-trigger article-figure" href="{{ $src }}"
+   data-web-src="{{ $web }}" data-full-res="{{ $src }}" data-src="{{ $src }}">
+  <img src="{{ $web }}" alt="{{ $title }}" loading="lazy">
+  {{ with $title }}<span class="plate__n label">{{ . }}</span>{{ end }}
+</a>

@@ -36,6 +36,8 @@ paints:
     hex: "#101010"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "A showcase of two Aeldari command models: a customizable Autarch with Star Glaive and two ornate back banners, and a mystical Farseer with a cosmic-themed cloak."
+system: "40k"
+delivered: "2026.04"
 ---
 
 <div class="image-grid">

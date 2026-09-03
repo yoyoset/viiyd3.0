@@ -1,232 +1,4 @@
-[operators]
-other = "Operators"
-
-[unit_count]
-other = "Operators"
-
-[time_log]
-other = "Execution Time"
-
-[tier]
-other = "Quality Tier"
-
-[tier_battleline]
-other = "Battleline"
-
-[tier_specialist]
-other = "Specialist"
-
-[tier_spec_ops]
-other = "Spec Ops"
-
-[tier_master]
-other = "Master"
-
-[tier_legend]
-other = "Legend"
-
-[alchemy]
-other = "The Alchemy"
-
-[protocol]
-other = "Tactical Protocol"
-
-[mission_data]
-other = "Mission Data"
-
-[color_data]
-other = "Color Data"
-
-[methodology]
-other = "Methodology"
-
-[tier_battle]
-other = "Battle Ready"
-
-[tier_parade]
-other = "Parade Ready"
-
-[price_start]
-other = "Starting at"
-
-[features]
-other = "Features"
-
-[tier_standard_label]
-other = "/// TIER: STANDARD"
-
-[tier_elite_label]
-other = "/// TIER: ELITE"
-
-[tier_master_label]
-other = "/// TIER: MASTER"
-
-[per_infantry]
-other = "Per Infantry Model"
-
-[per_character]
-other = "Per Character"
-
-[deploy_button]
-other = "Deploy"
-
-[cta_request]
-other = "Request Commission"
-
-[recommended_label]
-other = "Recommended"
-
-[unsure_text]
-other = "Unsure about your requirements?"
-
-[review_protocol]
-other = "Review our Operational Protocol ->"
-
-[feat_zenital]
-other = "Zenital Highlight"
-
-[feat_base_wash]
-other = "Base Colors + Wash"
-
-[feat_std_base]
-other = "Standard Basing"
-
-[feat_volumetric]
-other = "Volumetric Shading"
-
-[feat_edge]
-other = "Edge Highlights"
-
-[feat_weather]
-other = "Weathering Effects"
-
-[feat_scenic]
-other = "Scenic Basing"
-
-[feat_nmm]
-other = "NMM (Non-Metallic Metal)"
-
-[feat_osl]
-other = "OSL (Glow Effects)"
-
-[feat_freehand]
-other = "Freehand Detail"
-
-[addons_title]
-other = "Strategic Upgrades"
-
-[addon_prep_title]
-other = "Prep & Assembly"
-[addon_prep_desc]
-other = "Moldline removal, gap filling, and surface polishing."
-
-[addon_magnet_title]
-other = "Magnetization"
-[addon_magnet_desc]
-other = "Weapon and limb magnetization for loadout swapping."
-
-[addon_terrain_title]
-other = "Custom Terrain"
-[addon_terrain_desc]
-other = "From urban ruins to alien jungles, bespoke battlefields."
-
-[addon_print_title]
-other = "3D Printing"
-[addon_print_desc]
-other = "High-res 8K printing for bits or custom proxies."
-
-[price_quote]
-other = "Get Quote"
-
-[identity]
-other = "IDENTITY"
-
-[protocol_label]
-other = "PROTOCOL"
-
-[tiers_label]
-other = "TIERS"
-
-[status_open]
-other = "Open"
-
-[start_comm]
-other = "Start<br>Comm."
-
-[database_label]
-other = "DATABASE"
-
-[signal_lost]
-other = "Signal Lost"
-
-[access_log]
-other = "ACCESS_LOG"
-
-[studio_title]
-other = "THE STUDIO"
-
-[studio_motto]
-other = "Not a factory. A sanctuary for the miniature arts."
-
-[process_title]
-other = "PROCESS"
-
-[logs_title]
-other = "LOGS"
-
-[latest_deliveries]
-other = "Latest Deliveries"
-
-[view_all_archives]
-other = "VIEW ALL ARCHIVES ->"
-
-[view_schema]
-other = "VIEW SCHEMA"
-
-[view_archive]
-other = "VIEW ARCHIVE"
-
-[contact_title]
-other = "Sectors"
-
-[footer_contact_title]
-other = "Establish Uplink"
-
-[wechat_label]
-other = "WeChat Protocol"
-
-[work_cta_title]
-other = "Like This Work?"
-[work_cta_desc]
-other = "Contact us for a similar commission quote."
-[work_cta_button]
-other = "Get Quote"
-
-[contact_intro]
-other = "Initiate communication. We are ready to receive your commission specifications."
-
-[about_btn_contact]
-other = "Contact Studio"
-
-[about_btn_work]
-other = "View Work"
-
 # Contact Form
-[form_name]
-other = "Your Name"
-
-[form_name_placeholder]
-other = "How should we call you?"
-
-[form_contact]
-other = "Contact Method"
-
-[form_contact_placeholder]
-other = "WeChat / Email / Discord / etc."
-
-[form_project_type]
-other = "Project Type"
-
 [form_select_option]
 other = "Select..."
 
@@ -236,267 +8,25 @@ other = "Single Model"
 [form_project_squad]
 other = "Squad / Kill Team"
 
-[form_project_army]
-other = "Full Army"
-
 [form_project_other]
 other = "Other / Custom"
 
-[form_images]
-other = "Reference Images (Optional)"
-
-[form_images_hint]
-other = "Click to upload (max 3)"
-
-[form_description]
-other = "Project Details"
-
-[form_description_placeholder]
-other = "Describe what you want: color scheme, deadline, special requests..."
-
-[form_submit]
-other = "Submit Request"
-
-[contact_direct]
-other = "or email directly"
-
 # ── v3 UI strings ────────────────────────────────────────────
-
-[nav_work]
-other = "Work"
-
-[nav_painter]
-other = "Painter"
-
-[read_dossier]
-other = "Read the dossier →"
-
-[see_archive]
-other = "See the whole archive →"
-
-[back_archive]
-other = "Back to the archive"
-
-[identity_statement]
-other = "V., a studio for hand-painted miniatures —"
-
-[identity_sub]
-other = "Warhammer, Kill Team, JoyToy figures, the occasional commission no one else will take."
-
-[recent_label]
-other = "// Recent ·"
-
-[recent_pieces]
-other = "pieces"
-
-[commissions_label]
-other = "Commissions ·"
-
-[commission_cta]
-other = "Two display slots open."
-
-[commission_wechat]
-other = "WeChat me."
-
-[tier_tabletop_label]
-other = "Tabletop"
-
-[tier_display_label]
-other = "Display"
-
-[tier_tabletop_sub]
-other = "Edge highlights, simple base"
-
-[tier_display_sub]
-other = "Layered, freehand, custom base"
 
 # ── Painter page ─────────────────────────────────────────────
 
-[the_painter]
-other = "THE PAINTER"
-
-[painter_bio]
-other = "I paint Warhammer miniatures in a small Chengdu apartment. One brush, one lamp, one figure at a time."
-
-[painter_since]
-other = "Painting since · 2019"
-
-[painter_pieces]
-other = "Pieces shipped · 42"
-
-[painter_hours]
-other = "Hours at the desk · 2,300+"
-
-[painter_story_1]
-other = "I started with a single Space Marine I bought on a whim in 2019 — primed it the wrong colour, washed it twice, ruined the highlights. Two days later I bought a second one to try again. Six years later, here we are."
-
-[painter_story_2]
-other = "I'm not a fast painter. I work in thin layers and I take photos at every stage. If you've found this page, it's probably because a friend pointed you here, or you opened a dossier I sent."
-
-[painter_story_3]
-other = "The studio is one desk by a north-facing window, a daylight lamp, and a cabinet of Citadel and Vallejo paints. I take two commissions at a time — that's the most I can do without rushing."
-
-[painter_story_4]
-other = "What I love painting: characters with cloth and freehand opportunities, vehicles with real weathering, anything with a story. What I won't paint: NMM gold, or anything with a deadline tighter than three weeks."
-
-[painter_yes_label]
-other = "Happy to take on"
-
-[painter_no_label]
-other = "Not my field"
-
-[painter_yes_1]
-other = "Single characters & named heroes (display)"
-
-[painter_yes_2]
-other = "Squads of 5–10 (tabletop or display)"
-
-[painter_yes_3]
-other = "JoyToy / 1:18 figure repaints & head swaps"
-
-[painter_yes_4]
-other = "Custom basing, dioramas under 12 cm"
-
-[painter_yes_5]
-other = "Repaint & rescue of pieces gone wrong"
-
-[painter_no_1]
-other = "NMM (non-metallic metal) gold"
-
-[painter_no_2]
-other = "Anything with a deadline < 3 weeks"
-
-[painter_no_3]
-other = "Whole armies (50+ models)"
-
-[painter_no_4]
-other = "Bootleg / recast minis"
-
-[painter_no_5]
-other = "Painting over someone else's work"
-
-[the_desk]
-other = "THE DESK"
-
-[desk_sub]
-other = "WHERE THE WORK HAPPENS"
-
-[reach_me]
-other = "Reach Me"
-
-[reach_me_body]
-other = "Send a reference picture and a deadline. I'll reply within 48h."
-
 # ── Legacy _default layout strings ───────────────────────────
 
-[archive_index]
-other = "/// Archive Index"
-
-[cta_ready]
-other = "Ready to start a project?"
-
-[prev]
-other = "Previous"
-
-[next]
-other = "Next"
-
-
 # ── Dossier page strings ─────────────────────────────────────
-
-[dossier_specimen_label]
-other = "// SPECIMEN CARD"
-
-[dossier_specimen_edition]
-other = "EDITION 1 / 1"
 
 [dossier_notes_label]
 other = "// PAINTER'S NOTES"
 
-[dossier_notes_sub]
-other = "A LETTER FROM THE STUDIO"
-
 [dossier_plates_label]
 other = "// PLATES"
 
-[dossier_plates_hint]
-other = "CLICK TO ENLARGE"
-
 [dossier_paint_label]
 other = "// WHAT'S IN THE PAINT"
-
-[dossier_cert_label]
-other = "CERTIFICATE OF COMPLETION"
-
-[dossier_cert_intro]
-other = "Painted by hand at"
-
-[dossier_cert_body]
-other = "This dossier is yours to keep. The piece is 1 of 1 — the technique log, photographs, and notes above are the only record. The studio doesn't repaint the same character for another client."
-
-[dossier_share]
-other = "↗ Share this dossier"
-
-[dossier_save_pdf]
-other = "save as PDF"
-
-[dossier_from_studio]
-other = "FROM THE STUDIO"
-
-[dossier_loopback_title]
-other = "If you have a piece that deserves this, I'd love to paint it next."
-
-[dossier_loopback_body]
-other = "Two display slots open each quarter. Reach me however we already talk — WeChat, IG (@viiyang.yingying) — or use the form on viiyd.com. A reference picture and a deadline is enough to start."
-
-[dossier_commission_btn]
-other = "[ Commission a piece → ]"
-
-[dossier_private]
-other = "Private dossier"
-
-[dossier_scroll]
-other = "↓ scroll the dossier"
-
-[dossier_painted_in]
-other = "Painted in"
-
-[dossier_one_of_one]
-other = "· 1 of 1, never to be repeated"
-
-[dossier_stat_scale]
-other = "SCALE"
-
-[dossier_stat_kit]
-other = "KIT"
-
-[dossier_stat_base]
-other = "BASE"
-
-[dossier_stat_varnish]
-other = "VARNISH"
-
-[dossier_stat_hours]
-other = "TIME ON DESK"
-
-[dossier_stat_started]
-other = "STARTED"
-
-[dossier_stat_finished]
-other = "FINISHED"
-
-[dossier_stat_photos]
-other = "PHOTOS"
-
-[dossier_r2]
-other = "archive on R2"
-
-[dossier_tier_suffix]
-other = "TIER"
-
-[dossier_heroic]
-other = "heroic"
-
 
 # ── Commission Modal (POP) ─────────────────────────────────────
 
@@ -528,7 +58,7 @@ other = "Send me a piece,"
 other = "and a deadline."
 
 [cm_body]
-other = "That's enough to start. I'll reply within 48h on whichever channel you prefer — WeChat, email, Discord, Telegram."
+other = "That's enough to start. I'll reply within 48h on the contact you left — WeChat first, email works too."
 
 [cm_body_zh]
 other = "每次只接两单，请耐心。"
@@ -549,7 +79,7 @@ other = "How can I reach you?"
 other = "联络方式"
 
 [cm_contact_placeholder]
-other = "WeChat / Email / Discord / Telegram"
+other = "WeChat / Email"
 
 [cm_contact_hint]
 other = "Use the channel you check most. Whatever's easiest."
@@ -573,7 +103,7 @@ other = "Repair / touch-up"
 other = "Tier"
 
 [cm_field_tier_zh]
-other = "档次"
+other = "涂装等级"
 
 [cm_tier_unsure]
 other = "Not sure — let's talk"
@@ -623,9 +153,6 @@ other = "Send →"
 [cm_submit_sending]
 other = "Sending…"
 
-[cm_error_upload]
-other = "Image upload failed — please try again or remove the photos."
-
 [cm_error_submit]
 other = "Something went wrong. Please try again."
 
@@ -647,91 +174,335 @@ other = "Back to the archive"
 [cm_success_another]
 other = "Send another"
 
-[tier_tabletop_price]
-other = "from ¥120 / model"
-
-[tier_display_price]
-other = "from ¥600 / model"
-
 # ── Work list / Archive ───────────────────────────────────────
 
-[nav_archive]
-other = "Archive"
-
-[nav_commissions]
-other = "Commissions"
-
-[nav_contact]
-other = "Contact"
-
-[nav_home]
-other = "← Home"
-
-[masthead_tagline]
-other = "A studio for hand-painted miniatures · Est. 2024"
-
-[pieces_archived]
-other = "pieces archived"
-
-[client_slots]
-other = "02 client slots"
-
-[archive_headline]
-other = "Every miniature painted by the studio, listed and indexed."
-
-[archive_filter_hint]
-other = "Filter by faction, scale, or year."
-
 [filter_all]
-other = "ALL"
+other = "All"
 
-[col_subject]
-other = "Subject"
+# ─── VIIYD 4.0 ───────────────────────────────────────────
+[head_locality]
+other = "CHENGDU · EST. 2024"
+[nav_label]
+other = "Primary"
+[nav_inquire]
+other = "Inquire"
+[nav_menu]
+other = "Menu"
+[foot_city]
+other = "CHENGDU"
 
-[col_faction]
-other = "Faction / Series"
-
-[col_scale]
-other = "Scale"
-
-[col_hours]
-other = "Hours"
-
-[col_delivered]
-other = "Delivered"
-
-[col_tier]
+[archive_title]
+other = "Archive"
+[archive_count]
+other = "%d commissions"
+[archive_order]
+other = "Newest delivery first"
+[filter_system]
+other = "System"
+[filter_tier]
 other = "Tier"
+[filter_current]
+other = "Showing"
+[filter_all_systems]
+other = "All systems"
+[filter_all_tiers]
+other = "All tiers"
+[filter_results]
+other = "commissions"
+[filter_clear]
+other = "Clear"
+[filter_empty]
+other = "No commissions match this combination yet."
+[filter_empty_cta]
+other = "See all work →"
+[view_grid]
+other = "Grid"
+[view_list]
+other = "List"
+[unit_shots]
+other = "shots"
 
-[col_photos]
-other = "Photos"
+[sys_40k]
+other = "Warhammer 40K"
+[sys_old_world]
+other = "The Old World"
+[sys_aos]
+other = "Age of Sigmar"
+[sys_kill_team]
+other = "Kill Team"
+[sys_joytoy]
+other = "JoyToy"
+[sys_other]
+other = "Other"
 
-[wechat_hint]
-other = "or open commission form ↑"
+[meta_delivered]
+other = "Delivered"
+[dossier_spec_label]
+other = "Specification"
+[spec_models]
+other = "Models"
+[spec_count]
+other = "Model count"
+[spec_tier]
+other = "Tier"
+[spec_hours]
+other = "Hours"
+[spec_extras]
+other = "Add-ons"
+[spec_delivered]
+other = "Delivered"
+[cta_same_inquiry]
+other = "Inquire →"
+[cta_instagram]
+other = "See more on Instagram →"
+[dossier_plates_count]
+other = "%d shots · click to enlarge"
+[unit_pigments]
+other = "pigments"
+[dossier_related]
+other = "Related commissions"
 
-[featured_this_season]
-other = "// Featured · this season"
+# ─── Services page ──────────────────────────────────────
+[svc_title]
+other = "Quoted one at a time"
+[svc_lede]
+other = "No packages, no tiers. How dense the brushwork gets, whether it needs weathering, what the base becomes — it all depends on the models and what you have in mind."
+[svc_tiers_label]
+other = "Standard tiers"
+[svc_days]
+other = "Turnaround"
+[unit_days]
+other = "days"
+[svc_see_tier]
+other = "See work at this tier →"
+[svc_legend_cta]
+other = "Discuss separately →"
+[svc_sizes_label]
+other = "Size multipliers"
+[svc_extras_note]
+other = "Assembly / magnetising / custom basing are optional add-ons, quoted separately."
+[svc_flow_label]
+other = "Process"
 
-[scroll_label]
-other = "SCROLL →"
+[tier_battleline_desc]
+other = "Primer, block colour, shade, simple base. A full unit that holds its own on the table."
+[tier_specialist_desc]
+other = "Edge highlights, metal separation, iconography linework. The workhorse tier."
+[tier_specops_desc]
+other = "Multi-layer blends, weathering and grime, custom bases. Squads and characters."
+[tier_master_desc]
+other = "Wet blending, NMM, freehand. Display-cabinet and photography standard."
+[tier_legend_desc]
+other = "Competition pieces, conversions, narrative scenes. One at a time, priced individually."
 
-[commission_cta_headline]
-other = "Want me to paint something?"
+[size_infantry]
+other = "Infantry"
+[size_infantry_eg]
+other = "Guard / levy"
+[size_elite]
+other = "Elite / medium"
+[size_elite_eg]
+other = "Terminators / gunners"
+[size_cavalry]
+other = "Cavalry / hero"
+[size_cavalry_eg]
+other = "Mounted characters"
+[size_vehicle]
+other = "Vehicle / monster"
+[size_vehicle_eg]
+other = "Tanks / beasts"
+[size_titanic]
+other = "Titanic"
+[size_titanic_eg]
+other = "War engines"
 
-[commission_body]
-other = "Send your piece list, a reference image, and a deadline.<br>I'll reply within 48h with a quote and a queue slot."
+[flow_1_name]
+other = "Send photos"
+[flow_1_desc]
+other = "A few shots of the models and the tier you want"
+[flow_2_name]
+other = "Agree the tier"
+[flow_2_desc]
+other = "Align on scope and turnaround"
+[flow_3_name]
+other = "Deposit and slot"
+[flow_3_desc]
+other = "Your slot is locked in"
+[flow_4_name]
+other = "Progress shots"
+[flow_4_desc]
+other = "Checkpoints along the way"
+[flow_5_name]
+other = "Shipped back"
+[flow_5_desc]
+other = "And added to the archive"
 
-[start_commission_btn]
-other = "[ Start a commission → ]"
+[faq_1_q]
+other = "Do you take international commissions?"
+[faq_1_a]
+other = "Case by case — start with a DM on Instagram."
+[faq_2_q]
+other = "What tiers do you offer?"
+[faq_2_a]
+other = "Five, listed above. Battleline through Legend."
+[faq_3_q]
+other = "How long does a commission take?"
+[faq_3_a]
+other = "Turnaround is listed per tier above."
+[faq_4_q]
+other = "Can you match a specific scheme?"
+[faq_4_a]
+other = "Yes — send reference images."
 
-[tier_tabletop_price_short]
-other = "¥120 / model"
+# ─── Home ───────────────────────────────────────────────
+[home_latest]
+other = "Latest delivery"
+[home_read_dossier]
+other = "Read the dossier →"
+[home_statement]
+other = "A hand-painting commission studio in Chengdu. Warhammer, Kill Team, JoyToy — and the commissions others turn down."
+[home_recent]
+other = "Recent deliveries"
+[home_all_archive]
+other = "All %d dossiers →"
+[home_tiers]
+other = "Five tiers"
+[home_full_services]
+other = "Services in full →"
+[home_schedule]
+other = "Availability"
+[home_slots]
+other = "%d display slots open"
+[home_next_slot]
+other = "Next opening %s. Army-scale work needs a month's notice."
 
-[tier_tabletop_sub2]
-other = "Tournament-ready, base + edge highlight"
+# ─── About ──────────────────────────────────────────────
+[about_hero_alt]
+other = "The VIIYD workbench"
+[about_hero_title]
+other = "One person, one workbench"
+[about_bio_label]
+other = "01 · In my own words"
+[about_bio_1]
+other = "I started taking commissions in 2024. The reason was simple: my own army was finished, so a friend brought his case over."
+[about_bio_2]
+other = "The commissions I take have one thing in common — either the volume needs scheduling, or the detail needs a magnifier. Anything in between, someone else can do."
+[about_bio_3]
+other = "What I turn down, plainly: rush jobs that cut the tier, haggling, and quotes asked for without photos of the actual models."
+[about_shot_1_cap]
+other = "The bench"
+[about_shot_2_cap]
+other = "Paints and brushes"
+[about_shot_3_cap]
+other = "The queue"
+[about_kit_label]
+other = "Kit and process"
+[about_kit_1_k]
+other = "Airbrush"
+[about_kit_1_v]
+other = "TBC"
+[about_kit_2_k]
+other = "Paints"
+[about_kit_2_v]
+other = "Citadel · Vallejo · Scale75"
+[about_kit_3_k]
+other = "Lightbox and camera"
+[about_kit_3_v]
+other = "TBC"
+[about_kit_4_k]
+other = "Basing"
+[about_kit_4_v]
+other = "TBC"
+[about_stats_label]
+other = "Track record"
+[about_stat_1_n]
+other = "2024"
+[about_stat_1_k]
+other = "Commissions since"
+[about_stat_2_n]
+other = "56"
+[about_stat_2_k]
+other = "Delivered"
+[about_stat_3_n]
+other = "400+"
+[about_stat_3_k]
+other = "Archive images"
+[about_stat_4_n]
+other = "2"
+[about_stat_4_k]
+other = "Slots per quarter"
+[load_more]
+other = "Load more"
+[load_more_rest]
+other = "remaining"
 
-[contact_prefer_form]
-other = "Prefer the full form?"
+# ─── 有意不翻译的 key ────────────────────────────────────
+# 以下 14 个 key **故意只存在于 zh.toml**，不要「补齐」：
+#   est_* (估算器全部) · svc_eiu_note · svc_estimator_label
+#   home_pricing · home_open_estimator · home_inquire
+# 规格 §12：英文站只做品牌展示不做成交漏斗 —— 不出 EIU 数字、不放估算器、
+# 询价改 Instagram。模板用 {{ if $isZH }} 守着，这些 key 在英文站根本不会被渲染。
+# 实测：英文站全站 EIU / ¥ 出现次数为 0。
 
-[contact_open_page]
-other = "Open commission form →"
+[cm_copy_wechat]
+other = "Copy WeChat ID"
+[cm_or_email]
+other = "Or email"
+[foot_contact]
+other = "CONTACT"
+[svc_custom_label]
+other = "Why there are no tiers"
+[svc_custom_1]
+other = "Within one unit, the character and the rank-and-file never deserve the same hours. And the same model is painted differently for the table than for a cabinet. Split it into tiers and one side always gets shortchanged."
+[svc_custom_2]
+other = "So I like to look at photos before saying anything: what you want it to look like, how awkward the kits are, whether a scheme has to be matched. Scope falls out of that conversation."
+[svc_custom_3]
+other = "It does mean I cannot quote at a glance — it takes a few more messages. In return you never pay for steps you did not need, and never get something rushed because you picked the cheap option."
+[svc_scope_label]
+other = "What drives the scope"
+[svc_scope_1_k]
+other = "Count and size"
+[svc_scope_1_v]
+other = "Infantry, elites, cavalry, vehicles, monsters — orders of magnitude apart in hours"
+[svc_scope_2_k]
+other = "Brushwork density"
+[svc_scope_2_v]
+other = "Base and shade, or layered blends, wet blending, NMM"
+[svc_scope_3_k]
+other = "Surface work"
+[svc_scope_3_v]
+other = "Weathering, grime, battle damage, freehand"
+[svc_scope_4_k]
+other = "Basing"
+[svc_scope_4_v]
+other = "Simple bases, or custom scenic and narrative work"
+[svc_scope_5_k]
+other = "How it is delivered"
+[svc_scope_5_v]
+other = "A full unit for the table, a single display piece, or kept sub-assembled"
+[hook_label]
+other = "01 · Where to start"
+[hook_title]
+other = "Talk first, scope later"
+[hook_body]
+other = "You do not need to decide on a tier or a plan beforehand. Send a few photos of the models and tell me roughly what you want them to end up like — solid on the table, or something for the cabinet. We work out the rest together."
+[hook_1_k]
+other = "Send photos"
+[hook_1_v]
+other = "Phone shots are fine, as long as the models and the count are clear"
+[hook_2_k]
+other = "Say what you want"
+[hook_2_v]
+other = "Reference images help; if you have none, we can still talk it through"
+[hook_3_k]
+other = "I come back with scope"
+[hook_3_v]
+other = "Hours and turnaround only after I have seen the actual models"
+[unit_models]
+other = "models"
+[cm_field_goal]
+other = "What you want"
+[cm_field_goal_zh]
+other = "想要的效果"
+[cm_goal_placeholder]
+other = "e.g. a full unit for the table / one display piece / match a specific scheme"

@@ -49,6 +49,8 @@ paints:
     hex: "#050505"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "一尊独立的血神信使（Bloodmaster, Herald of Khorne）英雄涂装委托，作为六只嗜血狂奔者编队的统领，用更炽热的红橙高光和更深的黄铜层次，让其在编队中一眼可辨。"
+system: "40k"
+delivered: "2026.07"
 ---
 
 <div class="image-grid">

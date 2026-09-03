@@ -45,6 +45,8 @@ paints:
     hex: "#2B2B2B"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
 description: "涅克隆寂静王萨雷克代工展示。虚空黑舟体配合高斯绿全域OSL，黄金萨雷克本体与青石方尖碑形成强烈视觉对比。共14张展示照。"
+system: "40k"
+delivered: "2026.05"
 ---
 
 <div class="image-grid">

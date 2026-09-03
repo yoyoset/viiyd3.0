@@ -27,6 +27,8 @@ paints:
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "The inner circle of the First Legion. Painted to a Master standard. Designed to be the undisputed focal point of a Dark Angels army. We prioritized volumetric lighting on the cloak and a striking 'crackling energy' effect."
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -82,7 +84,7 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>🛡�?Armor</span>
+<span>🛡�?Armor</span>
 <span class="font-mono text-emerald-200">Ushabti Bone + Seraphim Sepia</span>
 </li>
 <li class="flex justify-between">

@@ -24,6 +24,7 @@ paints:
     hex: "#888D8F"
     link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
 description: "A comprehensive guide to starting your journey into Warhammer miniature painting. Covering essential tools, techniques, and workspace setup to help you achieve great results."
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

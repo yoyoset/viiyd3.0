@@ -1,0 +1,139 @@
+/* ─── VIIYD 4.0 · 基础层 ──────────────────────────────────────────
+   依赖 tokens.css。只管全局元素与版式骨架，组件在 components.css。
+   红线：0 圆角 0 阴影；分隔一律 1px。
+   ──────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body{
+  margin: 0;
+  background: var(--ink);
+  color: var(--fg-body);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 全站零圆角零阴影 —— 唯一例外是 Legend 条的 inset 金线，它自己在 components 里声明 */
+*{ border-radius: 0; }
+
+/* [hidden] 必须带 !important —— 浏览器默认的 [hidden]{display:none} 优先级极低，
+   任何设了 display 的组件类（.work-card{display:flex} / .btn-text{display:inline-flex}）
+   都会把它顶掉，导致「隐藏」的元素照常显示。筛选与视图切换全靠这条。 */
+[hidden]{ display: none !important; }
+
+img, video { max-width: 100%; height: auto; display: block; }
+
+a{ color: var(--primary); text-decoration: none; transition: color var(--t-color); }
+a:hover{ color: var(--fg); }
+
+button{ font: inherit; color: inherit; cursor: pointer; }
+
+hr{ display: none; }   /* handoff §5：装饰性分隔一概不用 */
+
+::selection{ background: var(--primary-wash); color: var(--fg); }
+
+:focus-visible{ outline: 1px solid var(--primary); outline-offset: 2px; }
+
+/* ── 限宽容器（REDESIGN_4.0_PLAN.md §2-E） ──
+   推翻交接包的「全宽无容器」。超宽屏下单图被拉到 2000px+ 是满屏，不是震撼。 */
+.wrap{
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+@media (max-width: 768px){
+  .wrap{ padding-inline: var(--gut-m); }
+}
+
+/* 区块之间靠 1px 线分隔，不靠大间距堆叠（handoff §5） */
+.section{ border-bottom: 1px solid var(--hairline); }
+.section > .wrap{ padding-block: 44px; }
+/* 首页定义句区块：全站最大的一处留白，不要压缩 */
+.section--statement > .wrap{ padding-block: 86px; }
+@media (max-width: 768px){
+  .section > .wrap{ padding-block: 32px; }
+  .section--statement > .wrap{ padding-block: 44px; }
+}
+
+/* ── 字阶（handoff §3） ── */
+.display-1, .display-2, .display-3, .display-4,
+.title-card, .title-item{
+  font-family: var(--font-display);
+  color: var(--fg);
+  margin: 0;
+  text-wrap: pretty;
+}
+.display-1{ font-weight:900; font-size:var(--fs-display-1); line-height:var(--lh-display-1); letter-spacing:var(--tracking-display); }
+.display-2{ font-weight:900; font-size:var(--fs-display-2); line-height:var(--lh-display-2); letter-spacing:var(--tracking-display); }
+.display-3{ font-weight:700; font-size:var(--fs-display-3); line-height:var(--lh-display-3); letter-spacing:-.015em; }
+.display-4{ font-weight:700; font-size:var(--fs-display-4); line-height:var(--lh-display-4); }
+.title-card{ font-weight:700; font-size:var(--fs-title-card); line-height:1.2; letter-spacing:-.01em; }
+.title-item{ font-weight:700; font-size:var(--fs-title-item); line-height:1.5; }
+
+/* 拉丁文 display 用 Instrument Serif —— 3.0 唯一保留下来的字体。
+   2026-09-03：删 .display-latin 时正则连声明块一起吃掉了，只剩两个悬空选择器
+   串到了下一条规则上 —— 英文站所有主标题被渲染成 15px 正文。
+   括号配平检查查不出这种错（括号确实是平的），只能靠看产物。 */
+:lang(en) .display-1, :lang(en) .display-2{
+  font-family: var(--font-latin-display);
+  font-weight: 400;
+}
+
+p, .body{ font-size:var(--fs-body); line-height:var(--lh-body); text-wrap: pretty; }
+.body-s { font-size:var(--fs-body-s);  line-height:var(--lh-body-s); }
+.body-xs{ font-size:var(--fs-body-xs); line-height:var(--lh-body-xs); color:var(--fg-muted); }
+
+/* 正文段落自限宽，不靠容器（handoff §5） */
+.prose p{ max-width: 52ch; }
+
+/* ── mono 承担全部「机器信息」：编号/等级/EIU/日期/面包屑/区块小标 ──
+   中文语义信息不用 mono（handoff §1 第 5 条） */
+.label, .label-lg, .data{
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+.label{
+  font-size: var(--fs-label); font-weight:400; line-height:1;
+  letter-spacing: var(--tracking-label); color: var(--fg-muted);
+}
+.label-lg{
+  font-size: var(--fs-label-lg); font-weight:500; line-height:2;
+  letter-spacing: .14em; color: var(--fg-muted);
+}
+.data{
+  font-size: 11.5px; font-weight:500; line-height:1;
+  letter-spacing: var(--tracking-data); color: var(--primary);
+}
+
+/* 区块小标固定格式 `NN · 中文标题`（handoff §11） */
+.section-label{ display:flex; align-items:baseline; gap:8px; }
+.section-label .num{ color: var(--primary); }
+
+/* ── 分隔网格（handoff §4.5） ──
+   背景只加在网格本身，容器负责 padding —— 否则 padding 区域会跟着染色 */
+.grid-hair{ display:grid; gap:1px; background:var(--hairline); }
+.grid-hair > *{ background:var(--ink); }
+
+/* ── 图片 ──
+   照片一律 1px 边框无圆角；限宽后主图按自然比例排布，
+   用 max-height 兜住 9:16 长竖图，避免撑破一屏（PLAN §2-E） */
+.photo{ border:1px solid var(--hairline-soft); background:var(--ink-panel); }
+.photo--free{ width:auto; max-height:80vh; margin-inline:auto; object-fit:contain; }
+
+/* 图片进入视口淡入，不做位移不做缩放（handoff §7） */
+.fade-in{ opacity:0; transition: opacity var(--t-fade); }
+.fade-in.is-visible{ opacity:1; }
+
+/* 开发期占位 —— 上线前不得残留（handoff §4.7，占位表 P16） */
+.placeholder{
+  background: repeating-linear-gradient(135deg,#15191b 0 8px,#1b2023 8px 16px);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-size:9.5px; letter-spacing:.14em;
+  color:var(--fg-muted); text-transform:uppercase;
+}
+

@@ -23,6 +23,8 @@ paints:
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "The hounds of Khorne. Painted to a Spec Ops standard for high contrast and tabletop durability. The skin uses a classic Khorne Red recipe with deep shading for muscular definition."
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -72,7 +74,7 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>🛡�?Skin</span>
+<span>🛡�?Skin</span>
 <span class="font-mono text-emerald-200">Khorne Red</span>
 </li>
 <li class="flex justify-between">

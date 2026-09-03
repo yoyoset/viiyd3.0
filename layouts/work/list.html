@@ -1,295 +1,147 @@
 {{ define "main" }}
+{{/* VIIYD 4.0 作品档案页 — 规格 §8 + PLAN §2-E/§2-F
 
-{{/* Top strip */}}
-<div class="top-strip">
-  <span>VIIYD STUDIO · ARCHIVE · v3.0</span>
-  <span>CHENGDU 30.658° N · 104.066° E</span>
-  <span>
-    {{ range .AllTranslations }}
-      <a href="{{ .RelPermalink }}" onclick="localStorage.setItem('viiyd_lang_pref','{{ .Lang }}')" style="{{ if eq .Lang $.Lang }}color:var(--bg);{{ end }}">{{ .Language.Params.isoCode | default (.Lang | upper) }}</a>{{ if ne .Lang (index (last 1 $.AllTranslations) 0).Lang }} / {{ end }}
-    {{ end }}
-  </span>
-</div>
+     两处偏离交接包，都是有意的：
+     - 限宽容器（PLAN §2-E），不做全宽
+     - 网格 + 列表双视图（PLAN §2-F），不二选一
 
-{{/* Masthead */}}
-<div class="archive-masthead">
-  {{ partial "badge.html" (dict "size" 64) }}
-  <div style="flex:1;">
-    <a href="{{ relLangURL "" }}"><div class="archive-wordmark">VIIYD</div></a>
-    <div class="eyebrow" style="margin-top:6px;">{{ T "masthead_tagline" | default "A studio for hand-painted miniatures · Est. 2024" }}</div>
-  </div>
-  <div style="text-align:right;font-size:11px;color:var(--ink-soft);letter-spacing:0.08em;">
-    <div>&gt; {{ len .Pages }} {{ T "pieces_archived" | default "pieces archived" }}</div>
-    <div>&gt; {{ T "client_slots" | default "02 client slots" }} / Q{{ div (now.Month | int | add 2) 3 }}</div>
-  </div>
-</div>
+     筛选走 DOM data 属性，不走 JSON 索引（PLAN §8 2026-09-02 决定）：
+     列表由 Hugo 构建期直出全量，JS 失效也能看；filter.js 只做显隐。
+     chip 计数同样是构建期算好写死进 HTML，不靠 JS 数。 */}}
 
-{{/* Nav */}}
-<nav style="padding:14px var(--page-pad);border-bottom:1px solid var(--line-soft);display:flex;gap:28px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;align-items:center;">
-  <span style="background:var(--ink);color:var(--bg);padding:4px 10px;">{{ T "nav_archive" | default "Archive" }}</span>
-  <button onclick="openCommissionModal()" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">{{ T "nav_commissions" | default "Commissions" }}</button>
-  <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">{{ T "nav_painter" | default "Painter" }}</a>
-  <button onclick="vpOpen('contact')" style="background:none;border:none;font:inherit;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;padding:0;">{{ T "nav_contact" | default "Contact" }}</button>
-  <a href="{{ relLangURL "" }}" style="margin-left:auto;color:var(--ink-soft);">{{ T "nav_home" | default "← Home" }}</a>
-</nav>
+{{ $works := where .Site.RegularPages "Section" "work" }}
+{{ $works = sort $works "Date" "desc" }}
+{{ $total := len $works }}
 
-{{/* ── Slide panels ──────────────────────────────────────── */}}
-<div id="vp-overlay" onclick="vpClose()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:900;backdrop-filter:blur(2px);"></div>
-<aside id="vp-panel" style="display:none;position:fixed;top:0;right:0;bottom:0;width:min(460px,100vw);background:var(--bg);border-left:1px solid var(--line);z-index:901;overflow-y:auto;overscroll-behavior:contain;">
-  <button onclick="vpClose()" style="position:sticky;top:0;left:0;right:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px var(--page-pad);background:var(--bg);border-bottom:1px solid var(--line-soft);font:inherit;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;border-left:none;border-right:none;border-top:none;">
-    <span id="vp-title">—</span>
-    <span style="font-size:18px;line-height:1;">×</span>
-  </button>
+{{/* 维度定义。i18n key 与 system 枚举一一对应，缺翻译时回退到英文名。 */}}
+{{ $systems := slice
+  (dict "key" "40k"        "name" (T "sys_40k"       | default "Warhammer 40K"))
+  (dict "key" "old-world"  "name" (T "sys_old_world" | default "The Old World"))
+  (dict "key" "aos"        "name" (T "sys_aos"       | default "Age of Sigmar"))
+  (dict "key" "kill-team"  "name" (T "sys_kill_team" | default "Kill Team"))
+  (dict "key" "joytoy"     "name" (T "sys_joytoy"    | default "JoyToy"))
+  (dict "key" "other"      "name" (T "sys_other"     | default "Other"))
+}}
 
-  {{/* Commissions panel */}}
-  <div id="vp-commissions" class="vp-content" style="display:none;padding:32px var(--page-pad) 48px;">
-    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">{{ T "commissions_label" | default "Commissions ·" }} {{ now.Format "2006" }}</div>
-    <div style="font-family:var(--font-serif);font-size:36px;line-height:1.05;letter-spacing:-0.02em;margin-bottom:28px;">
-      {{ T "commission_cta" | default "Two display slots open." }}<br><em style="color:var(--yellow);">{{ T "commission_wechat" | default "WeChat me." }}</em>
+<main>
+
+{{/* ── 页头 ── */}}
+<section class="section">
+  <div class="wrap archive-head">
+    <div>
+      <div class="label">ARCHIVE</div>
+      <h1 class="display-2">{{ T "archive_title" | default "作品档案" }}</h1>
     </div>
-
-    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-      <div style="padding:16px 18px;border:1px solid var(--line-soft);">
-        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft);">{{ T "tier_tabletop_label" | default "Tabletop" }}</div>
-        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_tabletop_price" | default "from ¥120 / model" }}</div>
-        <div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">{{ T "tier_tabletop_sub" | default "Edge highlights, simple base" }}</div>
-      </div>
-      <div style="padding:16px 18px;background:var(--yellow);color:#0c0c0a;">
-        <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.7;">{{ T "tier_display_label" | default "Display" }}</div>
-        <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_display_price" | default "from ¥600 / model" }}</div>
-        <div style="font-size:11px;opacity:0.7;margin-top:4px;">{{ T "tier_display_sub" | default "Layered, freehand, custom base" }}</div>
-      </div>
+    <div class="archive-head__meta label-lg">
+      {{ printf (T "archive_count" | default "%d 个委托单") $total }}<br>
+      {{ T "archive_order" | default "按交付时间倒序" }}
     </div>
-
-    <div style="font-size:12px;color:var(--ink-soft);line-height:1.7;margin-bottom:24px;">
-      {{ T "commission_body" | safeHTML | default "Send your piece list, a reference image, and a deadline.<br>I'll reply within 48h with a quote and a queue slot." }}
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:8px;">
-      <div style="padding:16px;background:var(--yellow);border:1px solid #c89518;display:flex;gap:14px;align-items:center;">
-        <img src="/img/mywechat.jpg" alt="WeChat QR" style="width:80px;height:80px;object-fit:cover;flex-shrink:0;display:block;">
-        <div>
-          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);">WeChat</div>
-          <div class="sans" style="font-weight:600;margin-top:4px;color:var(--ink);">扫码添加</div>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--paper);border:1px solid var(--line-soft);">
-        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Email</span>
-        <a href="mailto:maylyy8@gmail.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">maylyy8@gmail.com</a>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--paper);border:1px solid var(--line-soft);">
-        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Instagram</span>
-        <a href="https://instagram.com/viiyang.yingying" target="_blank" rel="noopener" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">@viiyang.yingying</a>
-      </div>
-    </div>
-  </div>
-
-  {{/* Contact panel */}}
-  <div id="vp-contact" class="vp-content" style="display:none;padding:32px var(--page-pad) 48px;">
-    <div style="font-size:10px;letter-spacing:0.22em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:6px;">{{ T "nav_contact" | default "Contact" }} · VIIYD STUDIO</div>
-    <div style="font-family:var(--font-serif);font-style:italic;font-size:32px;line-height:1.15;letter-spacing:-0.02em;margin-bottom:28px;">
-      {{ T "reach_me_body" | default "Send a reference picture and a deadline. I'll reply within 48h." }}
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:28px;">
-      <div style="padding:16px;background:var(--yellow);border:1px solid #c89518;display:flex;gap:14px;align-items:center;">
-        <img src="/img/mywechat.jpg" alt="WeChat QR" style="width:80px;height:80px;object-fit:cover;flex-shrink:0;display:block;">
-        <div>
-          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);">WeChat</div>
-          <div class="sans" style="font-weight:600;margin-top:4px;color:var(--ink);">扫码添加</div>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);">
-        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Email</span>
-        <a href="mailto:maylyy8@gmail.com" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">maylyy8@gmail.com</a>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--paper);border:1px solid var(--line-soft);">
-        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);">Instagram</span>
-        <a href="https://instagram.com/viiyang.yingying" target="_blank" rel="noopener" style="font-family:var(--font-sans);font-weight:500;color:var(--ink);">@viiyang.yingying</a>
-      </div>
-    </div>
-
-    <div style="padding:20px;background:var(--paper);border:1px solid var(--line-soft);font-size:12px;color:var(--ink-soft);line-height:1.7;">
-      {{ T "contact_prefer_form" | default "Prefer the full form?" }}
-      <button onclick="openCommissionModal()" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:var(--ink);border-bottom:1px solid var(--line-soft);">{{ T "contact_open_page" | default "Open commission form →" }}</button>
-    </div>
-  </div>
-</aside>
-
-{{/* Headline + filters */}}
-<section style="padding:40px var(--page-pad) 20px;">
-  <div class="sans archive-headline" style="line-height:1;font-weight:500;letter-spacing:-0.025em;max-width:900px;text-wrap:balance;">
-    {{ T "archive_headline" | default "Every miniature painted by the studio, listed and indexed." }}
-    <span style="color:var(--ink-soft);"> {{ T "archive_filter_hint" | default "Filter by faction, scale, or year." }}</span>
-  </div>
-
-  {{ $factions := slice }}
-  {{ range .Pages }}
-    {{ $f := .Params.faction | default (index .Params.tags 0) | default "" }}
-    {{ if $f }}{{ $factions = $factions | append $f }}{{ end }}
-  {{ end }}
-  {{ $factions = $factions | uniq | sort }}
-
-  <div class="filter-chips" style="margin-top:36px;" id="filter-chips">
-    <button class="filter-chip active" data-faction="all" onclick="filterArchive('all',this)">
-      {{ T "filter_all" | default "ALL" }} <span class="count">{{ len .Pages }}</span>
-    </button>
-    {{ range $factions }}
-    <button class="filter-chip" data-faction="{{ . | urlize }}" onclick="filterArchive('{{ . | urlize }}',this)">
-      {{ . | upper }} <span class="count"></span>
-    </button>
-    {{ end }}
   </div>
 </section>
 
-{{/* Archive table */}}
-<section style="padding:8px var(--page-pad) 24px;">
-  <div class="archive-head">
-    <span>№</span>
-    <span>{{ T "col_subject" | default "Subject" }}</span>
-    <span>{{ T "col_faction" | default "Faction / Series" }}</span>
-    <span>{{ T "col_scale" | default "Scale" }}</span>
-    <span>{{ T "col_tier" | default "Tier" }}</span>
-    <span>{{ T "col_hours" | default "Hours" }}</span>
-    <span>{{ T "col_delivered" | default "Delivered" }}</span>
-    <span>{{ T "col_photos" | default "Photos" }}</span>
-    <span></span>
-  </div>
+{{/* ── 双筛选区 ── */}}
+<section class="section archive-filters">
+  <div class="wrap">
 
-  {{ $pages := .Pages }}
-  {{ range $i, $p := $pages }}
-  {{ $faction := $p.Params.faction | default (index $p.Params.tags 0) | default "—" }}
-  {{ $num := printf "%03d" (sub (len $pages) $i) }}
-  <a href="{{ $p.RelPermalink }}" class="archive-row{{ if eq $i 0 }} active{{ end }}" data-faction="{{ $faction | urlize }}">
-    <span class="num">{{ $num }}</span>
-    <span class="subj">
-      <span class="thumb">
-        {{ with $p.Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 200) }}" alt="{{ $p.Title }}" loading="lazy">{{ end }}
+    <div class="chip-row">
+      <span class="chip-row__name">{{ T "filter_system" | default "游戏类型" }}</span>
+      <div class="chip-group">
+        <button type="button" class="chip is-all-active" data-filter="system" data-value="all" aria-pressed="true">
+          {{ T "filter_all" | default "全部" }} <span class="count">{{ $total }}</span>
+        </button>
+        {{ range $systems }}
+          {{ $n := len (where $works "Params.system" .key) }}
+          <button type="button"
+                  class="chip{{ if eq $n 0 }} is-empty{{ else if le $n 1 }} is-weak{{ end }}"
+                  data-filter="system" data-value="{{ .key }}" aria-pressed="false"{{ if eq $n 0 }} disabled{{ end }}>
+            {{ .name }} <span class="count">{{ $n }}</span>
+          </button>
+        {{ end }}
+      </div>
+    </div>
+
+    {{/* 状态行是唯一的状态显示，兼作清除入口（规格 A2） */}}
+    {{/* aria-live：筛选结果数由 JS 改写，不播报的话读屏用户不知道筛出了几条 */}}
+    <div class="chip-status" aria-live="polite">
+      <span>
+        {{ T "filter_current" | default "当前" }}：<span class="val" data-status-system>{{ T "filter_all_systems" | default "全部游戏" }}</span>
+        — <span class="num" data-status-count>{{ $total }}</span> {{ T "filter_results" | default "个委托单" }}
+        <button type="button" class="btn-text" data-filter-clear hidden>{{ T "filter_clear" | default "清除筛选" }} ×</button>
       </span>
-      {{ $p.Title }}
-    </span>
-    <span class="fac">{{ $faction }}</span>
-    <span class="scale">{{ $p.Params.scale | default "28mm" }}</span>
-    <span>
-      {{ with $p.Params.tier }}
-      <span class="tier-pill {{ . | lower | replaceRE "[^a-z]" "-" }}">{{ . }}</span>
-      {{ else }}<span style="color:var(--ink-soft);">—</span>{{ end }}
-    </span>
-    <span class="hrs" style="color:var(--ink-soft);">{{ $p.Params.hours | default $p.Params.time_log | default "—" }}</span>
-    <span class="date">{{ $p.Date.Format "02·Jan·06" | upper }}</span>
-    <span class="photos" style="color:var(--ink-soft);">{{ $p.Params.photos | default "—" }}</span>
-    <span class="arrow">→</span>
-  </a>
-  {{ end }}
-</section>
-
-{{/* Featured · this season */}}
-<section style="padding:40px var(--page-pad) 32px;border-top:1px solid var(--line);">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;">
-    <div class="sans" style="font-size:28px;font-weight:600;letter-spacing:-0.02em;">{{ T "featured_this_season" | default "// Featured · this season" }}</div>
-    <span style="font-size:11px;color:var(--ink-soft);letter-spacing:0.12em;">{{ T "scroll_label" | default "SCROLL →" }}</span>
-  </div>
-  <div class="featured-grid">
-    {{ range first 4 .Pages }}
-    {{ $faction := .Params.faction | default (index .Params.tags 0) | default "" }}
-    <a href="{{ .RelPermalink }}">
-      <div class="feature-thumb">
-        {{ with .Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 800) }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
-      </div>
-      <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11px;letter-spacing:0.05em;color:var(--ink-soft);">
-        <span>{{ .Date.Format "Jan 2006" }}</span>
-        <span>{{ $faction | upper }}</span>
-      </div>
-      <div class="sans" style="font-weight:500;font-size:16px;margin-top:4px;letter-spacing:-0.01em;">{{ .Title }}</div>
-    </a>
-    {{ end }}
+      <span class="view-toggle">
+        <button type="button" data-view="grid" aria-pressed="true">{{ T "view_grid" | default "网格" }}</button>
+        <button type="button" data-view="list" aria-pressed="false">{{ T "view_list" | default "列表" }}</button>
+      </span>
+    </div>
   </div>
 </section>
 
-{{/* Commission strip */}}
-<section style="margin:24px var(--page-pad) 28px;">
-  <div class="archive-comm-strip" style="padding:28px;background:var(--panel);color:var(--panel-text);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:28px;">
-    <div style="grid-column:span 2;">
-      <div class="eyebrow" style="opacity:0.55;">{{ T "commissions_label" | default "Commissions ·" | upper }}</div>
-      <div class="sans" style="font-size:36px;font-weight:500;letter-spacing:-0.02em;margin-top:10px;line-height:1.05;">{{ T "commission_cta_headline" | default "Want me to paint something?" }}</div>
-      <div style="font-size:12px;opacity:0.65;margin-top:14px;line-height:1.6;">
-        {{ T "commission_body" | safeHTML | default "Send your piece list, a reference image, and a deadline.<br>I'll reply within 48h with a quote and a queue slot." }}
-      </div>
-      <button onclick="openCommissionModal()" style="margin-top:20px;background:var(--yellow);color:#0c0c0a;border:1px solid var(--yellow-dark);padding:12px 22px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
-        {{ T "start_commission_btn" | default "[ Start a commission → ]" }}
+{{/* ── 作品区：同一批数据两种视图，切换只改容器 class ── */}}
+<section class="section">
+  <div class="wrap">
+
+    <div class="work-grid" data-view-panel="grid">
+      {{ range $works }}
+        {{ $t := .Title }}
+        <a class="work-card" href="{{ .RelPermalink }}"
+           data-system="{{ .Params.system }}">
+          <span class="work-card__cover">
+            {{ with .Params.cover }}
+              <img src="{{ partial "optimized-image" (dict "src" . "width" 640) }}"
+                   alt="{{ $t }}" loading="lazy">
+            {{ end }}
+            {{ with .Params.photos }}<span class="work-card__count">{{ . }} {{ T "unit_shots" | default "张" }}</span>{{ end }}
+          </span>
+          <span class="work-card__meta">
+            <span>{{ .Params.delivered | default (.Date.Format "2006.01") }}</span>
+          </span>
+          <span class="title-item work-card__title">{{ .Title }}</span>
+          <span class="work-card__foot">
+            {{ with .Params.system }}{{ T (printf "sys_%s" (replace . "-" "_")) | default . }}{{ end }}{{ with .Params.model_count }} · {{ . }} {{ T "unit_models" }}{{ end }}
+          </span>
+        </a>
+      {{ end }}
+    </div>
+
+    <div class="work-list" data-view-panel="list" hidden>
+      {{ range $works }}
+        {{ $t := .Title }}
+        <a class="work-row" href="{{ .RelPermalink }}"
+           data-system="{{ .Params.system }}">
+          <span class="work-row__thumb">
+            {{ with .Params.cover }}
+              <img src="{{ partial "optimized-image" (dict "src" . "width" 200) }}"
+                   alt="{{ $t }}" loading="lazy">
+            {{ end }}
+          </span>
+          <span class="work-row__title">{{ .Title }}</span>
+          <span class="work-row__mono work-row__hide-m">{{ with .Params.system }}{{ T (printf "sys_%s" (replace . "-" "_")) | default . }}{{ end }}</span>
+          {{/* 等级列拿掉后这行偏空，补回真实存在的信息：模型数与图片数 */}}
+          <span class="work-row__mono work-row__hide-m">
+            {{ with .Params.model_count }}{{ . }} {{ T "unit_models" }}{{ end }}
+          </span>
+          <span class="work-row__mono work-row__hide-m">
+            {{ with .Params.photos }}{{ . }} {{ T "unit_shots" }}{{ end }}
+          </span>
+          <span class="work-row__mono">{{ .Params.delivered | default (.Date.Format "2006.01") }}</span>
+        </a>
+      {{ end }}
+    </div>
+
+    {{/* 加载更多（规格 §8.5）。无 JS 时这个按钮不出现，列表本来就是全量直出。 */}}
+    <div class="archive-more">
+      <button type="button" class="btn-line" data-load-more hidden>
+        {{ T "load_more" | default "加载更多" }} · <span data-load-more-count>0</span> {{ T "load_more_rest" | default "个剩余" }}
       </button>
     </div>
-    <div style="padding:18px;border:1px solid rgba(255,255,255,0.2);">
-      <div class="eyebrow" style="opacity:0.7;">{{ T "tier_tabletop_label" | default "Tabletop" }}</div>
-      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_tabletop_price_short" | default "¥120 / model" }}</div>
-      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">{{ T "tier_tabletop_sub2" | default "Tournament-ready, base + edge highlight" }}</div>
-    </div>
-    <div style="padding:18px;background:var(--yellow);color:#0c0c0a;">
-      <div class="eyebrow" style="opacity:0.7;">{{ T "tier_display_label" | default "Display" }}</div>
-      <div class="sans" style="font-size:22px;font-weight:500;margin-top:4px;">{{ T "tier_display_price" | default "from ¥600 / model" }}</div>
-      <div style="font-size:11px;opacity:0.7;margin-top:8px;line-height:1.5;">{{ T "tier_display_sub" | default "Layered, freehand, custom base" }}</div>
+
+    {{/* 筛空时的出口（规格 §18 边界情况 1）：不是死胡同，给一键换到有内容的筛选 */}}
+    <div class="archive-empty" data-empty hidden>
+      <p class="body-s">{{ T "filter_empty" | default "这个组合还没有档案。" }}</p>
+      <button type="button" class="btn-text" data-filter-clear>{{ T "filter_empty_cta" | default "看看全部作品 →" }}</button>
     </div>
   </div>
 </section>
 
-{{ end }}
-
-{{ define "scripts" }}
-<script>
-/* ── Slide panels ── */
-var _vpOpen = false;
-var _vpTitles = {
-  commissions: '{{ T "nav_commissions" | default "Commissions" }}',
-  contact:     '{{ T "nav_contact"     | default "Contact"     }}'
-};
-function vpOpen(which) {
-  document.querySelectorAll('.vp-content').forEach(el => el.style.display = 'none');
-  var content = document.getElementById('vp-' + which);
-  if (!content) return;
-  content.style.display = 'block';
-  document.getElementById('vp-title').textContent = _vpTitles[which] || which;
-  var panel = document.getElementById('vp-panel');
-  var overlay = document.getElementById('vp-overlay');
-  panel.style.display = 'block';
-  overlay.style.display = 'block';
-  /* animate in */
-  panel.style.transform = 'translateX(100%)';
-  panel.style.transition = 'transform 0.28s cubic-bezier(0.32,0,0.2,1)';
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){
-    panel.style.transform = 'translateX(0)';
-  }); });
-  document.body.style.overflow = 'hidden';
-  _vpOpen = true;
-}
-function vpClose() {
-  var panel = document.getElementById('vp-panel');
-  var overlay = document.getElementById('vp-overlay');
-  panel.style.transform = 'translateX(100%)';
-  setTimeout(function(){
-    panel.style.display = 'none';
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-    _vpOpen = false;
-  }, 280);
-}
-document.addEventListener('keydown', function(e){ if(e.key==='Escape' && _vpOpen) vpClose(); });
-
-/* ── Archive filter ── */
-function filterArchive(faction, btn) {
-  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.archive-row').forEach(row => {
-    row.style.display = (faction === 'all' || row.dataset.faction === faction) ? '' : 'none';
-  });
-  history.replaceState(null, '', faction === 'all' ? window.location.pathname : '#faction=' + faction);
-}
-(function(){
-  var h = window.location.hash;
-  if (h.startsWith('#faction=')) {
-    var f = h.replace('#faction=','');
-    var btn = document.querySelector('[data-faction="'+f+'"]');
-    if (btn) filterArchive(f, btn);
-  }
-})();
-</script>
+</main>
 {{ end }}

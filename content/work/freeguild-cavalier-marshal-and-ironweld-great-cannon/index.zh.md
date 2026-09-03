@@ -1,4 +1,4 @@
-﻿---
+---
 title: "元帅与巨炮：西格玛之锤"
 date: 2024-01-01
 summary: "双重展示：指挥若定的自由公会骑兵元帅与毁灭性的铁铸工厂巨炮。"
@@ -27,6 +27,8 @@ paints:
     hex: "#fab1a0"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "双重展示：指挥若定的自由公会骑兵元帅与毁灭性的铁铸工厂巨炮。两个模型都采用了增强的做旧和金属效果，以展现其身经百战的姿态。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

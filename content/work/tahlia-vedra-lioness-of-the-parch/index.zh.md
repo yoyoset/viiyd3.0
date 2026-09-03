@@ -1,4 +1,4 @@
-﻿---
+---
 title: "塔莉亚·维德拉：帕奇的雌狮"
 date: 2024-01-01
 summary: "帕奇的雌狮骑着狮鹫奔赴战场。这是西格玛之城的核心模型，具有雄伟的狮鹫和复杂的角色细节。"
@@ -27,6 +27,8 @@ paints:
     hex: "#002050"
     link: "https://www.warhammer.com/en-GB/shop/Base-Kantor-Blue-2019"
 description: "帕奇的雌狮骑着狮鹫奔赴战场。这是西格玛之城的核心模型，具有雄伟的狮鹫和复杂的角色细节，以此展示高超的桌面涂装标准。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

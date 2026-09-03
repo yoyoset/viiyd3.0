@@ -1,4 +1,4 @@
-﻿---
+---
 title: "粉色惧妖：奸奇的笑声"
 date: 2025-10-31
 summary: "诞生于亚空间能量的扭曲生物，尖锐的笑声回荡在战场上。采用多层罩染和空灵的发光效果，以捕捉奸奇的本质。"
@@ -31,6 +31,7 @@ paints:
     hex: "#FFE900"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Yriel-Yellow-2019"
 description: "多层半透明罩染和亚空间发光效果，以超凡脱俗的能量赋予奸奇粉色惧妖生命。"
+delivered: "2025.10"
 ---
 
 <div class="image-grid">

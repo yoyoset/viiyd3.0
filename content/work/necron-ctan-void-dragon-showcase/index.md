@@ -57,6 +57,8 @@ paints:
     hex: "#2B2B2B"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
 description: "C'tan Shard of the Void Dragon Necron commission. Silver god-body with full-spectrum gauss lightning, gold crown accents, serpentine spine tail, and Necron ruin base — 9 showcase photos."
+system: "40k"
+delivered: "2026.05"
 ---
 
 <div class="image-grid">

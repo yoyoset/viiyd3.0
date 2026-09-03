@@ -1,7 +1,19 @@
-# VIIYD 3.0 Frontend Design System
+# VIIYD 3.0 Frontend Design System（已退役）
 
-> Status: Current source of truth  
-> Source: Claude redesign, reflected in `assets/css/main.css`, `layouts/index.html`, `layouts/work/list.html`, `layouts/work/single.html`, and `layouts/painter/list.html`  
+> ## ⚠️ 这份文档描述的是 3.0，**不要照它建 UI**
+>
+> 2026-09-03 起站点已是 4.0（墨屏暗底 + 天水碧/朱砂/缃色，Noto Serif SC）。
+> 本文提到的 `assets/css/main.css` 与 `layouts/painter/list.html` **都已删除**。
+>
+> **4.0 的设计系统看这三处：**
+> - `assets/css/tokens.css` —— 令牌唯一来源（六色锁定、13 级字阶、限宽）
+> - `CLAUDE.md` 的「前端约定（4.0）」一节 —— 红线与不可破坏的契约
+> - `DOCS/REDESIGN_4.0_PLAN.md` —— 每个决定的依据，含六处偏离设计稿的理由
+>
+> 本文保留仅为历史参考（比如想知道 3.0 为什么那样做）。
+
+> Status: **DEPRECATED（2026-09-03）**  
+> Source: 3.0 时代的 `assets/css/main.css`（已删除）  
 > Business role: A premium miniature-painting commission site, not a game UI, SaaS dashboard, or generic portfolio.
 
 ## 1. Brand Position

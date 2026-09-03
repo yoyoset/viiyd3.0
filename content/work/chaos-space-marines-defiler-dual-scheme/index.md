@@ -56,6 +56,8 @@ paints:
     hex: "#4B2E2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Reikland-Fleshshade-2022"
 description: "Chaos Space Marines Defiler daemon engine painted in two full schemes — Black Legion black-and-gold with battle damage, and Iron Warriors gunmetal with yellow-black hazard stripes. Built with the complete set of swappable weapon arms: battle cannon, reaper autocannon, scourge tendrils, power scythe and close-combat claws."
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

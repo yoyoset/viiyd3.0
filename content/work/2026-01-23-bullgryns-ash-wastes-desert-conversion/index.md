@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Bullgryns: Tallarn 'Dust Wall' Auxilia"
 date: 2026-01-23T14:30:00+08:00
 summary: "Heavy infantry modified for Ash Wastes operations alongside Tallarn regiments."
@@ -44,6 +44,8 @@ paints:
     hex: "#472C25"
     link: "https://www.warhammer.com/en-GB/shop/Base-Rhinox-Hide-2019"
 description: "A conversion project integrating Bullgryns into a Tallarn Ash Wastes force using Necromunda Nomad components."
+system: "40k"
+delivered: "2026.01"
 ---
 
 <div class="image-grid">

@@ -52,6 +52,8 @@ paints:
     hex: "#2A2A2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "A twenty-four-strong Grand Cathay Peasant Levy in red tunics, ivory cloth and blue belts, with straw hats, blue headwraps and iron farm tools turned to war. Regiment-wide colour lock with individual faces, poses and simple weapons keeping the mass of repeats alive."
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

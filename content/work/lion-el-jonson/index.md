@@ -27,6 +27,8 @@ paints:
     hex: "#A29F91"
     link: "https://www.warhammer.com/en-GB/shop/Base-Rakarth-Flesh-2019"
 description: "The Lion sleeps no more. A centerpiece display model focusing on high-contrast NMM-style power weaponry and rich, volumetric cloak rendering. Executed as a Master Tier centerpiece, designed to be the undisputed focal point of a Dark Angels army."
+system: "40k"
+delivered: "2025.10"
 ---
 
 <div class="image-grid">
@@ -68,11 +70,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>ðŸ›¡ï¸?Power Armor</span>
+<span>ðŸ›¡ï¿½?Power Armor</span>
 <span class="font-mono text-emerald-200">Caliban Green</span>
 </li>
 <li class="flex justify-between">
-<span>âš?Fealty Sword</span>
+<span>ï¿½?Fealty Sword</span>
 <span class="font-mono text-cyan-200">Kantor Blue</span>
 </li>
 <li class="flex justify-between">

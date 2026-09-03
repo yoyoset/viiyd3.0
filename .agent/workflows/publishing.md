@@ -125,6 +125,9 @@ layout: "project"
 photos: N  # 必填！= 画廊图片张数 (_01.._NN)。驱动 plates 网格和灯箱；漏写则页面布局错误且无法点击放大
 optimized: true  # 必须开启，启用本地 WebP 缩略图同步
 tier: "[Battleline|Specialist|Spec Ops|Master|Legend]"
+system: "[40k|old-world|aos|kill-team|joytoy|other]"  # 4.0 必填。漏写这单不进任何分类页
+delivered: "YYYY.MM"  # 4.0 必填。交付月，列表倒序依据。**双语必须写同一个值**
+eiu: N  # 4.0 选填。定价系数拍板前可留空，留空即不显示
 time_log: "XXh XXm"
 model_count: N
 paints:

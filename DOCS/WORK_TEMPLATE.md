@@ -1,8 +1,8 @@
-# VIIYD Work Post Template (v3.0)
+# VIIYD Work Post Template (v4.0)
 
 > **Purpose**: Machine-readable template for automated content publishing.
 > **Target Consumer**: AI Agent performing content generation.
-> **Last Updated**: 2026-01-18
+> **Last Updated**: 2026-09-03（4.0 改版：新增 system / delivered / eiu 等字段）
 
 ---
 
@@ -18,6 +18,14 @@ cover: "https://photo.viiyd.com/[PHOTO_PREFIX]_01.jpg"
 layout: "project"
 photos: [N]  # REQUIRED. Number of gallery images (_01.._NN). Drives the plates grid + click-to-enlarge lightbox. Omit it and the lightbox WILL NOT work.
 tier: "[Tier]"  # ENUM: Battleline | Specialist | Spec Ops | Master | Legend
+system: "[System]"  # 4.0 必填。ENUM: 40k | old-world | aos | kill-team | joytoy | other
+                    # 驱动作品页的「游戏类型」筛选与 /system/<值>/ 分类落地页。
+                    # 漏写 = 这一单不会出现在任何分类页里。
+delivered: "YYYY.MM"  # 4.0 必填。交付月，作品列表按此倒序。可与 date 的年月一致。
+eiu: [N]  # 4.0 选填。该单 EIU 总量。定价系数拍板前（占位表 P1-P4）可以留空，
+          # 留空时详情页与卡片不显示 EIU 行，不会报错。
+models: "[构成描述]"  # 4.0 选填。一行，如「英雄 1 · 旗手 1」。
+extras: ["[加购项]"]  # 4.0 选填。如 ["定制地台"]。可省略。
 time_log: "[X]h [X]m"  # Format: "XXh XXm" (e.g., "45h 30m")
 model_count: [N]  # Integer. Number of models. Defaults to 1.
 paints:
@@ -36,7 +44,10 @@ description: "[Longer narrative description for SEO/social. 150-200 chars.]"
 | Field | Required | Validation |
 |-------|----------|------------|
 | title | ✅ | Non-empty string |
-| date | ✅ | ISO 8601 format |
+| date | ✅ | ISO 8601 **带时区**。写 `YYYY-MM-DD`（无时区）按 UTC 零点算，东八区凌晨会落在未来 → **Hugo 静默不生成该页**（`hugo list` 能看到，`public/` 里没有文件）|
+| system | ✅ | 六个枚举值之一。审计脚本会挡住非法值 |
+| delivered | ✅ | `YYYY.MM`。与 `index.zh.md` **必须写同一个值**（事实性字段，审计会比对双语一致性）|
+| eiu | ⬜ | 整数。留空即不显示 |
 | cover | ✅ | Must be `https://photo.viiyd.com/` URL |
 | layout | ✅ | Must be `"project"` |
 | photos | ✅ | Integer = number of `_01.._NN` gallery images. Required for the click-to-enlarge lightbox. Must match the `{{< lightbox >}}` count in the body. |

@@ -32,6 +32,8 @@ paints:
     hex: "#DAA520"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "灵族飞鹰道途武士代工展示。采用深蓝装甲与高对比度的机械羽翼涂装，完美契合虚空战团(Void Warhost)主题。"
+system: "40k"
+delivered: "2026.04"
 ---
 
 <div class="image-grid">

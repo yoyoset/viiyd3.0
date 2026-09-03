@@ -44,6 +44,8 @@ paints:
     hex: "#A1A1A1"
     link: "https://www.warhammer.com/en-GB/shop/Base-Grey-Seer-2019"
 description: "15模型震旦天朝骑兵，红金皇家卫队系列第二团。帝国红装甲、金边甲片、白色战马，与步兵团及第一骑兵团构成完整帝国军阵。"
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

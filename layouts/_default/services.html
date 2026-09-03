@@ -1,240 +1,114 @@
-﻿{{ define "main" }}
-<div class="min-h-screen bg-neutral-950 pb-24 font-sans text-gray-300 relative">
+{{ define "main" }}
+{{/* VIIYD 4.0.1 服务与计价页
 
-    <!-- Hero Background -->
-    {{ with .Params.hero_bg }}
-    <div class="absolute inset-0 z-0 h-[900px]">
-        <img src="{{ . }}" class="w-full h-full object-cover opacity-30 pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/80 to-neutral-950"></div>
+     **不再有五个等级。** 2026-09-03 的方向调整：
+     每一单都是定制，笔触密度/旧化程度/地台形式按这一单的模型与需求定，
+     所以「档位」这个概念本身不成立 —— 我们接的单本来也没按档位接过。
+     特色是那套独特的 EIU 计价方式，比率一单一议。
+
+     因此这一页只做三件事：说清「一单一议」、给出 EIU 这个唯一的数字锚点、
+     讲流程与 FAQ。**不放体型倍数表，不放估算器** ——
+     倍数与估算全部留到微信里一对一谈（规格 §19 的留白策略，这次贯彻得更彻底）。 */}}
+
+{{ $p    := .Site.Data.pricing }}
+{{ $isZH := eq .Lang "zh" }}
+{{ $sch  := .Site.Data.schedule }}
+
+<main>
+
+{{/* ── 页头：定位句 + 全站唯一的数字 ── */}}
+<section class="section">
+  <div class="wrap svc-head">
+    <div>
+      <div class="label">SERVICES &amp; PRICING</div>
+      <h1 class="display-2">{{ T "svc_title" }}</h1>
+      <p class="body-s svc-head__lede">{{ T "svc_lede" }}</p>
+    </div>
+
+    {{ if $isZH }}
+    {{/* 全站唯一的金额。旁边那句「具体怎么算，问我」是有意的钩子（规格 B1）。 */}}
+    <div class="frame svc-eiu">
+      <div class="label">1 EIU</div>
+      <div class="svc-eiu__num">{{ $p.eiu.currency }}{{ $p.eiu.base }}</div>
+      <p class="body-xs">{{ T "svc_eiu_note" }}</p>
     </div>
     {{ end }}
+  </div>
+</section>
 
-    <div class="relative z-10 w-full">
-
-        <!-- HERO SECTION -->
-        <div class="relative pt-40 pb-24 overflow-hidden">
-            <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-                <h1
-                    class="text-6xl md:text-8xl font-black font-serif text-white tracking-widest uppercase mb-8 drop-shadow-lg">
-                    {{ .Title }}
-                </h1>
-
-                <div class="h-1 w-24 bg-gold-500 mx-auto mb-10 shadow-[0_0_20px_rgba(255,255,255,0.3)]"></div>
-
-                <div class="text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed text-gray-400">
-                    {{ .Params.hero.intro | default .Content }}
-                </div>
-            </div>
-        </div>
-
-        <!-- TIERS SECTION -->
-        <section class="max-w-7xl mx-auto px-6 mb-32">
-            <div class="grid lg:grid-cols-3 gap-8">
-                {{ range .Params.tiers }}
-                {{ $color := .color | default "gold" }}
-
-                {{/* Determine color classes based on color value */}}
-                {{ $bgClass := "bg-gold-500" }}
-                {{ $textClass := "text-gold-500" }}
-                {{ $ringClass := "ring-gold-500" }}
-                {{ $borderHover := "hover:border-gold-500/50" }}
-                {{ $shadowClass := "shadow-gold-500/10" }}
-                {{ $shadowHover := "hover:shadow-gold-500/20" }}
-                {{ $shadowBtn := "shadow-gold-500/20" }}
-                {{ $shadowBtnHover := "hover:shadow-gold-500/40" }}
-                {{ $borderGroup := "group-hover:border-gold-500/30" }}
-
-                {{ if eq $color "cyan" }}
-                {{ $bgClass = "bg-cyan-500" }}
-                {{ $textClass = "text-cyan-500" }}
-                {{ $ringClass = "ring-cyan-500" }}
-                {{ $borderHover = "hover:border-cyan-500/50" }}
-                {{ $shadowClass = "shadow-cyan-500/10" }}
-                {{ $shadowHover = "hover:shadow-cyan-500/20" }}
-                {{ $shadowBtn = "shadow-cyan-500/20" }}
-                {{ $shadowBtnHover = "hover:shadow-cyan-500/40" }}
-                {{ $borderGroup = "group-hover:border-cyan-500/30" }}
-                {{ else if eq $color "red" }}
-                {{ $bgClass = "bg-red-500" }}
-                {{ $textClass = "text-red-500" }}
-                {{ $ringClass = "ring-red-500" }}
-                {{ $borderHover = "hover:border-red-500/50" }}
-                {{ $shadowClass = "shadow-red-500/10" }}
-                {{ $shadowHover = "hover:shadow-red-500/20" }}
-                {{ $shadowBtn = "shadow-red-500/20" }}
-                {{ $shadowBtnHover = "hover:shadow-red-500/40" }}
-                {{ $borderGroup = "group-hover:border-red-500/30" }}
-                {{ else if eq $color "purple" }}
-                {{ $bgClass = "bg-purple-500" }}
-                {{ $textClass = "text-purple-500" }}
-                {{ $ringClass = "ring-purple-500" }}
-                {{ $borderHover = "hover:border-purple-500/50" }}
-                {{ $shadowClass = "shadow-purple-500/10" }}
-                {{ $shadowHover = "hover:shadow-purple-500/20" }}
-                {{ $shadowBtn = "shadow-purple-500/20" }}
-                {{ $shadowBtnHover = "hover:shadow-purple-500/40" }}
-                {{ $borderGroup = "group-hover:border-purple-500/30" }}
-                {{ else if eq $color "fuchsia" }}
-                {{ $bgClass = "bg-fuchsia-500" }}
-                {{ $textClass = "text-fuchsia-500" }}
-                {{ $ringClass = "ring-fuchsia-500" }}
-                {{ $borderHover = "hover:border-fuchsia-500/50" }}
-                {{ $shadowClass = "shadow-fuchsia-500/10" }}
-                {{ $shadowHover = "hover:shadow-fuchsia-500/20" }}
-                {{ $shadowBtn = "shadow-fuchsia-500/20" }}
-                {{ $shadowBtnHover = "hover:shadow-fuchsia-500/40" }}
-                {{ $borderGroup = "group-hover:border-fuchsia-500/30" }}
-                {{ else if eq $color "emerald" }}
-                {{ $bgClass = "bg-emerald-500" }}
-                {{ $textClass = "text-emerald-500" }}
-                {{ $ringClass = "ring-emerald-500" }}
-                {{ $borderHover = "hover:border-emerald-500/50" }}
-                {{ $shadowClass = "shadow-emerald-500/10" }}
-                {{ $shadowHover = "hover:shadow-emerald-500/20" }}
-                {{ $shadowBtn = "shadow-emerald-500/20" }}
-                {{ $shadowBtnHover = "hover:shadow-emerald-500/40" }}
-                {{ $borderGroup = "group-hover:border-emerald-500/30" }}
-                {{ end }}
-
-                <div
-                    class="group relative rounded-2xl overflow-hidden bg-neutral-900 flex flex-col min-h-[600px] transition-all duration-500 hover:shadow-2xl {{ $shadowHover }} hover:-translate-y-2 border border-white/10 {{ $borderHover }} {{ if .featured }}ring-2 {{ $ringClass }} shadow-2xl {{ $shadowClass }} lg:-translate-y-4 z-10{{ end }}">
-
-                    <!-- Background Image -->
-                    <div class="absolute inset-0 h-3/5">
-                        <img src="{{ .image }}" alt="{{ .name }}"
-                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/60 to-transparent">
-                        </div>
-                    </div>
-
-                    <!-- Featured Badge -->
-                    {{ if .featured }}
-                    <div
-                        class="absolute top-0 right-0 {{ $bgClass }} text-black text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-widest z-10 shadow-lg">
-                        {{ T "recommended_label" }}
-                    </div>
-                    {{ end }}
-
-                    <!-- Content -->
-                    <div
-                        class="relative z-10 p-8 flex flex-col h-full mt-auto bg-gradient-to-t from-neutral-900 via-neutral-900/95 to-transparent pt-32">
-
-                        <p class="{{ $textClass }} font-mono text-xs uppercase tracking-[0.3em] mb-2 font-bold">{{
-                            .label }}</p>
-                        <h3 class="text-4xl font-bold font-serif text-white mb-6">{{ .name }}</h3>
-
-                        <div
-                            class="mb-8 p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 {{ $borderGroup }} transition-colors">
-                            <div class="flex items-baseline">
-                                <span class="text-4xl font-black text-white">$</span>
-                                <span class="text-6xl font-black text-white tracking-tighter">{{ .price }}</span>
-                                <span class="text-xl text-gray-400 ml-1 font-serif italic">{{ .price_suffix }}</span>
-                            </div>
-                            <span class="text-xs text-gray-400 uppercase tracking-wider block mt-2 font-bold">{{ .unit
-                                }}</span>
-                        </div>
-
-                        <ul class="space-y-4 mb-8 flex-grow">
-                            {{ range .features }}
-                            <li class="flex items-start gap-3 text-gray-300 text-sm">
-                                <span class="{{ $textClass }} mt-0.5 text-lg">•</span>
-                                {{ . }}
-                            </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
-                {{ end }}
-            </div>
-        </section>
-
-        <!-- ADD-ONS SECTION -->
-        <div class="max-w-7xl mx-auto px-6 mb-32">
-            <h2
-                class="text-3xl text-white font-black text-center mb-16 uppercase tracking-tight flex items-center justify-center gap-6">
-                <span class="w-12 h-px bg-neutral-800"></span>
-                {{ T "addons_title" }}
-                <span class="w-12 h-px bg-neutral-800"></span>
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {{ range .Params.addons }}
-                {{ $color := .color | default "gold" }}
-
-                {{/* Addon color classes */}}
-                {{ $textGroup := "group-hover:text-gold-500" }}
-                {{ $borderGroup50 := "group-hover:border-gold-500/50" }}
-                {{ $shadowClass := "shadow-gold-500/10" }}
-                {{ $borderGroup := "group-hover:border-gold-500/30" }}
-
-                {{ if eq $color "cyan" }}
-                {{ $textGroup = "group-hover:text-cyan-500" }}
-                {{ $borderGroup50 = "group-hover:border-cyan-500/50" }}
-                {{ $shadowClass = "shadow-cyan-500/10" }}
-                {{ $borderGroup = "group-hover:border-cyan-500/30" }}
-                {{ else if eq $color "emerald" }}
-                {{ $textGroup = "group-hover:text-emerald-500" }}
-                {{ $borderGroup50 = "group-hover:border-emerald-500/50" }}
-                {{ $shadowClass = "shadow-emerald-500/10" }}
-                {{ $borderGroup = "group-hover:border-emerald-500/30" }}
-                {{ else if eq $color "fuchsia" }}
-                {{ $textGroup = "group-hover:text-fuchsia-500" }}
-                {{ $borderGroup50 = "group-hover:border-fuchsia-500/50" }}
-                {{ $shadowClass = "shadow-fuchsia-500/10" }}
-                {{ $borderGroup = "group-hover:border-fuchsia-500/30" }}
-                {{ end }}
-
-                <div
-                    class="bg-neutral-900 border border-white/5 p-8 rounded-2xl transition-all duration-500 group hover:-translate-y-2 hover:shadow-2xl {{ $shadowClass }} {{ $borderGroup }} relative overflow-hidden">
-
-                    <!-- Addon BG -->
-                    {{ if .bg_image }}
-                    <img src="{{ .bg_image }}"
-                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none">
-                    {{ end }}
-
-                    <div class="relative z-10">
-                        <div
-                            class="text-5xl mb-6 transition-all duration-300 transform group-hover:scale-110 origin-left drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                            {{ .icon }}</div>
-                        <h3
-                            class="text-white font-bold uppercase tracking-wider mb-3 text-sm {{ $textGroup }} transition-colors">
-                            {{ .name }}</h3>
-                        <p
-                            class="text-gray-500 text-sm leading-relaxed mb-6 block min-h-[3rem] group-hover:text-gray-300 transition-colors">
-                            {{ .desc }}</p>
-                        <div
-                            class="text-[10px] text-gray-500 font-bold font-mono uppercase border border-white/10 inline-block px-3 py-1.5 rounded backdrop-blur-sm bg-black/20 {{ $borderGroup50 }} {{ $textGroup }} transition-all">
-                            {{ T "price_quote" }}</div>
-                    </div>
-                </div>
-                {{ end }}
-            </div>
-        </div>
-
-        <!-- FOOTER CTA -->
-        <div class="text-center py-16 border-t border-white/5 mx-auto max-w-4xl px-6">
-            <h3 class="text-2xl font-serif text-white mb-4">{{ .Params.cta.text }}</h3>
-            <a href="{{ .Params.cta.link_url }}"
-                class="inline-flex items-center gap-2 text-gold-500 hover:text-white transition-colors text-sm uppercase tracking-[0.2em] hover:tracking-[0.3em] duration-300 border-b border-gold-500/30 pb-1 hover:border-white mb-8">
-                {{ .Params.cta.link_text }}
-            </a>
-
-            <!-- Contact CTA -->
-            <div class="mt-12 pt-8 border-t border-white/5">
-                <p class="text-gray-400 mb-6">{{ T "cta_ready" }}</p>
-                <a href="#" onclick="event.preventDefault();openCommissionModal()"
-                    class="inline-flex items-center gap-3 px-8 py-4 bg-gold-500 hover:bg-gold-400 text-neutral-900 font-bold rounded-lg shadow-lg hover:shadow-gold-500/30 transition-all transform hover:-translate-y-1 uppercase tracking-wider">
-                    <span>{{ T "cta_request" }}</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-
+{{/* ── 01 · 一单一议 ── */}}
+<section class="section">
+  <div class="wrap svc-split">
+    <div>
+      <div class="section-label label"><span class="num">01</span><span>{{ T "svc_custom_label" }}</span></div>
+      <div class="prose svc-custom">
+        {{ range $i := seq 1 3 }}<p class="body">{{ T (printf "svc_custom_%d" $i) }}</p>{{ end }}
+      </div>
     </div>
-</div>
+
+    <div>
+      <div class="section-label label"><span class="num">02</span><span>{{ T "svc_scope_label" }}</span></div>
+      {{/* 「按什么谈」用列表说清楚 —— 不给倍数，但让客户知道哪些变量会影响体量 */}}
+      <div class="size-list">
+        {{ range $i := seq 1 5 }}
+        <div class="scope-row">
+          <span class="scope-row__name">{{ T (printf "svc_scope_%d_k" $i) }}</span>
+          <span class="scope-row__desc body-xs">{{ T (printf "svc_scope_%d_v" $i) }}</span>
+        </div>
+        {{ end }}
+      </div>
+      <p class="body-xs svc-note">{{ T "svc_extras_note" }}</p>
+    </div>
+  </div>
+</section>
+
+{{/* ── 03 流程 + 04 FAQ ── */}}
+<section class="section">
+  <div class="wrap svc-split">
+    <div>
+      <div class="section-label label"><span class="num">03</span><span>{{ T "svc_flow_label" }}</span></div>
+      <div class="grid-hair flow-grid">
+        {{ range $i := seq 1 5 }}
+        <div class="flow-step">
+          <span class="label">{{ printf "%02d" $i }}</span>
+          <span class="title-item">{{ T (printf "flow_%d_name" $i) }}</span>
+          <span class="body-xs">{{ T (printf "flow_%d_desc" $i) }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label label"><span class="num">04</span><span>FAQ</span></div>
+      <div class="faq-list">
+        {{ range $i := seq 1 4 }}
+        <details class="faq">
+          <summary>{{ T (printf "faq_%d_q" $i) }}</summary>
+          <p class="body-s">{{ T (printf "faq_%d_a" $i) }}</p>
+        </details>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── 结尾：档期 + 询价 ── */}}
+<section class="section">
+  <div class="wrap">
+    <div class="frame about-cta">
+      <div>
+        <div class="label">{{ T "home_schedule" }}</div>
+        <div class="display-4 about-cta__slots">{{ printf (T "home_slots") $sch.open_slots }}</div>
+        <p class="body-s">{{ printf (T "home_next_slot") $sch.next_month }}</p>
+      </div>
+      {{ if $isZH }}
+        <button type="button" class="btn-action" data-wechat-open="services">{{ T "est_cta" }}</button>
+      {{ else }}
+        <a class="btn-line" href="{{ .Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">{{ T "cta_instagram" }}</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+</main>
 {{ end }}

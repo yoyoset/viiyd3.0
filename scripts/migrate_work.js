@@ -1,3 +1,7 @@
+/* ⚠️ DEPRECATED（2026-09-03，4.0 改版后停用）
+ * 3.0 时代的一次性内容迁移。**在 4.0 内容上运行会破坏 front matter**（它不认识 system/delivered/eiu）。4.0 的迁移用 migrate_4_0.js。
+ * 全站已无任何文档或配置引用它。保留仅为历史参考，**不要运行**。
+ */
 const fs = require('fs');
 const path = require('path');
 

@@ -27,6 +27,8 @@ paints:
     hex: "#741d44"
     link: "https://www.warhammer.com/en-GB/shop/Base-Screamer-Pink-2019"
 description: "Sonic weaponry and vibrant colors. A Noise Marine squad honoring Slaanesh with deafening cacophony. Featuring gradient pink armour, contrasting black panels, and glowing OSL effects on plasma weaponry and blastmasters."
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

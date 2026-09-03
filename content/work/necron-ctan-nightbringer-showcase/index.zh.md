@@ -44,6 +44,8 @@ paints:
     hex: "#2B2B2B"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
 description: "涅克隆夜使者星神碎片代工展示。紫黑袍体渐变溶解为高斯绿涅克德米斯触手，甲虫爬行底座，冷钢死亡镰刀。共9张展示照。"
+system: "40k"
+delivered: "2026.05"
 ---
 
 <div class="image-grid">

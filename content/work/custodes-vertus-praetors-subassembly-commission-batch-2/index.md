@@ -41,6 +41,8 @@ paints:
     hex: "#2396A8"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Temple-Guard-Blue-2019"
 description: "Batch II of an Adeptus Custodes Vertus Praetors sub-assembly commission. The same controlled-access workflow returns: wings, riders, and jetbike sections painted separately, matching the established gold, silver, red, black, and blue palette for a seamless squad finish."
+system: "40k"
+delivered: "2026.08"
 ---
 
 <div class="image-grid">

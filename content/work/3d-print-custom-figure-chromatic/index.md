@@ -26,6 +26,8 @@ paints:
     hex: "#440052"
     link: "https://www.warhammer.com/en-GB/shop/Base-Phoenician-Purple-2019"
 description: "Focusing on the aesthetic reshaping of 3D printed parts. Using multi-layer glazing and gradient logic to bring fiery blades and deep shadow armor to life."
+system: "other"
+delivered: "2025.12"
 ---
 
 

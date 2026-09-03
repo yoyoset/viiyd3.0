@@ -45,6 +45,8 @@ paints:
     hex: "#050505"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "六只嗜血狂奔者（Bloodcrushers）血神魔仆骑兵涂装委托，深红兽皮搭配黄铜与钢铁的魔犬座驾，以及做旧皮革挽具，组成统一的冲锋编队。"
+system: "40k"
+delivered: "2026.07"
 ---
 
 <div class="image-grid">

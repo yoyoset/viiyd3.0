@@ -44,6 +44,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "震旦天朝骑大灵龙马的术玄长老——翡翠龙鳞、透光象牙翼膜配橙红血管、金甲骑手与手绘红金披风。震旦天朝全军的绝对焦点。"
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

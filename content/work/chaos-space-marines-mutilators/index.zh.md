@@ -56,6 +56,8 @@ paints:
     hex: "#4B2E2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Reikland-Fleshshade-2022"
 description: "三人一组的混沌星际战士残虐者——身披扭曲终结者甲的活体攻城槌，变异粉色血肉与象牙犄角自每道接缝迸出。以黑色军团黑金配色搭配裸露的血肉金属武器：尖刺重锤、链刃巨爪与硕大动力爪。"
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

@@ -28,12 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return e;
     }
     function btn(icon, extraStyle) {
+        /* 加 class 而不是把尺寸写死在内联样式里 —— 内联样式接不了媒体查询，
+           而移动端要求可点区域 ≥44px（规格 §17）。尺寸交给 components.css 管。 */
         const b = el('button', Object.assign({
             background: 'none', border: 'none', color: '#fff',
             cursor: 'pointer', padding: '6px', lineHeight: '0',
             opacity: '0.75', transition: 'opacity 0.15s',
             pointerEvents: 'auto',
         }, extraStyle), icon);
+        b.className = 'lb-btn';
         b.addEventListener('mouseenter', () => b.style.opacity = '1');
         b.addEventListener('mouseleave', () => b.style.opacity = '0.75');
         return b;
@@ -43,26 +46,58 @@ document.addEventListener('DOMContentLoaded', () => {
     // Overlay
     const lb = el('div', {
         position: 'fixed', inset: '0', zIndex: '9000',
-        background: 'rgba(8,7,6,0.96)',
+        background: 'rgba(14,17,19,0.97)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         opacity: '0', pointerEvents: 'none',
-        transition: 'opacity 0.25s', touchAction: 'none',
+        transition: 'opacity 0.16s ease-out', touchAction: 'none',
     });
 
     // Main image
     const imgEl = el('img', {
-        maxWidth: '90vw', maxHeight: '90vh',
+        maxWidth: '90vw', maxHeight: '82vh',
         objectFit: 'contain', display: 'block',
         userSelect: 'none', cursor: 'zoom-in',
         transition: 'transform 0.2s',
     });
     imgEl.draggable = false;
 
+    // 顶行（§4.8）：mono `3 / 8` + 关闭
+    const topbar = el('div', {
+        position: 'absolute', top: '0', left: '0', right: '0',
+        padding: '20px 24px', display: 'flex', alignItems: 'center',
+        justifyContent: 'space-between', zIndex: '80', pointerEvents: 'none',
+    });
+    const counterTop = el('span', {
+        color: '#758A99', fontSize: '11px', letterSpacing: '0.14em',
+        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+        pointerEvents: 'auto',
+    });
+
+    // 底部常驻信息行（§4.8）：等级 · N EIU · 交付年月 + 同款询价
+    const metaRow = el('div', {
+        position: 'absolute', bottom: '0', left: '0', right: '0',
+        padding: '0 24px 20px', display: 'flex', alignItems: 'center',
+        justifyContent: 'space-between', gap: '16px',
+        zIndex: '75', pointerEvents: 'none', flexWrap: 'wrap',
+    });
+    const metaText = el('span', {
+        color: '#758A99', fontSize: '11px', letterSpacing: '0.12em',
+        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+        textTransform: 'uppercase', pointerEvents: 'auto',
+    });
+    const inquireBtn = el('button', {
+        background: 'none', border: '0', color: '#5AA4AE',
+        fontSize: '13.5px', cursor: 'pointer', padding: '10px 0',
+        pointerEvents: 'auto', minHeight: '44px',
+    });
+    /* 三个询价入口共用同一个浮层实例（规格 §13），来源标记 lightbox */
+    inquireBtn.setAttribute('data-wechat-open', 'lightbox');
+    metaRow.append(metaText, inquireBtn);
+
     // Toolbar (bottom bar)
     const toolbar = el('div', {
-        position: 'absolute', bottom: '0', left: '0', right: '0',
-        padding: '16px 16px 36px',
-        background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 100%)',
+        position: 'absolute', bottom: '56px', left: '0', right: '0',
+        padding: '12px 16px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         zIndex: '70', pointerEvents: 'none',
     });
@@ -74,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Center action group
     const centerGroup = el('div', {
         display: 'flex', alignItems: 'center', gap: '8px',
-        background: 'rgba(0,0,0,0.45)', padding: '8px 18px',
-        borderRadius: '999px', border: '1px solid rgba(255,255,255,0.08)',
+        background: 'rgba(14,17,19,0.6)', padding: '8px 18px',
+        border: '1px solid rgba(214,236,240,0.10)',
         pointerEvents: 'auto', margin: '0 auto',
     });
     const shareBtn = btn(icons.share);
@@ -92,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Floating desktop prev/next
     const floatStyle = {
         position: 'absolute', top: '50%', transform: 'translateY(-50%)',
-        background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.12)',
-        borderRadius: '50%', width: '48px', height: '48px',
+        background: 'rgba(14,17,19,0.6)', border: '1px solid rgba(214,236,240,0.10)',
+        width: '48px', height: '48px',
         display: window.innerWidth >= 768 ? 'flex' : 'none',
         alignItems: 'center', justifyContent: 'center',
         color: '#fff', cursor: 'pointer',
@@ -109,7 +144,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Assemble
-    lb.append(imgEl, toolbar, prevFl, nextFl, closeBtn);
+    topbar.append(counterTop, el('span'));   // 右侧占位，关闭按钮自己定位
+    /* 无障碍语义：这是一个模态对话框，不是一堆浮起来的 div */
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Image viewer');
+    closeBtn.setAttribute('aria-label', 'Close');
+    prevFl.setAttribute('aria-label', 'Previous');
+    nextFl.setAttribute('aria-label', 'Next');
+    prevTb.setAttribute('aria-label', 'Previous');
+    nextTb.setAttribute('aria-label', 'Next');
+    zoomBtn.setAttribute('aria-label', 'Zoom');
+    shareBtn.setAttribute('aria-label', 'Share');
+    saveBtn.setAttribute('aria-label', 'Save');
+
+    lb.append(imgEl, topbar, toolbar, metaRow, prevFl, nextFl, closeBtn);
+
+    /* 委托单元信息由模板写在 .plates-grid 上，这里只读不猜 —— 读不到就整行不显示 */
+    (function () {
+        const src = document.querySelector('[data-lb-meta]');
+        if (!src) { metaRow.style.display = 'none'; return; }
+        metaText.textContent = src.getAttribute('data-lb-meta') || '';
+        inquireBtn.textContent = src.getAttribute('data-lb-cta') || '';
+        if (!inquireBtn.textContent) inquireBtn.style.display = 'none';
+    })();
     document.body.appendChild(lb);
 
     // Responsive: update display on resize
@@ -122,7 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ── logic ──────────────────────────────────────────────────
+    let lastFocused = null;
+
     function open(index) {
+        /* 记住是谁打开的，关闭时焦点要还回去 —— 否则键盘用户会被丢回页面顶部 */
+        if (lb.style.opacity !== '1') lastFocused = document.activeElement;
         if (index < 0) index = imageList.length - 1;
         if (index >= imageList.length) index = 0;
         currentIndex = index;
@@ -133,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rawSrc = src.getAttribute('data-web-src')
                     || src.getAttribute('data-src')
                     || (src.tagName === 'IMG' ? src.src : null)
-                    || src.querySelector('img')?.src
+                    || (src.querySelector('img') && src.querySelector('img').src)
                     || '';
         const webSrc  = rawSrc;
         const fullSrc = src.getAttribute('data-full-res') || src.getAttribute('data-src') || rawSrc;
@@ -142,6 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
         imgEl.dataset.webSrc  = webSrc;
         imgEl.dataset.fullRes = fullSrc;
         counter.textContent   = `${currentIndex + 1} / ${imageList.length}`;
+        counterTop.textContent = `${currentIndex + 1} / ${imageList.length}`;
+        /* 焦点进入对话框，Tab 才不会跑到蒙层背后看不见的元素上 */
+        setTimeout(() => closeBtn.focus(), 0);
 
         lb.style.opacity      = '1';
         lb.style.pointerEvents = 'auto';
@@ -154,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
         if (isZoomed) resetZoom();
         setTimeout(() => { imgEl.src = ''; }, 250);
+        if (lastFocused && lastFocused.focus) { lastFocused.focus(); lastFocused = null; }
     }
 
     function resetZoom() {
@@ -190,13 +256,28 @@ document.addEventListener('DOMContentLoaded', () => {
     function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
 
     // ── share / save ───────────────────────────────────────────
+    function legacyCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); toast('Link copied'); }
+        catch (e) { toast('Copy failed'); }
+        document.body.removeChild(ta);
+    }
+
     async function handleShare() {
         const url = imgEl.dataset.webSrc || imgEl.src;
         if (navigator.share) {
             try { await navigator.share({ title: 'VIIYD', url }); return; }
             catch(e) { if (e.name === 'AbortError') return; }
         }
-        navigator.clipboard.writeText(url).then(() => toast('Link copied')).catch(() => toast('Copy failed'));
+        /* 微信内置浏览器里 navigator.clipboard 常为 undefined（非安全上下文/旧内核），
+           不守卫会静默抛错 —— 点「分享」毫无反应，连 toast 都不出。
+           兜底照抄 commission-modal 里 cmCopyWechat 的写法。 */
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(function () { toast('Link copied'); },
+                                                    function () { legacyCopy(url); });
+        } else { legacyCopy(url); }
     }
 
     async function handleSave() {
@@ -219,11 +300,11 @@ document.addEventListener('DOMContentLoaded', () => {
             a.click();
             URL.revokeObjectURL(a.href);
             toast('Saved');
-        } catch { window.open(url, '_blank'); toast('Long press to save'); }
+        } catch (e) { window.open(url, '_blank'); toast('Long press to save'); }
     }
 
     function toast(msg) {
-        document.getElementById('v-toast')?.remove();
+        (function(t){ if (t) t.remove(); })(document.getElementById('v-toast'));
         const t = el('div', {
             position: 'fixed', bottom: '88px', left: '50%',
             transform: 'translateX(-50%)',
@@ -243,7 +324,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── event wiring ───────────────────────────────────────────
     imageList.forEach((img, i) => {
         img.style.cursor = 'zoom-in';
-        img.addEventListener('click', e => { e.stopPropagation(); open(i); });
+        img.addEventListener('click', e => {
+            /* trigger 现在是 <a href=原图>，无 JS 时那是唯一的看大图途径。
+               有 JS 时必须 preventDefault，否则会离开页面而不是开灯箱。 */
+            e.preventDefault();
+            e.stopPropagation();
+            open(i);
+        });
     });
 
     const goPrev = () => open(currentIndex - 1);
@@ -260,6 +347,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', e => {
         if (lb.style.opacity === '0') return;
+        /* 焦点陷阱：对话框开着时 Tab 只在它内部循环 */
+        if (e.key === 'Tab') {
+            /* 可见性判断用 computedStyle.display，两个更直觉的写法都不行：
+               - offsetParent：灯箱是 position:fixed，内部元素的 offsetParent 全是 null（实测 6/6）
+               - getBoundingClientRect：标签页不可见时浏览器不算布局，所有 rect 归零（实测含灯箱自身）
+               display 不依赖布局，任何情况下都返回真实值。 */
+            const items = [].slice.call(lb.querySelectorAll('button'))
+                .filter(b => getComputedStyle(b).display !== 'none');
+            if (items.length) {
+                const first = items[0], last = items[items.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                else if (!lb.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+            }
+            return;
+        }
         if (e.key === 'Escape')     close();
         if (e.key === 'ArrowLeft')  goPrev();
         if (e.key === 'ArrowRight') goNext();

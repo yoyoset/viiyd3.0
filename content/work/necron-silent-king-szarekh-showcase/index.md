@@ -56,6 +56,8 @@ paints:
     hex: "#2B2B2B"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
 description: "The Silent King Szarekh centerpiece commission. Void-black barge panels with full-spectrum gauss OSL, gold Szarekh figure, and teal-stone Menhir obelisks — 14 showcase photos."
+system: "40k"
+delivered: "2026.05"
 ---
 
 <div class="image-grid">

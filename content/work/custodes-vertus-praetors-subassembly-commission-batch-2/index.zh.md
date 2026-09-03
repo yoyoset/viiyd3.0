@@ -41,6 +41,8 @@ paints:
     hex: "#2396A8"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Temple-Guard-Blue-2019"
 description: "禁军 Vertus Praetors 分件涂装委托第 2 批。继续沿用分件工作流：翼板、骑手与喷气摩托部件单独涂装，锁定第一批建立的金色、银色、红色、黑色与蓝色配方，让整支队伍最终成队时毫无批次落差。"
+system: "40k"
+delivered: "2026.08"
 ---
 
 <div class="image-grid">

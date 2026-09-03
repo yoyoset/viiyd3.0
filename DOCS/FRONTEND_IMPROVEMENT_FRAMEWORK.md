@@ -1,5 +1,8 @@
 # VIIYD Frontend Improvement Framework
 
+> ⚠️ **2026-09-03 注**：本文是 3.0 时代的前端改进框架，已被 4.0 改版整体取代。保留作历史参考。
+
+
 > Purpose: Make the current Claude redesign work as a commercial acquisition system, while preserving the dossier/archive design language.
 
 ## 1. North Star

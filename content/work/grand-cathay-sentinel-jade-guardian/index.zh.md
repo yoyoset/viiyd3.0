@@ -53,6 +53,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "一座以活玉石质感呈现的陶俑哨卫——冷青绿岩层层叠至 Temple Guard Blue，护甲与双刃武器上密布云纹浮雕，胸口与头盔镶嵌蓝宝石，立于斑驳铜绿的风化石台之上。"
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

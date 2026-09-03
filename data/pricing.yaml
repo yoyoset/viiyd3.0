@@ -1,0 +1,51 @@
+# VIIYD 计价模型 —— 规格 §5
+#
+# ⛔ 占位表 P1/P2/P3：下面的系数与倍数全部是设计稿占位值，等真实工时推算后替换。
+#    改这个文件即可，模板与估算器都从这里读，不要在别处写死数字。
+#
+# 站上只出现 `1 EIU = ¥40` 这一行金额，其余一律只显示倍数（规格 §5）。
+# EIU 怎么算、含不含组装地台运费 —— **故意不写**（规格 §19），这是商业策略不是文案缺失。
+
+eiu:
+  base: 40           # ¥ / EIU
+  currency: "¥"
+
+# 体型倍数（规格 §5）
+sizes:
+  - key: infantry
+    multiplier: 1
+  - key: elite
+    multiplier: 1.5
+  - key: cavalry
+    multiplier: 2.5
+  - key: vehicle
+    multiplier: 6
+  - key: titanic
+    multiplier: 20
+
+# 等级体系。命名严格锁定，不改军衔制（规格 §7 第 5 条）。
+# Legend 不套倍数、不进估算器四格（规格 §18 边界情况 2）。
+tiers:
+  - key: battleline
+    name: "Battleline"
+    coefficient: 1.0
+    days: "7–10"
+  - key: specialist
+    name: "Specialist"
+    coefficient: 1.8
+    days: "10–18"
+  - key: specops
+    name: "Spec Ops"
+    coefficient: 3.0
+    days: "18–30"
+  - key: master
+    name: "Master"
+    coefficient: 5.0
+    days: "30+"
+  - key: legend
+    name: "Legend"
+    coefficient: null      # 单独商谈，不套倍数
+    days: null
+
+# 估算结果超过这个值时追加分批交付提示（规格 §18）
+batch_hint_threshold: 40

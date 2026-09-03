@@ -35,6 +35,8 @@ paints:
     hex: "#A1A1A1"
     link: "https://www.warhammer.com/en-GB/shop/Base-Grey-Seer-2019"
 description: "展示了震旦天朝骑兵在华丽红金皇家色调下的视觉冲击力，专为战场存在感进行了优化。"
+system: "old-world"
+delivered: "2026.02"
 ---
 
 <div class="image-grid">

@@ -57,6 +57,8 @@ paints:
     hex: "#2B2B2B"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
 description: "C'tan Shard of the Nightbringer Necron commission. Purple-void robes bleeding into gauss-green necrodermis tendrils, Canoptek Scarabs at the base, cold steel scythe — 9 showcase photos."
+system: "40k"
+delivered: "2026.05"
 ---
 
 <div class="image-grid">

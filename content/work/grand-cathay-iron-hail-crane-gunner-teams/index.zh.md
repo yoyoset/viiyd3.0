@@ -60,6 +60,8 @@ paints:
     hex: "#4D3A2F"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Agrax-Earthshade-2022"
 description: "铁雹铳手与鹤铳手组成的火药之翼——红衣、象牙白围巾、蓝头巾与银钢枪械，配金龙饰件。铁雹铳手列队近战防御，鹤铳手提供重型火力，全部统一到一套锁定配色。"
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

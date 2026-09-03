@@ -1,4 +1,4 @@
-﻿---
+---
 title: "武侠桌游：微缩模型涂装测试"
 date: 2024-01-01
 summary: "武侠主题桌游的角色微缩模型。探索不同的调色板和光照效果，以捕捉武术精神。"
@@ -27,6 +27,8 @@ paints:
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "武侠主题桌游的角色微缩模型。探索不同的调色板、光照效果和布料纹理，以捕捉武侠英雄的精神。"
+system: "other"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

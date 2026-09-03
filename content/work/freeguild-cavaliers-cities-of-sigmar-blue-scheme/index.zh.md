@@ -1,4 +1,4 @@
-﻿---
+---
 title: "自由公会骑士：蓝色冲锋"
 date: 2024-01-01
 summary: "一队涂装为醒目蓝银配色的自由公会骑士，作为西格玛之城的先锋部队。"
@@ -27,6 +27,8 @@ paints:
     hex: "#fab1a0"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "一队涂装为醒目蓝银配色的自由公会骑士，作为西格玛之城的先锋部队。本单位已为桌面部署准备就绪，重点关注耐用性和视觉清晰度。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

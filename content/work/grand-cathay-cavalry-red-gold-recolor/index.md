@@ -35,6 +35,8 @@ paints:
     hex: "#A1A1A1"
     link: "https://www.warhammer.com/en-GB/shop/Base-Grey-Seer-2019"
 description: "A showcase of the Grand Cathay Cavalry in a stunning Red and Gold regal color scheme, optimized for tabletop presence."
+system: "old-world"
+delivered: "2026.02"
 ---
 
 <div class="image-grid">

@@ -1,0 +1,31 @@
+# Cloudflare Pages 响应头
+#
+# Hugo 对 CSS/JS 做了内容指纹（viiyd.min.<hash>.css），文件名变了内容才变，
+# 所以可以放心给一年期 immutable —— 改动会带来新文件名，不会读到旧缓存。
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 关于页的实景照由 Hugo 构建期生成，文件名带内容哈希，同样可长缓存
+/about/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML 不缓存到本地，交给 CDN 边缘缓存 + 每次部署刷新
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 安全响应头。**故意不加 CSP** —— 站点要加载 Turnstile、CF Analytics、
+# Google Fonts、R2 图片四个外域，CSP 写错会直接打断询价链路，
+# 收益不足以抵消这个风险。下面三条是无副作用的。
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN

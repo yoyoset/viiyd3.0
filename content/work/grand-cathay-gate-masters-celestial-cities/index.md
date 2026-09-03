@@ -56,6 +56,8 @@ paints:
     hex: "#2A2A2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "Eight Gate Masters of the Celestial Cities in a locked red, ivory, blue and silver scheme — red shields with black centre emblems, silver lamellar and spears, gold dragon fittings, individualised faces, and a white hand-painted dragon banner."
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

@@ -44,6 +44,8 @@ paints:
     hex: "#A1A1A1"
     link: "https://www.warhammer.com/en-GB/shop/Base-Grey-Seer-2019"
 description: "15-model Grand Cathay cavalry expanding the Red & Gold Royal Guard commission. Imperial red armor, gold lamellar trim, and white warhorses — consistent with the full regiment series."
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

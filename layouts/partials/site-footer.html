@@ -1,7 +1,16 @@
-<footer class="site-footer">
-  <span>© {{ now.Year }} V. · VIIYD STUDIO · Chengdu</span>
-  <span style="display:flex;gap:18px;">
-    <span>WeChat</span>
-    <a href="https://instagram.com/viiyang.yingying" target="_blank" rel="noopener" style="color:inherit;">Instagram · @viiyang.yingying</a>
-  </span>
+{{/* VIIYD 4.0 页脚 — handoff §4.10：上边框 1px，两端对齐，mono 10.5px */}}
+<footer class="site-foot">
+  <div class="wrap site-foot__inner">
+    <span>© {{ now.Year }} VIIYD STUDIO · {{ T "foot_city" | default "CHENGDU" }}</span>
+    <span class="site-foot__links">
+      {{/* 英文站点开是表单不是二维码，写 WECHAT 会误导 —— 分语言取文案 */}}
+      <button type="button" class="site-foot__link" data-wechat-open="footer">{{ T "foot_contact" | default "WECHAT" }}</button>
+      {{/* 渠道链接读 data/contact.yaml，留空的不渲染（占位表 P10） */}}
+      {{ with .Site.Data.contact.channels.xiaohongshu }}<a href="{{ . }}" target="_blank" rel="noopener">XIAOHONGSHU</a>{{ end }}
+      {{ with .Site.Data.contact.channels.bilibili }}<a href="{{ . }}" target="_blank" rel="noopener">BILIBILI</a>{{ end }}
+      {{ with .Site.Data.contact.channels.youtube }}<a href="{{ . }}" target="_blank" rel="noopener">YOUTUBE</a>{{ end }}
+      {{ with .Site.Data.contact.channels.facebook }}<a href="{{ . }}" target="_blank" rel="noopener">FACEBOOK</a>{{ end }}
+      {{ with .Site.Data.contact.channels.instagram }}<a href="{{ . }}" target="_blank" rel="noopener">INSTAGRAM</a>{{ end }}
+    </span>
+  </div>
 </footer>

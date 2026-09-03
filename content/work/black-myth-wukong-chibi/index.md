@@ -26,6 +26,8 @@ paints:
     hex: "#B7BABC"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Stormhost-Silver-2019"
 description: "A unique Chibi interpretation of the Destined One from Black Myth: Wukong. Realistic textures and weathering applied to stylized proportions create a collectible display piece."
+system: "other"
+delivered: "2025.11"
 ---
 
 <div class="image-grid">
@@ -95,7 +97,7 @@ The Alchemy
 <span class="font-mono text-yellow-200/80">Retributor Armour</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Metal Highlights</span>
+<span>ï¿½?Metal Highlights</span>
 <span class="font-mono text-gray-400">Stormhost Silver</span>
 </li>
 </ul>

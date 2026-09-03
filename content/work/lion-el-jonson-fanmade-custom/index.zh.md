@@ -1,4 +1,4 @@
-﻿---
+---
 title: "莱昂·庄森：饭制自定义模型"
 date: 2024-01-01
 summary: "一件独特的饭制基因原体莱昂·庄森自定义雕塑，探索了该角色的不同诠释。"
@@ -27,6 +27,8 @@ paints:
     hex: "#ffffff"
     link: "https://www.warhammer.com/en-GB/shop/Base-Corax-White-2019"
 description: "一件独特的饭制基因原体莱昂·庄森自定义雕塑，探索了该角色的不同诠释。该项目专注于将经典的暗黑天使美学应用于非标准雕塑，强调面部细节和盔甲纹理。"
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

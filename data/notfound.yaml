@@ -1,0 +1,16 @@
+# 404 文案的唯一来源。
+#
+# 为什么不放 i18n：Cloudflare Pages 只用根目录的 /404.html 服务全站 404，
+# 而根 404 是英文站渲染的 —— 它需要在运行时拿到**中文**文案给 /zh/ 访客。
+# 模板里 `T "nf_title"` 只能取到当前语言的值，取不到另一种。
+# 放这里两种语言都能读，不会出现两份文案各自漂移。
+en:
+  title: "This page is not in the archive"
+  body: "The link may have expired, or never existed."
+  work: "Browse the archive →"
+  home: "Back to home"
+zh:
+  title: "这个页面不在档案里"
+  body: "链接可能过期了，或者从来就不存在。"
+  work: "去看作品档案 →"
+  home: "回首页"

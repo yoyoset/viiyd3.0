@@ -31,6 +31,7 @@ paints:
     hex: "#FFE900"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Yriel-Yellow-2019"
 description: "Multi-layer translucent glazing and warp glow effects bring Tzeentch's Pink Horrors to life with otherworldly energy."
+delivered: "2025.10"
 ---
 
 <div class="image-grid">
@@ -119,7 +120,7 @@ This unit has been prepared for tabletop deployment with a focus on durability a
             <span class="font-mono text-yellow-200/80">Corax White</span>
         </li>
         <li class="flex justify-between">
-            <span>👁�?Chaos Eyes</span>
+            <span>👁�?Chaos Eyes</span>
             <span class="font-mono text-gray-400">Yriel Yellow</span>
         </li>
     </ul>

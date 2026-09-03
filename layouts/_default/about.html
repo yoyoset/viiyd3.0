@@ -1,114 +1,105 @@
 {{ define "main" }}
-<div class="min-h-screen bg-neutral-950 font-sans text-gray-300 pb-24 relative overflow-hidden">
+{{/* VIIYD 4.0 关于页 — 规格 §16
+     这一页以图为主：国内高端客户与全部海外访客都在这里做决策。
+     英文站此页最完整 —— 它替代了英文站不做的询价流程。
 
-    <!-- Hero Background -->
-    {{ with .Params.hero_bg }}
-    <div class="absolute inset-0 z-0 h-[800px]">
-        <img src="{{ . }}" class="w-full h-full object-cover opacity-20 pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/50 to-neutral-950"></div>
+     实景照是 10–13MB 的原始相机 JPEG，**必须走 Hugo 构建期处理**，
+     绝不能直接输出。这里用 page bundle resources + .Process 转 WebP。 */}}
+
+{{ $shots := .Resources.ByType "image" }}
+{{ $hero  := index $shots 0 }}
+{{ $grid  := after 1 (first 4 $shots) }}
+{{ $isZH  := eq .Lang "zh" }}
+{{ $sch   := .Site.Data.schedule }}
+
+<main>
+
+{{/* ── 实景大图 + 叠标题 ── */}}
+{{ with $hero }}
+{{ $h := .Process "resize 1600x webp q80" }}
+<section class="section">
+  <div class="wrap about-hero">
+    <img class="photo about-hero__img" src="{{ $h.RelPermalink }}" width="{{ $h.Width }}" height="{{ $h.Height }}"
+         alt="{{ T "about_hero_alt" | default "VIIYD 工作台" }}" fetchpriority="high">
+    <div class="img-scrim"></div>
+    <h1 class="display-2 about-hero__title">{{ T "about_hero_title" | default "一个人，一张工作台" }}</h1>
+  </div>
+</section>
+{{ end }}
+
+{{/* ── 自述：第一人称，max 44ch ── */}}
+<section class="section">
+  <div class="wrap about-bio prose">
+    <div class="label">{{ T "about_bio_label" | default "01 · 自述" }}</div>
+    <div class="about-bio__text">
+      {{ range $i := seq 1 3 }}<p class="body">{{ T (printf "about_bio_%d" $i) }}</p>{{ end }}
     </div>
-    {{ end }}
+  </div>
+</section>
 
-    <div class="relative z-10 w-full">
-
-        <!-- HERO -->
-        <div class="max-w-4xl mx-auto pt-48 px-6 mb-24 text-center">
-            <h1 class="text-6xl md:text-8xl font-black font-serif text-white tracking-wider mb-8 drop-shadow-lg">{{
-                .Title }}</h1>
-            <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">{{ .Summary }}</p>
-        </div>
-
-        <div class="max-w-6xl mx-auto px-6">
-
-            <!-- ARTIST SECTION -->
-            <div
-                class="relative bg-neutral-900/40 border border-white/5 rounded-3xl p-8 md:p-16 mb-24 overflow-hidden backdrop-blur-sm -translate-y-4 hover:translate-y-0 transition-transform duration-700">
-                <!-- Static Glow -->
-                <div
-                    class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[100px] pointer-events-none">
-                </div>
-
-                <div class="flex flex-col md:flex-row gap-16 items-center relative z-10">
-                    <!-- Avatar -->
-                    <div class="w-72 h-72 shrink-0 relative group">
-                        <img src="{{ .Params.artist.photo }}" alt="{{ .Params.artist.name }}"
-                            class="relative z-10 w-full h-full object-cover rounded-full border border-white/10 transition-all duration-700 shadow-2xl group-hover:scale-105">
-                    </div>
-
-                    <!-- Bio -->
-                    <div class="text-center md:text-left">
-                        <h2
-                            class="text-5xl font-bold font-serif text-white mb-8 flex flex-col md:flex-row items-center md:items-baseline gap-4">
-                            {{ .Params.artist.name }}
-                            <span
-                                class="text-xs font-sans font-normal text-gold-500 border border-gold-500/30 px-3 py-1 rounded-full uppercase tracking-wider bg-gold-500/5">The
-                                Artificer</span>
-                        </h2>
-                        <div class="text-lg text-gray-300 leading-relaxed font-light mb-10 max-w-2xl">
-                            {{ .Params.artist.bio | markdownify }}
-                        </div>
-
-                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                            <a href="{{ relLangURL "contact" }}"
-                                class="relative px-8 py-3 bg-gold-500 text-black font-bold rounded-lg hover:bg-white hover:scale-105 transition-all duration-300 overflow-hidden animate-[pulse-gold_2s_ease-in-out_infinite]">
-                                <span class="relative z-10">{{ T "about_btn_contact" }}</span>
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_ease-in-out_infinite]">
-                                </div>
-                            </a>
-                            <a href="{{ relLangURL "work" }}"
-                                class="px-8 py-3 border border-white/20 text-white font-bold rounded-lg hover:bg-white/10 hover:border-white hover:scale-105 transition-all duration-300">
-                                {{ T "about_btn_work" }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PHILOSOPHY PILLARS -->
-            <h3 class="text-center text-xl font-serif text-white mb-16 tracking-[0.3em] relative opacity-80">
-                <span class="bg-neutral-950 px-6 relative z-10">CORE PHILOSOPHY</span>
-                <div class="absolute top-1/2 left-1/4 right-1/4 h-px bg-white/10 -z-0"></div>
-            </h3>
-
-            <div class="grid md:grid-cols-3 gap-8 mb-32">
-                {{ range .Params.pillars }}
-                <div
-                    class="bg-neutral-900/50 p-10 rounded-2xl border-t border-white/10 hover:bg-neutral-900 transition-all duration-500 hover:-translate-y-2 group shadow-lg relative overflow-hidden">
-                    <h4 class="text-2xl font-bold text-white mb-6">{{ .title }}</h4>
-                    <div class="w-12 h-0.5 bg-gold-500 mb-6 group-hover:w-full transition-all duration-700 opacity-50">
-                    </div>
-                    <p class="text-gray-400 leading-relaxed group-hover:text-gray-200">{{ .desc }}</p>
-                </div>
-                {{ end }}
-            </div>
-
-            <!-- GALLERY SECTION -->
-            {{ with .Params.gallery }}
-            <h3 class="text-center text-xl font-serif text-white mb-16 tracking-[0.3em] relative opacity-80">
-                <span class="bg-neutral-950 px-6 relative z-10 uppercase">{{ .title | default "Studio Gallery" }}</span>
-                <div class="absolute top-1/2 left-1/4 right-1/4 h-px bg-white/10 -z-0"></div>
-            </h3>
-
-            {{ if .images }}
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-32">
-                {{ range .images }}
-                <div class="relative aspect-square group overflow-hidden rounded-2xl cursor-pointer">
-                    <img src="{{ .src }}" alt="{{ .alt }}"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1 filter brightness-75 group-hover:brightness-110">
-                    <div
-                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span class="text-white text-sm font-bold tracking-wider">{{ .alt }}</span>
-                    </div>
-                </div>
-                {{ end }}
-            </div>
-            {{ end }}
-            {{ end }}
-
-
-
-        </div>
+{{/* ── 实景图网格 ── */}}
+{{ with $grid }}
+<section class="section">
+  <div class="wrap">
+    <div class="about-grid">
+      {{ range $i, $s := . }}
+      {{ $t := $s.Process "resize 1200x webp q80" }}
+      <figure class="about-shot">
+        <img class="photo" src="{{ $t.RelPermalink }}" width="{{ $t.Width }}" height="{{ $t.Height }}"
+             alt="{{ T (printf "about_shot_%d_cap" (add $i 1)) }}" loading="lazy">
+        <figcaption class="label">{{ T (printf "about_shot_%d_cap" (add $i 1)) }}</figcaption>
+      </figure>
+      {{ end }}
     </div>
-</div>
+  </div>
+</section>
+{{ end }}
+
+{{/* ── 设备与工艺 ── */}}
+<section class="section">
+  <div class="wrap about-split">
+    <div>
+      <div class="section-label label"><span class="num">02</span><span>{{ T "about_kit_label" | default "设备与工艺" }}</span></div>
+      <dl class="spec-list about-kit">
+        {{ range $i := seq 1 4 }}
+        <dt>{{ T (printf "about_kit_%d_k" $i) }}</dt>
+        <dd>{{ T (printf "about_kit_%d_v" $i) }}</dd>
+        {{ end }}
+      </dl>
+    </div>
+
+    {{/* ── 资历条：占位表 P9，数字待用户提供真实值 ── */}}
+    <div>
+      <div class="section-label label"><span class="num">03</span><span>{{ T "about_stats_label" | default "资历" }}</span></div>
+      <div class="grid-hair about-stats">
+        {{ range $i := seq 1 4 }}
+        <div class="about-stat">
+          <span class="about-stat__num">{{ T (printf "about_stat_%d_n" $i) }}</span>
+          <span class="label">{{ T (printf "about_stat_%d_k" $i) }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── 结尾：档期 + 联系 ── */}}
+<section class="section">
+  <div class="wrap">
+    <div class="frame about-cta">
+      <div>
+        <div class="label">{{ T "home_schedule" | default "档期" }}</div>
+        <div class="display-4 about-cta__slots">{{ printf (T "home_slots" | default "%d 个展示位开放中") $sch.open_slots }}</div>
+        <p class="body-s">{{ printf (T "home_next_slot" | default "下一档期 %s 起。") $sch.next_month }}</p>
+      </div>
+      {{ if $isZH }}
+        <button type="button" class="btn-action" data-wechat-open="about">{{ T "home_inquire" | default "微信 / 邮件询价 →" }}</button>
+      {{ else }}
+        <a class="btn-line" href="{{ $.Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">{{ T "cta_instagram" | default "Instagram →" }}</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+</main>
 {{ end }}

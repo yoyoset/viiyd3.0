@@ -36,6 +36,8 @@ paints:
     hex: "#101010"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "A comprehensive showcase of a full squad of Aeldari Corsairs: Voidscarred. Featuring high-contrast blue armor, freehand starry cloaks, and unique specialist equipment."
+system: "kill-team"
+delivered: "2026.04"
 ---
 
 <div class="image-grid">

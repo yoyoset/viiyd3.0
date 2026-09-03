@@ -27,6 +27,8 @@ paints:
     hex: "#fab1a0"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "The grim witch hunters of the Order of Azyr, seeking to purge corruption from the Nethermaze. This diverse warband features challenging textures including worn leather, rusted metal, and OSL fire effects."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

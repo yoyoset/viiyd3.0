@@ -27,6 +27,8 @@ paints:
     hex: "#101D33"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Drakenhof-Nightshade-2019"
 description: "The grumbling remnants of Pink Horrors. A study in cold blue gradients and magical flame effects. Designed for mass infantry deployment, these Blue Horrors prioritize vibrant readability."
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -80,11 +82,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>ðŸ›¡ï¸?Base</span>
+<span>ðŸ›¡ï¿½?Base</span>
 <span class="font-mono text-emerald-200">The Fang</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Highlight</span>
+<span>ï¿½?Highlight</span>
 <span class="font-mono text-cyan-200">Blue Horror</span>
 </li>
 <li class="flex justify-between">

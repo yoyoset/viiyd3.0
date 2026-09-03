@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{/* VIIYD 4.0 分类页（/tiers/master/ · /systems/40k/）
+     用途有二：JS 失效时筛选的静态兜底；小红书 / IG 投放的落地页（营销规划 §5-1）。
+     卡片形态复用作品档案页的 .work-card，两处看到同一个系统。 */}}
+{{ $pages := sort .Pages "Date" "desc" }}
+<main>
+
+<section class="section">
+  <div class="wrap archive-head">
+    <div>
+      <div class="label">{{ .Data.Singular | upper }}</div>
+      {{/* 词条页的 .Title 是空的（Hugo 只给 .Data.Term），所以用 Term 兜底。
+           system 走 i18n 拿中文名，tier 是专有名词不翻译。 */}}
+      {{ $name := .Title }}
+      {{ if not $name }}{{ $name = .Data.Term }}{{ end }}
+      {{ if eq .Data.Singular "system" }}{{ $name = T (printf "sys_%s" (replace .Data.Term "-" "_")) | default $name }}{{ end }}
+      <h1 class="display-2">{{ $name }}</h1>
+    </div>
+    <div class="archive-head__meta label-lg">
+      {{ printf (T "archive_count" | default "%d 个委托单") (len $pages) }}<br>
+      <a href="{{ relLangURL "work" }}">{{ T "filter_empty_cta" | default "看看全部作品 →" }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="work-grid">
+      {{ range $pages }}
+      {{ $t := .Title }}
+      <a class="work-card" href="{{ .RelPermalink }}">
+        <span class="work-card__cover">
+          {{ with .Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 640) }}" alt="{{ $t }}" loading="lazy">{{ end }}
+          {{ with .Params.photos }}<span class="work-card__count">{{ . }} {{ T "unit_shots" | default "张" }}</span>{{ end }}
+        </span>
+        <span class="work-card__meta">
+          <span>{{ .Params.delivered | default (.Date.Format "2006.01") }}</span>
+          {{ with .Params.tier }}<span class="tier">{{ . }}</span>{{ end }}
+        </span>
+        <span class="title-item work-card__title">{{ .Title }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+</main>
+{{ end }}

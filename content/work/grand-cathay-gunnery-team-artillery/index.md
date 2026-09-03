@@ -44,6 +44,8 @@ paints:
     hex: "#A0522D"
     link: "https://www.warhammer.com/en-GB/shop/Base-Bugmans-Glow-2019"
 description: "Two Grand Cathay Gunnery Teams painted in jade teal and copper. Each team fields interchangeable loadouts — the multi-rocket Dragon Battery or the single-barrel Dragon Cannon — with full crew."
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

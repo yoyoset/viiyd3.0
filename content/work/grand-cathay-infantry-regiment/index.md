@@ -44,6 +44,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "30-model Grand Cathay infantry in imperial red and gold — a battleline recolor matching the Royal Guard cavalry series. Clean color blocking with consistent regiment-wide basing."
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

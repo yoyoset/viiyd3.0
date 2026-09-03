@@ -1,13 +1,49 @@
 {{ define "main" }}
-<div class="min-h-[60vh] flex flex-col items-center justify-center text-center">
-    <h1 class="text-9xl font-bold text-imperial-gold-400 mb-4 opacity-20 select-none">404</h1>
-    <h2 class="text-3xl font-bold text-white mb-6">Page Not Found</h2>
-    <p class="text-gray-400 max-w-md mb-8">
-        The page you are looking for has been moved, deleted, or possibly never existed.
-    </p>
-    <a href="{{ .Site.BaseURL }}"
-        class="px-6 py-3 bg-white/5 border border-white/10 text-white rounded hover:bg-imperial-gold-500 hover:text-white hover:border-imperial-gold-500 transition-all duration-300">
-        Return Home
-    </a>
-</div>
+{{/* 4.0 的 404。原版是纯 Tailwind 类，而 Tailwind 从未被编译过 —— 等于完全没样式。
+     这一页要做的不是道歉，是把人送回作品档案（唯一真正想让他看的东西）。
+
+     文案取自 data/notfound.yaml（不是 i18n）—— 原因见那个文件的注释：
+     CF Pages 只用根 404，它得能在运行时切到中文。 */}}
+{{ $t := index .Site.Data.notfound .Lang | default .Site.Data.notfound.en }}
+<main>
+<section class="section">
+  <div class="wrap notfound">
+    <div class="label">404</div>
+    <h1 class="display-2" data-nf="title">{{ $t.title }}</h1>
+    <p class="body-s" data-nf="body">{{ $t.body }}</p>
+    <div class="notfound__cta">
+      <a class="btn-line" data-nf="work" href="{{ relLangURL "work" }}">{{ $t.work }}</a>
+      <a class="btn-text" data-nf="home" href="{{ relLangURL "" }}">{{ $t.home }}</a>
+    </div>
+  </div>
+</section>
+</main>
+
+{{/* Cloudflare Pages 只用根目录的 /404.html 服务全站 404 ——
+     `/zh/404.html` 虽然生成了也永远不会被使用。中文访客是主要受众，
+     不能让他们点到坏链接就看见英文。按路径切文案，无 JS 时保持英文，不白屏。 */}}
+{{ if ne .Lang "zh" }}
+{{ $zh := .Site.Data.notfound.zh }}
+<script>
+(function () {
+  if (!location.pathname.startsWith('/zh/')) return;
+  {{/* 必须 safeJS —— 只写 jsonify，Go 模板会把它当 JS 字符串再转义一次，
+       产出 var zh = "{\"title\":...}"（字符串不是对象），
+       于是 zh.title 是 undefined，文案变成空白。
+       与 head.html 里 JSON-LD 那处是同一个坑。 */}}
+  var zh = {{ $zh | jsonify | safeJS }};
+  var set = function (k, v, href) {
+    var el = document.querySelector('[data-nf="' + k + '"]');
+    if (!el) return;
+    el.textContent = v;
+    if (href) el.setAttribute('href', href);
+  };
+  set('title', zh.title);
+  set('body',  zh.body);
+  set('work',  zh.work, '/zh/work/');
+  set('home',  zh.home, '/zh/');
+  document.documentElement.lang = 'zh';
+})();
+</script>
+{{ end }}
 {{ end }}

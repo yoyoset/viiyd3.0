@@ -1,104 +1,129 @@
 {{ define "main" }}
+{{/* VIIYD 4.0 首页 — 规格 §10
 
-{{/* Latest post */}}
-{{ $latest := index (first 1 (where .Site.RegularPages "Section" "work")) 0 }}
+     偏离交接包一处：首屏不做全幅出血，限在 .wrap 内（PLAN §2-E）。
+     超宽屏下把一张图拉到 2000px+ 是「满屏」不是「震撼」，两头不占。 */}}
 
-{{/* Header */}}
-<header class="home-header" style="padding:20px var(--page-pad);display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);">
-  <div style="display:flex;align-items:center;gap:12px;">
-    {{ partial "badge.html" (dict "size" 28) }}
-    <a href="{{ .Site.BaseURL }}" style="color:var(--ink);">VIIYD STUDIO</a>
-    <span class="home-header-tagline">· Chengdu · Est. 2024</span>
-  </div>
-  <nav style="display:flex;gap:24px;align-items:center;">
-    <a href="{{ relLangURL "work" }}" style="color:var(--ink);">{{ T "nav_work" | default "Work" }}</a>
-    <a href="{{ relLangURL "painter" }}" style="color:var(--ink-soft);">{{ T "nav_painter" | default "Painter" }}</a>
-    <span style="color:var(--ink-soft);">
-      {{ range .AllTranslations }}
-        <a href="{{ .RelPermalink }}" onclick="localStorage.setItem('viiyd_lang_pref','{{ .Lang }}')" style="{{ if eq .Lang $.Lang }}color:var(--ink);{{ end }}">{{ .Language.Params.isoCode | default (.Lang | upper) }}</a>{{ if ne .Lang (index (last 1 $.AllTranslations) 0).Lang }} · {{ end }}
-      {{ end }}
-    </span>
-  </nav>
-</header>
+{{ $works  := sort (where .Site.RegularPages "Section" "work") "Date" "desc" }}
+{{ $latest := index $works 0 }}
+{{ $recent := first 6 $works }}
+{{ $p      := .Site.Data.pricing }}
+{{ $sch    := .Site.Data.schedule }}
+{{ $isZH   := eq .Lang "zh" }}
 
-{{/* Hero */}}
+<main>
+
+{{/* ── 首屏：最新交付一张图定生死（规格 C1） ── */}}
 {{ with $latest }}
-  {{ $cover := .Params.cover }}
-  {{ $title  := .Title }}
-  {{ $faction := .Params.faction | default (index .Params.tags 0) }}
-    {{ $eyebrow := printf "NEW · %s" (.Date.Format "Jan 2006" | upper) }}
-  {{ with .Params.file_no }}{{ $eyebrow = printf "%s · № %s" $eyebrow . }}{{ end }}
-
-  <section class="hero">
-    <div class="hero-inner">
-      <figure class="hero-figure">
-        {{ if $cover }}<img src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="eager" fetchpriority="high">{{ end }}
-      </figure>
-      <div class="hero-copy">
-        <div class="eyebrow reveal">{{ $eyebrow }}</div>
-        <div class="hero-copy-bottom">
-        <h1 class="hero-title reveal">{{ $title }}</h1>
-        {{ with .Params.tagline }}<p class="hero-tagline reveal">"{{ . }}"</p>{{ end }}
-        <div class="hero-foot reveal">
-          <span class="hero-meta">{{ $faction }}{{ with .Params.scale }} · {{ . }}{{ end }}</span>
-          <a href="{{ .RelPermalink }}" class="btn btn-outline">{{ T "read_dossier" | default "Read the dossier →" }}</a>
-        </div>
-        </div>
+<section class="section">
+  <div class="wrap home-hero">
+    {{ with .Params.cover }}
+    <img class="photo home-hero__img" fetchpriority="high"
+         src="{{ partial "optimized-image" (dict "src" . "optimized" $latest.Params.optimized) }}"
+         alt="{{ $latest.Title }}">
+    {{ end }}
+    <div class="img-scrim"></div>
+    <div class="home-hero__copy">
+      <div class="label">
+        {{ T "home_latest" | default "最新交付" }} · {{ .Params.delivered | default (.Date.Format "2006.01") }}{{ with .Params.system }} · {{ T (printf "sys_%s" (replace . "-" "_")) | default . }}{{ end }}
+      </div>
+      <h1 class="display-1">{{ .Title }}</h1>
+      <div class="home-hero__cta">
+        <a class="btn-line" href="{{ .RelPermalink }}">{{ T "home_read_dossier" | default "阅读档案 →" }}</a>
+        {{ if $isZH }}<button type="button" class="btn-text" data-wechat-open="home-hero">{{ T "cta_same_inquiry" | default "同款询价 →" }}</button>{{ end }}
       </div>
     </div>
-  </section>
+  </div>
+</section>
 {{ end }}
 
-{{/* Identity statement */}}
-<section style="padding:36px var(--page-pad) 28px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);">
-  <div class="sans identity-text reveal" style="font-weight:500;line-height:1.05;letter-spacing:-0.025em;text-wrap:balance;max-width:1000px;">
-    {{ T "identity_statement" | default "V., a studio for hand-painted miniatures —" }}
-    <span style="color:var(--ink-soft);"> {{ T "identity_sub" | default "Warhammer, Kill Team, JoyToy figures, the occasional commission no one else will take." }}</span>
+{{/* ── 定义屏：全站最大的一处留白，不要压缩（handoff §5） ── */}}
+<section class="section section--statement">
+  <div class="wrap">
+    <p class="display-3 home-statement">{{ T "home_statement" | default "成都的手涂委托工作室。战锤、杀戮小队、JoyToy，以及别人不愿接的委托。" }}</p>
   </div>
 </section>
 
-{{/* Recent · 6 */}}
-<section style="padding:32px var(--page-pad) 20px;">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
-    <span style="color:var(--ink);">{{ T "recent_label" | default "// Recent ·" }} {{ len (where .Site.RegularPages "Section" "work") }} {{ T "recent_pieces" | default "pieces" }}</span>
-    <a href="{{ relLangURL "work" }}" style="color:var(--ink-soft);">{{ T "see_archive" | default "See the whole archive →" }}</a>
-  </div>
-  <div class="recent-grid">
-    {{ range first 6 (where .Site.RegularPages "Section" "work") }}
-    <a href="{{ .RelPermalink }}" class="reveal">
-      <div class="recent-thumb">
-        {{ with .Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 800) }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
-      </div>
-      <div class="recent-meta">
-        <span>{{ .Date.Format "Jan 2006" }}</span>
-        <span>{{ index .Params.tags 0 | upper }}</span>
-      </div>
-      <div class="recent-title">{{ .Title }}</div>
-    </a>
-    {{ end }}
-  </div>
-</section>
-
-{{/* Commission strip */}}
-<section style="margin:40px var(--page-pad) 0;">
-  <div class="commission-strip reveal">
-    <div>
-      <div class="eyebrow" style="opacity:0.55;">{{ T "commissions_label" }} {{ now.Format "2006" }}</div>
-      <div style="font-family:var(--font-serif);font-size:36px;line-height:1.1;margin-top:8px;">
-        {{ T "commission_cta" }} <button onclick="openCommissionModal()" style="background:none;border:none;padding:0;color:var(--yellow);font-style:italic;font:inherit;font-family:var(--font-serif);cursor:pointer;">{{ T "commission_wechat" }}</button>
-      </div>
+{{/* ── 最近交付：只给等级 + 标题，不给价格（规格 C3） ── */}}
+<section class="section">
+  <div class="wrap">
+    <div class="home-rowhead">
+      <div class="section-label label"><span>{{ T "home_recent" | default "最近交付" }}</span><span class="num">{{ len $recent }}</span></div>
+      <a class="btn-text" href="{{ relLangURL "work" }}">{{ printf (T "home_all_archive" | default "全部 %d 个档案 →") (len $works) }}</a>
     </div>
-    <div class="tier-card">
-      <div class="tier-label">{{ T "tier_tabletop_label" | default "Tabletop" }}</div>
-      <div class="tier-price sans">{{ T "tier_tabletop_price" | default "from ¥120 / model" }}</div>
-      <div class="tier-sub">{{ T "tier_tabletop_sub" | default "Edge highlights, simple base" }}</div>
-    </div>
-    <div class="tier-card highlighted">
-      <div class="tier-label">{{ T "tier_display_label" | default "Display" }}</div>
-      <div class="tier-price sans">{{ T "tier_display_price" | default "from ¥600 / model" }}</div>
-      <div class="tier-sub">{{ T "tier_display_sub" | default "Layered, freehand, custom base" }}</div>
+    <div class="home-recent">
+      {{ range $recent }}
+      {{ $t := .Title }}
+      <a class="work-card" href="{{ .RelPermalink }}">
+        <span class="work-card__cover">
+          {{ with .Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 640) }}" alt="{{ $t }}" loading="lazy">{{ end }}
+        </span>
+        <span class="work-card__meta"><span>{{ .Params.delivered | default (.Date.Format "2006.01") }}</span></span>
+        <span class="title-item work-card__title">{{ .Title }}</span>
+      </a>
+      {{ end }}
     </div>
   </div>
 </section>
 
+{{/* ── 定制沟通钩子 ──
+     取代原来的「五个等级」那一屏。等级拿掉之后这里空了，
+     而空出来的正好该放最该说的一句：每一单都是聊出来的。
+     语气要像工匠在说话，不是像销售在收单。 */}}
+<section class="section">
+  <div class="wrap custom-hook">
+    <div class="custom-hook__lede">
+      <div class="label">{{ T "hook_label" }}</div>
+      <p class="display-4 custom-hook__title">{{ T "hook_title" }}</p>
+      <p class="body custom-hook__body">{{ T "hook_body" }}</p>
+    </div>
+
+    <div class="grid-hair custom-hook__steps">
+      {{ range $i := seq 1 3 }}
+      <div class="hook-step">
+        <span class="label">{{ printf "%02d" $i }}</span>
+        <span class="title-item">{{ T (printf "hook_%d_k" $i) }}</span>
+        <span class="body-xs">{{ T (printf "hook_%d_v" $i) }}</span>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="custom-hook__cta">
+      {{ if $isZH }}
+        <button type="button" class="btn-action" data-wechat-open="home-hook">{{ T "hook_cta" }}</button>
+        <span class="body-xs custom-hook__note">{{ T "hook_note" }}</span>
+      {{ else }}
+        <a class="btn-line" href="{{ .Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">{{ T "cta_instagram" }}</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ── 结尾双卡：并置「多少钱」与「什么时候能排上」（规格 C5） ── */}}
+<section class="section">
+  <div class="wrap">
+    <div class="grid-hair home-close">
+      {{ if $isZH }}
+      <div class="home-close__card">
+        <div class="label">{{ T "home_pricing" | default "计价" }}</div>
+        <div class="home-close__num">{{ $p.eiu.currency }}{{ $p.eiu.base }}<span class="data"> / 1 EIU</span></div>
+        <p class="body-s">{{ T "svc_eiu_note" }}</p>
+        <a class="btn-text" href="{{ relLangURL "services" }}">{{ T "home_open_estimator" | default "打开估算器 →" }}</a>
+      </div>
+      {{ end }}
+      <div class="home-close__card">
+        <div class="label">{{ T "home_schedule" | default "档期" }}</div>
+        <div class="display-4 home-close__slots">{{ printf (T "home_slots" | default "%d 个展示位开放中") $sch.open_slots }}</div>
+        <p class="body-s">{{ printf (T "home_next_slot" | default "下一档期 %s 起。军团单请提前一个月。") $sch.next_month }}</p>
+        {{ if $isZH }}
+          <button type="button" class="btn-text" data-wechat-open="home-schedule">{{ T "home_inquire" | default "微信 / 邮件询价 →" }}</button>
+        {{ else }}
+          <a class="btn-text" href="{{ $.Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">{{ T "cta_instagram" | default "Instagram →" }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
 {{ end }}

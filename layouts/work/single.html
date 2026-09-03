@@ -1,20 +1,18 @@
 {{ define "main" }}
+{{/* VIIYD 4.0 委托详情页 — 规格 §15
 
-{{/* helpers */}}
-{{ $cover      := .Params.cover }}
-{{ $title      := .Title }}
-{{ $heroTitle  := .Params.hero_title | default $title }}
-{{ $accent     := .Params.title_accent | default "" }}
-{{ $faction    := .Params.faction | default (index .Params.tags 0) }}
-{{ $scale      := .Params.scale | default "28mm" }}
-{{ $tier       := .Params.tier }}
-{{ $hrs        := .Params.hours | default .Params.time_log }}
-{{ $fileNo     := .Params.file_no | default "" }}
-{{ $tagline    := .Params.tagline | default .Params.summary }}
-{{ $paints  := .Params.paints }}
-{{ $captions := .Params.captions }}
+     三条红线原样保留（CLAUDE.md）：
+     1. plates 由 `photos: N` 从 cover 推导 `[PREFIX]_01.._NN`，不引入 gallery 数组
+     2. `.lightbox-trigger` 类 + `data-web-src` / `data-full-res` 必须成对出现
+     3. 图片三级加载：列表 cdn-cgi 缩放 / 页面 _web / 灯箱点击放大才取原图
 
-{{/* Build photo base URL and extension from cover */}}
+     一处偏离交接包：主图不做全宽，限在 .wrap 内按自然比例排布（PLAN §2-E）。 */}}
+
+{{ $cover := .Params.cover }}
+{{ $sys   := .Params.system }}
+{{ $deliv := .Params.delivered | default (.Date.Format "2006.01") }}
+
+{{/* 从 cover 推导图集前缀与扩展名 —— 与 3.0 相同的推导，不要改 */}}
 {{ $baseURL  := "" }}
 {{ $photoExt := ".webp" }}
 {{ if $cover }}
@@ -26,388 +24,183 @@
   {{ end }}
 {{ end }}
 
-{{/* 01 · Cinematic hero */}}
-<div class="dossier-hero">
-  {{ if $cover }}
-  <img class="dossier-hero-bg" src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="eager">
-  {{ end }}
-  <div class="dossier-hero-vignette"></div>
+<main>
 
-  <div class="dossier-hero-content">
-    <div style="display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.78;flex-wrap:wrap;gap:8px;">
-      <div style="display:flex;gap:10px;align-items:center;">
-        {{ partial "badge.html" (dict "size" 22) }}
-        <a href="{{ relLangURL "" }}" style="color:inherit;">VIIYD</a>
-        <span style="opacity:0.4;">·</span>
-        <a href="{{ relLangURL "work" }}" style="color:inherit;">← {{ T "back_archive" | default "ARCHIVE" }}</a>
-      </div>
-      <span>FILE № VY-{{ if $fileNo }}{{ $fileNo }}{{ else }}—{{ end }}</span>
-      <div style="display:flex;gap:6px;align-items:center;">
-        {{ range .AllTranslations }}
-          <a href="{{ .RelPermalink }}" onclick="localStorage.setItem('viiyd_lang_pref','{{ .Lang }}')" style="color:#fff;{{ if eq .Lang $.Lang }}opacity:1;{{ else }}opacity:0.45;{{ end }}">{{ .Language.Params.isoCode | default (.Lang | upper) }}</a>{{ if ne .Lang (index (last 1 $.AllTranslations) 0).Lang }}<span style="opacity:0.3;"> / </span>{{ end }}
+{{/* ── 面包屑 ── */}}
+<section class="section">
+  <div class="wrap breadcrumb label-lg">
+    <a href="{{ relLangURL "work" }}">{{ T "archive_title" | default "作品档案" }}</a>
+    {{ with $sys }}<span>/</span><a href="{{ relLangURL "work" }}?system={{ . }}">{{ T (printf "sys_%s" (replace . "-" "_")) | default . }}</a>{{ end }}
+  </div>
+</section>
+
+{{/* ── 标题区 ── */}}
+<section class="section">
+  <div class="wrap work-title">
+    <h1 class="display-2">{{ .Title }}</h1>
+    <div class="work-title__meta label-lg">
+      {{ with .Params.eiu }}<div>{{ . }} EIU</div>{{ end }}
+      <div>{{ T "meta_delivered" | default "交付" }} {{ $deliv }}</div>
+    </div>
+  </div>
+</section>
+
+{{/* ── 主图 ──
+     自然比例 + max-height:80vh：不同模型的成图比例不一样（1:1 / 4:3 / 9:16 都有），
+     强裁会毁掉构图，不限高又会让长竖图撑破一屏。 */}}
+{{ with $cover }}
+<section class="section">
+  <div class="wrap">
+    <img class="photo photo--free" fetchpriority="high"
+         src="{{ partial "optimized-image" (dict "src" . "optimized" $.Params.optimized) }}"
+         alt="{{ $.Title }}">
+  </div>
+</section>
+{{ end }}
+
+{{/* ── 交付说明 + 规格块 ── */}}
+<section class="section">
+  <div class="wrap work-body">
+
+    <div class="work-body__notes prose">
+      <div class="label">{{ T "dossier_notes_label" | default "01 · 交付说明" }}</div>
+      {{ with .Params.summary }}<p class="body">{{ . }}</p>{{ end }}
+      {{/* 占位表 P20：56 单的交付说明正文待撰写。
+           旧正文 .Content 是重复图集 + 未编译的 Tailwind 块，故意不渲染。 */}}
+    </div>
+
+    <aside class="work-body__spec">
+      <div class="frame">
+        <div class="label">{{ T "dossier_spec_label" | default "规格" }}</div>
+        <dl class="spec-list">
+          {{ with .Params.models }}<dt>{{ T "spec_models" | default "模型构成" }}</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with .Params.model_count }}<dt>{{ T "spec_count" | default "模型数" }}</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with $.Params.eiu }}<dt>EIU</dt><dd class="is-accent">{{ . }}</dd>{{ end }}
+          {{ with $.Params.time_log }}<dt>{{ T "spec_hours" | default "工时" }}</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with $.Params.extras }}<dt>{{ T "spec_extras" | default "加购项" }}</dt><dd>{{ delimit . " · " }}</dd>{{ end }}
+          <dt>{{ T "spec_delivered" | default "交付月" }}</dt><dd>{{ $deliv }}</dd>
+        </dl>
+        {{/* 英文站不做成交漏斗，按钮改 Instagram（规格 §12） */}}
+        {{ if eq .Lang "zh" }}
+          <button type="button" class="btn-action btn-block" data-wechat-open="work">
+            {{ T "cta_same_inquiry" | default "同款询价 →" }}
+          </button>
+        {{ else }}
+          <a class="btn-line btn-block" href="{{ $.Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">
+            {{ T "cta_instagram" | default "See more on Instagram →" }}
+          </a>
         {{ end }}
-        <span style="opacity:0.3;margin:0 4px;">·</span>
-        <span>{{ .Date.Format "02 · Jan · 2006" | upper }}</span>
       </div>
+    </aside>
+  </div>
+</section>
+
+{{/* ── 图集网格 ── */}}
+{{ $photoCount := .Params.photos | default 0 }}
+{{ if and $baseURL (gt $photoCount 0) }}
+<section class="section">
+  <div class="wrap">
+    <div class="section-label label">
+      <span class="num">02</span><span>{{ T "dossier_plates_label" | default "图集" }}</span>
+      <span class="plates-hint">{{ printf (T "dossier_plates_count" | default "%d 张 · 点击放大看笔触") $photoCount }}</span>
     </div>
 
-    <div style="margin-top:auto;max-width:1000px;">
-      <div style="font-size:11px;letter-spacing:0.24em;opacity:0.7;margin-bottom:24px;text-transform:uppercase;">
-        SPECIMEN · {{ $faction | upper }} · {{ $scale }}{{ with $tier }} · {{ . | upper }} {{ T "dossier_tier_suffix" | default "TIER" }}{{ end }}
-      </div>
-      {{ if $accent }}
-      <h1 class="dossier-title">{{ replace $heroTitle $accent (printf "<span class=\"dossier-title-accent\">%s</span>" $accent) | safeHTML }}</h1>
-      {{ else }}
-      <h1 class="dossier-title">{{ $heroTitle }}</h1>
-      {{ end }}
-      {{ with $tagline }}
-      <div style="margin-top:22px;font-family:var(--font-serif);font-style:italic;font-size:22px;opacity:0.82;max-width:680px;line-height:1.35;">
-        "{{ . }}"
-      </div>
-      {{ end }}
-
-      <div style="margin-top:56px;display:flex;gap:32px;font-size:11px;letter-spacing:0.14em;opacity:0.85;text-transform:uppercase;flex-wrap:wrap;">
-        {{ with $hrs }}<span>{{ T "dossier_painted_in" | default "Painted in" }} <strong style="color:var(--yellow);font-weight:500;">{{ . }}</strong></span>{{ end }}
-        {{ with .Params.piece_count }}<span>· {{ . }}</span>{{ end }}
-        <span>{{ T "dossier_one_of_one" | default "· 1 of 1, never to be repeated" }}</span>
-      </div>
-    </div>
-
-    <div style="position:absolute;right:var(--dossier-pad);bottom:24px;font-size:10px;letter-spacing:0.22em;opacity:0.5;text-transform:uppercase;">{{ T "dossier_scroll" | default "↓ scroll the dossier" }}</div>
-  </div>
-</div>
-
-{{/* 02 · Specimen card */}}
-<div style="padding:72px var(--dossier-pad) 24px;">
-  <div class="section-label">
-    <span>{{ T "dossier_specimen_label" | default "// SPECIMEN CARD" }}</span>
-    <span>{{ T "dossier_specimen_edition" | default "EDITION 1 / 1" }}</span>
-  </div>
-  <div class="specimen-card" style="margin-top:18px;">
-    <div class="photo" style="aspect-ratio:4/5;">
-      {{ if $baseURL }}
-      <img src="{{ partial "optimized-image" (dict "src" (printf "%s_04%s" $baseURL $photoExt) "optimized" .Params.optimized) }}" alt="{{ $title }} detail" loading="lazy" onerror="this.src='{{ $cover }}'">
-      {{ else if $cover }}
-      <img src="{{ partial "optimized-image" (dict "src" $cover "optimized" .Params.optimized) }}" alt="{{ $title }}" loading="lazy">
+    {{/* 灯箱底部常驻信息行的数据源（§4.8）。写在容器上，lightbox.js 只读不猜。
+         英文站不出 EIU、不做询价（规格 §12），所以 cta 留空 → JS 自动隐藏按钮。 */}}
+    {{ $lbMeta := slice }}
+    {{ if and .Params.eiu (eq .Lang "zh") }}{{ $lbMeta = $lbMeta | append (printf "%v EIU" .Params.eiu) }}{{ end }}
+    {{ $lbMeta = $lbMeta | append (printf "%s %s" (T "meta_delivered" | default "交付") $deliv) }}
+    <div class="plates-grid"
+         data-lb-meta="{{ delimit $lbMeta " · " }}"
+         data-lb-cta="{{ if eq .Lang "zh" }}{{ T "cta_same_inquiry" | default "同款询价 →" }}{{ end }}">
+      {{ range $v := seq 1 $photoCount }}
+        {{ $src    := printf "%s_%02d%s" $baseURL $v $photoExt }}
+        {{ $webSrc := partial "optimized-image" (dict "src" $src "optimized" $.Params.optimized) }}
+        {{/* lightbox-trigger + data-web-src + data-full-res 是灯箱契约，三者缺一不可 */}}
+        {{/* 用 <a href> 而不是 <div>：**无 JS 时点击直接打开原图**（规格 §8「无 JS 降级」）。
+             有 JS 时 lightbox.js 会 preventDefault 接管，走灯箱那条路。 */}}
+        <a class="plate lightbox-trigger" href="{{ $src }}"
+           data-web-src="{{ $webSrc }}" data-full-res="{{ $src }}" data-src="{{ $src }}">
+          <img src="{{ $webSrc }}" alt="{{ $.Title }} — {{ printf "%02d" $v }}"
+               {{/* 全部 lazy：图集在折叠线以下，首屏由上方 hero 承担 LCP。
+                    plate 01 与 hero 同一个 _web URL，命中缓存不额外请求 ——
+                    原先前 4 张 eager 白白占掉 336KB 首屏带宽（实测）。 */}}
+               loading="lazy" decoding="async"
+               onerror="if(!this.dataset.f){this.dataset.f=1;this.src='{{ $src }}'}else{this.closest('.plate').hidden=true}">
+          <span class="plate__n label">{{ printf "%02d" $v }}</span>
+        </a>
       {{ end }}
     </div>
-    <div class="specimen-info">
-      <div style="font-family:var(--font-serif);font-size:36px;line-height:1;letter-spacing:-0.01em;">{{ .Params.subject | default $title }}</div>
-      {{ with .Params.description }}
-      <div style="font-size:12px;color:var(--ink-soft);line-height:1.7;">{{ . }}</div>
-      {{ end }}
-      <div class="specimen-stats">
-        <div><div class="stat-label">{{ T "dossier_stat_scale" | default "SCALE" }}</div><div class="stat-value">{{ $scale }} · {{ T "dossier_heroic" | default "heroic" }}</div></div>
-        <div><div class="stat-label">{{ T "dossier_stat_kit" | default "KIT" }}</div><div class="stat-value">{{ .Params.kit | default "GW" }}</div></div>
-        <div><div class="stat-label">{{ T "dossier_stat_base" | default "BASE" }}</div><div class="stat-value">{{ .Params.base | default "—" }}</div></div>
-        <div><div class="stat-label">{{ T "dossier_stat_varnish" | default "VARNISH" }}</div><div class="stat-value">{{ .Params.varnish | default "Satin" }}</div></div>
-        <div><div class="stat-label">{{ T "dossier_stat_hours" | default "TIME ON DESK" }}</div><div class="stat-value">{{ $hrs | default "—" }}</div></div>
-        <div><div class="stat-label">{{ T "dossier_stat_started" | default "STARTED" }}</div><div class="stat-value">{{ with .Params.started }}{{ . }}{{ end }}</div></div>
-        <div><div class="stat-label">{{ T "dossier_stat_finished" | default "FINISHED" }}</div><div class="stat-value">{{ .Date.Format "02 · Jan · 2006" }}</div></div>
-        <div><div class="stat-label">{{ T "dossier_stat_photos" | default "PHOTOS" }}</div><div class="stat-value">{{ .Params.photo_count | default .Params.model_count | default "—" }} · {{ T "dossier_r2" | default "archive on R2" }}</div></div>
-      </div>
-    </div>
   </div>
-</div>
-
-{{/* 03 · Painter's notes */}}
-{{ with .Params.painters_note }}
-<div style="padding:40px var(--dossier-pad) 16px;">
-  <div class="section-label"><span>{{ T "dossier_notes_label" | default "// PAINTER'S NOTES" }}</span><span>{{ T "dossier_notes_sub" | default "A LETTER FROM THE STUDIO" }}</span></div>
-  <div class="painters-notes" style="margin-top:18px;">
-    <div class="pull-quote">
-      "{{ .quote }}"
-      <div class="pull-quote-attr">— V., studio</div>
-    </div>
-    <div class="notes-body">{{ .body | markdownify }}</div>
+</section>
+{{ else }}
+{{/* 没有 photos 的是文章类页面（如涂装指南），**这里必须渲染 .Content** ——
+     「正文不渲染」那条约定只对有图集的委托单成立，对文章成立就等于整篇消失。 */}}
+<section class="section">
+  <div class="wrap prose article-body">
+    {{ .Content }}
   </div>
-</div>
+</section>
 {{ end }}
 
-{{/* 04a · 360° video(s) */}}
-{{ $v360       := .Params.video_360 }}
-{{ $v360menhir := .Params.video_360_menhir }}
-{{ if $v360 }}
-<div style="padding:0 var(--dossier-pad) 32px;">
-  <div class="section-label"><span>// 360°</span><span>ROTATE TO INSPECT</span></div>
-  <div style="margin-top:18px;display:grid;grid-template-columns:{{ if $v360menhir }}1fr 1fr{{ else }}1fr{{ end }};gap:12px;">
-    <div style="position:relative;background:#111;aspect-ratio:16/9;overflow:hidden;">
-      <video src="{{ $v360 }}" autoplay loop muted playsinline controls
-        style="width:100%;height:100%;object-fit:contain;display:block;"></video>
-      <div style="position:absolute;bottom:10px;left:12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);pointer-events:none;">360° · {{ .Title }}</div>
+{{/* ── 涂料清单（3.0 保留下来的内容，重新配色） ── */}}
+{{ with .Params.paints }}
+<section class="section">
+  <div class="wrap">
+    <div class="section-label label">
+      <span class="num">03</span><span>{{ T "dossier_paint_label" | default "涂料" }}</span>
+      <span class="plates-hint">{{ len . }} {{ T "unit_pigments" | default "色" }}</span>
     </div>
-    {{ if $v360menhir }}
-    <div style="position:relative;background:#111;aspect-ratio:16/9;overflow:hidden;">
-      <video src="{{ $v360menhir }}" autoplay loop muted playsinline controls
-        style="width:100%;height:100%;object-fit:contain;display:block;"></video>
-      <div style="position:absolute;bottom:10px;left:12px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);pointer-events:none;">360° · MENHIR OBELISKS</div>
-    </div>
-    {{ end }}
-  </div>
-</div>
-{{ end }}
-
-{{/* 04 · Plates gallery */}}
-<div style="padding:48px var(--dossier-pad) 16px;">
-  <div class="section-label"><span>{{ T "dossier_plates_label" | default "// PLATES" }}</span><span>{{ T "dossier_plates_hint" | default "CLICK TO ENLARGE" }}</span></div>
-
-  {{ $photoCount := .Params.photos | default 0 }}
-  {{ if and $baseURL (gt $photoCount 0) }}
-  <div class="plates-grid" style="margin-top:18px;">
-    {{ range $v := seq 1 $photoCount }}
-      {{ $padded := printf "%02d" $v }}
-      {{ $src    := printf "%s_%s%s" $baseURL $padded $photoExt }}
-      {{ $cap    := "" }}
-      {{ if $captions }}{{ $cap = index $captions (sub $v 1) | default "" }}{{ end }}
-      {{/* layout: hero pair for 1-2, 3-col for 3-12, 4-col for 13+ */}}
-      {{ $span   := 4 }}
-      {{ $aspect := "3/2" }}
-      {{ if eq $v 1 }}{{ $span = 8 }}{{ $aspect = "4/5" }}
-      {{ else if eq $v 2 }}{{ $span = 4 }}{{ $aspect = "4/5" }}
-      {{ else if gt $v 12 }}{{ $span = 3 }}{{ $aspect = "4/3" }}
+    <div class="paint-row">
+      {{ range . }}
+      {{/* 整行原本是个 <a>（约 180×48px）跳 warhammer.com 商店 ——
+           移动端误触面积太大，且把客户从「这家工作室的作品」送去 GW 官方店，
+           与这一页的目的相反。涂料清单是**手艺的证据不是导购**，
+           所以只让涂料名可点，色块与角色标签退回纯展示。 */}}
+      <div class="paint">
+        <span class="paint__chip" style="{{ printf "background:%s" .hex | safeCSS }}"></span>
+        {{ if .link }}<a class="paint__name body-xs" href="{{ .link }}" target="_blank" rel="noopener">{{ .name }}</a>
+        {{ else }}<span class="paint__name body-xs">{{ .name }}</span>{{ end }}
+        {{ with .role }}<span class="paint__role label">{{ . }}</span>{{ end }}
+      </div>
       {{ end }}
-      {{ $webSrc := partial "optimized-image" (dict "src" $src "optimized" $.Params.optimized) }}
-    <div class="plate lightbox-trigger" style="{{ printf "grid-column:span %d;aspect-ratio:%s;" $span $aspect | safeCSS }}" data-web-src="{{ $webSrc }}" data-full-res="{{ $src }}" data-src="{{ $src }}">
-      <img src="{{ $webSrc }}" alt="{{ $.Title }} — plate {{ $v }}" loading="{{ if le $v 4 }}eager{{ else }}lazy{{ end }}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='{{ $src }}'}else{this.closest('.plate').style.display='none'}">
-      <div class="plate-n">plate {{ printf "%02d" $v }}</div>
-      {{ with $cap }}<div class="plate-caption">{{ . }}</div>{{ end }}
     </div>
-    {{ end }}
   </div>
-
-  {{ else }}
-  <div style="margin-top:18px;">{{ .Content }}</div>
-  {{ end }}
-</div>
-
-{{/* 05 · Paint manifest */}}
-{{ with $paints }}
-<div style="padding:40px var(--dossier-pad) 8px;">
-  <div class="section-label"><span>{{ T "dossier_paint_label" | default "// WHAT'S IN THE PAINT" }}</span><span>{{ len . }} PIGMENTS · CITADEL</span></div>
-  <div class="paint-grid" style="margin-top:18px;grid-template-columns:repeat({{ len . }},1fr);">
-    {{ range . }}
-    <div class="paint-swatch">
-      <a href="{{ .link }}" target="_blank" rel="noopener">
-        <div class="color" style="background:{{ .hex }};"></div>
-      </a>
-      <div class="name">{{ .name }}</div>
-    </div>
-    {{ end }}
-  </div>
-</div>
+</section>
 {{ end }}
 
-{{/* 06 · Wax seal + certificate */}}
-<div style="padding:72px var(--dossier-pad) 56px;">
-  <div class="certificate">
-    <div style="display:flex;justify-content:center;align-items:center;">
-      {{ partial "seal.html" (dict "size" 220) }}
+{{/* ── 相邻推荐：同等级 3 + 同游戏类型 3（规格 §15.7） ── */}}
+{{ $all := where .Site.RegularPages "Section" "work" }}
+{{/* 4.0.1 去掉等级后，相邻推荐改为「同游戏类型 + 最近交付」补足，
+     不再有「同等级」这个维度 —— 每一单都是定制，等级本来就不成立。 */}}
+{{ $sameSys := first 4 (where (where $all "Params.system" $sys) "Permalink" "!=" .Permalink) }}
+{{ $recent  := first 4 (where (sort $all "Date" "desc") "Permalink" "!=" .Permalink) }}
+{{ $related := first 6 (union $sameSys $recent) }}
+{{ with $related }}
+<section class="section">
+  <div class="wrap">
+    <div class="section-label label">
+      <span class="num">04</span><span>{{ T "dossier_related" | default "相近的委托" }}</span>
     </div>
-    <div>
-      <div class="eyebrow" style="opacity:0.55;">{{ T "dossier_cert_label" | default "CERTIFICATE OF COMPLETION" }}</div>
-      <div style="font-family:var(--font-serif);font-size:44px;line-height:1.05;margin-top:12px;letter-spacing:-0.01em;">
-        {{ T "dossier_cert_intro" | default "Painted by hand at" }} <em style="color:var(--yellow);">VIIYD Studio</em>,<br>Chengdu · {{ .Date.Format "January, 2006" }}.
-      </div>
-      <div style="margin-top:22px;font-size:13px;opacity:0.75;line-height:1.7;max-width:520px;">
-        {{ T "dossier_cert_body" | default "This dossier is yours to keep. The piece is 1 of 1 — the technique log, photographs, and notes above are the only record. The studio doesn't repaint the same character for another client." }}
-      </div>
-      <div style="margin-top:24px;display:flex;gap:12px;align-items:center;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.85;flex-wrap:wrap;">
-        <button id="vd-share-btn" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;border-bottom:1px solid currentColor;padding-bottom:2px;">{{ T "dossier_share" | default "↗ Share this dossier" }}</button>
-        <span>· <button onclick="window.print()" style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;">{{ T "dossier_save_pdf" | default "save as PDF" }}</button></span>
-      </div>
-
-      {{/* ── Share data injected by Hugo at build time ── */}}
-      {{ $caption := .Params.share_caption | default .Params.summary | default .Title }}
-      {{ $userTags := .Params.share_tags }}
-      {{ if not $userTags }}
-        {{/* auto-build hashtags from tags array + studio defaults */}}
-        {{ $ht := slice "#miniaturepainting" "#warhammercommunity" "#paintingminiatures" "#commissionsopen" }}
-        {{ range .Params.tags }}
-          {{ $slug := . | replaceRE `[^\p{L}\p{N}]` "" }}
-          {{ if $slug }}{{ $ht = $ht | append (printf "#%s" $slug) }}{{ end }}
-        {{ end }}
-        {{ $userTags = delimit $ht " " }}
+    <div class="work-grid">
+      {{ range . }}
+        {{ $t := .Title }}
+        <a class="work-card" href="{{ .RelPermalink }}">
+          <span class="work-card__cover">
+            {{ with .Params.cover }}
+              <img src="{{ partial "optimized-image" (dict "src" . "width" 640) }}" alt="{{ $t }}" loading="lazy">
+            {{ end }}
+          </span>
+          <span class="work-card__meta">
+            <span>{{ .Params.delivered | default (.Date.Format "2006.01") }}</span>
+          </span>
+          <span class="title-item work-card__title">{{ .Title }}</span>
+        </a>
       {{ end }}
-      <script>
-      var _vdShare = {
-        title:   {{ .Title | jsonify }},
-        url:     {{ .Permalink | jsonify }},
-        caption: {{ $caption | jsonify }},
-        tags:    {{ $userTags | jsonify }}
-      };
-      </script>
     </div>
   </div>
-</div>
-
-{{/* 07 · Loop-back */}}
-<div style="padding:0 var(--dossier-pad) 56px;">
-  <div class="loop-back">
-    <div>
-      <div class="eyebrow">{{ T "dossier_from_studio" | default "FROM THE STUDIO" }}</div>
-      <div style="font-family:var(--font-serif);font-size:40px;line-height:1.05;margin-top:8px;letter-spacing:-0.01em;">
-        {{ T "dossier_loopback_title" | default "If you have a piece that deserves this, I'd love to paint it next." }}
-      </div>
-      <div style="margin-top:16px;font-size:13px;color:var(--ink-soft);line-height:1.7;max-width:560px;">
-        {{ T "dossier_loopback_body" | default "Two display slots open each quarter. Reach me however we already talk — WeChat, 小红书, IG — or use the form on viiyd.com. A reference picture and a deadline is enough to start." }}
-      </div>
-    </div>
-    <div class="loop-back-actions">
-      <button onclick="openCommissionModal()" class="btn btn-yellow" style="text-align:center;cursor:pointer;font:inherit;">{{ T "dossier_commission_btn" | default "[ Commission a piece → ]" }}</button>
-      <a href="{{ relLangURL "work" }}" class="btn btn-outline" style="text-align:center;">← {{ T "back_archive" | default "Back to the archive" }}</a>
-    </div>
-  </div>
-</div>
-
-{{/* ── Share Modal ── */}}
-<div id="vd-share-overlay" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.72);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
-  <div style="background:var(--bg);border:1px solid var(--line);max-width:520px;width:calc(100% - 32px);padding:0;position:relative;">
-    {{/* header */}}
-    <div style="padding:18px 24px 14px;border-bottom:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-soft);">// SHARE THIS DOSSIER</span>
-      <button onclick="document.getElementById('vd-share-overlay').style.display='none'" style="background:none;border:none;color:var(--ink-soft);font-size:18px;cursor:pointer;line-height:1;padding:0;">×</button>
-    </div>
-    {{/* editable copy preview */}}
-    <div style="padding:20px 24px 14px;">
-      <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;">COPY TEXT</div>
-      <textarea id="vd-share-text" rows="5"
-        style="width:100%;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:13px;line-height:1.6;padding:12px;resize:vertical;box-sizing:border-box;outline:none;"></textarea>
-      <div style="font-size:10px;color:var(--ink-soft);margin-top:6px;opacity:0.6;">可直接编辑 · editable before copying</div>
-    </div>
-    {{/* platform row */}}
-    <div style="padding:0 24px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-      <button id="vd-copy-ig"
-        style="padding:12px 8px;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
-        Instagram
-      </button>
-      <button id="vd-copy-wechat"
-        style="padding:12px 8px;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
-        微信 WeChat
-      </button>
-      <button id="vd-tweet"
-        style="padding:12px 8px;background:var(--paper);border:1px solid var(--line-soft);color:var(--ink);font-family:var(--font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
-        Twitter / X
-      </button>
-    </div>
-    {{/* copy all */}}
-    <div style="padding:0 24px 24px;">
-      <button id="vd-copy-all"
-        style="width:100%;padding:14px;background:var(--yellow);border:none;color:#111;font-family:var(--font-sans);font-weight:600;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;">
-        复制全部文案 + 链接
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  // ── helpers ──────────────────────────────────────────────
-  function copyText(str, btn, label) {
-    var orig = btn.textContent;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(str).then(done).catch(fallback);
-    } else { fallback(); }
-    function done() { btn.textContent = '✓ copied'; setTimeout(function(){ btn.textContent = label || orig; }, 2000); }
-    function fallback() {
-      var el = document.createElement('textarea');
-      el.value = str; el.style.position = 'fixed'; el.style.opacity = '0';
-      document.body.appendChild(el); el.select();
-      try { document.execCommand('copy'); done(); } catch(e) {}
-      document.body.removeChild(el);
-    }
-  }
-
-  // ── build text variants ───────────────────────────────────
-  function igText()     { return _vdShare.caption + '\n\n' + _vdShare.url + '\n\n' + _vdShare.tags; }
-  function wechatText() { return _vdShare.caption + '\n\n' + _vdShare.url; }
-  function allText()    { return igText(); }
-
-  // ── populate textarea on open ────────────────────────────
-  function openModal() {
-    var ov = document.getElementById('vd-share-overlay');
-    document.getElementById('vd-share-text').value = igText();
-    ov.style.display = 'flex';
-  }
-
-  // ── close on backdrop click ──────────────────────────────
-  document.getElementById('vd-share-overlay').addEventListener('click', function(e){
-    if (e.target === this) this.style.display = 'none';
-  });
-
-  // ── share button ─────────────────────────────────────────
-  document.getElementById('vd-share-btn').addEventListener('click', openModal);
-
-  // ── platform buttons ─────────────────────────────────────
-  document.getElementById('vd-copy-ig').addEventListener('click', function(){
-    copyText(igText(), this, 'Instagram');
-  });
-  document.getElementById('vd-copy-wechat').addEventListener('click', function(){
-    copyText(wechatText(), this, '微信 WeChat');
-  });
-  document.getElementById('vd-tweet').addEventListener('click', function(){
-    var t = encodeURIComponent(_vdShare.caption.slice(0, 200) + ' ' + _vdShare.url);
-    window.open('https://twitter.com/intent/tweet?text=' + t, '_blank');
-  });
-  document.getElementById('vd-copy-all').addEventListener('click', function(){
-    var txt = document.getElementById('vd-share-text').value;
-    copyText(txt, this, '复制全部文案 + 链接');
-  });
-})();
-</script>
-
-{{/* Footer override (dossier-specific) */}}
-<footer style="padding:14px var(--dossier-pad);border-top:1px solid var(--line-soft);font-size:10px;letter-spacing:0.16em;color:var(--ink-soft);display:flex;justify-content:space-between;text-transform:uppercase;">
-  <span>{{ T "dossier_private" | default "Private dossier" }} · {{ if $fileNo }}#VY-{{ $fileNo }} · {{ end }}{{ $title | lower }}</span>
-  <span>viiyd.com</span>
-</footer>
-
+</section>
 {{ end }}
 
-{{ define "scripts" }}
-{{ $js := resources.Get "js/lightbox.js" }}
-{{ if $js }}
-  {{ if hugo.IsProduction }}{{ $js = $js | minify | fingerprint }}{{ end }}
-  <script src="{{ $js.RelPermalink }}"></script>
-{{ end }}
-<style>
-  @media print {
-    /* hide chrome */
-    header, nav, .loop-back, footer, #vd-share-btn,
-    .dossier-scroll-hint, .lightbox-overlay { display: none !important; }
-
-    /* page setup */
-    @page { margin: 18mm 15mm; }
-    body { background: #fff !important; color: #111 !important; font-size: 11pt; }
-
-    /* hero — compact */
-    .dossier-hero {
-      min-height: 260px !important;
-      max-height: 340px !important;
-      page-break-after: avoid;
-    }
-    .dossier-title { font-size: 56pt !important; }
-    .dossier-hero-bg { opacity: 0.18 !important; }
-
-    /* specimen card */
-    .specimen-card { page-break-inside: avoid; }
-
-    /* notes section */
-    .painters-notes { grid-template-columns: 1fr !important; }
-    .pull-quote { page-break-after: avoid; }
-
-    /* plates: 4-col compact grid, hide plate numbers */
-    .plates-grid {
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 6px !important;
-    }
-    .plate { grid-column: span 1 !important; aspect-ratio: 4/3 !important; }
-    .plate-n, .plate-caption { display: none !important; }
-
-    /* paint swatches */
-    .paint-grid { grid-template-columns: repeat(8, 1fr) !important; }
-
-    /* certificate */
-    .certificate { grid-template-columns: 1fr !important; page-break-before: always; }
-  }
-</style>
+</main>
 {{ end }}

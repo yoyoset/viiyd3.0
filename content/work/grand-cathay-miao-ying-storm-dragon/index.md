@@ -56,6 +56,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "Miao Ying, the Storm Dragon — a Grand Cathay centrepiece in full serpentine dragon form. Amethyst scales blended into cool violet, a pearlescent white flowing mane, a gold crown set with rose gems, and ornate black-and-silver cloud barding, rearing above a shattered quartz crag."
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

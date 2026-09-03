@@ -52,6 +52,8 @@ paints:
     hex: "#3B2A5A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Druchii-Violet-2019"
 description: "Miao Ying in human form, painted to match her full Storm Dragon — amethyst robes layered over ivory, flowing white hair and tall headdress, gold trim, rose gems, and hand-painted white dragon and cloudwork across the robe, set on a broken-stone base."
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

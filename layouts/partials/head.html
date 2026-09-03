@@ -1,7 +1,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
+  {{/* 4.0 是单一暗色主题（tokens.css 写死 color-scheme:dark）。
+       这里若还写 light dark，部分内核会在 CSS 到达前用浅色渲染表单控件，出现一瞬白闪。 */}}
+  <meta name="color-scheme" content="dark">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   {{ if .Params.noindex }}<meta name="robots" content="noindex">{{ end }}
 
@@ -24,14 +26,24 @@
   <!-- Fonts (non-blocking: swap in after load, <noscript> fallback) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+  {{/* 4.0 字体：中文衬线标题 + 中文无衬线正文 + mono 机器信息 + 拉丁 display。
+       Noto Serif SC 是重量级中文字体，只取 700/900 两个字重。
+       占位表 P15：上线前换成按站内实际用字生成的自托管子集（目标 <400KB）。 */}}
+  {{ $fonts := "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" }}
+  <link href="{{ $fonts }}" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="{{ $fonts }}" rel="stylesheet"></noscript>
 
   <!-- CSS -->
-  {{ $style := resources.Get "css/main.css" }}
-  {{ $style = $style | css.PostCSS }}
-  {{ if hugo.IsProduction }}{{ $style = $style | minify | fingerprint }}{{ end }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{/* 4.0 三层：tokens（令牌）→ base（全局元素与版式）→ components（组件）。
+       顺序不能换 —— base/components 全部依赖 tokens 里的自定义属性。 */}}
+  {{ $css := slice
+       (resources.Get "css/tokens.css")
+       (resources.Get "css/base.css")
+       (resources.Get "css/components.css")
+     | resources.Concat "css/viiyd.css" }}
+  {{ $css = $css | css.PostCSS }}
+  {{ if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
   <!-- Cloudflare Turnstile (deferred — only fires when modal opens) -->
   {{ with .Site.Params.turnstileSiteKey }}
@@ -55,7 +67,10 @@
   {{ end }}
 
   <!-- Open Graph / Twitter -->
+  {{/* og:image 必须是绝对 URL —— 相对路径（如 /images/x.jpg）社交平台解析不了，
+       微信分享出去就是没有预览图。cover 可能是站内相对路径，统一过 absURL。 */}}
   {{ $ogImage := .Params.cover | default .Site.Params.ogImage }}
+  {{ if $ogImage }}{{ $ogImage = $ogImage | absURL }}{{ end }}
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
   <meta property="og:description" content="{{ $desc }}">
   <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
@@ -67,48 +82,79 @@
   {{ with $ogImage }}<meta name="twitter:image" content="{{ . }}">{{ end }}
 
   <!-- Structured data -->
+  {{/* JSON-LD：**必须先 dict 组装再整体 jsonify | safeJS**。
+       在 <script type="application/ld+json"> 里逐个字段写 {{ . | jsonify }}，
+       Go 模板会把它当 JS 字符串再转义一次，产出 "url":"\"https://…\"" ——
+       能 JSON.parse，但每个值都带着字面引号，等于结构化数据全是坏的。
+       这是 3.0 就有的问题，2026-09-03 修正。 */}}
+  {{/* sameAs 收录 data/contact.yaml 里所有已填的渠道，留空的不进结构化数据 */}}
+  {{ $social := slice }}
+  {{ range $k, $v := .Site.Data.contact.channels }}{{ with $v }}{{ $social = $social | append . }}{{ end }}{{ end }}
+  {{ $ld := false }}
   {{ if .IsHome }}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "VIIYD Studio",
-    "url": {{ .Site.BaseURL | jsonify }},
-    "description": {{ .Site.Params.description | jsonify }},
-    "image": {{ .Site.Params.ogImage | jsonify }},
-    "address": { "@type": "PostalAddress", "addressLocality": "Chengdu", "addressCountry": "CN" },
-    "areaServed": "Worldwide",
-    "sameAs": ["https://instagram.com/viiyang.yingying"],
-    "knowsAbout": ["Warhammer 40,000", "Age of Sigmar", "miniature painting commission", "NMM", "OSL", "tabletop miniatures"]
-  }
-  </script>
+    {{ $ld = dict
+      "@context" "https://schema.org"
+      "@type" "ProfessionalService"
+      "name" "VIIYD Studio"
+      "url" .Site.BaseURL
+      "description" .Site.Params.description
+      "image" .Site.Params.ogImage
+      "address" (dict "@type" "PostalAddress" "addressLocality" "Chengdu" "addressCountry" "CN")
+      "areaServed" "Worldwide"
+      "sameAs" $social
+      "knowsAbout" (slice "Warhammer 40,000" "Age of Sigmar" "miniature painting commission" "NMM" "OSL" "tabletop miniatures")
+    }}
   {{ else if and (eq .Section "work") .Params.cover }}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VisualArtwork",
-    "name": {{ .Title | jsonify }},
-    "url": {{ .Permalink | jsonify }},
-    "image": {{ .Params.cover | jsonify }},
-    "description": {{ $desc | jsonify }},
-    "artMedium": "Acrylic on plastic miniature",
-    "artform": "Miniature painting",
-    "dateCreated": {{ .Date.Format "2006-01-02" | jsonify }},
-    "creator": { "@type": "Organization", "name": "VIIYD Studio", "url": {{ .Site.BaseURL | jsonify }} }
-  }
-  </script>
+    {{ $ld = dict
+      "@context" "https://schema.org"
+      "@type" "VisualArtwork"
+      "name" .Title
+      "url" .Permalink
+      "image" .Params.cover
+      "description" $desc
+      "artMedium" "Acrylic on plastic miniature"
+      "artform" "Miniature painting"
+      "dateCreated" (.Date.Format "2006-01-02")
+      "creator" (dict "@type" "Organization" "name" "VIIYD Studio" "url" .Site.BaseURL)
+    }}
+  {{ else if eq .Layout "services" }}
+    {{/* 只声明五个等级的存在，**不放任何价格与数字** ——
+         占位系数会被搜索引擎当成事实，而 1 EIU = ¥40 是规格 §19 故意留白的策略。 */}}
+    {{ $tiers := slice }}
+    {{ range .Site.Data.pricing.tiers }}
+      {{ $tiers = $tiers | append (dict "@type" "OfferCatalog" "name" .name) }}
+    {{ end }}
+    {{ $ld = dict
+      "@context" "https://schema.org"
+      "@type" "Service"
+      "name" .Title
+      "url" .Permalink
+      "description" $desc
+      "serviceType" "Miniature painting commission"
+      "provider" (dict "@type" "ProfessionalService" "name" "VIIYD Studio" "url" .Site.BaseURL)
+      "areaServed" (dict "@type" "Country" "name" "China")
+      "hasOfferCatalog" (dict "@type" "OfferCatalog" "name" (T "svc_tiers_label" | default "Painting tiers") "itemListElement" $tiers)
+    }}
+  {{ else if eq .Layout "about" }}
+    {{/* 资历数字是占位值（P9），只放非数字事实 */}}
+    {{ $ld = dict
+      "@context" "https://schema.org"
+      "@type" "AboutPage"
+      "name" .Title
+      "url" .Permalink
+      "description" $desc
+      "mainEntity" (dict
+        "@type" "ProfessionalService"
+        "name" "VIIYD Studio"
+        "url" .Site.BaseURL
+        "address" (dict "@type" "PostalAddress" "addressLocality" "Chengdu" "addressCountry" "CN")
+        "sameAs" $social)
+    }}
   {{ end }}
+  {{ with $ld }}<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>{{ end }}
 
   <!-- Cloudflare Web Analytics -->
   {{ with .Site.Params.cfBeaconToken }}
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ . }}"}'></script>
   {{ end }}
-  <script>
-    /* .reveal elements start hidden only when the reveal script can run;
-       if it never loads, this timeout unhides everything. */
-    document.documentElement.classList.add('js-reveal');
-    setTimeout(function () {
-      if (!window.__viiydReveal) document.documentElement.classList.remove('js-reveal');
-    }, 2500);
-  </script>
 </head>

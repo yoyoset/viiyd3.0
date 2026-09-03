@@ -1,4 +1,4 @@
-﻿---
+---
 title: "西格玛之城军队展示大合集"
 date: 2024-01-01
 summary: "西格玛之城军队项目的完整展示。为桌面部署准备的完整分队。"
@@ -23,6 +23,8 @@ paints:
     hex: "#FFFFFF"
     link: "https://www.warhammer.com/en-GB/shop/Layer-White-Scar-2019"
 description: "西格玛之城军队项目的完整展示。专为桌面部署准备，注重耐用性和视觉清晰度。配色方案针对远距离识别进行了优化，同时保持了近距离观察的清晰细节。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

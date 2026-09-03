@@ -2,11 +2,12 @@
 <html lang="{{ .Site.LanguageCode }}">
 {{ partial "head.html" . }}
 <body>
+  {{ partial "site-head.html" . }}
   {{ block "main" . }}{{ end }}
   {{ partial "site-footer.html" . }}
   {{ partial "commission-modal.html" . }}
   {{ block "scripts" . }}
-    {{ range slice "js/lightbox.js" "js/reveal.js" }}
+    {{ range slice "js/lightbox.js" "js/archive.js" "js/wechat.js" "js/estimator.js" "js/nav.js" }}
       {{ with resources.Get . }}
         {{ $js := . }}
         {{ if hugo.IsProduction }}{{ $js = $js | minify | fingerprint }}{{ end }}

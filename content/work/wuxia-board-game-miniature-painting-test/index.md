@@ -27,6 +27,8 @@ paints:
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "Character miniatures from a Wuxia-themed board game. Exploring different color palettes, lighting effects, and cloth textures to capture the spirit of martial arts heroes."
+system: "other"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

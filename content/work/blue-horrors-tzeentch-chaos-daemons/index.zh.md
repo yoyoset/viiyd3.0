@@ -1,4 +1,4 @@
-﻿---
+---
 title: "蓝色惧妖：奸奇混沌恶魔"
 date: 2024-01-01
 summary: "粉色惧妖分裂后的残余。对冷色调蓝色渐变和魔法火焰效果的研究。"
@@ -27,6 +27,8 @@ paints:
     hex: "#101D33"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Drakenhof-Nightshade-2019"
 description: "粉色惧妖分裂后的残余。对冷色调蓝色渐变和魔法火焰效果的研究。专为大规模步兵部署设计，这些蓝色惧妖注重鲜明的辨识度。"
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

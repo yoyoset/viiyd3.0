@@ -1,0 +1,15 @@
+# 联系方式与渠道 —— 占位表 P7 / P10
+#
+# 留空的一律不渲染（不显示假数据）。填上即自动出现，不必改模板。
+
+wechat_id: ""          # P7：微信号明文。确认是否公开展示后填入。
+                       # 留空时浮层里的「复制微信号」按钮不渲染，二维码照常显示。
+wechat_qr: "/img/mywechat.jpg"   # 微信二维码图（长按识别用）
+email: ""              # 备选联系方式，显示在二维码下方小字
+
+channels:
+  instagram: "https://www.instagram.com/viiyang.yingying/"
+  facebook: "https://www.facebook.com/viiyang.yingying"
+  xiaohongshu: ""      # 小红书主页链接
+  bilibili: ""         # B 站空间链接
+  youtube: ""          # 有就填，没有不显示

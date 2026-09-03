@@ -56,6 +56,8 @@ paints:
     hex: "#A5834A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Seraphim-Sepia-2022"
 description: "Three Astromancers of the Celestial Court — a gold-armoured mage on a dragon-mount, a black-gold foot wizard and a grey-black spirit-bird familiar with a violet locus orb. Crimson, orange and celestial blue robes with gold trim and gem-studded finery."
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

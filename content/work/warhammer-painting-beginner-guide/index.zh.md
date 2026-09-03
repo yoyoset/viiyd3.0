@@ -1,4 +1,4 @@
-﻿---
+---
 title: "战锤涂装入门指南"
 date: 2024-01-01
 summary: "开始您的战锤微缩模型涂装之旅的综合指南。涵盖基本工具、技法和工作区设置。"
@@ -24,6 +24,7 @@ paints:
     hex: "#888D8F"
     link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
 description: "开始您的战锤微缩模型涂装之旅的综合指南。涵盖基本工具、技法和工作区设置，帮助您取得出色成果。"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

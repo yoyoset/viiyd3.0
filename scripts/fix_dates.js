@@ -1,3 +1,7 @@
+/* ⚠️ DEPRECATED（2026-09-03，4.0 改版后停用）
+ * 一次性日期修复。日期问题现在由 audit_content.js 的 FutureDate 规则挡住。
+ * 全站已无任何文档或配置引用它。保留仅为历史参考，**不要运行**。
+ */
 const fs = require('fs');
 const path = require('path');
 

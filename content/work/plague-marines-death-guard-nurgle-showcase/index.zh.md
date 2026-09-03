@@ -36,6 +36,8 @@ paints:
     hex: "#A4B022"
     link: "https://www.warhammer.com/en-GB/shop/Technical-Nurgles-Rot-2019"
 description: "一个全面展示整支瘟疫战士小队的委托项目。重点在于多层污垢、锈蚀效果以及血肉变异细节。"
+system: "40k"
+delivered: "2026.03"
 ---
 
 <div class="image-grid">

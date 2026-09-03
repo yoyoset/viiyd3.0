@@ -1,4 +1,4 @@
-﻿---
+---
 title: "自由公会骑士：红色先锋"
 date: 2024-01-01
 summary: "一队涂装为醒目红金配色的自由公会骑士，象征着哈默哈尔的烈火意志。"
@@ -27,6 +27,8 @@ paints:
     hex: "#636e72"
     link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
 description: "一队涂装为醒目红金配色的自由公会骑士，象征着哈默哈尔的烈火意志。本单位已为桌面部署准备就绪，重点关注视觉冲击力和完成度。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

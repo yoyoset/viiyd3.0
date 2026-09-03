@@ -44,6 +44,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "Grand Cathay Shugengan Lord on Great Spirit Longma — jade scales, translucent ivory wings with red veining, gold-trimmed command armor and freehand cape. The centrepiece of any Grand Cathay force."
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

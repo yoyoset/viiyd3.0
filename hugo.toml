@@ -1,6 +1,18 @@
 baseURL = 'https://viiyd.com/'
-title = 'VIIYD 3.0'
+title = 'VIIYD Studio'   # 根标题只作兜底，实际用 [languages.*] 里的分语言标题
 theme = []
+
+# 模板 layouts/robots.txt 一直存在，但没开这个开关 Hugo 不渲染它。
+# **必须放在第一个 [表头] 之前** —— TOML 里表头之后的裸键属于那个表，
+# 放在 [languages.zh] 后面会变成语言的子键，静默失效。
+enableRobotsTXT = true
+
+# 这两条原本写在 [params] 之后 —— 于是变成了 params 的子键（实测
+# `hugo config` 里能看到 params.defaultcontentlanguage），**根本没作为配置生效**。
+# 站点表现正确纯属巧合：Hugo 的默认值恰好就是 en / false。
+# 哪天想改成中文优先，改那两行会毫无反应。
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
 
 [params]
   turnstileSiteKey = "0x4AAAAAACNE6SxZEmTQJClP"
@@ -10,8 +22,6 @@ theme = []
   cfBeaconToken = "8217e1c246824a018a743776dbb7aa71"
 
 # Multilingual Config
-defaultContentLanguage = 'en'
-defaultContentLanguageInSubdir = false
 
 [languages]
   [languages.en]
@@ -30,12 +40,8 @@ defaultContentLanguageInSubdir = false
       pageRef = "work"
       weight = 20
     [[languages.en.menu.main]]
-      name = "Process"
-      pageRef = "process"
-      weight = 30
-    [[languages.en.menu.main]]
       name = "Services"
-      pageRef = "rates"
+      pageRef = "services"
       weight = 40
     [[languages.en.menu.main]]
       name = "About"
@@ -57,17 +63,24 @@ defaultContentLanguageInSubdir = false
       pageRef = "work"
       weight = 20
     [[languages.zh.menu.main]]
-      name = "流程"
-      pageRef = "process"
-      weight = 30
-    [[languages.zh.menu.main]]
-      name = "报价"
-      pageRef = "rates"
+      name = "服务与计价"
+      pageRef = "services"
       weight = 40
     [[languages.zh.menu.main]]
       name = "关于"
       pageRef = "about"
       weight = 50
+
+# 4.0 分类体系：停用 Hugo 默认的 tags/categories（生成了 259 个垃圾页，
+# 且用旧模板泄漏了遗留正文），换成筛选真正用的两个维度。
+# 这些静态页兼作 SEO 落地页与小红书/IG 投放落点（营销规划 §5-1）。
+[taxonomies]
+  # 单复同形 —— Hugo 用复数名去 front matter 取值，而内容里的键是 system，
+  # 若写成 systems 就取不到值，分类页会全空（实测栽过）。
+  #
+  # 2026-09-03：tier 分类已移除。每一单都是定制，档位概念本身不成立，
+  # front matter 里的 tier 字段保留但不再产出 /tier/* 落地页。
+  system = "system"
 
 [module]
   [module.hugoVersion]

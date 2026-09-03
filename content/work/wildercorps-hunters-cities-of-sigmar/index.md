@@ -27,6 +27,8 @@ paints:
     hex: "#3D4547"
     link: "https://www.warhammer.com/en-GB/shop/Base-Mechanicus-Standard-Grey-2019"
 description: "Rugged scouts of the Cities of Sigmar, accompanied by their loyal Trailhounds. Painted with natural tones, leather textures, and realistic weathering to reflect their wilderness operations."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

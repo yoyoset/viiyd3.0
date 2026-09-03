@@ -41,6 +41,8 @@ paints:
     hex: "#2396A8"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Temple-Guard-Blue-2019"
 description: "Adeptus Custodes Vertus Praetors painted in separated sub-assemblies, balancing rich gold armor, silver wing panels, red cloth accents, black weapon casings, and blue gem details for a clean commission showcase."
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

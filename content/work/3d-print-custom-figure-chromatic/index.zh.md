@@ -1,4 +1,4 @@
-﻿---
+---
 title: "3D打印定制：多彩重构"
 date: 2025-12-17
 summary: "针对3D打印树脂件的色彩重构研究。通过高饱和度渐变和光源效果克服打印层纹。"
@@ -26,6 +26,8 @@ paints:
     hex: "#440052"
     link: "https://www.warhammer.com/en-GB/shop/Base-Phoenician-Purple-2019"
 description: "专注于3D打印部件的美学重塑。使用多层罩染和渐变逻辑，为火焰刀刃和深色阴影装甲注入生命。"
+system: "other"
+delivered: "2025.12"
 ---
 
 <div class="image-grid">

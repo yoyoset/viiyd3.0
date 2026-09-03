@@ -1,4 +1,4 @@
-﻿---
+---
 title: "奸奇尖啸者：虚空滑翔者"
 date: 2025-10-31
 summary: "在空气和亚空间中滑翔的噩梦生物，在身后留下扭曲的现实。涂装采用蓝紫色渐变和发光的边缘，以捕捉它们空灵的威胁感。"
@@ -27,6 +27,7 @@ paints:
     hex: "#58C1CD"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Baharroth-Blue-2019"
 description: "蓝紫色的渐变和发光的边缘高光展示了尖啸者在亚空间中优雅的滑翔。在身后留下扭曲现实的噩梦生物。"
+delivered: "2025.10"
 ---
 
 <div class="image-grid">

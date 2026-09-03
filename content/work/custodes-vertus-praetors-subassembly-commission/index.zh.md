@@ -41,6 +41,8 @@ paints:
     hex: "#2396A8"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Temple-Guard-Blue-2019"
 description: "一组禁军 Vertus Praetors 分件涂装委托，重点处理金色盔甲、银色翼板、红色布料、黑色武器外壳和蓝色宝石细节，让组装前后的展示效果都保持清晰。"
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

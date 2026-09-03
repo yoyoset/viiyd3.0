@@ -1,10 +1,11 @@
 {{/* Commission Modal — POP overlay, included once in baseof.html.
      Opens via openCommissionModal() from any page. */}}
 <div id="cm-backdrop" role="dialog" aria-modal="true" aria-labelledby="cm-headline" aria-hidden="true"
-  style="display:none;position:fixed;inset:0;z-index:1000;">
+  style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;inset:0;z-index:1000;">
 
   {{/* blur + dark tint */}}
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,4,0.78),rgba(8,6,4,0.94));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);"></div>
+  {{/* 4.0：单一墨色底，不做渐变与毛玻璃（handoff §7「不做」清单） */}}
+  <div style="position:absolute;top:0;right:0;bottom:0;left:0;inset:0;background:rgba(14,17,19,.97);"></div>
 
   {{/* scrollable wrapper — click outside modal to close */}}
   <div id="cm-scroll" onclick="if(event.target===this)cmClose()"
@@ -13,44 +14,62 @@
     {{/* close row */}}
     <div style="max-width:560px;margin:0 auto 10px;display:flex;justify-content:flex-end;">
       <button onclick="cmClose()" aria-label="Close"
-        style="background:none;border:none;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(241,236,224,0.7);cursor:pointer;padding:4px 8px;">
+        style="background:none;border:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-muted);cursor:pointer;padding:8px;min-height:44px;">
         Close ×
       </button>
     </div>
 
     {{/* modal card */}}
     <div id="cm-card"
-      style="max-width:560px;margin:0 auto;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,0.5),0 8px 30px rgba(0,0,0,0.28);border:1px solid var(--line-soft);position:relative;">
+      style="max-width:560px;margin:0 auto;background:var(--ink);color:var(--fg-body);border:1px solid var(--hairline-strong);position:relative;">
 
       {{/* ── WECHAT QR STATE (default) ── */}}
       <div id="cm-qr-body" style="padding:40px 40px 36px;">
-        <div style="display:flex;align-items:center;gap:10px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-soft);">
+        <div style="display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-muted);">
           {{ partial "badge.html" (dict "size" 18) }}
           <span>VIIYD STUDIO · {{ T "cm_start_label" }}</span>
         </div>
 
-        <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;font-size:52px;line-height:0.95;letter-spacing:-0.02em;margin:14px 0 12px;">
-          {{ T "cm_qr_headline" }}&thinsp;<span style="color:var(--yellow);font-style:normal;">{{ T "cm_qr_accent" }}</span>
+        <h2 style="font-family:var(--font-display);font-weight:900;font-size:34px;line-height:1.2;letter-spacing:-0.03em;color:var(--fg);margin:14px 0 12px;">
+          {{ T "cm_qr_headline" }}&thinsp;<span style="color:var(--primary);">{{ T "cm_qr_accent" }}</span>
         </h2>
 
-        <p style="font-family:'Geist',sans-serif;font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 24px;">
+        <p style="font-family:var(--font-body);font-size:13.5px;line-height:1.85;color:var(--fg-body);margin:0 0 24px;">
           {{ T "cm_qr_body" }}
         </p>
 
         {{/* QR card */}}
-        <div style="padding:20px;background:var(--yellow);border:1px solid #c89518;display:flex;gap:20px;align-items:center;">
+        {{/* 缃色只给 Legend 与 logo（handoff §1 第 3 条），二维码块改 1px 框体 */}}
+        <div style="padding:20px;border:1px solid var(--hairline-strong);display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
           <img src="/img/mywechat.jpg" alt="WeChat QR code"
-               style="width:150px;height:150px;object-fit:cover;flex-shrink:0;display:block;">
+               style="width:150px;height:150px;object-fit:contain;flex-shrink:0;display:block;background:#fff;">
           <div>
-            <div style="font-size:10px;letter-spacing:0.18em;color:#0c0c0a;text-transform:uppercase;margin-bottom:6px;font-family:'Geist Mono',monospace;">WeChat</div>
-            <div style="font-family:'Geist',sans-serif;font-weight:500;font-size:15px;color:#0c0c0a;">{{ T "cm_qr_scan_hint" }}</div>
+            <div style="font-size:10px;letter-spacing:0.18em;color:var(--fg-muted);text-transform:uppercase;margin-bottom:6px;font-family:var(--font-mono);">WeChat</div>
+            <div style="font-family:var(--font-body);font-weight:500;font-size:15px;color:var(--fg);">{{ T "cm_qr_scan_hint" }}</div>
           </div>
         </div>
+
+        {{/* 复制微信号（规格 §4.9）。data/contact.yaml 的 wechat_id 为空时整块不渲染 ——
+             宁可少一个按钮，也不显示假号码。填上就自动出现。 */}}
+        {{ with .Site.Data.contact.wechat_id }}
+        <div style="margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+          <button type="button" onclick="cmCopyWechat(this)" data-wechat-id="{{ . }}"
+            style="background:var(--action);color:#fff;border:0;padding:14px 26px;min-height:44px;font-family:var(--font-body);font-size:13.5px;cursor:pointer;">
+            {{ T "cm_copy_wechat" | default "复制微信号" }}
+          </button>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--fg-muted);">{{ . }}</span>
+        </div>
+        {{ end }}
+        {{ with .Site.Data.contact.email }}
+        <div style="margin-top:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--fg-muted);">
+          {{ T "cm_or_email" | default "或邮件" }} · <a href="mailto:{{ . }}" style="color:var(--primary);">{{ . }}</a>
+        </div>
+        {{ end }}
 
         {{/* fallback to form */}}
         <div style="margin-top:22px;display:flex;justify-content:center;">
           <button onclick="cmShowForm()"
-            style="background:transparent;color:var(--ink);border:1px solid var(--line);padding:12px 22px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+            style="background:transparent;color:var(--fg);border:1px solid var(--border-btn);padding:13px 26px;min-height:44px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
             {{ T "cm_no_wechat_btn" }}
           </button>
         </div>
@@ -59,22 +78,22 @@
       {{/* ── FORM STATE ── */}}
       <div id="cm-form-body" style="display:none;padding:40px 40px 32px;">
         <button onclick="cmShowQR()"
-          style="background:none;border:none;padding:0 0 10px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;">
+          style="background:none;border:none;padding:0 0 10px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-muted);cursor:pointer;">
           {{ T "cm_back_to_qr" }}
         </button>
-        <div style="display:flex;align-items:center;gap:10px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-soft);">
+        <div style="display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-muted);">
           {{ partial "badge.html" (dict "size" 18) }}
           <span>VIIYD STUDIO · {{ T "cm_start_label" }}</span>
         </div>
 
         <h2 id="cm-headline"
-          style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;font-size:52px;line-height:0.95;letter-spacing:-0.02em;margin:14px 0 12px;">
-          {{ T "cm_headline" }}&thinsp;<span style="color:var(--yellow);font-style:normal;">{{ T "cm_headline_accent" }}</span>
+          style="font-family:var(--font-display);font-weight:400;font-style:italic;font-size:52px;line-height:0.95;letter-spacing:-0.02em;margin:14px 0 12px;">
+          {{ T "cm_headline" }}&thinsp;<span style="color:var(--primary);font-style:normal;">{{ T "cm_headline_accent" }}</span>
         </h2>
 
-        <p style="font-family:'Geist',sans-serif;font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 22px;">
+        <p style="font-family:var(--font-body);font-size:14px;line-height:1.55;color:var(--fg-muted);margin:0 0 22px;">
           {{ T "cm_body" }}<br>
-          <span style="color:var(--ink);">{{ T "cm_body_zh" }}</span>
+          <span style="color:var(--fg);">{{ T "cm_body_zh" }}</span>
         </p>
 
         <form id="cm-form" novalidate>
@@ -85,7 +104,7 @@
               <span>{{ T "cm_field_name" }}</span>
               <span class="cm-label-zh">· {{ T "cm_field_name_zh" }}</span>
             </div>
-            <input id="cm-name" name="name" type="text" autocomplete="name"
+            <input id="cm-name" aria-label="{{ T "cm_field_name" }}" name="name" type="text" autocomplete="name"
               placeholder="{{ T "cm_name_placeholder" }}" required
               class="cm-input" oninput="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
           </div>
@@ -96,7 +115,7 @@
               <span>{{ T "cm_field_contact" }}</span>
               <span class="cm-label-zh">· {{ T "cm_field_contact_zh" }}</span>
             </div>
-            <input id="cm-contact" name="contact" type="text"
+            <input id="cm-contact" aria-label="{{ T "cm_field_contact" }}" name="contact" type="text"
               placeholder="{{ T "cm_contact_placeholder" }}" required
               class="cm-input" oninput="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
             <div class="cm-hint">{{ T "cm_contact_hint" }}</div>
@@ -110,7 +129,7 @@
                 <span class="cm-label-zh">· {{ T "cm_field_project_zh" }}</span>
               </div>
               <div class="cm-select-wrap">
-                <select id="cm-project" name="project" required
+                <select id="cm-project" aria-label="{{ T "cm_field_project" }}" name="project" required
                   class="cm-select" onchange="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
                   <option value="">{{ T "form_select_option" }}…</option>
                   <option value="single">{{ T "form_project_single" }}</option>
@@ -125,19 +144,16 @@
             </div>
             <div class="cm-field">
               <div class="cm-label-row">
-                <span>{{ T "cm_field_tier" }}</span>
-                <span class="cm-label-zh">· {{ T "cm_field_tier_zh" }}</span>
+                <span>{{ T "cm_field_goal" }}</span>
+                <span class="cm-label-zh">· {{ T "cm_field_goal_zh" }}</span>
               </div>
-              <div class="cm-select-wrap">
-                <select id="cm-tier" name="tier" required
-                  class="cm-select" onchange="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
-                  <option value="">{{ T "form_select_option" }}…</option>
-                  <option value="tabletop">{{ T "tier_tabletop_label" }} · ¥120+</option>
-                  <option value="display">{{ T "tier_display_label" }} · ¥600+</option>
-                  <option value="unsure">{{ T "cm_tier_unsure" }}</option>
-                </select>
-                <span class="cm-select-arrow">▾</span>
-              </div>
+              {{/* 2026-09-03：原来这里是「涂装等级」五选一的必填下拉。
+                   等级体系已从产品中移除（每一单都是定制），
+                   继续问「你要哪一档」与「一单一议」自相矛盾。
+                   改成开放式的一句话描述期望效果，非必填 —— 说不清楚正是该聊的理由。 */}}
+              <input id="cm-goal" aria-label="{{ T "cm_field_goal" }}" name="goal" type="text"
+                placeholder="{{ T "cm_goal_placeholder" }}"
+                class="cm-input" oninput="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
             </div>
           </div>
 
@@ -147,7 +163,7 @@
               <span>{{ T "cm_field_deadline" }}</span>
               <span class="cm-label-zh">· {{ T "cm_field_deadline_zh" }}</span>
             </div>
-            <input id="cm-deadline" name="deadline" type="text"
+            <input id="cm-deadline" aria-label="{{ T "cm_field_deadline" }}" name="deadline" type="text"
               placeholder="{{ T "cm_deadline_placeholder" }}"
               class="cm-input" oninput="cmValidate()" onfocus="cmFocus(this)" onblur="cmBlur(this)">
             <div class="cm-hint">{{ T "cm_deadline_hint" }}</div>
@@ -159,15 +175,19 @@
               <span>{{ T "cm_field_refs" }}</span>
               <span class="cm-label-zh">· {{ T "cm_field_refs_zh" }}</span>
             </div>
-            <div id="cm-drop"
+            {{/* 必须可聚焦 + 响应 Enter/Space：真正的 input[type=file] 是 display:none，
+                 不在 tab 序列里；这个 div 若只有 onclick，键盘用户根本上传不了参考图。 */}}
+            <div id="cm-drop" role="button" tabindex="0"
+              aria-label="{{ T "cm_drop_prompt" }}"
+              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('cm-files').click();}"
               onclick="document.getElementById('cm-files').click()"
               ondragover="event.preventDefault();this.classList.add('cm-drop-hover')"
               ondragleave="this.classList.remove('cm-drop-hover')"
               ondrop="cmHandleDrop(event)"
-              style="margin-top:8px;padding:20px 16px;border:1px dashed var(--line-soft);background:var(--paper);display:flex;align-items:center;gap:14px;font-size:13px;font-family:'Geist',sans-serif;cursor:pointer;transition:border-color 0.15s;">
-              <div style="width:36px;height:36px;border-radius:50%;background:var(--line-soft);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;line-height:1;">+</div>
+              style="margin-top:8px;padding:20px 16px;border:1px dashed var(--hairline);background:var(--ink-panel);display:flex;align-items:center;gap:14px;font-size:13px;font-family:var(--font-body);cursor:pointer;transition:border-color 0.15s;">
+              <div style="width:36px;height:36px;background:var(--hairline);color:var(--fg);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;line-height:1;">+</div>
               <div>
-                <div style="color:var(--ink);">{{ T "cm_drop_prompt" }}</div>
+                <div style="color:var(--fg);">{{ T "cm_drop_prompt" }}</div>
                 <div class="cm-hint" style="margin-top:2px;">{{ T "cm_drop_hint" }}</div>
               </div>
             </div>
@@ -181,9 +201,9 @@
               <span>{{ T "cm_field_notes" }}</span>
               <span class="cm-label-zh">· {{ T "cm_field_notes_zh" }}</span>
             </div>
-            <textarea id="cm-notes" name="notes" rows="3"
+            <textarea id="cm-notes" aria-label="{{ T "cm_field_notes" }}" name="notes" rows="3"
               placeholder="{{ T "cm_notes_placeholder" }}"
-              class="cm-textarea" oninput="cmValidate()" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--line-soft)'"></textarea>
+              class="cm-textarea" oninput="cmValidate()" onfocus="this.style.borderColor='var(--fg)'" onblur="this.style.borderColor='var(--hairline)'"></textarea>
           </div>
 
           {{/* Honeypot */}}
@@ -202,7 +222,7 @@
             </button>
           </div>
 
-          <div id="cm-error" style="display:none;margin-top:12px;font-size:13px;color:#c84a4a;font-family:'Geist',sans-serif;"></div>
+          <div id="cm-error" style="display:none;margin-top:12px;font-size:13px;color:#c84a4a;font-family:var(--font-body);"></div>
         </form>
       </div>
 
@@ -211,26 +231,26 @@
         <div style="display:flex;justify-content:center;margin-bottom:24px;" class="cm-seal-animate">
           {{ partial "seal.html" (dict "size" 150) }}
         </div>
-        <div style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.24em;color:var(--ink-soft);text-transform:uppercase;" id="cm-timestamp"></div>
-        <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;font-size:60px;line-height:0.95;letter-spacing:-0.02em;margin:10px 0 14px;color:var(--ink);">
-          <span style="color:var(--yellow);font-style:normal;">{{ T "cm_success_sent" }}</span> {{ T "cm_success_headline" }}
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.24em;color:var(--fg-muted);text-transform:uppercase;" id="cm-timestamp"></div>
+        <h2 style="font-family:var(--font-display);font-weight:400;font-style:italic;font-size:60px;line-height:0.95;letter-spacing:-0.02em;margin:10px 0 14px;color:var(--fg);">
+          <span style="color:var(--primary);font-style:normal;">{{ T "cm_success_sent" }}</span> {{ T "cm_success_headline" }}
         </h2>
-        <p style="font-family:'Geist',sans-serif;font-size:14px;line-height:1.65;color:var(--ink-soft);max-width:460px;margin:0 auto 24px;">
+        <p style="font-family:var(--font-body);font-size:14px;line-height:1.65;color:var(--fg-muted);max-width:460px;margin:0 auto 24px;">
           {{ T "cm_success_body" }}<br>
-          <span style="color:var(--ink);">请耐心一两天 ❤️</span>
+          <span style="color:var(--fg);">请耐心一两天 ❤️</span>
         </p>
         <div id="cm-ticket"
-          style="padding:14px 18px;background:var(--paper);border:1px dashed var(--line-soft);display:inline-flex;flex-direction:column;align-items:center;gap:4px;font-family:'Geist Mono',monospace;">
-          <span style="font-size:10px;letter-spacing:0.18em;color:var(--ink-soft);text-transform:uppercase;">{{ T "cm_ticket_label" }}</span>
-          <span id="cm-ticket-id" style="font-size:18px;color:var(--ink);letter-spacing:0.08em;">—</span>
+          style="padding:14px 18px;background:var(--ink-panel);border:1px dashed var(--hairline);display:inline-flex;flex-direction:column;align-items:center;gap:4px;font-family:var(--font-mono);">
+          <span style="font-size:10px;letter-spacing:0.18em;color:var(--fg-muted);text-transform:uppercase;">{{ T "cm_ticket_label" }}</span>
+          <span id="cm-ticket-id" style="font-size:18px;color:var(--fg);letter-spacing:0.08em;">—</span>
         </div>
         <div style="margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
           <button onclick="cmClose()"
-            style="background:var(--yellow);color:#0c0c0a;border:1px solid var(--yellow-dark);padding:12px 20px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+            style="background:var(--primary);color:var(--ink);border:1px solid var(--primary);padding:12px 20px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
             [ {{ T "cm_success_back" }} ]
           </button>
           <button onclick="cmReset()"
-            style="background:transparent;color:var(--ink);border:1px solid var(--line);padding:12px 20px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
+            style="background:transparent;color:var(--fg);border:1px solid var(--hairline-strong);padding:12px 20px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">
             {{ T "cm_success_another" }}
           </button>
         </div>
@@ -239,7 +259,7 @@
     </div>{{/* /cm-card */}}
 
     {{/* privacy footnote */}}
-    <div style="max-width:560px;margin:12px auto 0;padding:0 4px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(241,236,224,0.55);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;">
+    <div style="max-width:560px;margin:12px auto 0;padding:0 4px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(241,236,224,0.55);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;">
       <span>· Stored on Cloudflare D1 · forwarded to my private Telegram ·</span>
       <span>nothing else, ever</span>
     </div>
@@ -255,40 +275,40 @@
   display: flex;
   align-items: baseline;
   gap: 8px;
-  font-family: 'Geist Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--fg);
 }
 .cm-label-zh {
-  color: var(--ink-soft);
+  color: var(--fg-muted);
   letter-spacing: 0.08em;
   text-transform: none;
   font-size: 11px;
 }
 .cm-hint {
   font-size: 11px;
-  color: var(--ink-soft);
+  color: var(--fg-muted);
   margin-top: 4px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-body);
 }
 .cm-input {
   margin-top: 6px;
   width: 100%;
   padding: 11px 14px;
   background: transparent;
-  color: var(--ink);
+  color: var(--fg);
   border: none;
-  border-bottom: 1px solid var(--line-soft);
-  font-family: 'Geist', sans-serif;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.4;
   outline: none;
   box-sizing: border-box;
   transition: border-color 0.15s;
 }
-.cm-input::placeholder { color: var(--ink-soft); }
+.cm-input::placeholder { color: var(--fg-muted); }
 .cm-select-wrap {
   position: relative;
   margin-top: 6px;
@@ -297,10 +317,10 @@
   width: 100%;
   padding: 11px 36px 11px 14px;
   background: transparent;
-  color: var(--ink);
+  color: var(--fg);
   border: none;
-  border-bottom: 1px solid var(--line-soft);
-  font-family: 'Geist', sans-serif;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.4;
   outline: none;
@@ -310,13 +330,20 @@
   cursor: pointer;
   transition: border-color 0.15s;
 }
-.cm-select option { background: var(--bg); color: var(--ink); }
+.cm-select option { background: var(--ink); color: var(--fg-body); }
+.cm-input:focus-visible, .cm-select:focus-visible, .cm-textarea:focus-visible {
+  /* 上面几处写了 outline:none，会盖掉 base.css 的全局焦点环（body 内的 style 在 head CSS 之后）。
+     这里补回来 —— 用 box-shadow 而不是 border，避免与「已填写态」的白色底边线混淆：
+     已填写只是底边变白，有焦点才有这圈天水碧。 */
+  outline: 1px solid var(--primary) !important;
+  outline-offset: 2px;
+}
 .cm-select-arrow {
   position: absolute;
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--ink-soft);
+  color: var(--fg-muted);
   pointer-events: none;
   font-size: 12px;
 }
@@ -325,10 +352,10 @@
   width: 100%;
   min-height: 70px;
   padding: 12px 14px;
-  background: var(--paper);
-  color: var(--ink);
-  border: 1px solid var(--line-soft);
-  font-family: 'Geist', sans-serif;
+  background: var(--ink-panel);
+  color: var(--fg);
+  border: 1px solid var(--hairline);
+  font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.55;
   resize: vertical;
@@ -336,7 +363,7 @@
   box-sizing: border-box;
   transition: border-color 0.15s;
 }
-.cm-textarea::placeholder { color: var(--ink-soft); }
+.cm-textarea::placeholder { color: var(--fg-muted); }
 .cm-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -351,14 +378,14 @@
 .cm-privacy-text {
   flex: 1;
   font-size: 11px;
-  color: var(--ink-soft);
+  color: var(--fg-muted);
   letter-spacing: 0.06em;
   line-height: 1.5;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-body);
 }
 .cm-btn-submit {
   padding: 13px 22px;
-  font-family: 'Geist Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -371,26 +398,26 @@
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .cm-btn-disabled {
-  background: var(--line-soft);
-  color: var(--ink-soft);
-  border: 1px solid var(--line-soft);
+  background: var(--hairline);
+  color: var(--fg-muted);
+  border: 1px solid var(--hairline);
   cursor: not-allowed;
 }
 .cm-btn-ready {
-  background: var(--yellow);
+  background: var(--primary);
   color: #0c0c0a;
-  border: 1px solid var(--yellow-dark);
+  border: 1px solid var(--primary);
   cursor: pointer;
 }
-.cm-btn-ready:hover { background: var(--yellow-light, #ffe27a); }
-.cm-drop-hover { border-color: var(--yellow) !important; background: color-mix(in srgb, var(--yellow) 8%, var(--paper)) !important; }
+.cm-btn-ready:hover { background: var(--action); }
+.cm-drop-hover { border-color: var(--primary) !important; background: color-mix(in srgb, var(--primary) 8%, var(--ink-panel)) !important; }
 .cm-file-item {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--line-soft);
-  font-family: 'Geist', sans-serif;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--font-body);
   font-size: 13px;
 }
 .cm-file-item:last-child { border-bottom: none; }
@@ -398,18 +425,18 @@
   width: 40px;
   height: 40px;
   object-fit: cover;
-  background: var(--line-soft);
+  background: var(--hairline);
   flex-shrink: 0;
 }
 .cm-file-remove {
   margin-left: auto;
   background: none;
   border: none;
-  color: var(--ink-soft);
+  color: var(--fg-muted);
   cursor: pointer;
   font-size: 14px;
   padding: 2px 6px;
-  font-family: 'Geist Mono', monospace;
+  font-family: var(--font-mono);
 }
 .cm-seal-animate { animation: cmSealDrop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
 @keyframes cmSealDrop {
@@ -439,6 +466,7 @@
   /* EN 访客多为海外客户（无微信）→ 默认直落表单；ZH 默认二维码优先 */
   var _cmDefaultQR = {{ if eq .Site.Language.Lang "zh" }}true{{ else }}false{{ end }};
   var _cmOpen = false;
+  var _cmLastFocused = null;
   var _uploadedFiles = [];  /* {file, key} objects once uploaded */
   var _pendingFiles = [];   /* File objects waiting */
   var _turnstileToken = null;
@@ -459,6 +487,35 @@
     /* scroll modal to top */
     var scr = document.getElementById('cm-scroll');
     if (scr) scr.scrollTop = 0;
+
+    /* 焦点管理：记住是谁打开的，把焦点移进对话框。
+       没有这一步，键盘用户点开询价后焦点还留在浮层背后 —— 等于打不开。 */
+    _cmLastFocused = document.activeElement;
+    setTimeout(function () {
+      var first = el.querySelector('button, a[href], input, select, textarea');
+      if (first) first.focus();
+    }, 0);
+  };
+
+  /* 复制微信号。微信内置浏览器里 navigator.clipboard 常不可用，
+     所以保留 execCommand 兜底 —— 这是主要使用场景，不能只走现代 API。 */
+  window.cmCopyWechat = function (btn) {
+    var id = btn.getAttribute('data-wechat-id') || '';
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = btn.getAttribute('data-done') || '已复制';
+      setTimeout(function () { btn.textContent = old; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(id).then(done, function () { legacy(); });
+    } else { legacy(); }
+    function legacy() {
+      var ta = document.createElement('textarea');
+      ta.value = id; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { /* 复制不了就算了，号码本来就显示在旁边 */ }
+      document.body.removeChild(ta);
+    }
   };
 
   /* ── QR ⇄ form switching ── */
@@ -487,6 +544,8 @@
     el.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     _cmOpen = false;
+    /* 焦点还给触发它的那个按钮，否则键盘用户会被丢回页面顶部 */
+    if (_cmLastFocused && _cmLastFocused.focus) { _cmLastFocused.focus(); _cmLastFocused = null; }
   };
 
   /* ── reset to empty form ── */
@@ -507,15 +566,37 @@
 
   /* ── keyboard close ── */
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && _cmOpen) cmClose();
+    if (!_cmOpen) return;
+    if (e.key === 'Escape') { cmClose(); return; }
+
+    /* 焦点陷阱：对话框开着时 Tab 只在它内部循环。
+       可见性判断用 computedStyle.display —— 不能用 offsetParent（浮层是 fixed，
+       内部元素的 offsetParent 恒为 null），也不能用 rect（标签页不可见时布局不计算，全是 0）。 */
+    if (e.key === 'Tab') {
+      var el = document.getElementById('cm-backdrop');
+      if (!el) return;
+      var items = [].slice.call(el.querySelectorAll('button, a[href], input, select, textarea'))
+        .filter(function (n) {
+          if (n.disabled || n.getAttribute('tabindex') === '-1') return false;
+          for (var p = n; p && p !== el; p = p.parentElement) {
+            if (getComputedStyle(p).display === 'none') return false;
+          }
+          return true;
+        });
+      if (!items.length) return;
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      else if (!el.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+    }
   });
 
   /* ── field focus/blur helpers ── */
   window.cmFocus = function (el) {
-    el.style.borderBottomColor = 'var(--ink)';
+    el.style.borderBottomColor = 'var(--fg)';
   };
   window.cmBlur = function (el) {
-    el.style.borderBottomColor = el.value ? 'var(--ink)' : 'var(--line-soft)';
+    el.style.borderBottomColor = el.value ? 'var(--fg)' : 'var(--hairline)';
   };
 
   /* ── Turnstile callback ── */
@@ -529,8 +610,9 @@
     var name = (document.getElementById('cm-name') || {}).value || '';
     var contact = (document.getElementById('cm-contact') || {}).value || '';
     var project = (document.getElementById('cm-project') || {}).value || '';
-    var tier = (document.getElementById('cm-tier') || {}).value || '';
-    var filled = name.trim() && contact.trim() && project && tier;
+    var goal = (document.getElementById('cm-goal') || {}).value || '';   /* 原为 tier 下拉，2026-09-03 改开放式 */
+    /* goal（原 tier 下拉）现在是非必填 —— 说不清楚正是该聊的理由，不该拦住提交 */
+    var filled = name.trim() && contact.trim() && project;
     /* if turnstile is present, also require its token */
     var turnstileOk = !_hasTurnstile || !!_turnstileToken;
     var btn = document.getElementById('cm-submit');
@@ -572,8 +654,8 @@
       var url = URL.createObjectURL(f);
       html += '<div class="cm-file-item">'
         + '<img class="cm-file-thumb" src="' + url + '" alt="">'
-        + '<div><div style="color:var(--ink);font-weight:500;">' + f.name + '</div>'
-        + '<div style="color:var(--ink-soft);font-size:11px;margin-top:2px;">' + (f.size > 1048576 ? (f.size/1048576).toFixed(1)+' MB' : (f.size/1024).toFixed(0)+' KB') + '</div></div>'
+        + '<div><div style="color:var(--fg);font-weight:500;">' + f.name + '</div>'
+        + '<div style="color:var(--fg-muted);font-size:11px;margin-top:2px;">' + (f.size > 1048576 ? (f.size/1048576).toFixed(1)+' MB' : (f.size/1024).toFixed(0)+' KB') + '</div></div>'
         + '<button class="cm-file-remove" type="button" onclick="cmRemoveFile(' + idx + ')">✕</button>'
         + '</div>';
     });
@@ -612,7 +694,9 @@
         fd.append('name', document.getElementById('cm-name').value.trim());
         fd.append('contact', document.getElementById('cm-contact').value.trim());
         fd.append('project', document.getElementById('cm-project').value);
-        fd.append('tier', document.getElementById('cm-tier').value);
+        /* 后端字段名沿用 tier 不改（D1 表结构与 Telegram 通知都认它），
+           但值现在是用户自己写的一句话而不是枚举 —— 空着也允许提交。 */
+        fd.append('tier', (document.getElementById('cm-goal') || {}).value || '');
         fd.append('deadline', document.getElementById('cm-deadline').value.trim());
         fd.append('notes', document.getElementById('cm-notes').value.trim());
         if (_turnstileToken) fd.append('cf-turnstile-response', _turnstileToken);

@@ -56,6 +56,8 @@ paints:
     hex: "#9A1115"
     link: "https://www.warhammer.com/en-GB/shop/Base-Mephiston-Red-2019"
 description: "Kravek Morne, Warsmith of the Iron Warriors Traitor Legion — clad in heavily modified Cataphractii Terminator armour bristling with weaponised mechadendrites. Painted in classic Iron Warriors gunmetal with brass trim, yellow-black hazard stripes and heavy battle damage, wielding the thunder hammer Last Argument and a shoulder-mounted baleflamer."
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

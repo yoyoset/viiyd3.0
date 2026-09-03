@@ -36,3 +36,6 @@ need_upload/
 
 # Private business docs (repo is PUBLIC — never commit these)
 private/
+
+# 工具运行时状态
+.openchamber/

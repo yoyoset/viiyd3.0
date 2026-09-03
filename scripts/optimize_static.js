@@ -1,3 +1,7 @@
+/* ⚠️ DEPRECATED（2026-09-03，4.0 改版后停用）
+ * 一次性静态图批量压缩。关于页的图现在走 Hugo 的 .Process 构建期处理。
+ * 全站已无任何文档或配置引用它。保留仅为历史参考，**不要运行**。
+ */
 /**
  * Batch optimize large static images
  * Usage: node scripts/optimize_static.js

@@ -27,6 +27,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "A custom head repaint project for JoyToy Dark Source and Steel Legion action figures, enhancing facial realism. This project focuses on skin tones, eye details, and subtle weathering to bring the characters to life."
+system: "joytoy"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

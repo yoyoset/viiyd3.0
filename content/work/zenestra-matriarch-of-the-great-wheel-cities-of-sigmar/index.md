@@ -27,6 +27,8 @@ paints:
     hex: "#9C9C8E"
     link: "https://www.warhammer.com/en-GB/shop/Base-Rakarth-Flesh-2019"
 description: "The Pontifex of the Cult of the Great Wheel, borne into battle on a sacred palanquin. A complex centerpiece model featuring weathered stone textures, sacred cloth, and the devout followers of the Sigmarite cult."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

@@ -1,3 +1,7 @@
+/* ⚠️ DEPRECATED（2026-09-03，4.0 改版后停用）
+ * URL 检查，功能与 pre-commit 里那段重复。
+ * 全站已无任何文档或配置引用它。保留仅为历史参考，**不要运行**。
+ */
 const fs = require('fs');
 const path = require('path');
 

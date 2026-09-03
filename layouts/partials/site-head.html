@@ -1,0 +1,53 @@
+{{/* VIIYD 4.0 顶栏 — handoff §4.1
+     4.0 之前每个页面模板各自内联一个 <header>，site-header.html 是没人引用的死代码。
+     这里是全站唯一的顶栏，由 baseof.html 统一渲染。
+     不吸顶（避免遮挡照片）；移动端滚动 400px 后才吸顶并压到 48px。 */}}
+<header class="site-head">
+  <div class="wrap site-head__inner">
+
+    <a class="site-head__brand" href="{{ .Site.BaseURL }}">
+      <span class="site-head__ring" aria-hidden="true">V</span>
+      <span class="site-head__word">VIIYD STUDIO</span>
+      <span class="site-head__sub">{{ T "head_locality" | default "CHENGDU · EST. 2024" }}</span>
+    </a>
+
+    <nav class="site-head__nav" aria-label="{{ T "nav_label" | default "Primary" }}">
+      {{ $cur := . }}
+      {{ range .Site.Menus.main }}
+        {{ $active := or ($cur.IsMenuCurrent "main" .) ($cur.HasMenuCurrent "main" .) }}
+        <a href="{{ .URL }}" class="site-head__link{{ if $active }} is-current{{ end }}"
+           {{ if $active }}aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+
+      {{/* 「询价」不跳独立页，直接开微信浮层（规格 §13） */}}
+      <button type="button" class="site-head__cta" data-wechat-open="nav">
+        {{ T "nav_inquire" | default "询价" }}
+      </button>
+
+      <span class="site-head__lang">
+        {{ range .AllTranslations }}
+          <a href="{{ .RelPermalink }}"
+             onclick="localStorage.setItem('viiyd_lang_pref','{{ .Lang }}')"
+             class="{{ if eq .Lang $.Lang }}is-current{{ end }}">{{ .Lang | upper }}</a>
+        {{ end }}
+      </span>
+    </nav>
+
+    <button type="button" class="site-head__burger" aria-expanded="false"
+            aria-controls="site-drawer" aria-label="{{ T "nav_menu" | default "Menu" }}">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  {{/* 移动端抽屉：语言切换收在这里（规格 §17） */}}
+  <div class="site-drawer" id="site-drawer" hidden>
+    <nav class="wrap">
+      {{ range .Site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}
+      <span class="site-drawer__lang label-lg">
+        {{ range .AllTranslations }}
+          <a href="{{ .RelPermalink }}" class="{{ if eq .Lang $.Lang }}is-current{{ end }}">{{ .Lang | upper }}</a>
+        {{ end }}
+      </span>
+    </nav>
+  </div>
+</header>

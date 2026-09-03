@@ -31,6 +31,8 @@ paints:
     hex: "#f39c12"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Troll-Slayer-Orange-2019"
 description: "A heavily converted Sanctifier Kill Team, featuring OSL plasma effects and non-metallic metal (NMM) gold trim. This project emphasizes high contrast and dynamic lighting to make the models pop on the tabletop."
+system: "kill-team"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -126,11 +128,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>ðŸ›¡ï¸?Armour</span>
+<span>ðŸ›¡ï¿½?Armour</span>
 <span class="font-mono text-emerald-200">Khorne Red</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Glow</span>
+<span>ï¿½?Glow</span>
 <span class="font-mono text-cyan-200">Troll Slayer Orange</span>
 </li>
 </ul>

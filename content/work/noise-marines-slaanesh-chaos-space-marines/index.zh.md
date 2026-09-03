@@ -1,4 +1,4 @@
-﻿---
+---
 title: "噪音战士：色孽混沌星际战士"
 date: 2024-01-01
 summary: "声波武器和鲜艳的色彩。一队用震耳欲聋的嘈杂声荣耀色孽的噪音战士。"
@@ -27,6 +27,8 @@ paints:
     hex: "#741d44"
     link: "https://www.warhammer.com/en-GB/shop/Base-Screamer-Pink-2019"
 description: "声波武器和鲜艳的色彩。一队用震耳欲聋的嘈杂声荣耀色孽的噪音战士。特点是渐变的粉红色盔甲，对比鲜明的黑色面板，以及等离子武器和爆裂枪上发光的OSL效果。"
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

@@ -56,6 +56,8 @@ paints:
     hex: "#4B2E2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Reikland-Fleshshade-2022"
 description: "混沌星际战士亵渎者恶魔引擎，两套完整涂装——黑色军团黑金配色配战损旧化，钢铁勇士枪铁配色配黄黑警示条纹。组装并涂装了全套可换武器臂：战炮、收割者自动炮、鞭笞触手、动力镰刀与近战巨爪。"
+system: "40k"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

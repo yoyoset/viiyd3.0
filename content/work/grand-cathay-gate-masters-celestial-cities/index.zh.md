@@ -56,6 +56,8 @@ paints:
     hex: "#2A2A2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "八名门下督，红、象牙白、蓝与银的锁定配色——黑心红盾、银鳞甲与长枪、金龙饰件，个体差异化的面容，以及一面白色手绘龙旗。"
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

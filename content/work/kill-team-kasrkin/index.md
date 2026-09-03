@@ -43,6 +43,8 @@ paints:
     hex: "#433322"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Agrax-Earthshade-24ml-2022"
 description: "A complete Kasrkin Kill Team painted to a high tabletop standard with attention to camouflage patterns, lenses, and urban warfare basing details. Ready for deployment in the shadow operations of the 41st Millennium."
+system: "kill-team"
+delivered: "2026.01"
 ---
 
 <div class="image-grid">

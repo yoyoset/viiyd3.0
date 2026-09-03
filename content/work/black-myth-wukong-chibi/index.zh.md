@@ -1,4 +1,4 @@
-﻿---
+---
 title: "天命人：黑神话悟空（Q版）"
 date: 2025-11-04
 summary: "对美猴王的风格化'Q版'诠释，平衡可爱比例与粗糙、写实的材质。"
@@ -26,6 +26,8 @@ paints:
     hex: "#B7BABC"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Stormhost-Silver-2019"
 description: "对《黑神话：悟空》天命人的独特Q版诠释。在风格化的比例上应用写实材质和做旧效果，创造出收藏级展示作品。"
+system: "other"
+delivered: "2025.11"
 ---
 
 <div class="image-grid">

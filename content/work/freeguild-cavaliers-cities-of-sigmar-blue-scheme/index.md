@@ -27,6 +27,8 @@ paints:
     hex: "#fab1a0"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "A regiment of Freeguild Cavaliers painted in a striking blue and silver scheme, serving as the vanguard of the Cities of Sigmar. This unit has been prepared for tabletop deployment with a focus on durability and visual clarity."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
@@ -105,11 +107,11 @@ The Alchemy
 </div>
 <ul class="space-y-3 text-sm text-gray-300">
 <li class="flex justify-between">
-<span>ðŸ›¡ï¸?Base</span>
+<span>ðŸ›¡ï¿½?Base</span>
 <span class="font-mono text-emerald-200">Kantor Blue</span>
 </li>
 <li class="flex justify-between">
-<span>âœ?Highlight</span>
+<span>ï¿½?Highlight</span>
 <span class="font-mono text-cyan-200">Alaitoc Blue</span>
 </li>
 </ul>

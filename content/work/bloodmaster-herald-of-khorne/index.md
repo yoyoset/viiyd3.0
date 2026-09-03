@@ -49,6 +49,8 @@ paints:
     hex: "#050505"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "A standalone Bloodmaster, Herald of Khorne, painted as a hero commission to lead a six-strong Bloodcrusher warband, with fiery red highlights and brass armor built to stand out at the front of the unit."
+system: "40k"
+delivered: "2026.07"
 ---
 
 <div class="image-grid">

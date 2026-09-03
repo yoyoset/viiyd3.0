@@ -45,6 +45,8 @@ paints:
     hex: "#2B2B2B"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2019"
 description: "涅克隆虚空龙星神碎片代工展示。银色神体配合全域高斯闪电三段渐变，黄金冠冕点缀，蛇形脊椎尾节，废墟底座OSL渗透。共9张展示照。"
+system: "40k"
+delivered: "2026.05"
 ---
 
 <div class="image-grid">

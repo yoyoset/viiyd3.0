@@ -1,4 +1,4 @@
-﻿---
+---
 title: "杀戮小队：血与狂热"
 date: 2024-01-01
 summary: "一支经过重度改造的纯洁者杀戮小队，以此这展现OSL等离子效果和NMM金色金属镶边。"
@@ -31,6 +31,8 @@ paints:
     hex: "#f39c12"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Troll-Slayer-Orange-2019"
 description: "一支经过重度改造的纯洁者杀戮小队，以此这展现OSL等离子效果和NMM金色金属镶边。该项目强调高对比度和动态照明，使模型在桌面上脱颖而出。"
+system: "kill-team"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

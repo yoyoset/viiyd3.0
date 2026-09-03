@@ -52,6 +52,8 @@ paints:
     hex: "#3B2A5A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Druchii-Violet-2019"
 description: "人形妙影，与完整飙龙同谱系的紫晶与象牙白配色——紫晶长袍衬象牙白内袍、白发高髻、金饰、粉宝石，长袍上手绘白色龙纹与云纹，立于碎石底座之上。"
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

@@ -52,6 +52,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "Grand Cathay Sky Lantern war machine — an ivory paper hull caged in red rope, freehand vermilion dragon stencils, a gold celestial collar and a red-lacquer war-junk gondola bristling with rockets and cannon. Crewed by firebomb bombardiers and an Astromancer Lord with a gold key-staff."
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

@@ -56,6 +56,8 @@ paints:
     hex: "#000000"
     link: "https://www.warhammer.com/en-GB/shop/Base-Abaddon-Black-2019"
 description: "风暴巨龙妙影——震旦天朝的核心巨兽，化为完整的蛟龙之身。紫晶龙鳞向冷紫渐变，珠光白鬃如丝流泻，金冠镶嵌玫瑰宝石，配以华美的黑银云纹龙铠，腾跃于碎裂的水晶岩之上。"
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

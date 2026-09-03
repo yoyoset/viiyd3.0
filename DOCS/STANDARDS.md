@@ -2,7 +2,8 @@
 
 This document serves as the source of truth for design, copywriting, and technical implementation standards for the VIIYD project.
 
-> Frontend design source of truth: `DOCS/DESIGN_SYSTEM.md`.
+> **2026-09-03 更正**：前端设计的唯一来源已不是 `DOCS/DESIGN_SYSTEM.md`（那份描述 3.0，已退役）。
+> 4.0 看 `assets/css/tokens.css` 与 `CLAUDE.md` 的「前端约定（4.0）」。
 > The current visual standard is the Claude redesign: dossier/archive, handmade studio, restrained premium editorial. Older cyber / PMC / bento language in this file is legacy and must not be used as precedent for new frontend work.
 
 ## 1. Copywriting Standard: "Archive Studio"
@@ -30,7 +31,8 @@ All site copy should support the current VIIYD positioning: a selective, hand-pa
 ### Archive / Dossier Layout
 *   **Structure:** New frontend work should follow `DOCS/DESIGN_SYSTEM.md`.
 *   **Surfaces:** Prefer full-width bands, hairline separators, archive tables, document panels, and photographic grids.
-*   **Spacing:** Use the CSS tokens in `assets/css/main.css`, especially `--page-pad` and `--dossier-pad`.
+*   **Spacing:** 用 `assets/css/tokens.css` 里的令牌（`--gut` / `--gut-m` / `--content-max`）。
+    ~~`assets/css/main.css` 的 `--page-pad` / `--dossier-pad`~~ —— 该文件已于 4.0 删除。
 *   **Aspect Ratios:** Use stable ratios such as `16/9`, `4/5`, `3/4`, `4/3`, or `1/1`; do not allow dynamic content to shift image layouts.
 *   **Cards:** Avoid generic rounded card stacks. Cards are for repeated items, modals, forms, and explicit framed tools only.
 

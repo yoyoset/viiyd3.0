@@ -52,6 +52,8 @@ paints:
     hex: "#2A2A2A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "二十四名震旦役农征召兵——红衣、象牙白布与蓝腰带，草帽、木柄与铁农具诉说征召故事。兵团配色锁定保持整体齐整，面容、姿态与简易武器让每个模型依然鲜活。"
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

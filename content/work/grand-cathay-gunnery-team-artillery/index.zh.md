@@ -44,6 +44,8 @@ paints:
     hex: "#A0522D"
     link: "https://www.warhammer.com/en-GB/shop/Base-Bugmans-Glow-2019"
 description: "两组震旦天朝炮兵，翡翠蓝绿炮身配铜色车轮。天龙大炮与连发火箭炮双选配，全套炮兵人员一并涂装完成。"
+system: "old-world"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

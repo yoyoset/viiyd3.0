@@ -36,6 +36,8 @@ paints:
     hex: "#101010"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Nuln-Oil-2022"
 description: "灵族海盗：虚空掠夺者小队完整展示。采用高对比度蓝色涂装，手绘星空披风，以及每一位专家的独特装备细节。"
+system: "kill-team"
+delivered: "2026.04"
 ---
 
 <div class="image-grid">

@@ -27,6 +27,8 @@ paints:
     hex: "#fab1a0"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
 description: "A dual showcase featuring the commanding Freeguild Cavalier-Marshal and the devastating Ironweld Great Cannon. Both models feature enhanced weathering and metallic effects to represent veteran service in the field."
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

@@ -1,5 +1,8 @@
 # VIIYD 3.0 System Handoff Protocol
 
+> ⚠️ **2026-09-03 注**：本文写于 4.0 改版之前，其中的文件路径与模板结构多已变化。以 `CLAUDE.md` 为准。
+
+
 > **Document Purpose**: Agent-to-Agent handoff. This document enables a new AI model to understand, maintain, and extend the VIIYD 3.0 system without prior context.
 > **Last Updated**: 2026-01-18
 > **System Version**: v3.0.0

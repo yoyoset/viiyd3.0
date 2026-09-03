@@ -46,6 +46,8 @@ paints:
     role: "METALLIC"
     hex: "#181C1E"
     link: "https://www.warhammer.com/en-GB/shop/Base-Leadbelcher-2019"
+system: "kill-team"
+delivered: "2026.06"
 ---
 
 <div class="image-grid">

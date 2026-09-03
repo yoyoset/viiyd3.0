@@ -38,6 +38,8 @@ paints:
     hex: "#A4B022"
     link: "https://www.warhammer.com/en-GB/shop/Technical-Nurgles-Rot-2019"
 description: "A comprehensive project showcasing a full squad of Plague Marines. Focus on layered grime, rust effects, and fleshy mutation details."
+system: "40k"
+delivered: "2026.03"
 ---
 
 <div class="image-grid">

@@ -56,6 +56,8 @@ paints:
     hex: "#A5834A"
     link: "https://www.warhammer.com/en-GB/shop/Shade-Seraphim-Sepia-2022"
 description: "三位震旦司天丞——龙驹上的金甲法师、黑金步行法师与携带紫色法球的灰黑飞禽灵兽。绯红、橙红与天蓝飘带长袍点缀金边与宝石，构成震旦宫廷的魔法核心。"
+system: "old-world"
+delivered: "2026.09"
 ---
 
 <div class="image-grid">

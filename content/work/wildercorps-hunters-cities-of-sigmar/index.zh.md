@@ -1,4 +1,4 @@
-﻿---
+---
 title: "荒野军团猎人：西格玛之城"
 date: 2024-01-01
 summary: "西格玛之城粗犷的侦察兵，由他们忠诚的追踪犬陪伴。采用自然色调、皮革纹理和做旧效果涂装。"
@@ -27,6 +27,8 @@ paints:
     hex: "#3D4547"
     link: "https://www.warhammer.com/en-GB/shop/Base-Mechanicus-Standard-Grey-2019"
 description: "西格玛之城粗犷的侦察兵，由他们忠诚的追踪犬陪伴。采用自然色调、皮革纹理和逼真的做旧效果涂装，以反映他们的野外行动。"
+system: "aos"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">

@@ -27,6 +27,8 @@ paints:
     hex: "#ffffff"
     link: "https://www.warhammer.com/en-GB/shop/Base-Corax-White-2019"
 description: "A unique fanmade custom sculpt of the Primarch Lion El'Jonson, exploring an alternative interpretation of the character. This project focuses on adapting the classic Dark Angels aesthetic to a non-standard sculpt, emphasizing facial details and armor texture."
+system: "40k"
+delivered: "2024.01"
 ---
 
 <div class="image-grid">
