@@ -38,7 +38,7 @@
     {{/* 自述配图用插画不用照片：这一页的照片位留给真实工作台，
          插画只负责让「一个人一张工作台」这句话有个脸。 */}}
     {{ with resources.Get "img/panda-desk.jpg" }}
-    {{ $pw := .Process "resize 620x webp q82" }}
+    {{ $pw := .Process "resize 900x webp q82" }}
     <img class="photo about-panda" src="{{ $pw.RelPermalink }}" width="{{ $pw.Width }}" height="{{ $pw.Height }}"
          alt="{{ T "panda_alt" }}" loading="lazy">
     {{ end }}

@@ -81,7 +81,7 @@
          比页面底 rgb(14,17,19) 亮一档，边界本来就看得见，
          与其假装无缝不如按全站图片的既有做法把这个矩形做成有意的。 */}}
     {{ with resources.Get "img/panda-desk.jpg" }}
-    {{ $pw := .Process "resize 760x webp q82" }}
+    {{ $pw := .Process "resize 840x webp q82" }}
     <img class="photo hook-panda" src="{{ $pw.RelPermalink }}" width="{{ $pw.Width }}" height="{{ $pw.Height }}"
          alt="{{ T "panda_alt" }}" loading="lazy">
     {{ end }}

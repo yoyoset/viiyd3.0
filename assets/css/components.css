@@ -418,9 +418,14 @@
 .about-hero{ position:relative; min-height:420px; display:flex; align-items:flex-end; overflow:hidden; }
 .about-hero__img{ position:absolute; top:0; right:0; bottom:0; left:0; inset:0; width:100%; height:100%; object-fit:cover; border:0; }
 .about-hero__title{ position:relative; z-index:2; padding:40px; }
-/* 自述那一屏：序号 / 正文 / 插画三列。插画列固定宽，正文仍守 44ch。 */
-.about-bio{ display:grid; grid-template-columns:auto 1fr 300px; gap:40px; align-items:start; }
-.about-panda{ width:100%; height:auto; }
+/* 自述那一屏：序号 / 正文 / 插画三列。
+   插画给到 440px（原来 300px 太小，缩成了个缩略图）。
+   正文列吃 1fr 但段落自己有 max-width:44ch 兜着，所以不会拉成通栏；
+   插画列固定宽度钉在右边，与正文块垂直居中对齐，不跟着序号顶到最上面。
+   （试过把正文列写成 minmax(0,44ch)：网格总宽只剩 967px，
+     右边空出近 300px 的死区，比现在难看。） */
+.about-bio{ display:grid; grid-template-columns:auto 1fr 440px; gap:40px 48px; align-items:start; }
+.about-panda{ width:100%; height:auto; align-self:center; }
 .about-bio__text p{ max-width:44ch; margin:0 0 18px; }
 .about-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .about-shot{ margin:0; display:flex; flex-direction:column; gap:10px; }
@@ -435,7 +440,7 @@
   .about-hero{ min-height:300px; }
   .about-hero__title{ padding:20px; }
   .about-bio, .about-split{ grid-template-columns:1fr; gap:20px; }
-  .about-panda{ max-width:240px; margin-inline:auto; }
+  .about-panda{ max-width:300px; margin-inline:auto; }
   .about-grid{ grid-template-columns:1fr; }
 }
 
@@ -502,7 +507,7 @@ a.paint__name:hover{ color:var(--primary); }
    取代被移除的「五个等级」那一屏。 */
 /* 桌面：图占左列并跨满三行，文案/步骤/CTA 走右列。
    图不设边框不设圆角 —— 它自己是暗底，和页面连成一片。 */
-.custom-hook{ display:grid; grid-template-columns:340px 1fr; gap:28px 44px; align-items:start; }
+.custom-hook{ display:grid; grid-template-columns:400px 1fr; gap:28px 48px; align-items:start; }
 .custom-hook > .hook-panda{ grid-row:1 / span 3; width:100%; height:auto; align-self:center; }
 .custom-hook__lede, .custom-hook__steps, .custom-hook__cta{ grid-column:2; }
 .custom-hook__lede .label{ margin-bottom:14px; }
