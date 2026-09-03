@@ -352,8 +352,23 @@
 
 .home-rowhead{ display:flex; justify-content:space-between; align-items:baseline; gap:20px; margin-bottom:20px; }
 
+/* 12 条 = 桌面 6 列两行；≤1024 收成 4 列（三行）；≤768 变两行横滚 */
 .home-recent{ display:grid; grid-template-columns:repeat(6,1fr); gap:20px 16px; }
 .home-recent .work-card__cover{ aspect-ratio:3/4; }
+
+/* 横滚容器：箭头绝对定位在两侧，靠 rail.js 按 scrollLeft 显隐 */
+.home-rail{ position:relative; }
+.rail-arrow{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+  width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--hairline-strong); background:rgba(14,17,19,.86); color:var(--fg);
+  font-size:18px; line-height:1; cursor:pointer;
+}
+.rail-arrow:hover{ border-color:var(--primary); color:var(--primary); }
+.rail-arrow--prev{ left:calc(var(--gut-m) * -1 + 4px); }
+.rail-arrow--next{ right:calc(var(--gut-m) * -1 + 4px); }
+/* 桌面是网格不是滚动条，箭头永远不出现 */
+@media (min-width:769px){ .rail-arrow{ display:none; } }
 
 
 .home-close{ grid-template-columns:repeat(2,1fr); }
@@ -362,19 +377,29 @@
 .home-close__slots{ color:var(--fg); }
 
 @media (max-width:1024px){
-  .home-recent{ grid-template-columns:repeat(3,1fr); }
+  .home-recent{ grid-template-columns:repeat(4,1fr); }
 }
 @media (max-width:768px){
   .home-hero{ min-height:380px; }
   .home-hero__copy{ padding:20px; }
   .home-hero__cta .btn-line{ width:100%; }
-  /* 最近交付改横向滚动，一屏露 2.3 张（规格 §17） */
+  /* 最近交付改横向滚动：两行 × 一屏露 2.3 列（规格 §17）。
+     grid-auto-flow:column 让 12 条先填满两行再往右排，
+     比 flex + wrap 稳（wrap 在 overflow-x 容器里会算错宽度）。 */
   .home-recent{
-    display:flex; overflow-x:auto; scrollbar-width:none;
+    display:grid; grid-auto-flow:column;
+    /* grid-template-columns 必须显式清掉：桌面那条 repeat(6,1fr) 优先于
+       grid-auto-columns，不清就会得到 6 根 49px 的畸形列 */
+    grid-template-columns:none;
+    grid-template-rows:repeat(2,auto); grid-auto-columns:43%;
+    overflow-x:auto; scrollbar-width:none;
+    /* scroll-padding 必须跟 padding-inline 对齐，否则吸附会把首屏推到 scrollLeft:20 */
+    scroll-snap-type:x proximity; scroll-padding-inline:var(--gut-m);
+    overscroll-behavior-x:contain;
     padding-inline:var(--gut-m); margin-inline:calc(var(--gut-m) * -1);
   }
   .home-recent::-webkit-scrollbar{ display:none; }
-  .home-recent .work-card{ flex:0 0 43%; }
+  .home-recent .work-card{ scroll-snap-align:start; }
   .home-tiers, .home-close{ grid-template-columns:1fr; }
   .home-close__card{ padding:26px 22px; }
 }

@@ -506,3 +506,7 @@ other = "What you want"
 other = "想要的效果"
 [cm_goal_placeholder]
 other = "e.g. a full unit for the table / one display piece / match a specific scheme"
+[rail_prev]
+other = "Scroll left"
+[rail_next]
+other = "Scroll right"

@@ -6,7 +6,7 @@
 
 {{ $works  := sort (where .Site.RegularPages "Section" "work") "Date" "desc" }}
 {{ $latest := index $works 0 }}
-{{ $recent := first 6 $works }}
+{{ $recent := first 12 $works }}
 {{ $p      := .Site.Data.pricing }}
 {{ $sch    := .Site.Data.schedule }}
 {{ $isZH   := eq .Lang "zh" }}
@@ -51,7 +51,8 @@
       <div class="section-label label"><span>{{ T "home_recent" | default "最近交付" }}</span><span class="num">{{ len $recent }}</span></div>
       <a class="btn-text" href="{{ relLangURL "work" }}">{{ printf (T "home_all_archive" | default "全部 %d 个档案 →") (len $works) }}</a>
     </div>
-    <div class="home-recent">
+    <div class="home-rail">
+      <div class="home-recent" data-rail>
       {{ range $recent }}
       {{ $t := .Title }}
       <a class="work-card" href="{{ .RelPermalink }}">
@@ -62,6 +63,9 @@
         <span class="title-item work-card__title">{{ .Title }}</span>
       </a>
       {{ end }}
+      </div>
+      <button type="button" class="rail-arrow rail-arrow--prev" data-rail-prev aria-label="{{ T "rail_prev" }}" hidden>&#8592;</button>
+      <button type="button" class="rail-arrow rail-arrow--next" data-rail-next aria-label="{{ T "rail_next" }}" hidden>&#8594;</button>
     </div>
   </div>
 </section>

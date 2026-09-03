@@ -526,3 +526,7 @@ other = "想要的效果"
 other = "想要的效果"
 [cm_goal_placeholder]
 other = "比如：整队上桌耐看 / 单件进展示柜 / 想还原某个官图"
+[rail_prev]
+other = "向前滚动"
+[rail_next]
+other = "向后滚动"
