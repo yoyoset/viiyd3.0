@@ -9,12 +9,12 @@ html { -webkit-text-size-adjust: 100%; }
 
 body{
   margin: 0;
-  /* 碳纤维织纹：两层对角细线错开半格叠加。
+  /* 碳纤维织纹：两层对角棋盘错开半格叠加（无 1px 细线）。
      background-color 必须单独写 —— 渐变不铺满时（如超宽屏）要有实底兜着。 */
   background-color: var(--ink);
   background-image:
-    repeating-linear-gradient( 45deg, var(--weave-ink) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(-45deg, var(--weave-ink) 0 1px, transparent 1px 3px);
+    linear-gradient(45deg, var(--weave-cell) 25%, transparent 25% 75%, var(--weave-cell) 75%),
+    linear-gradient(45deg, var(--weave-cell) 25%, transparent 25% 75%, var(--weave-cell) 75%);
   background-size: var(--weave-size) var(--weave-size);
   background-position: 0 0, calc(var(--weave-size) / 2) calc(var(--weave-size) / 2);
   /* 不用 background-attachment:fixed —— iOS WKWebView 与微信内置浏览器上
