@@ -10,7 +10,11 @@ optimized: true
 tier: "Spec Ops"
 time_log: "60h 00m"
 model_count: 20
-share_caption: "Death Guard Plague Marines — 60hrs of layered rot, rust, and organic mutation. Full squad of 20. Commission open 接单中 🎨"
+share_caption: "Twenty Plague Marines, 60 hours, decay and mutation pushed further than a normal squad allows.
+
+This is a full-army-scale Death Guard project — advanced weathering and organic mutation effects repeated convincingly across twenty models without any of them looking copy-pasted from the last one. At this scale, keeping the grime feeling handmade instead of templated is most of the actual work.
+
+If your Nurgle army needs this level of decay across a full unit, that's the kind of scope I like scheduling properly for."
 share_tags: "#warhammer40k #deathguard #nurgle #chaosspacemarines #miniaturepainting #warhammercommunity #paintingminiatures #commissionsopen #citadelminiatures #gamesworkshop"
 paints:
   - name: "Death Guard Green"

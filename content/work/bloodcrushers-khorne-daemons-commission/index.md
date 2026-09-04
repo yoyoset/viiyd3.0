@@ -2,6 +2,11 @@
 title: "Bloodcrushers of Khorne: Daemon Cavalry Commission"
 date: 2026-07-15T03:00:00+08:00
 summary: "Six Khorne Bloodcrushers painted for a daemon cavalry commission."
+share_caption: "Six Bloodcrushers, 40 hours, one very stubborn amount of Khorne red to get right.
+
+Daemon cavalry commissions live or die on the red — flat and it reads as a toy, overworked and it reads as mud. This batch needed to move as a unit at full gallop and still hold up one at a time in a close-up.
+
+40 hours for six of these — if that math is in the range your army needs, let's talk scope."
 tags: ["Daemons of Khorne", "Warhammer 40k", "Bloodcrushers", "Cavalry", "Commission"]
 cover: "https://photo.viiyd.com/2026/07/bldc/viiyd20260715bldc_01.webp"
 layout: "project"

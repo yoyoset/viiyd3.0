@@ -2,6 +2,11 @@
 title: "Cathayan Sentinel: Jade-Stone Guardian"
 date: 2026-09-01T20:30:00+08:00
 summary: "A lone Cathayan Sentinel in cold jade-green stone — cloud-relief armour, twin blades, sapphire gems and a weathered stone dais."
+share_caption: "One Sentinel, 22 hours, carved to look like it's been standing there for centuries.
+
+Cold jade-green stone with cloud-relief armor and sapphire gems, mounted on a weathered dais built to look older than the statue itself. The whole point was restraint — a guardian this still needs to feel patient, not painted for excitement.
+
+If you've got a piece that's meant to feel ancient rather than dynamic, that's a mood I like chasing."
 tags: ["Warhammer", "Grand Cathay", "Monster", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/cathaysentinel/viiyd20260901cathaysentinel_01.webp"
 layout: "project"

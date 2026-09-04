@@ -17,14 +17,11 @@ optimized: true
 tier: "Legend"
 time_log: "60h 00m"
 model_count: 1
-share_caption: "Sixty million years of silence — broken.
+share_caption: "One model, 60 hours — the longest single piece I've taken on, and it needed every hour of it.
 
-Szarekh on his Barge of Ages. Void-black panels that drink the light. Gauss-green OSL bleeding across every coil and conduit. Gold that shouldn't look warm but does. Teal Menhir obelisks that feel older than the barge itself.
+Szarekh's void-black armor has to actually read as black under the gauss-green OSL bleeding across every coil and conduit of the Barge of Ages — get the black even slightly grey and the light effects lose all their contrast. The gold trim had to look warm without competing with the glow, and the Menhir obelisks needed to feel older than the barge itself.
 
-60 hours. Legend tier. One of one.
-
-Commission open — two slots, display work only.
-DM or viiyd.com 🎨"
+If you've got a piece this ambitious, 60 hours is the kind of number I'd rather quote honestly than round down."
 share_tags: "#warhammer40k #necrons #silentking #szarekh #bargeofages #miniaturepainting #warhammercommunity #paintingminiatures #osl #gloweffects #commissionsopen #citadelminiatures #gamesworkshop #40k #minipainting"
 paints:
   - name: "Abaddon Black"

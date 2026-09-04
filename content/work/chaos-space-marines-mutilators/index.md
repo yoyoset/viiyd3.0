@@ -2,6 +2,11 @@
 title: "Chaos Space Marines Mutilators"
 date: 2026-06-05T22:22:00+08:00
 summary: "A unit of three Chaos Space Marines Mutilators — black-and-gold twisted Terminator armour, mutated pink flesh and ivory horns, wielding fleshmetal mauls, chain-claws and power claws."
+share_caption: "Three Mutilators, 33 hours, mutated flesh that had to look wrong in the right way.
+
+Black-and-gold twisted Terminator armor is the easy part — the pink flesh and ivory horns are where a paint job either reads as body horror or reads as a mistake. Fleshmetal mauls, chain-claws, power claws — three very different weapon arms, one consistent color logic holding it together.
+
+If you've got a unit that needs to look genuinely unsettling, I'm in."
 tags: ["Warhammer 40K", "Chaos Space Marines", "Terminators", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/mutilators/viiyd20260605mutilators_01.webp"
 layout: "project"

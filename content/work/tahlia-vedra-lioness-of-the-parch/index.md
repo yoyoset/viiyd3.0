@@ -2,6 +2,11 @@
 title: "Tahlia Vedra: Lioness of the Parch"
 date: 2024-01-01
 summary: "The Lioness of the Parch rides into battle. A centerpice model for the Cities of Sigmar, featuring a majestic manticore and intricate character details."
+share_caption: "One centerpiece, a manticore included, 25 hours, built around a character who needed to look genuinely fierce riding into battle.
+
+Beast-mounted centerpieces are really two paint jobs sharing one base — the manticore needed its own presence, not just a vehicle for the rider, while Tahlia herself still had to read as the one actually in charge.
+
+If your army's centerpiece rides something with its own personality, getting both halves right is the whole challenge and I like taking it on."
 tags: ["Age of Sigmar", "Cities of Sigmar", "Tahlia Vedra", "Manticore", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251203tvlotp_01.jpg"
 layout: "project"

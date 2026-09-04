@@ -2,6 +2,11 @@
 title: "Aeldari Swooping Hawks Showcase"
 date: 2026-04-01T16:30:00+08:00
 summary: "Aspect Warriors of the Aeldari, featuring mechanical jump-wings and high-speed assault tactics."
+share_caption: "Five Swooping Hawks, 35 hours, built around wings that had to look like they were actually catching air.
+
+Aspect Warriors live or die on silhouette — the jump-wings needed weight and motion even sitting still on a shelf. Speed-painted highlights on the wing vanes do most of that work.
+
+If you've got a squad that needs to look fast standing still, send some photos over."
 tags: ["Warhammer 40,000", "Aeldari", "Swooping Hawks", "Aspect Warriors", "Commission"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-swooping-hawks/viiyd20260401aeldari-swooping-hawks_01.webp"
 layout: "project"

@@ -1,6 +1,11 @@
 # ✍️ VIIYD 3.0: Writing Style Protocols
 
 > **Objective**: Define strict writing standards for three distinct contexts to ensure clarity, consistency, and brand alignment.
+>
+> **⚠️ §2 和 §3 已废弃（2026-09）**：这是 3.0 时代的"Imperial / authoritative"调性，
+> 与 4.0 改版后 `i18n/zh.toml` 关于页/服务页定下的随和、慵懒、脾气好的人设冲突。
+> 分享文案（社媒/朋友圈/公众号）请改用 `DOCS/MARKETING/SHARE_CAPTION_STANDARD.md`。
+> §1（内部沟通协议）不受影响，继续有效。
 
 ---
 

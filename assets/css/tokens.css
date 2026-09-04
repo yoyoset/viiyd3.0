@@ -33,8 +33,8 @@
   /* 回退栈要点名中日韩字体，不能只写 serif/sans-serif ——
      font-display:swap 期间用户先看到的就是回退字体，
      而各平台的默认 serif 未必是中文衬线（Windows 上常常退成不合适的字形）。 */
-  --font-display:       'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;
-  --font-latin-display: 'Instrument Serif', Georgia, serif;
+  --font-display:       'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-latin-display: 'Archivo Black', Impact, sans-serif;
   --font-body:          'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
   --font-mono:          'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 

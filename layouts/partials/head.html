@@ -26,10 +26,10 @@
   <!-- Fonts (non-blocking: swap in after load, <noscript> fallback) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  {{/* 4.0 字体：中文衬线标题 + 中文无衬线正文 + mono 机器信息 + 拉丁 display。
-       Noto Serif SC 是重量级中文字体，只取 700/900 两个字重。
+  {{/* 粗黑体改版：中英文标题统一走极粗无衬线（Noto Sans SC 900 + Archivo Black），
+       正文仍是 Noto Sans SC 常规字重，mono 不变。
        占位表 P15：上线前换成按站内实际用字生成的自托管子集（目标 <400KB）。 */}}
-  {{ $fonts := "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" }}
+  {{ $fonts := "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&display=swap" }}
   <link href="{{ $fonts }}" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="{{ $fonts }}" rel="stylesheet"></noscript>
 

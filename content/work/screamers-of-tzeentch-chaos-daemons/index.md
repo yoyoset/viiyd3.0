@@ -27,7 +27,13 @@ paints:
     hex: "#58C1CD"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Baharroth-Blue-2019"
 description: "Blue-purple gradients and glowing edge highlights showcase the Screamers' elegant glide through the warp. Nightmarish creatures that leave twisted reality in their wake."
+system: "40k"
 delivered: "2025.10"
+share_caption: "Five Screamers, 20 hours, blue-purple gradients built to leave a trail of wrongness behind them.
+
+These needed to look like they're gliding through the warp rather than just sitting on a base — the glowing edges do a lot of that work, but only if the gradient underneath is smooth enough to sell actual motion.
+
+If your daemons need to feel like they're bending reality rather than just standing in it, that's the effect I chase with gradients like this."
 ---
 
 <div class="image-grid">

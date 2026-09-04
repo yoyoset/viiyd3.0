@@ -2,6 +2,11 @@
 title: "Legio Custodes: Caladius Grav Tank Annihilator"
 date: 2025-10-10
 summary: "Heavy anti-tank firepower for the Emperor's chosen. Painted to an Elite standard."
+share_caption: "One tank, 32 hours, painted to look like it earns the word Elite.
+
+Custodes gold on a vehicle this size is a different problem than on infantry — the panel lines have to stay crisp across a much bigger surface, and the weathering has to suggest heavy anti-tank duty without turning the gold muddy.
+
+If a vehicle is the piece your army's missing, that scale of surface is exactly what I like getting into."
 tags: ["Legio Custodes", "Warhammer 40k", "Vehicle", "Imperial", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251010tank_01.jpg"
 layout: "project"

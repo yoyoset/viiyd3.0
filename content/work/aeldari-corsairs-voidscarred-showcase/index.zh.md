@@ -2,6 +2,11 @@
 title: "灵族海盗：虚空掠夺者 (从属 Kill Team)"
 date: 2026-04-01T16:15:00+08:00
 summary: "灵族精英佣兵：拥有多样化装备与星空主题装甲的虚空掠夺者小队。"
+share_caption: "十个虚空掠夺者，45 个小时，没有两个人穿得一样。
+
+灵族佣兵本来就该五花八门——每个模型都有自己的星空装甲变奏，得想清楚十套配色逻辑，又不能让整队上桌看起来七零八落。
+
+一队十个性格全不一样的模型，做起来挺有意思，欢迎带着您的想法来找我。"
 tags: ["战锤 40,000", "Aeldari", "海盗", "Kill Team", "委托"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-corsairs/viiyd20260401aeldari-corsairs_01.webp"
 layout: "project"

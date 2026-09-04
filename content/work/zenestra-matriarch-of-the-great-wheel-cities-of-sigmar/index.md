@@ -2,6 +2,11 @@
 title: "Zenestra: Matriarch of the Great Wheel"
 date: 2024-01-01
 summary: "The Pontifex of the Cult of the Great Wheel, borne into battle on a sacred palanquin. A centerpiece model featuring weathered stone, sacred cloth, and devout followers."
+share_caption: "One centerpiece on a palanquin, 35 hours, weathered stone and sacred cloth carried by devout followers.
+
+This is a small crowd scene as much as a single model — the Pontifex herself, the palanquin, and the followers all needed distinct treatment while reading as one procession, with the stone finish carrying most of the age and reverence.
+
+If your centerpiece comes with a retinue built into the kit, treating it as a scene rather than one model is usually where the piece actually comes alive."
 tags: ["Age of Sigmar", "Cities of Sigmar", "Zenestra", "Great Wheel", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251016pz_01.jpg"
 layout: "project"

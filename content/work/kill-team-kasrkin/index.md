@@ -2,6 +2,11 @@
 title: "Kill Team: Kasrkin - The Cadian Elite"
 date: 2026-01-20T22:30:00+08:00
 summary: "High-spec Kasrkin Kill Team commission featuring classic Cadian camouflage and urban basing."
+share_caption: "Ten Kasrkin, 35 hours, hard-edge Cadian camo painted by hand, no airbrush softening the shapes.
+
+Classic Cadian pattern takes patience more than skill — keeping the geometric blocks sharp and consistent across ten operatives is where most of the time actually went. Sponge-chipped weathering and multi-layer lens glazing on the goggles were the reward for getting the base camo right first.
+
+If clean hard-edge camo is what your kill team needs, that patience is exactly what I'm bringing to it."
 tags: ["Warhammer 40k", "Kill Team", "Astra Militarum", "Imperial Guard", "Kasrkin", "Commission"]
 cover: "https://photo.viiyd.com/2026/01/kasrkin/viiyd20260120kasrkin_01.jpg"
 layout: "project"

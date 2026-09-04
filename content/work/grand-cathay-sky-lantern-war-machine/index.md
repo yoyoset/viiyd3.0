@@ -2,6 +2,11 @@
 title: "Grand Cathay Sky Lantern War Machine"
 date: 2026-06-05T21:35:00+08:00
 summary: "Grand Cathay Sky Lantern — ivory paper hull, red rope net, freehand dragon stencils and a war-junk gondola, with its full crew of firebomb bombardiers and an Astromancer Lord."
+share_caption: "Seven pieces, 32 hours, and a paper lantern hull that had to look like paper even though it's plastic.
+
+The Sky Lantern's ivory hull with freehand dragon stencils under a red rope net, plus a full crew of bombardiers and an Astromancer Lord riding along — war machines like this are as much a diorama as a single model, and every crew member needed its own pass so the gondola didn't feel like an afterthought to the balloon.
+
+If a war machine or vehicle is the centerpiece you're missing, this scale of project is exactly what I like scheduling."
 tags: ["Warhammer", "Grand Cathay", "War Machine", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathaylantern/viiyd20260605cathaylantern_01.webp"
 layout: "project"

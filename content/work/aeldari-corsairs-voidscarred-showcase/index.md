@@ -2,6 +2,11 @@
 title: "Aeldari Corsairs: Voidscarred Showcase"
 date: 2026-04-01T16:15:00+08:00
 summary: "Elite mercenary adventurers of the Aeldari, featuring eclectic equipment and stellar-themed armor."
+share_caption: "Ten Void-scarred Corsairs, 45 hours, and not one of them dressed the same.
+
+Aeldari mercenaries get to be eclectic — every operative has its own take on the stellar-armor theme, which meant working out ten separate color logics that still read as one warband from across the table.
+
+Ten different personalities in one unit is a fun problem to have — happy to take on another one."
 tags: ["Warhammer 40,000", "Aeldari", "Corsairs", "Kill Team", "Commission"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-corsairs/viiyd20260401aeldari-corsairs_01.webp"
 layout: "project"

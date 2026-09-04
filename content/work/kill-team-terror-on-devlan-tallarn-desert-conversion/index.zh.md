@@ -2,6 +2,11 @@
 title: "Kill Team: Terror on Devlan 人类步兵：Tallarn / 塔图因风格头巾改装"
 date: 2026-06-23T18:20:00+08:00
 summary: "Terror on Devlan 人类步兵头巾改装版，以 Tallarn 与塔图因沙漠风格完成。"
+share_caption: "两名改装步兵，头巾魔改自 Terror on Devlan，塔兰与塔图因风格的沙漠配色。
+
+魔改模型在动笔之前就已经改变了任务——得靠配色让换头巾这个改造显得理所当然而不是硬拼上去的，沙尘和布料旧化得帮着改造把故事讲圆。
+
+如果您的魔改件需要涂装来把想法真正立住，这正是这类项目该做的事。"
 tags: ["杀戮小队", "Terror on Devlan", "人类步兵", "Tallarn", "沙漠改装", "委托"]
 cover: "https://photo.viiyd.com/2026/06/devlan/viiyd20260623devlan_01.webp"
 layout: "project"

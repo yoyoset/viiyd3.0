@@ -2,6 +2,11 @@
 title: "Bloodmaster, Herald of Khorne: Daemon Hero Commission"
 date: 2026-07-15T04:00:00+08:00
 summary: "A standalone Herald of Khorne hero, painted to lead the Bloodcrusher warband."
+share_caption: "One hero model, 22 hours, built to lead a warband that's already painted.
+
+Painting a Herald that has to slot in as the boss of an existing Bloodcrusher unit means matching an established palette while still making the hero read as the hero. Solo pieces like this get more attention per model than a squad ever could.
+
+If you've got a unit that needs a leader to match, send a photo of what it's already wearing."
 tags: ["Daemons of Khorne", "Warhammer 40k", "Herald of Khorne", "Hero", "Commission"]
 cover: "https://photo.viiyd.com/2026/07/bldm/viiyd20260715bldm_01.webp"
 layout: "project"

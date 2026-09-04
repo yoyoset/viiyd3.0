@@ -2,6 +2,11 @@
 title: "Iron Hail Gunners & Crane Gunner Teams: The Gunpowder Wing"
 date: 2026-09-01T20:45:00+08:00
 summary: "Iron Hail hand-gunners and Crane Gunner crews in one locked scheme — red coats, ivory scarves, blue headwraps and silver-steel guns."
+share_caption: "Twelve models, 72 hours, two different gunner types locked into one shared scheme.
+
+Iron Hail hand-gunners and Crane Gunner crews don't share a sculpt, but they needed to share an identity — red coats, ivory scarves, blue headwraps, silver-steel guns, repeated precisely enough across twelve models that the unit reads as disciplined rather than improvised.
+
+72 hours is toward the high end of what I take on — if your project is in that range, that's the kind of scale I actually prefer."
 tags: ["Warhammer", "Grand Cathay", "Artillery", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/cathayironhail/viiyd20260901cathayironhail_01.webp"
 layout: "project"

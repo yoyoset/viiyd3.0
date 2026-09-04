@@ -2,6 +2,11 @@
 title: "JoyToy Dark Source Steel Legion Head Repaint"
 date: 2024-01-01
 summary: "A custom head repaint project for JoyToy Dark Source and Steel Legion action figures, enhancing facial realism."
+share_caption: "Three heads, 20 hours, a small project with an outsized effect.
+
+JoyToy figures come with solid factory paint, but the faces are where mass production shows — this was purely about repainting heads for Dark Source and Steel Legion figures to bring the facial detail up to a level the rest of the figure already promises.
+
+If it's just the faces on your action figures that are bothering you, that's a real commission size, not too small to bother with."
 tags: ["JoyToy", "Dark Source", "Steel Legion", "Action Figure", "Repaint", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251011ay_01.jpg"
 layout: "project"

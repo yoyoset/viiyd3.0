@@ -2,6 +2,11 @@
 title: "Kravek Morne, Iron Warriors Warsmith"
 date: 2026-06-05T22:13:00+08:00
 summary: "Kravek Morne, Iron Warriors Warsmith — gunmetal Cataphractii Terminator armour with brass trim and yellow-black hazard stripes, wielding the thunder hammer Last Argument and a shoulder-mounted baleflamer."
+share_caption: "One Warsmith, 26 hours, and a shoulder-mounted flamer that had to look like it's actually been fired.
+
+Kravek Morne is gunmetal Cataphractii armor with brass trim and yellow-black hazard stripes — the kind of scheme that reads as industrial menace only if the metallics and the edge highlighting both hold up under a close look. The thunder hammer got its own pass just for the weathering on the head.
+
+If your character model needs this level of attention, send the reference shots."
 tags: ["Warhammer 40K", "Chaos Space Marines", "Iron Warriors", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/kravekmorne/viiyd20260605kravekmorne_01.webp"
 layout: "project"

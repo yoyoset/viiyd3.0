@@ -2,6 +2,11 @@
 title: "Cities Of Sigmar Army Showcase Complete Set"
 date: 2024-01-01
 summary: "A complete showcase of the Cities of Sigmar army project. Full detachment prepared for tabletop deployment."
+share_caption: "Sixty models, one complete Cities of Sigmar detachment, ready for the table.
+
+This is what a full army project looks like end to end — not one showpiece, sixty of them, all needing a consistent scheme without any single model eating a disproportionate share of the hours. That's a different kind of hard than a hero model.
+
+If you're staring down an army-sized project, this is exactly the scale I like scheduling for."
 tags: ["Warhammer Age of Sigmar", "Cities of Sigmar", "Army Showcase", "Commission"]
 cover: "https://photo.viiyd.com/viiyd_20250830_01.jpg"
 layout: "project"

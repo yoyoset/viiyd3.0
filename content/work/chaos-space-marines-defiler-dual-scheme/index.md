@@ -2,6 +2,11 @@
 title: "Chaos Space Marines Defiler — Dual Scheme"
 date: 2026-06-05T21:55:00+08:00
 summary: "The Chaos Space Marines Defiler painted in two schemes — Black Legion black-and-gold and Iron Warriors hazard stripe — with the full set of swappable weapon arms."
+share_caption: "One Defiler, two paint schemes, 40 hours, and a full set of swappable arms so it can be either.
+
+Black Legion black-and-gold on one side, Iron Warriors hazard stripes on the other — same chassis, two entirely different attitudes, decided by which arms get clipped on. Getting both schemes to look intentional, not like an unfinished decision, was the actual work.
+
+If you want one model that can be two things, let's talk about what those two things should be."
 tags: ["Warhammer 40K", "Chaos Space Marines", "Daemon Engine", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/defiler/viiyd20260605defiler_01.webp"
 layout: "project"

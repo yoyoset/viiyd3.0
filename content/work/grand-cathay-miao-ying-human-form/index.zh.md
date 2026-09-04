@@ -2,6 +2,11 @@
 title: "「飙龙」妙影：人形化身"
 date: 2026-09-01T20:50:00+08:00
 summary: "人形妙影——紫晶长袍衬象牙白内袍、白发高髻、金饰粉宝石，长袍手绘白色龙纹与云纹。"
+share_caption: "一尊模型，32 个小时，长袍每一道褶皱上都有手绘龙纹。
+
+人形妙影是紫晶配象牙白、金饰粉宝石——长袍上的云纹龙纹手绘才是真正的核心，不是最后补上去的点缀。
+
+如果您也有一件靠手绘撑场面的角色模型，这种项目我很想听听。"
 tags: ["Warhammer", "Grand Cathay", "巨兽", "英雄", "委托"]
 cover: "https://photo.viiyd.com/2026/09/miaoyinghuman/viiyd20260901miaoyinghuman_01.webp"
 layout: "project"

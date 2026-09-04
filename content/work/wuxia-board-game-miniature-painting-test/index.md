@@ -2,6 +2,11 @@
 title: "Wuxia Board Game: Miniature Painting Test"
 date: 2024-01-01
 summary: "Character miniatures from a Wuxia-themed board game. Exploring different color palettes and lighting effects to capture the spirit of martial arts."
+share_caption: "Five characters, 15 hours, a paint test run for a Wuxia board game before committing to a full palette.
+
+Board game miniatures usually come with less lore baggage than Warhammer factions, which actually makes the color decisions harder — there's no established scheme to lean on, so each character's palette had to invent its own sense of who they are.
+
+If you're bringing me something outside the usual Warhammer/AoS space, I like the excuse to build a palette from nothing."
 tags: ["Board Game", "Wuxia", "Miniature Painting", "Test", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251031wxfg_02.jpg"
 layout: "project"

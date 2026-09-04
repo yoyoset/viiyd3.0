@@ -61,7 +61,7 @@ other = "and a deadline."
 other = "That's enough to start. I'll reply within 48h on the contact you left — WeChat first, email works too."
 
 [cm_body_zh]
-other = "每次只接两单，请耐心。"
+other = "I take on two commissions at a time — thank you for your patience."
 
 [cm_field_name]
 other = "What should I call you?"
@@ -145,7 +145,7 @@ other = "Colour preferences · custom basing ideas · references you love · wha
 other = "By sending, you agree your message lands on my phone as a Telegram pin. I usually reply same day, but always within 48h."
 
 [cm_submit_disabled]
-other = "Fill the fields above"
+other = "Just the fields above, then we're good"
 
 [cm_submit_ready]
 other = "Send →"
@@ -154,7 +154,7 @@ other = "Send →"
 other = "Sending…"
 
 [cm_error_submit]
-other = "Something went wrong. Please try again."
+other = "That didn't go through — mind giving it one more try?"
 
 [cm_success_sent]
 other = "Sent."
@@ -340,7 +340,7 @@ other = "And added to the archive"
 [faq_1_q]
 other = "Do you take international commissions?"
 [faq_1_a]
-other = "Case by case — start with a DM on Instagram."
+other = "Usually, yes — send a DM on Instagram with what you have in mind and we'll figure it out together."
 [faq_2_q]
 other = "What tiers do you offer?"
 [faq_2_a]
@@ -374,7 +374,7 @@ other = "Availability"
 [home_slots]
 other = "%d display slots open"
 [home_next_slot]
-other = "Next opening %s. Army-scale work needs a month's notice."
+other = "Next opening %s. For army-scale work, a heads-up a month ahead helps me hold you a slot."
 
 # ─── About ──────────────────────────────────────────────
 [about_hero_alt]
@@ -386,9 +386,9 @@ other = "01 · In my own words"
 [about_bio_1]
 other = "I started taking commissions in 2024. The reason was simple: my own army was finished, so a friend brought his case over."
 [about_bio_2]
-other = "The commissions I take have one thing in common — either the volume needs scheduling, or the detail needs a magnifier. Anything in between, someone else can do."
+other = "I keep a slow pace, and I'm at my best with two kinds of jobs — a full army big enough to deserve its own proper slot, or something detailed enough to need a magnifier. Anything else is worth asking about too — depends how the schedule's looking, we can just talk it through."
 [about_bio_3]
-other = "What I turn down, plainly: rush jobs that cut corners, haggling, and quotes asked for without photos of the actual models."
+other = "A few honest notes up front, so we don't waste each other's time: if the deadline's tight, flag it early and we'll figure out the timing together. I hold off on quoting until I've seen real photos of the models — not being precious about it, just don't want to shortchange the work or you. Prices are pretty firm since the effort goes into the craft rather than the back-and-forth — the finished piece usually explains why. Good work takes its time, one brushstroke at a time. If that pace suits you, let's get started."
 [about_shot_1_cap]
 other = "The bench"
 [about_shot_2_cap]
@@ -512,3 +512,33 @@ other = "Scroll left"
 other = "Scroll right"
 [panda_alt]
 other = "Studio mascot: a panda painting a miniature under a desk lamp"
+
+# ─── Share panel ───────────────────────────────────────────
+[share_open]
+other = "Share this piece"
+[share_panel_title]
+other = "Pick a spot to share"
+[share_panel_body]
+other = "The caption's already written — copy it, tweak a line or two if you want, or just post it as is."
+[share_xhs_btn]
+other = "Copy Xiaohongshu caption"
+[share_moments_btn]
+other = "Copy WeChat Moments caption"
+[share_ig_btn]
+other = "Copy Instagram caption"
+[share_fb_btn]
+other = "Copy Facebook caption"
+[share_copy_link_btn]
+other = "Just the link"
+[share_copied]
+other = "Copied — go ahead and post it."
+[share_copy_failed]
+other = "That didn't copy — try a long-press to select it manually."
+[share_close]
+other = "Close"
+[share_bottom_label]
+other = "05 · Share"
+[share_bottom_title]
+other = "If you like it, share it"
+[share_bottom_body]
+other = "Pass it along to a friend who'd like it, or keep it bookmarked for later. And if it gives you an idea of your own, send me a message — same or completely different, happy to talk it through."

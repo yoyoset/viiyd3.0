@@ -164,6 +164,15 @@ description: "[SEO description, 150-200 chars]"
 
 ---
 
+### 3.6 分享文案
+
+给 `index.md`/`index.zh.md` 各加一行 `share_caption`（纯正文，不要手打标签或链接——
+模板会自动拼标签、追加链接）。怎么写见 `DOCS/MARKETING/SHARE_CAPTION_STANDARD.md`。
+构建后到该作品页顶部图标 / 底部分享区点开面板，确认四个渠道（小红书/朋友圈/
+Instagram/Facebook）文案都出来了。
+
+---
+
 ## 4. 本地验证 (Local Verification)
 
 ### 4.1 构建检查

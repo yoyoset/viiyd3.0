@@ -2,6 +2,11 @@
 title: "Astromancers of the Celestial Court: Court Mages & Familiar"
 date: 2026-09-01T20:00:00+08:00
 summary: "A mounted Astromancer, a foot wizard and a spirit-bird familiar in crimson, gold and celestial blue — the magical heart of the Cathayan court."
+share_caption: "Three models, 42 hours, and one spirit-bird that took longer than either human.
+
+A mounted Astromancer, a foot wizard, and their familiar — crimson, gold, and celestial blue tying all three together as a magical court rather than three separate characters. The bird's plumage ended up being the hardest gradient in the whole set.
+
+If your faction has a small cast of characters that need to look like they belong to the same court, that's exactly this brief."
 tags: ["Warhammer", "Grand Cathay", "Wizard", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_01.webp"
 layout: "project"

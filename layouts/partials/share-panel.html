@@ -1,0 +1,44 @@
+{{/* 分享面板 —— 每个作品页各含一份（不是像 commission-modal 那样全局单例），
+     因为文案是这一单专属的，装进 assets/js/share.js 维护的一个共享状态里，
+     由 [data-share-open] 触发器（标题区图标 + 底部分享区按钮）负责填充。
+     结构照抄 commission-modal.html 的 backdrop + 可滚动容器 + 卡片。 */}}
+<div id="share-backdrop" role="dialog" aria-modal="true" aria-labelledby="share-panel-title" aria-hidden="true"
+  style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;inset:0;z-index:1000;">
+
+  <div style="position:absolute;top:0;right:0;bottom:0;left:0;inset:0;background:rgba(14,17,19,.97);" onclick="shareClose()"></div>
+
+  <div id="share-scroll" onclick="if(event.target===this)shareClose()"
+    style="position:relative;z-index:2;height:100%;overflow-y:auto;overflow-x:hidden;padding:80px 20px;display:flex;align-items:center;justify-content:center;">
+
+    <div style="max-width:440px;width:100%;background:var(--ink);color:var(--fg-body);border:1px solid var(--hairline-strong);padding:36px 32px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <h2 id="share-panel-title" style="font-family:var(--font-display);font-weight:900;font-size:24px;line-height:1.25;letter-spacing:-0.02em;color:var(--fg);margin:0;">
+          {{ T "share_panel_title" | default "挑个地方，帮忙说一声" }}
+        </h2>
+        <button onclick="shareClose()" aria-label="{{ T "share_close" | default "关闭" }}"
+          style="background:none;border:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-muted);cursor:pointer;padding:8px;min-height:44px;flex-shrink:0;">
+          ×
+        </button>
+      </div>
+
+      <p style="font-family:var(--font-body);font-size:13.5px;line-height:1.7;color:var(--fg-muted);margin:10px 0 24px;">
+        {{ T "share_panel_body" }}
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <button type="button" class="btn-line btn-block" data-share-channel="xhs" onclick="shareCopy('xhs')">{{ T "share_xhs_btn" }}</button>
+        <button type="button" class="btn-line btn-block" data-share-channel="moments" onclick="shareCopy('moments')">{{ T "share_moments_btn" }}</button>
+        <button type="button" class="btn-line btn-block" data-share-channel="ig" onclick="shareCopy('ig')">{{ T "share_ig_btn" }}</button>
+        <button type="button" class="btn-line btn-block" data-share-channel="fb" onclick="shareCopy('fb')">{{ T "share_fb_btn" }}</button>
+        <button type="button" class="btn-text" data-share-channel="link" onclick="shareCopy('link')" style="margin-top:4px;">{{ T "share_copy_link_btn" }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/* 注入两个纯字符串（已经在引号内），不是对象/数组 —— 不要加 safeJS，
+     Go 的转义在这里是需要的（防止文案里的引号逃逸出字符串），见 CLAUDE.md 的
+     "两种情况" 说明。 */}}
+<script>
+window.__shareCopyOk = '{{ T "share_copied" | default "Copied" }}';
+window.__shareCopyFail = '{{ T "share_copy_failed" | default "Copy failed" }}';
+</script>

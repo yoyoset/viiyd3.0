@@ -2,6 +2,11 @@
 title: "Grand Cathay Infantry: Red & Gold Regiment"
 date: 2026-06-02T09:30:00+08:00
 summary: "30-model Grand Cathay infantry regiment in imperial red and gold. Matching recolor to the Royal Guard cavalry series."
+share_caption: "Thirty infantry, 18 hours, red and gold matched to the cavalry series already on the table.
+
+Recoloring a full regiment to fall in line with an existing army means the palette decisions were already made somewhere else — the job here was consistency at scale, thirty models in, without the later ones drifting from the first.
+
+If you're building a Grand Cathay force one regiment at a time, matching each new batch to what's already painted is exactly what this kind of order is for."
 tags: ["Warhammer", "Grand Cathay", "Infantry", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathayinf/viiyd20260602cathayinf_01.webp"
 layout: "project"

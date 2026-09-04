@@ -2,6 +2,11 @@
 title: "Grand Cathay Gunnery Team: Dragon Cannon & Rocket Battery"
 date: 2026-06-02T10:30:00+08:00
 summary: "Two Grand Cathay Gunnery Teams with dual loadout — dragon cannon and rocket battery variants, full crew included."
+share_caption: "Two gunnery teams, 16 hours, painted with a dual loadout so the crew works for either the dragon cannon or the rocket battery.
+
+Artillery crews are easy to under-invest in compared to the gun itself — these needed to look like operators, not scenery, since a gun with a lifeless crew reads as half-finished no matter how good the barrel looks.
+
+If artillery or support crews are the part of your army getting skipped, that's usually the part worth fixing first."
 tags: ["Warhammer", "Grand Cathay", "Artillery", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathayguns/viiyd20260602cathayguns_01.webp"
 layout: "project"

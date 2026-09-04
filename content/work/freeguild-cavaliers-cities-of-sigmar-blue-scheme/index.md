@@ -2,6 +2,11 @@
 title: "Freeguild Cavaliers: The Blue Charge"
 date: 2024-01-01
 summary: "A regiment of Freeguild Cavaliers painted in a striking blue and silver scheme, serving as the vanguard of the Cities of Sigmar."
+share_caption: "Five Freeguild Cavaliers, 20 hours, blue and silver built to lead a charge.
+
+Vanguard units need to look fast even mounted and still — the blue armor picks up cool highlights while the horses get their own separate color logic so the whole regiment doesn't blur into one mass of metal and fur.
+
+If cavalry is what you're painting next, the horses are usually the part people underestimate — happy to talk through it."
 tags: ["Freeguild", "Cavalry", "Cities of Sigmar", "Age of Sigmar", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013cosbh_02.jpg"
 layout: "project"

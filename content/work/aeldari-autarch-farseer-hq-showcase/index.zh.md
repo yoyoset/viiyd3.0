@@ -2,6 +2,11 @@
 title: "灵族主教与先知：HQ 统领鉴赏"
 date: 2026-04-01T15:52:00+08:00
 summary: "灵族两款经典 HQ 角色：携带双背旗的 Autarch 与掌控星辰披风的 Farseer。"
+share_caption: "两位灵族 HQ 角色，30 个小时，画了很多很小的星星。
+
+Autarch 背后的双旗要求每个角度看都干净利落；Farseer 的披风要画出真的裹着星空的感觉。深蓝色甲胄把两个角色连在一起，又没让他们看起来像双胞胎。
+
+您的指挥官模型也想这么讲究一次，发图聊聊。"
 tags: ["战锤 40,000", "Aeldari", "HQ", "Autarch", "Farseer", "委托"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-hq/viiyd20260401aeldari-hq_01.webp"
 layout: "project"

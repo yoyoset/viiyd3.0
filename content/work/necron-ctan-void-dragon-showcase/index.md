@@ -16,16 +16,11 @@ optimized: true
 tier: "Legend"
 time_log: "35h 00m"
 model_count: 1
-share_caption: "The Adeptus Mechanicus call him the Omnissiah.
+share_caption: "One model, 35 hours, silver that had to look like it's actually conducting lightning.
 
-He's been sealed under Mars for sixty million years, and they built a religion around a prison.
+The Void Dragon's god-form is wrapped in gauss-green energy across every serpentine coil — three-stage lightning from Warpstone Glow to Moot Green to Flash Gitz at the tips, all arcing toward one light source. Getting the silver necrodermis to read as a real conductor rather than just shiny paint took more layering than the lightning effects themselves.
 
-Silver necrodermis layered until it catches light like real metal. Three-stage lightning — Warpstone to Moot Green to Flash Gitz at the tips — arcing across every coil and joint. One light source. Everything bends toward it.
-
-35 hours. Legend tier. One of one.
-
-Commission open — two display slots.
-DM or viiyd.com 🎨"
+If your centerpiece needs OSL that looks like it's actually arcing rather than just glowing, that's the exact effect I chase here."
 share_tags: "#warhammer40k #necrons #ctan #voiddragon #omnissiah #adeptusmechanicus #miniaturepainting #warhammercommunity #paintingminiatures #osl #gloweffects #commissionsopen #citadelminiatures #gamesworkshop #40k #minipainting"
 paints:
   - name: "Leadbelcher"

@@ -2,6 +2,11 @@
 title: "Miao Ying, the Storm Dragon: Human Form"
 date: 2026-09-01T20:50:00+08:00
 summary: "Miao Ying in mortal form — amethyst robes over ivory, white hair, gold trim, rose gems and hand-painted white dragonwork."
+share_caption: "One model, 32 hours, hand-painted dragonwork across every fold of the robe.
+
+Miao Ying's mortal form is amethyst over ivory with rose gems and gold trim — the freehand cloud-and-dragon work on the robe is the actual centerpiece here, not a detail added at the end.
+
+If you've got a character piece where the freehand is the point, that's the project I want to hear about."
 tags: ["Warhammer", "Grand Cathay", "Monster", "Hero", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/miaoyinghuman/viiyd20260901miaoyinghuman_01.webp"
 layout: "project"

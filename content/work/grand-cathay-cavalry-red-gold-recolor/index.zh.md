@@ -2,6 +2,11 @@
 title: "震旦天朝骑兵：红金皇家卫队"
 date: 2026-02-27T15:00:00+08:00
 summary: "高对比度的震旦天朝骑兵改色方案，金色铠甲搭配深红纹饰，重塑东方皇家卫队风度。"
+share_caption: "五骑，12 个小时，从原来的样子改成金甲配深红纹饰。
+
+这不是从素模开始画，是在已有涂装上做高对比度改色——哪里要处理掉、哪里能直接叠加、哪里可以保留旧漆的痕迹，都是另一套讲究。
+
+如果您的模型缺的是新身份而不是新漆，这是另一类委托，我常接。"
 tags: ["Warhammer", "Grand Cathay", "Cavalry", "委托"]
 cover: "https://photo.viiyd.com/2026/02/cathay/viiyd20260227cathay_01.jpg"
 layout: "project"

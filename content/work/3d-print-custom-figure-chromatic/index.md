@@ -2,6 +2,11 @@
 title: "3D Print Custom: Chromatic Rebirth"
 date: 2025-12-17
 summary: "A study in chromatic reconstruction on 3D printed resin. Overcoming layer lines with high-saturation gradients and OSL effects."
+share_caption: "20 hours fighting 3D-print layer lines with color instead of sandpaper.
+
+This one's a study in chromatic reconstruction — high-saturation gradients and OSL laid over resin printing that wasn't going to hide its seams on its own. Turned a printing limitation into the whole point of the paint job instead of fighting it.
+
+Curious what a treatment like this could do for your own print? Send it over."
 tags: ["3D Print", "Custom Figure", "Color Theory", "OSL"]
 cover: "https://photo.viiyd.com/viiyd20251217AF_01.jpg"
 layout: "project"

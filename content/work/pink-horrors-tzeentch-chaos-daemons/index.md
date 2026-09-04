@@ -31,7 +31,13 @@ paints:
     hex: "#FFE900"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Yriel-Yellow-2019"
 description: "Multi-layer translucent glazing and warp glow effects bring Tzeentch's Pink Horrors to life with otherworldly energy."
+system: "40k"
 delivered: "2025.10"
+share_caption: "Ten Pink Horrors, 20 hours, multi-layered glazing to get that ethereal glow without it looking like a solid color.
+
+Tzeentch daemons live on gradients — flat pink reads as a toy, but the glazing has to stay controlled enough that ten models still look like a coherent unit rather than ten separate color experiments.
+
+If ethereal glow or magical effects are what you're after, glazing like this is where most of that impression actually comes from."
 ---
 
 <div class="image-grid">

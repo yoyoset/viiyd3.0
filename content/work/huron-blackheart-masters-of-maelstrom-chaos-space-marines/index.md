@@ -2,6 +2,11 @@
 title: "Huron Blackheart and the Masters of the Maelstrom"
 date: 2026-03-18T21:07:00+08:00
 summary: "Legendary Chaos Lord Huron Blackheart and his elite inner circle of the Red Corsairs."
+share_caption: "Huron Blackheart and his inner circle, ten models, 45 hours, one legendary Chaos Lord who had to actually look like one.
+
+Painting a named character alongside his retinue means the hero can't just be the biggest model — he has to visibly outrank everyone standing next to him through paint alone, colour saturation and metallic quality turned up exactly enough and no more.
+
+If your army has a named character who deserves to actually look like the boss, that hierarchy is something I pay close attention to."
 tags: ["Warhammer 40,000", "Chaos Space Marines", "Red Corsairs", "Commission"]
 cover: "https://photo.viiyd.com/2026/03/huron/viiyd20260318huron_01.webp"
 layout: "project"

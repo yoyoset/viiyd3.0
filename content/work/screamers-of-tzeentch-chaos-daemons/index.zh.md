@@ -27,7 +27,13 @@ paints:
     hex: "#58C1CD"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Baharroth-Blue-2019"
 description: "蓝紫色的渐变和发光的边缘高光展示了尖啸者在亚空间中优雅的滑翔。在身后留下扭曲现实的噩梦生物。"
+system: "40k"
 delivered: "2025.10"
+share_caption: "五只尖啸者，20 个小时，蓝紫渐变要画出身后留下一道扭曲现实的痕迹。
+
+这些得让人觉得它们正在亚空间里滑翔，而不是钉在地台上——发光边缘出了不少力，但前提是底下的渐变足够顺滑，才能骗过眼睛以为它在动。
+
+如果您的恶魔要的是「正在扭曲现实」而不只是站在那里，这种渐变就是我用来追这种效果的手段。"
 ---
 
 <div class="image-grid">

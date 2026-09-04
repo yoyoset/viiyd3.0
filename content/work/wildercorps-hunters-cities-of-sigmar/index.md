@@ -2,6 +2,11 @@
 title: "Wildercorps Hunters: Cities of Sigmar"
 date: 2024-01-01
 summary: "Rugged scouts of the Cities of Sigmar, accompanied by their loyal Trailhounds. Painted with natural tones, leather textures, and weathering effects."
+share_caption: "Eleven models, hunters and hounds together, 28 hours, natural tones instead of the usual bright faction colors.
+
+Scouts need to look like they belong outdoors — leather textures, weathering, and a muted natural palette instead of the saturated look most Cities of Sigmar units get. The Trailhounds needed their own fur work to feel like actual animals, not just accessories.
+
+If you've got a unit that should look rugged rather than heroic, that's a palette shift I enjoy making."
 tags: ["Age of Sigmar", "Cities of Sigmar", "Wildercorps Hunters", "Humans", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251118wh_01.jpg"
 layout: "project"

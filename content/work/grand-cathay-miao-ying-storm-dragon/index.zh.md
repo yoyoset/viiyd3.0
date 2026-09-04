@@ -2,6 +2,11 @@
 title: "风暴巨龙 妙影"
 date: 2026-06-05T21:48:00+08:00
 summary: "妙影的完全风暴巨龙形态——紫晶龙鳞、珠光白鬃、镶玫瑰宝石的金冠与黑银云纹龙铠，腾跃于水晶岩之上。"
+share_caption: "一条龙，48 个小时，昂首立在手做的水晶岩基座上。
+
+完全形态的风暴巨龙意味着紫晶龙鳞、珠光鬃毛，还有要按真龙尺度去画的金冠——黑银云纹龙铠得画出编织感，不能只是喷个层次了事，地台也得撑得住这个体量。
+
+如果您的收藏也缺一尊这种量级的核心模型，把参考图发给我，一起算算体量。"
 tags: ["Warhammer", "Grand Cathay", "巨兽", "委托"]
 cover: "https://photo.viiyd.com/2026/06/miaoyingdragon/viiyd20260605miaoyingdragon_07.webp"
 layout: "project"

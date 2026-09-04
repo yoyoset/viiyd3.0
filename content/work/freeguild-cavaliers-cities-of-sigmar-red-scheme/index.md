@@ -2,6 +2,11 @@
 title: "Freeguild Cavaliers: The Red Vanguard"
 date: 2024-01-01
 summary: "A regiment of Freeguild Cavaliers painted in a bold red and gold scheme, representing the fiery determination of Hammerhal."
+share_caption: "Five Cavaliers, 20 hours, red and gold instead of the blue regiment from earlier.
+
+Same unit, same horses, a completely different mood — this one's built around the fiery, determined read that Hammerhal calls for, which meant a different highlight temperature on the metals too, not just a different base coat.
+
+If you're building a Cities of Sigmar force with more than one regiment, keeping each one visually distinct while still obviously the same army is exactly this kind of work."
 tags: ["Freeguild", "Cavalry", "Cities of Sigmar", "Age of Sigmar", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013cosrh_02.jpg"
 layout: "project"

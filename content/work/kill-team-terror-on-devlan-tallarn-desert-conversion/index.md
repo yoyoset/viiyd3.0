@@ -2,6 +2,11 @@
 title: "Kill Team: Terror on Devlan - Tallarn-Style Desert Troopers"
 date: 2026-06-23T18:20:00+08:00
 summary: "Head-scarf converted human troopers for Terror on Devlan, painted in a dusty Tallarn and Tatooine-inspired desert scheme."
+share_caption: "Two converted troopers, head-scarf kitbashed for Terror on Devlan, a dusty Tallarn-and-Tatooine desert scheme.
+
+Conversions change the brief before the paint even starts — these needed a scheme that made the head-scarf swap look intentional rather than bolted on, so the desert dust and fabric weathering had to sell the conversion as much as the paint itself.
+
+If you've got a kitbash that needs paint to finish selling the idea, that's exactly this kind of project."
 tags: ["Kill Team", "Terror on Devlan", "Human Troopers", "Tallarn", "Desert Conversion", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/devlan/viiyd20260623devlan_01.webp"
 layout: "project"

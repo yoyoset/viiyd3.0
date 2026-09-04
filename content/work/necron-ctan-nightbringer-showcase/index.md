@@ -15,17 +15,11 @@ optimized: true
 tier: "Master"
 time_log: "30h 00m"
 model_count: 1
-share_caption: "The first being in the universe to understand death.
+share_caption: "One model, 30 hours, robes that dissolve into light instead of just fading to it.
 
-Every mortal race carries the memory of him in their genes. That cold instinct when you look into the dark — that's him.
+The Nightbringer is purple-black at the crown, bleeding down into gauss-green necrodermis by the base — that gradient had to read as a single continuous transition, not a robe painted in two halves. The Canoptek Scarabs feeding at the base got their own OSL pass just to sell that the light is actually coming from somewhere.
 
-Purple-black robes dissolving at the hem. Not tearing. Dissolving — into cascading gauss-green necrodermis tendrils. The scythe is cold steel. Canoptek Scarabs feed at the base like the energy is leaking out and they can't help themselves.
-
-Absolute stillness above. Complete dissolution below.
-
-30 hours. Master tier. One of one.
-
-Commission open — DM or viiyd.com 🎨"
+If a solo centerpiece like this is what you're after, this is roughly the scale and detail level I schedule for."
 share_tags: "#warhammer40k #necrons #ctan #nightbringer #deathscythe #miniaturepainting #warhammercommunity #paintingminiatures #osl #gloweffects #commissionsopen #citadelminiatures #gamesworkshop #40k #minipainting"
 paints:
   - name: "Abaddon Black"

@@ -2,6 +2,11 @@
 title: "Kill Team: Blood and Zeal Sanctifiers"
 date: 2024-01-01
 summary: "A heavily converted Sanctifier Kill Team, featuring OSL plasma effects and non-metallic metal (NMM) gold trim."
+share_caption: "Ten Sanctifiers, 20 hours, heavily converted and lit up with OSL plasma.
+
+NMM gold trim without any actual metallic paint is its own discipline — the gold has to be entirely convinced by light and shadow, no shortcuts from a metallic base. Combine that with plasma glow across a ten-model kill team and there wasn't a lot of room for inconsistency between models.
+
+If NMM or OSL is the effect you keep seeing and want on your own kill team, I like this kind of technical brief."
 tags: ["Kill Team", "Sisters of Battle", "Sanctifiers", "Imperium", "Warhammer 40k", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251014ktbz_01.jpg"
 layout: "project"

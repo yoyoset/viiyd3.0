@@ -2,6 +2,11 @@
 title: "Miao Ying, the Storm Dragon"
 date: 2026-06-05T21:48:00+08:00
 summary: "Miao Ying in full Storm Dragon form — amethyst scales, a pearlescent white mane, gold crown with rose gems and black-and-silver cloud barding, rearing over a quartz crag."
+share_caption: "One dragon, 48 hours, reared up over a hand-built quartz crag.
+
+Full Storm Dragon form means amethyst scales, a pearlescent mane, and a gold crown to paint at true dragon scale — the black-and-silver cloud barding needed to look woven, not just airbrushed, and the base had to hold its own under something this size.
+
+If a centerpiece model like this is what your collection's missing, send the reference and let's scope it."
 tags: ["Warhammer", "Grand Cathay", "Monster", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/miaoyingdragon/viiyd20260605miaoyingdragon_07.webp"
 layout: "project"

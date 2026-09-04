@@ -2,6 +2,11 @@
 title: "Hexbane's Hunters: Underworlds Witch Hunters"
 date: 2024-01-01
 summary: "The grim witch hunters of the Order of Azyr, seeking to purge corruption from the Nethermaze."
+share_caption: "Six witch hunters, 25 hours, grim enough to actually look like they mean the purge.
+
+The Order of Azyr doesn't wear bright colors and doesn't smile — muted, worn robes and a lot of restrained shading were the entire brief here, which is its own kind of hard when the instinct is usually to add more contrast, not less.
+
+If your models need to look grim rather than heroic, that's a different palette conversation and I like having it."
 tags: ["Warhammer Underworlds", "Cities of Sigmar", "Witch Hunters", "Order", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251118wuhh_01.jpg"
 layout: "project"

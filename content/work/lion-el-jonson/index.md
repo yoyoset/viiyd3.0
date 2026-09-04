@@ -2,6 +2,11 @@
 title: "Lion El'Jonson: Primarch of the First"
 date: 2025-10-13T12:00:00+08:00
 summary: "The Lord of the First returns. Painted to a Master standard."
+share_caption: "The Lord of the First, 45 hours, painted to a standard that a Primarch-scale model demands.
+
+This is a big single-model commitment — every surface at Primarch scale shows more than the same technique would on a normal-sized model, so there's nowhere to hide an inconsistent transition. 45 hours went almost entirely into making sure nothing on it reads as rushed.
+
+If a single centerpiece model is what you're commissioning, that kind of undivided attention is what this scale gets."
 tags: ["Warhammer 40k", "Dark Angels", "Primarch", "Character", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013lej_12.jpg"
 layout: "project"

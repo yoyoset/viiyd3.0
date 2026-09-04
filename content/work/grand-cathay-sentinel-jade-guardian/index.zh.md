@@ -2,6 +2,11 @@
 title: "陶俑哨卫：玉石守望者"
 date: 2026-09-01T20:30:00+08:00
 summary: "冷青绿玉石质感的陶俑哨卫——云纹护甲、双刃武器、蓝宝石与风化石台。"
+share_caption: "一尊哨卫，22 个小时，要画出立了几百年的感觉。
+
+冷青绿玉石质感的云纹护甲配蓝宝石，风化石台特意做得比雕像本身更显年头。整件的关键是克制——一尊静止的守护者要的是沉稳，不是画得热闹。
+
+如果您的模型追求的是「古老」而不是「炫技」，这种氛围我很想挑战。"
 tags: ["Warhammer", "Grand Cathay", "巨兽", "委托"]
 cover: "https://photo.viiyd.com/2026/09/cathaysentinel/viiyd20260901cathaysentinel_01.webp"
 layout: "project"

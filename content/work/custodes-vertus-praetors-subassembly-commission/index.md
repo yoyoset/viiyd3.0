@@ -2,6 +2,11 @@
 title: "Adeptus Custodes Vertus Praetors: Sub-Assembly Commission"
 date: 2026-06-27T22:14:41+08:00
 summary: "Custom sub-assembly painting for golden Custodes jetbike riders."
+share_caption: "Six golden Custodes jetbike riders, 38 hours, painted as sub-assemblies.
+
+Custodes gold is unforgiving — every scratch in the transition shows. Painting them as sub-assemblies before final build meant getting into every panel gap the finished model would otherwise hide, then trusting it would all click together at the end.
+
+If gold is the scheme you're chasing, I promise it gets easier to talk about once I've seen photos."
 tags: ["Adeptus Custodes", "Warhammer 40k", "Vertus Praetors", "Jetbike", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/custodes/viiyd20260627custodes_01.webp"
 layout: "project"

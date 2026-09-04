@@ -2,6 +2,11 @@
 title: "灵族 飞鹰展示 (Aeldari Swooping Hawks Showcase)"
 date: 2026-04-01T16:30:00+08:00
 summary: "灵族道途武士：飞鹰小队。配备机械动力翼，擅长高空突击与高速战场机动。"
+share_caption: "五只飞鹰小队，35 个小时，重点全在那对得让人觉得真的在兜风的翅膀上。
+
+道途武士这类模型，剪影对不对很关键——就算摆在架子上不动，动力翼也得让人觉得带着风。翼片上的速涂高光就是干这个用的。
+
+如果您的小队也想站着不动也有速度感，发照片过来聊聊。"
 tags: ["战锤 40,000", "灵族", "飞鹰", "道途武士", "代工展示"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-swooping-hawks/viiyd20260401aeldari-swooping-hawks_01.webp"
 layout: "project"

@@ -2,6 +2,11 @@
 title: "Adeptus Custodes Vertus Praetors: Sub-Assembly Commission — Batch II"
 date: 2026-08-12T23:00:00+08:00
 summary: "Second batch of sub-assembled Custodes jetbike riders — same gold-and-crimson scheme, finished to match."
+share_caption: "Second batch, six more jetbike riders, same gold-and-crimson scheme as the first.
+
+Matching a batch to a commission finished earlier is its own discipline — the paint mixes, the highlight placement, even the weathering density all have to line up so nobody can tell which batch came first. These two orders now read as one army.
+
+Got a unit that needs reinforcements matched to an existing paint job? That's exactly this."
 tags: ["Adeptus Custodes", "Warhammer 40k", "Vertus Praetors", "Jetbike", "Commission"]
 cover: "https://photo.viiyd.com/2026/08/custodes2/viiyd20260812custodes2_01.webp"
 layout: "project"

@@ -2,6 +2,11 @@
 title: "Bullgryns: 塔兰 '尘壁' 辅助军"
 date: 2026-01-23T14:30:00+08:00
 summary: "适配塔兰废土作战环境的重型步兵改装项目。"
+share_caption: "三只重装步兵，35 个小时，大半时间都花在做旧和沙色干扫上。
+
+这单是把成品部队「移防」到塔兰风格的废土战场——同样的蛮力身板，换了一身适应沙漠的行头。旧化花的功夫比打底漆还多。
+
+如果您的部队也想换个战场风格，欢迎发照片聊聊。"
 tags: ["Warhammer 40k", "Astra Militarum", "Bullgryns", "Kitbash", "Tallarn", "委托"]
 cover: "https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_01.jpg"
 layout: "project"

@@ -2,6 +2,11 @@
 title: "禁军 Vertus Praetors：客制分件涂装委托"
 date: 2026-06-27T22:14:41+08:00
 summary: "一组金甲禁军喷气摩托骑手的客制分件涂装。"
+share_caption: "六只金甲禁军喷气摩托骑手，38 个小时，分件涂装。
+
+禁军金不好糊弄——过渡里有一点瑕疵都藏不住。分件涂装意味着要钻进成品拼好之后就再也看不到的每一处缝隙，再赌它们组装起来严丝合缝。
+
+如果您也想挑战这套金色，发图给我，看完就知道怎么谈。"
 tags: ["禁军", "战锤40k", "Vertus Praetors", "喷气摩托", "委托"]
 cover: "https://photo.viiyd.com/2026/06/custodes/viiyd20260627custodes_01.webp"
 layout: "project"

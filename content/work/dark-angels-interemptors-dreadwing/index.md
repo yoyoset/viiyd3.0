@@ -2,6 +2,11 @@
 title: "Dark Angels Interemptors: The Dreadwing Protocol"
 date: 2026-01-04
 summary: "The destroyers of the First Legion. High-contrast OSL plasma effects on matte black armor."
+share_caption: "Five Interemptors, 20 hours, matte black armor built to make the plasma glow do all the talking.
+
+High-contrast OSL only works if the black underneath stays actually black — too much sheen and the glow effect disappears into the highlights. These needed restraint everywhere except the plasma coils.
+
+If OSL is the effect you want and you're not sure how much is too much, that's a conversation I like having."
 tags: ["Warhammer 40k", "Dark Angels", "Dreadwing", "Interemptors", "OSL"]
 cover: "https://photo.viiyd.com/viiyd20260104DADIS_01.jpg"
 layout: "project"

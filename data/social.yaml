@@ -1,0 +1,29 @@
+# 分享面板的标签池 —— 占位表之外的机械生成部分
+#
+# 正文（share_caption）由人手写，放在每单 frontmatter 里；标签是纯体力活，
+# 从这里 + 该单的 tags/system 字段机械拼出来，不占手写工作量。
+# 见 DOCS/MARKETING/SHARE_CAPTION_STANDARD.md。
+
+evergreen:
+  zh: ["战锤", "微缩模型", "模型涂装", "涂装委托"]
+  en: ["warhammer40k", "miniaturepainting", "warhammercommunity", "commissionsopen"]
+
+by_system:
+  40k:
+    zh: ["战锤40k"]
+    en: ["40k", "wh40k"]
+  old-world:
+    zh: ["旧世界", "战锤旧世界"]
+    en: ["warhammertheoldworld", "oldworld"]
+  aos:
+    zh: ["西格玛纪元"]
+    en: ["ageofsigmar", "aos"]
+  kill-team:
+    zh: ["杀戮小队"]
+    en: ["killteam"]
+  joytoy:
+    zh: ["joytoy", "手办"]
+    en: ["joytoy", "actionfigure"]
+  other:
+    zh: ["微缩模型手办"]
+    en: ["miniatures"]

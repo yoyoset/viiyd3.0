@@ -2,6 +2,11 @@
 title: "Blue Horrors: Tzeentch Chaos Daemons"
 date: 2024-01-01
 summary: "The grumbling remnants of Pink Horrors. A study in cold blue gradients and magical flame effects."
+share_caption: "Ten Blue Horrors, 20 hours, all cold gradients and a little bit of magic.
+
+These are what's left after a Pink Horror splits — smaller, meaner, painted in blues instead of the usual pink, with flame effects that needed to read as something other than fire. Small models, but the gradient work doesn't get to cut corners just because of that.
+
+If you're chasing an effect like this on your own daemons, happy to figure it out together."
 tags: ["Warhammer 40k", "Tzeentch", "Daemons", "Chaos"]
 cover: "https://photo.viiyd.com/viiyd20251104bhot_01.jpg"
 layout: "project"

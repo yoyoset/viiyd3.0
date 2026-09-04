@@ -2,6 +2,11 @@
 title: "Flesh Hounds Khorne Daemons Showcase"
 date: 2024-01-01
 summary: "The hounds of Khorne. Painted to a Spec Ops standard for high contrast and tabletop durability."
+share_caption: "Five Flesh Hounds, 20 hours, painted for contrast that survives actual tabletop lighting.
+
+Khorne's hounds don't need subtlety — they need to read at a glance from across the table, which is a different design problem than a display piece. Built for durability as much as looks.
+
+If your army needs models that look good under real game-night lighting, not just camera lighting, that's the brief I like."
 tags: ["Warhammer 40k", "Khorne", "Daemons", "Flesh Hounds", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20250909fh_01.jpg"
 layout: "project"

@@ -2,6 +2,11 @@
 title: "Grand Cathay Shugengan Lord on Great Spirit Longma"
 date: 2026-06-02T11:00:00+08:00
 summary: "Shugengan Lord mounted on a Great Spirit Longma — jade dragon, ivory wings, gold command armor. Grand Cathay centrepiece character."
+share_caption: "One centerpiece, 10 hours — fast for the scale, because the sculpt had already done a lot of the work.
+
+Jade dragon scales, ivory wings, gold command armor on the rider — this is the kind of model where the detail is baked into the casting and the paint job's task is to bring out what's already there rather than invent it from nothing.
+
+If you've got a striking sculpt that just needs the right hands on it, send photos and I'll tell you honestly how many hours it actually needs."
 tags: ["Warhammer", "Grand Cathay", "Character", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathaymiaoying/viiyd20260602cathaymiaoying_01.webp"
 layout: "project"

@@ -12,6 +12,54 @@
 {{ $sys   := .Params.system }}
 {{ $deliv := .Params.delivered | default (.Date.Format "2006.01") }}
 
+{{/* ── 分享文案（规格：DOCS/MARKETING/SHARE_CAPTION_STANDARD.md）
+     正文由人手写，放在 share_caption（zh 文件 = 小红书源，en 文件 = IG 源）。
+     标签是唯一机械生成的部分，从 data/social.yaml + 该单 tags/system 拼出来。
+     面板不分页面语言：用 .Translations 拿到另一语言页，双语四个渠道都能在
+     任一语言页复制（用户已确认的产品决定，不是遗漏）。 */}}
+{{ $zhPage := . }}{{ $enPage := . }}
+{{ if eq .Lang "zh" }}
+  {{ range .Translations }}{{ if eq .Lang "en" }}{{ $enPage = . }}{{ end }}{{ end }}
+{{ else }}
+  {{ range .Translations }}{{ if eq .Lang "zh" }}{{ $zhPage = . }}{{ end }}{{ end }}
+{{ end }}
+{{ $zhCaption := $zhPage.Params.share_caption }}
+{{ $enCaption := $enPage.Params.share_caption }}
+{{ $xhs := "" }}{{ $moments := "" }}{{ $ig := "" }}{{ $fb := "" }}
+{{ if or $zhCaption $enCaption }}
+  {{ $social := .Site.Data.social }}
+  {{ $sysTags := dict "zh" (slice) "en" (slice) }}
+  {{ with index $social.by_system $sys }}{{ $sysTags = . }}{{ end }}
+  {{ if $zhCaption }}
+    {{ $zhTags := union $social.evergreen.zh $sysTags.zh }}
+    {{ $zhExclude := slice "战锤" "委托" "代工展示" "定制" }}
+    {{ range $zhPage.Params.tags }}
+      {{ $t := . }}{{ $skip := false }}
+      {{ range $zhExclude }}{{ if in $t . }}{{ $skip = true }}{{ end }}{{ end }}
+      {{ if not $skip }}{{ $zhTags = $zhTags | append (replace $t " " "") }}{{ end }}
+    {{ end }}
+    {{ $zhTagsHashed := slice }}
+    {{ range $zhTags }}{{ $zhTagsHashed = $zhTagsHashed | append (printf "#%s" .) }}{{ end }}
+    {{ $xhs = printf "%s\n\n%s\n\n%s" $zhCaption (delimit $zhTagsHashed " ") $zhPage.Permalink }}
+    {{ $moments = printf "%s\n\n%s" $zhCaption $zhPage.Permalink }}
+  {{ end }}
+  {{ if $enCaption }}
+    {{ $enTags := union $social.evergreen.en $sysTags.en }}
+    {{ range $enPage.Params.tags }}
+      {{ $t := . }}
+      {{ if and (not (in $t "Warhammer")) (ne $t "Commission") }}
+        {{ $clean := $t | lower | replaceRE `[^a-z0-9]` "" }}
+        {{ if $clean }}{{ $enTags = $enTags | append $clean }}{{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $enTagsHashed := slice }}
+    {{ range $enTags }}{{ $enTagsHashed = $enTagsHashed | append (printf "#%s" .) }}{{ end }}
+    {{ $ig = printf "%s\n\n%s\n\n%s" $enCaption (delimit $enTagsHashed " ") $enPage.Permalink }}
+    {{ $fb = printf "%s\n\n%s" $enCaption $enPage.Permalink }}
+  {{ end }}
+{{ end }}
+{{ $hasShare := or $zhCaption $enCaption }}
+
 {{/* 从 cover 推导图集前缀与扩展名 —— 与 3.0 相同的推导，不要改 */}}
 {{ $baseURL  := "" }}
 {{ $photoExt := ".webp" }}
@@ -37,7 +85,19 @@
 {{/* ── 标题区 ── */}}
 <section class="section">
   <div class="wrap work-title">
-    <h1 class="display-2">{{ .Title }}</h1>
+    <div class="work-title__row">
+      <h1 class="display-2">{{ .Title }}</h1>
+      {{ if $hasShare }}
+      <button type="button" class="share-icon-btn" data-share-open
+        data-share-xhs="{{ $xhs }}" data-share-moments="{{ $moments }}"
+        data-share-ig="{{ $ig }}" data-share-fb="{{ $fb }}" data-share-link="{{ .Permalink }}"
+        aria-label="{{ T "share_open" | default "分享这一单" }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/>
+        </svg>
+      </button>
+      {{ end }}
+    </div>
     <div class="work-title__meta label-lg">
       {{ with .Params.eiu }}<div>{{ . }} EIU</div>{{ end }}
       <div>{{ T "meta_delivered" | default "交付" }} {{ $deliv }}</div>
@@ -200,6 +260,27 @@
     </div>
   </div>
 </section>
+{{ end }}
+
+{{/* ── 分享区块：图集/涂料/相关推荐之后，字大可点，客户看完全部内容后自然滑到这里 ── */}}
+{{ if $hasShare }}
+<section class="section">
+  <div class="wrap share-block">
+    <div class="section-label label">
+      <span class="num">05</span><span>{{ T "share_bottom_label" | default "分享" }}</span>
+    </div>
+    <h2 class="display-3">{{ T "share_bottom_title" | default "看着顺眼，就分享一下" }}</h2>
+    <p class="body share-block__body">{{ T "share_bottom_body" }}</p>
+    <div class="share-block__actions">
+      <button type="button" class="btn-line" data-share-open
+        data-share-xhs="{{ $xhs }}" data-share-moments="{{ $moments }}"
+        data-share-ig="{{ $ig }}" data-share-fb="{{ $fb }}" data-share-link="{{ .Permalink }}">
+        {{ T "share_open" | default "分享这一单" }} →
+      </button>
+    </div>
+  </div>
+</section>
+{{ partial "share-panel.html" . }}
 {{ end }}
 
 </main>

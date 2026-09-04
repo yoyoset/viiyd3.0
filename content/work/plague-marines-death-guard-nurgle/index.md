@@ -2,6 +2,11 @@
 title: "Plague Marines: Death Guard"
 date: 2024-01-01
 summary: "The unyielding sons of Mortarion. Classic Death Guard scheme with a focus on clean basecoating and recess shading."
+share_caption: "Seven Plague Marines, 22 hours, classic Death Guard scheme built on clean basecoating instead of leaning entirely on grime.
+
+It's tempting to hide behind heavy weathering on Nurgle models, but this one's about getting the basecoat and recess shading right first — the decay reads as more convincing sitting on top of a genuinely clean foundation, not covering up a rushed one.
+
+If you want Death Guard that looks intentional rather than just muddy, that foundation-first approach is what I lead with."
 tags: ["Warhammer 40k", "Death Guard", "Nurgle", "Chaos Space Marines", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251016ng_01.jpg"
 layout: "project"

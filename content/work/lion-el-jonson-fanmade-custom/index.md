@@ -2,6 +2,11 @@
 title: "Lion El'Jonson: Fanmade Custom"
 date: 2024-01-01
 summary: "A unique fanmade custom sculpt of the Primarch Lion El'Jonson, exploring an alternative interpretation of the character."
+share_caption: "One custom sculpt, 20 hours, a fan reimagining of a Primarch that doesn't exist in plastic yet.
+
+Fanmade sculpts don't come with an official scheme to reference — the color story had to be built from scratch around what the sculpt itself suggested, which is a different kind of decision-making than matching an established codex palette.
+
+If you've got a custom or resin sculpt with no official paint guide to lean on, that's a fun kind of problem to hand me."
 tags: ["Warhammer 40k", "Dark Angels", "Primarch", "Fanmade", "Custom Sculpt", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251115trsn_01.jpg"
 layout: "project"

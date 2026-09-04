@@ -2,6 +2,11 @@
 title: "Bullgryns: Tallarn 'Dust Wall' Auxilia"
 date: 2026-01-23T14:30:00+08:00
 summary: "Heavy infantry modified for Ash Wastes operations alongside Tallarn regiments."
+share_caption: "35 hours, three Bullgryns, and a lot of sand-colored drybrushing.
+
+These got reworked for Ash Wastes duty alongside a Tallarn regiment — same brute muscle, just dressed for a desert campaign instead of a hive world. The weathering ended up taking longer than the base coat did.
+
+If your own army needs a theater-specific repaint like this, happy to talk through it."
 tags: ["Warhammer 40k", "Astra Militarum", "Bullgryns", "Kitbash", "Tallarn", "Ash Wastes"]
 cover: "https://photo.viiyd.com/2026/01/bullg/viiyd20260123bullg_01.jpg"
 layout: "project"

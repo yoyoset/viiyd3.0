@@ -2,6 +2,11 @@
 title: "Grand Cathay Peasant Levy: Fields to War"
 date: 2026-09-01T20:55:00+08:00
 summary: "A twenty-four-strong Peasant Levy in red tunics, ivory cloth, straw hats and blue belts — farm tools turned to war."
+share_caption: "Twenty-four peasant levy, 58 hours, farm tools painted to look like they mean it.
+
+This is the largest single-unit regiment I've done — red tunics, ivory cloth, straw hats, and blue belts repeated across two dozen models without turning into a blur of sameness. Militia armies live or die on whether the uniform reads as uniform without every model looking identical.
+
+If you're staring at a big blister-pack unit and dreading the repetition, that's honestly the part I find satisfying."
 tags: ["Warhammer", "Grand Cathay", "Infantry", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/cathaylevy/viiyd20260901cathaylevy_01.webp"
 layout: "project"

@@ -2,6 +2,11 @@
 title: "Grand Cathay Cavalry: Red & Gold Regiment II"
 date: 2026-06-02T10:00:00+08:00
 summary: "15-model Grand Cathay cavalry in imperial red and gold — second regiment expanding the Royal Guard series."
+share_caption: "Fifteen more cavalry, 22 hours, second regiment in the Royal Guard series.
+
+This one had to match a scheme that already existed on the table — same imperial red and gold, same highlight logic, scaled up to a full regiment without any model looking like it wandered in from a different batch.
+
+If you're expanding an army and need the new units to disappear into the old ones, that consistency is the whole job."
 tags: ["Warhammer", "Grand Cathay", "Cavalry", "Commission"]
 cover: "https://photo.viiyd.com/2026/06/cathaycav2/viiyd20260602cathaycav2_01.webp"
 layout: "project"

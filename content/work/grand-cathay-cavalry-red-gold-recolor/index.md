@@ -2,6 +2,11 @@
 title: "Grand Cathay Cavalry: Red & Gold Royal Guard"
 date: 2026-02-27T15:00:00+08:00
 summary: "High-contrast Grand Cathay cavalry recolor featuring royal gold armor and deep red accents."
+share_caption: "Five cavalry, 12 hours, a full recolor to get from what they were to royal gold and deep red.
+
+This wasn't painting from bare plastic — it was a high-contrast repaint over an existing job, which comes with its own rules about what to strip, what to build over, and where the old scheme is allowed to show through.
+
+If you've got models that need a fresh identity more than a fresh coat, that's a different kind of commission and one I do often."
 tags: ["Warhammer", "Grand Cathay", "Cavalry", "Commission"]
 cover: "https://photo.viiyd.com/2026/02/cathay/viiyd20260227cathay_01.jpg"
 layout: "project"

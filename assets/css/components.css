@@ -263,8 +263,18 @@
 .breadcrumb a:hover{ color:var(--primary); }
 
 .work-title{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; }
+.work-title__row{ display:flex; align-items:center; gap:14px; min-width:0; }
 .work-title__meta{ text-align:right; flex-shrink:0; }
 .work-title__meta .tier{ color:var(--primary); }
+
+/* ══ 分享 ══ */
+.share-icon-btn{
+  width:44px; height:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--hairline-strong); background:none; color:var(--fg-muted); cursor:pointer;
+}
+.share-icon-btn:hover{ border-color:var(--primary); color:var(--primary); }
+.share-block__body{ max-width:640px; margin:16px 0 0; color:var(--fg-body); }
+.share-block__actions{ margin-top:24px; }
 
 .work-body{ display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start; }
 .work-body__notes .label{ margin-bottom:20px; }

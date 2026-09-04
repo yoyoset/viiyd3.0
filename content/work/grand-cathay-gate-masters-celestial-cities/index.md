@@ -2,6 +2,11 @@
 title: "Gate Masters of the Celestial Cities: Red & White Bastion Guard"
 date: 2026-09-01T21:00:00+08:00
 summary: "Eight Gate Masters in a red, ivory, blue and silver scheme — red shields, silver lamellar, ivory scarves and a white hand-painted dragon banner."
+share_caption: "Eight Gate Masters, 55 hours, and one hand-painted dragon banner that took a day on its own.
+
+Red shields, silver lamellar, ivory scarves — a scheme locked down tight enough that eight models read as one unit, with the banner freehand as the one place allowed to be a showpiece.
+
+If your army has a banner or standard that deserves real freehand work, that's usually my favorite part of any commission."
 tags: ["Warhammer", "Grand Cathay", "Infantry", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_01.webp"
 layout: "project"

@@ -2,6 +2,11 @@
 title: "The Destined One: Black Myth Wukong Chibi"
 date: 2025-11-04
 summary: "A stylized 'Chibi' interpretation of the Monkey King, balancing cute proportions with gritty, realistic textures."
+share_caption: "20 hours turning the Destined One into a chibi without losing the grit.
+
+Cute proportions and gritty, weathered textures don't usually want to sit on the same model — this one's about finding where those two things actually agree with each other instead of cancelling out.
+
+Got a character you'd like reimagined this way? Tell me who."
 tags: ["Black Myth Wukong", "Chibi", "3D Print", "Commission", "Character"]
 cover: "https://photo.viiyd.com/viiyd20251222BMWK_01.jpg"
 layout: "project"

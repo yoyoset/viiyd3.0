@@ -2,6 +2,11 @@
 title: "Aeldari Autarch & Farseer: HQ Showcase"
 date: 2026-04-01T15:52:00+08:00
 summary: "Elegant leaders of the Aeldari, featuring deep blue armor, ornate back banners, and mystical starry cloaks."
+share_caption: "Two Aeldari HQ characters, 30 hours, and a lot of very small starfields.
+
+The Autarch carries twin back banners that needed to read clean from every angle; the Farseer's cloak is painted to look like it's actually holding a night sky. Deep blue armor ties the two together without making them look like twins.
+
+If your HQ choices deserve the same kind of attention, let's talk."
 tags: ["Warhammer 40,000", "Aeldari", "HQ", "Autarch", "Farseer", "Commission"]
 cover: "https://photo.viiyd.com/2026/04/aeldari-hq/viiyd20260401aeldari-hq_01.webp"
 layout: "project"

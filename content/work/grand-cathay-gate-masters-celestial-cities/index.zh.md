@@ -2,6 +2,11 @@
 title: "门下督：红白堡垒守卫"
 date: 2026-09-01T21:00:00+08:00
 summary: "八名门下督，红、象牙白、蓝与银的统一配色——红盾、银鳞甲、白围巾与白色手绘龙旗。"
+share_caption: "八名门下督，55 个小时，那面手绘龙旗单独就画了一整天。
+
+红盾、银鳞甲、象牙白围巾——配色锁得很死，才能让八只模型看起来是一个整体，唯独那面旗子被允许当主角，手绘发挥。
+
+如果您的部队有一面值得认真手绘的军旗，那通常是我整单里最喜欢做的部分。"
 tags: ["Warhammer", "Grand Cathay", "步兵", "委托"]
 cover: "https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_01.webp"
 layout: "project"

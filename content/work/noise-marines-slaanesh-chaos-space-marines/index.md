@@ -2,6 +2,11 @@
 title: "Noise Marines: Slaanesh Chaos Space Marines"
 date: 2024-01-01
 summary: "Sonic weaponry and vibrant colors. A Noise Marine squad honoring Slaanesh with deafening cacophony."
+share_caption: "Ten Noise Marines, 25 hours, vibrant enough to actually feel loud.
+
+Slaanesh schemes get to be the opposite of restrained — purples and pinks pushed further than most other factions would allow, with the sonic weapons needing enough contrast to look like they're actually the source of the noise rather than just decoration.
+
+If your faction gives you permission to go bright and you want someone who won't play it safe, that's a fun brief to get."
 tags: ["Chaos Space Marines", "Slaanesh", "Noise Marines", "Emperor's Children", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20251013nm_01.jpg"
 layout: "project"

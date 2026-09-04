@@ -31,7 +31,13 @@ paints:
     hex: "#FFE900"
     link: "https://www.warhammer.com/en-GB/shop/Layer-Yriel-Yellow-2019"
 description: "多层半透明罩染和亚空间发光效果，以超凡脱俗的能量赋予奸奇粉色惧妖生命。"
+system: "40k"
 delivered: "2025.10"
+share_caption: "十只粉色惧妖，20 个小时，多层罩染才能画出那种空灵的发光感，而不是一整块死粉色。
+
+奸奇恶魔靠的是渐变——粉色涂平了就像玩具，但罩染又得控制住分寸，不然十只模型会变成十个各自为战的色彩实验，而不是一支统一的队伍。
+
+如果您想要的是空灵发光或魔法效果，这种罩染手法才是那种感觉的真正来源。"
 ---
 
 <div class="image-grid">

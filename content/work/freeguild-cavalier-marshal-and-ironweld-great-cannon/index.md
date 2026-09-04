@@ -2,6 +2,11 @@
 title: "Marshal & Great Cannon: The Hammer of Sigmar"
 date: 2024-01-01
 summary: "A dual showcase featuring the commanding Freeguild Cavalier-Marshal and the devastating Ironweld Great Cannon."
+share_caption: "Two very different models, 25 hours, one showcase — a mounted commander and a siege gun.
+
+The Cavalier-Marshal needed to look like he's actually in charge; the Great Cannon needed to look like it's actually dangerous. Painting a hero and a war machine side by side means switching gears completely between them without either one looking like an afterthought.
+
+Mixing a character model with a vehicle or artillery piece in one order? That's a normal ask here."
 tags: ["Freeguild", "Cavalry", "Artillery", "Cities of Sigmar", "Age of Sigmar", "Commission"]
 cover: "https://photo.viiyd.com/viiyd20250909cos_01.jpg"
 layout: "project"

@@ -2,6 +2,11 @@
 title: "钢铁勇士 战铸长 Kravek Morne"
 date: 2026-06-05T22:13:00+08:00
 summary: "钢铁勇士战铸长 Kravek Morne——枪铁色 Cataphractii 终结者甲配黄铜边线与黄黑警示条纹，手持雷锤 Last Argument 与肩载炼狱喷火器。"
+share_caption: "一位战铸长，26 个小时，肩上的炼狱喷火器得让人觉得真的开过火。
+
+Kravek Morne 是枪铁色 Cataphractii 甲配黄铜边线和黄黑警示条纹——这种配色要撑得住工业感的凶狠，金属漆和边缘高光都得经得起近看。雷锤单独花了一遍功夫做旧化。
+
+如果您的角色模型也想要这种细节程度，把参考图发给我。"
 tags: ["Warhammer 40K", "Chaos Space Marines", "Iron Warriors", "委托"]
 cover: "https://photo.viiyd.com/2026/06/kravekmorne/viiyd20260605kravekmorne_01.webp"
 layout: "project"
