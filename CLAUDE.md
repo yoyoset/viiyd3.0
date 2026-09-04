@@ -99,6 +99,29 @@
   **三次都不报错、构建照样成功。** 改完配置用 `hugo config --format json` 核对实际生效值，
   别只看构建是否通过。
 - 本地调试完记得 `taskkill //F //IM hugo.exe` —— 残留的 hugo server 会占着 1313 端口发陈旧内容，而新进程静默退到 1314，症状是浏览器拿到空页但 `curl` 正常。
+- **`git push` 成功 ≠ 线上已更新**。CF Pages 是异步构建，push 只保证 GitHub 有了这次提交，
+  不保证构建会成功、也不保证已经跑完。2026-09-03 实测栽过：删 `postcss.config.js`
+  时判断「没有模板用到」——漏看了 `head.html:44` 的 `{{ $css = $css | css.PostCSS }}`
+  （这行不受 `hugo.IsProduction` 限制，每次构建都跑）。本地 `hugo --gc --minify`
+  一直不报错，是因为本地 `node_modules/.bin/postcss` 是改 `package.json` 前装的旧文件，
+  没有 `npm ci` 过，**测的是假阴性**；CF Pages 每次都是干净 `npm clean-install`，
+  连续 3 次 `Failure`，线上停在旧版本，而当时的回复一直在说"已推送"。
+  **改完任何可能影响构建的文件（`package.json`/`postcss.config.js`/依赖）后，
+  必须先 `rm -rf node_modules && npm ci && npm run build` 本地复现一次干净环境**，
+  不能信本地残留的 `node_modules`。
+  **push 后一定要用 `wrangler` 核实真实构建结果**，不能只看 `git push` 有没有报错：
+  ```bash
+  cd /f/my_ai/viiyd3.0
+  npx wrangler pages deployment list --project-name=viiyd3-0   # 看最新几条 Status 列
+  ```
+  项目名 `viiyd3-0`，account id `48b4b98607fc35c1a9cca79b698cd3c9`（本机已 `wrangler login`，
+  token 在 `%APPDATA%/xdg.config/.wrangler/config/default.toml`，可直接查 CF API 拿构建日志，
+  见 `deployments/{id}/history/logs`）。`wrangler pages deployment list` 顶部几行是最新——
+  `Status` 列出现 `Failure` 就是构建炸了，不是"还在排队"，要去 dash 链接看日志定位。
+  排查同一类问题（模板里某个 `resources.*`/`css.*`/`js.*` 管道调用）时，
+  **搜依赖包名不够**——PostCSS 的调用点写的是 Hugo 内建函数名 `css.PostCSS`，
+  不含 `postcss` 这个字符串，`grep -rn postcss layouts/` 是搜不到的，
+  要搜 `resources.Get|.Process|css\.|js\.Build` 这类管道函数本身。
 
 ## SEO 已固化的配置
 

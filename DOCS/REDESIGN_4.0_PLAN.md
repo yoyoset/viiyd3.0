@@ -1196,3 +1196,53 @@ warhammer.com 商店 —— 移动端一屏排 1–2 列，误触面积极大，
 
 若更想要「涂料完全不外链」（纯展示），说一声即可 —— 当前保留了名字上的链接，
 因为材料透明度对高端客户是有说服力的。
+
+### 2026-09-03/04 · 首页横滚 + 熊猫吉祥物 + 分区花格 + 一次线上事故
+
+**首页「最近交付」6→12 条，移动端加横滚箭头。** 原来 ≤768 已经是横滚
+（flex + overflow-x:auto，露 2.3 张），但滚动条被 `scrollbar-width:none`
+隐掉、也没有任何箭头，用户看不出右边还有内容。新增 `assets/js/rail.js`：
+44px 箭头按 `scrollLeft` 显隐，桌面无溢出直接 `display:none`。
+桌面 6 列两行，769–1024 收成 4 列，≤768 `grid-auto-flow:column` 两行横滚。
+实测两个坑：`grid-template-columns:repeat(6,1fr)` 优先于 `grid-auto-columns`，
+移动端不显式写 `grid-template-columns:none` 会得到畸形列；`scroll-snap`
+不配 `scroll-padding-inline` 会在加载时把 `scrollLeft` 顶到 20。
+
+**碳纤维底纹改对角棋盘，6px→12px。** 原来两组 ±45° 的 1px 交叉细线在
+暗底上实机读出来是「菱形网」，格子太小（3px 周期）看着像噪点。改成
+两层 `linear-gradient` 对角棋盘错开半格，不用任何 1px 线，令牌收敛到
+`--weave-cell` / `--weave-size` 两个。
+
+**清理 3.0 遗留资产**：`static/` 里 41MB 只有 1.6MB 真被引用，删掉后
+部署产物 49MB→9.6MB；关于页 front matter 里 6 个模板从不读的死字段
+（`hero_bg`/`artist`/`pillars`/`gallery`/`social`）一并清掉；
+`tailwind.config.js`/`postcss.config.js` 判断错误删了又加回来（见下）；
+`content/zh/_index.md` 是个和中文站根路径重名的空 section，删掉后
+`hugo --gc --minify` 从有 1 条 WARN 变零告警零错误。
+
+**熊猫吉祥物**：用户用本轮给的提示词在 Gemini 生成三张图，选中两张接入站点——
+`panda-desk.jpg`（熊猫画模型）用在首页询价区与关于页自述旁，
+`panda-mark.png`（熊猫头）替掉顶栏圆环里的字母 V。裁图去掉了 Gemini
+原图自带的白边/黑边/假英文水印，28px 缩略测试过标识仍可辨认。
+图统一走 `assets/img/` + Hugo 构建期 `.Process` 转 WebP，不直接进 `static/`。
+关于页那张第一版给了 300px 太小缩成缩略图，改大到 440px（正文列保持
+`1fr` 让段落自己的 `max-width:44ch` 兜住，不要写成 `minmax(0,44ch)`——
+试过，网格总宽塌到 967px，右边空出 300px 死区）。
+
+**首页分区改花格底/纯深色错开一行，随后扩到全站。** `body` 保留全局
+织纹背景不变；新增 `main > .section:nth-of-type(odd){ background-color:
+var(--ink) }`，奇数位盖纯色挡住花格，偶数位透明露出 body 的花格透过来。
+选择器落在 `main >` 而不是某个模板专属 class，是因为 8 个模板
+（首页/关于/作品列表/作品详情/服务/分类页/term/404）的 `.section`
+全部是 `<main>` 的直接子元素，一条规则通吃。
+
+**一次真实的线上事故，教训写进了 CLAUDE.md「质量门禁」**：判断
+`postcss.config.js` 「没有模板用到」时漏看了 `head.html:44` 的
+`css.PostCSS` 调用（不受 `hugo.IsProduction` 限制，每次构建都跑），
+删掉它连带 devDependencies 后本地一直不报错——因为本地 `node_modules`
+是改 `package.json` 前装的，没有重新 `npm ci`，测的是假阴性。
+CF Pages 每次构建都是干净 `npm clean-install`，从那次删除开始**连续
+3 次 `Failure`**，期间两次熊猫改动的汇报都说了「已推送」，但线上其实
+停在 3 小时前的旧版本。用 `wrangler pages deployment list --project-name=viiyd3-0`
+才第一次看到真实构建状态。修复后改了工作方式：**往后每次 push 都用
+wrangler 核实真实部署结果，不再只信 `git push` 没报错**。
