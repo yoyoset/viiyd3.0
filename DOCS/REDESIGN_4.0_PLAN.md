@@ -1246,3 +1246,99 @@ CF Pages 每次构建都是干净 `npm clean-install`，从那次删除开始**�
 停在 3 小时前的旧版本。用 `wrangler pages deployment list --project-name=viiyd3-0`
 才第一次看到真实构建状态。修复后改了工作方式：**往后每次 push 都用
 wrangler 核实真实部署结果，不再只信 `git push` 没报错**。
+
+### 2026-09-04 · 作品页分享系统 + 全站语气改敬语 + 粗黑体改版 + 英文站报价对齐
+
+四件事分别由用户在同一天陆续提出，互相独立但都改了 `i18n/*.toml` 和多处模板，
+合并记一节。每次改动都过了 `npm run build` + `node scripts/audit_content.js`，
+push 后都用 `wrangler pages deployment list --project-name=viiyd3-0` 核实过
+真实构建结果（commit `6169cee` → `eaef152` → `17d6a1d`，均 Active）。
+
+**分享面板（新功能）**。用户记得旧版单页有「分享」这个东西——排查发现确实
+存在过但是死的：`content/work/*/social_media.md` 只写了 2 篇从未被任何模板
+读取，4 篇 3.0 遗留作品页的 `share_caption`/`share_tags` 字段同样没接线，
+唯一活着的是灯箱里的分享按钮，只会把当前大图 URL 丢给 `navigator.share`，
+标题写死 `"VIIYD"`。重新做的版本：
+- 新字段 `share_caption`（zh 文件 = 小红书源，en 文件 = Instagram 源），
+  正文由人手写（不是模板拼字段——56 单每单的钩子/细节/软 CTA 都是我按
+  `DOCS/MARKETING/SHARE_CAPTION_STANDARD.md` 定的标准逐篇写的），
+  标签是唯一机械生成的部分，从新建的 `data/social.yaml`
+  （常青标签池 + 按 `system` 分类）+ 该单 `tags:` 数组过滤 slugify 拼出来。
+- 面板不分页面语言：`layouts/work/single.html` 用 `.Translations` 拿到
+  另一语言页的字段，中英文页都能同时看到小红书/朋友圈/Instagram/Facebook
+  四个渠道——这是用户明确要的产品决定（双语一次生成，哪个页面都能复制）。
+- 入口两处（用户指定）：标题区小图标（复用 lightbox.js 的 share SVG）+
+  图集/涂料/相关推荐之后的独立分区块，带一句温和引导语。
+- `assets/js/share.js` 是新文件，复制逻辑照抄 `lightbox.js` 的
+  `navigator.clipboard.writeText` + `legacyCopy`（`execCommand`）兜底——
+  微信内置浏览器 clipboard 常为 undefined 这个坑之前在灯箱那边已经踩过一次，
+  这次直接复用同一套写法，没有再踩。
+- 55 个真实作品全部回填了 `share_caption`（zh+en），删掉了 2 个死的
+  `social_media.md`。`warhammer-painting-beginner-guide`（文章型页面，无
+  `photos`）和 `test-rule-compliance`（空测试目录）不接入。
+
+**全站语气从「随和慵懒」改成「敬语」**。前一天刚把关于页/服务页文案从
+3.0 遗留的生硬语气改成随和慵懒（`641b989`），用户看完新的分享文案后反馈
+「不行，多用敬语，客气一点，日本人的风格」——中文没有真正的敬语语法，
+落地成「随和的态度 + 您/谦敬用语的措辞」：`i18n/zh.toml` 里能找到的
+「你」全部改「您」，「咱们」「咱俩」改成更客气的表述，表单错误提示等
+功能性文案也补了敬语（"麻烦您先填写上面几项，谢谢。"）。55 单的
+`share_caption` 里所有「你」用 `sed 's/你/您/g'` 批量替换——逐一核对过
+不含「你们」、不含需要拆句重构的复杂用法，纯代词替换在中文里语法完全
+安全。英文没有 T-V 区分，只对分享面板等新增的英文文案做了轻度正式化，
+顺带修了一个真 bug：英文站询价浮层的 `cm_body_zh` 字段一直硬编码着
+中文「每次只接两单，请耐心。」，因为模板没做语言判断、直接 `{{ T
+"cm_body_zh" }}`——英文访客点开浮层实际看到的是这句原文中文，已经改成
+对应的英文句子。
+
+**标题字体从衬线改极粗黑体（Archivo Black + Noto Sans SC 900）**。用户
+甩来一张内网站点截图（`10.1.1.13:8096`，另一个项目，字体名不详，无法
+直接访问核对），要求全站标题字体照这个样式改。`tokens.css` 的
+`--font-display` 从 `Noto Serif SC` 换成 `Noto Sans SC`（新增 900 字重），
+`--font-latin-display` 从 `Instrument Serif` 换成 `Archivo Black`，
+`head.html` 的 Google Fonts 请求同步调整。这是推翻 4.0 改版当时定的
+衬线标题方向，浏览器截图比对后用户确认符合预期。
+
+**首页「定义屏」留白区补内容**。这块留白是交接包 §5 明确要求「全站最大
+的一处留白，不要压缩」，但用户看着实机截图觉得空，要求放东西——
+中文站右侧放微信二维码（复用 `data/contact.yaml` 的 `wechat_qr`），
+英文站放 Instagram/Facebook 链接。
+
+**改字体之后暴露的两个跨语言一致性 bug，顺带查出并撤销了规格 §12**：
+1. `.home-hero` 原来是 `min-height:520px` + `flex align-items:flex-end`。
+   英文标题在新的极粗字体下常年比中文长 3-4 倍，撑到 8 行时把整个区块
+   顶到远超 520px，而封面图是 `position:absolute inset:0 object-fit:cover`
+   会跟着容器变高被拉伸——中英文看到的是同一张图完全不同的裁切范围。
+   用户原话「保持中英文的图片大小宽度和高度一致性，文字是次要的」。
+   改成固定 `height:520px`（移动端 380px）+ 文案 `position:absolute`
+   从底部往上长，图片尺寸从此与标题长度彻底解耦；英文标题额外配了
+   `clamp(26px, 3.6vw, 46px)` 的自适应缩小，减轻裁切但不追求零裁切。
+2. 用户反馈英文首页「尾部缺失」，实际是「档期」双卡区：`.home-close`
+   写死 `grid-template-columns:repeat(2,1fr)`，而英文站的报价卡当时还是
+   `{{ if $isZH }}` 包住的，只剩一个子元素，第二个网格格位没有子元素
+   却仍然占位，`.grid-hair` 的分隔线底色直接透出来变成一块空灰框。
+   排查这个 bug 时问出了「英文站为什么没有报价卡？一样报价啊」——
+   **交接包规格 §12「英文站只做品牌展示、不出 EIU、询价改 Instagram」
+   被用户当场推翻**：中英文定价模型从来就是同一套，没有理由只让中文
+   客户看见报价。于是不是修那个 CSS 补丁，是把上游内容级的 gate 拆了：
+   首页报价卡、服务页 EIU 数字与结尾 CTA、作品页「同款询价」按钮与
+   灯箱底部 meta，全部从 `{{ if $isZH }}` 改成两语言都渲染，CTA 统一走
+   `data-wechat-open`（`commission-modal.html` 早就按语言分流了默认态，
+   英文访客点了直接落表单，不会弹微信二维码，基础设施不用新建）。
+   `:lang(en) .home-close{ grid-template-columns:1fr }` 那个补丁随之撤销
+   ——两语言现在都是 2 张卡，撑满 2 列网格是对的。解锁过程中发现
+   `i18n/en.toml` 缺了 `svc_eiu_note`/`home_pricing`/`home_inquire`/
+   `est_cta` 四个 key 的翻译（此前被 `{{ if $isZH }}` 挡住从没被英文站
+   渲染过，所以从来没人发现缺翻译）——补齐时特意验证了没有中文裸字符串
+   漏到英文页面（cm_body_zh 那次事故的教训：新增无语言分支的 T 调用，
+   一定要确认两份 toml 都有对应 key，否则英文站会看到中文或空白）。
+   顺手还发现首页那句「打开估算器 →」链接指向一个 4.0.1 简化时已经拿掉的
+   估算器 UI（服务页现在只有 EIU 数字，没有交互式估算器组件）——文案
+   本身失效已久，改成复用已存在但从未被引用的 `home_full_services`
+   （「完整服务与计价 →」）。CLAUDE.md 与 `i18n/en.toml` 里原先记录
+   §12 的注释都同步改写，避免未来某次改动「好心」把这个 gate 恢复回去。
+
+**遗留但本轮没动的相关问题**：英文站 FAQ（`faq_1_q`..`faq_4_q`）还是
+更早版本「有几个等级」的问法，等级这个概念已经在 4.0.1 拿掉了，中文站
+FAQ 已经换成新问法（寄件/分批交付/复刻配色）但英文没跟着换——是内容
+陈旧，不是本轮改动引入的，跟用户提过，还没拍板要不要改。
