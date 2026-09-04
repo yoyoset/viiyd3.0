@@ -140,16 +140,12 @@
           {{ with $.Params.extras }}<dt>{{ T "spec_extras" | default "加购项" }}</dt><dd>{{ delimit . " · " }}</dd>{{ end }}
           <dt>{{ T "spec_delivered" | default "交付月" }}</dt><dd>{{ $deliv }}</dd>
         </dl>
-        {{/* 英文站不做成交漏斗，按钮改 Instagram（规格 §12） */}}
-        {{ if eq .Lang "zh" }}
-          <button type="button" class="btn-action btn-block" data-wechat-open="work">
-            {{ T "cta_same_inquiry" | default "同款询价 →" }}
-          </button>
-        {{ else }}
-          <a class="btn-line btn-block" href="{{ $.Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">
-            {{ T "cta_instagram" | default "See more on Instagram →" }}
-          </a>
-        {{ end }}
+        {{/* 规格 §12 的中英差异已撤（用户拍板：定价模型一样，英文站也走同一套
+             询价漏斗）。commission-modal 本身已按语言分流默认态
+             （ZH 落二维码 / EN 落表单），这里不用再分模板。 */}}
+        <button type="button" class="btn-action btn-block" data-wechat-open="work">
+          {{ T "cta_same_inquiry" | default "同款询价 →" }}
+        </button>
       </div>
     </aside>
   </div>
@@ -166,13 +162,13 @@
     </div>
 
     {{/* 灯箱底部常驻信息行的数据源（§4.8）。写在容器上，lightbox.js 只读不猜。
-         英文站不出 EIU、不做询价（规格 §12），所以 cta 留空 → JS 自动隐藏按钮。 */}}
+         中英文现在同一套询价漏斗，EIU 与 CTA 两边都出。 */}}
     {{ $lbMeta := slice }}
-    {{ if and .Params.eiu (eq .Lang "zh") }}{{ $lbMeta = $lbMeta | append (printf "%v EIU" .Params.eiu) }}{{ end }}
+    {{ with .Params.eiu }}{{ $lbMeta = $lbMeta | append (printf "%v EIU" .) }}{{ end }}
     {{ $lbMeta = $lbMeta | append (printf "%s %s" (T "meta_delivered" | default "交付") $deliv) }}
     <div class="plates-grid"
          data-lb-meta="{{ delimit $lbMeta " · " }}"
-         data-lb-cta="{{ if eq .Lang "zh" }}{{ T "cta_same_inquiry" | default "同款询价 →" }}{{ end }}">
+         data-lb-cta="{{ T "cta_same_inquiry" | default "同款询价 →" }}">
       {{ range $v := seq 1 $photoCount }}
         {{ $src    := printf "%s_%02d%s" $baseURL $v $photoExt }}
         {{ $webSrc := partial "optimized-image" (dict "src" $src "optimized" $.Params.optimized) }}

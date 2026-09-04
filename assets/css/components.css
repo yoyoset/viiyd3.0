@@ -401,10 +401,6 @@
 
 
 .home-close{ grid-template-columns:repeat(2,1fr); }
-/* 英文站没有计价卡（不出 EIU），.home-close 只剩一个子元素——
-   两列网格没了第二个 grid item 撑内容，那格还是占着位置，
-   .grid-hair 的分隔线底色直接透出来变成一块空灰框（4.0 一直有这坑）。 */
-:lang(en) .home-close{ grid-template-columns:1fr; }
 .home-close__card{ padding:36px 32px; display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
 .home-close__num{ font-family:var(--font-display); font-weight:900; font-size:40px; color:var(--fg); }
 .home-close__slots{ color:var(--fg); }

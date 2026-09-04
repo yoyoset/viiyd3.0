@@ -30,7 +30,7 @@
       <h1 class="display-1">{{ .Title }}</h1>
       <div class="home-hero__cta">
         <a class="btn-line" href="{{ .RelPermalink }}">{{ T "home_read_dossier" | default "阅读档案 →" }}</a>
-        {{ if $isZH }}<button type="button" class="btn-text" data-wechat-open="home-hero">{{ T "cta_same_inquiry" | default "同款询价 →" }}</button>{{ end }}
+        <button type="button" class="btn-text" data-wechat-open="home-hero">{{ T "cta_same_inquiry" | default "同款询价 →" }}</button>
       </div>
     </div>
   </div>
@@ -135,23 +135,18 @@
 <section class="section">
   <div class="wrap">
     <div class="grid-hair home-close">
-      {{ if $isZH }}
+      {{/* 中英文定价模型一样，这张卡不再按语言隐藏（撤销规格 §12 的中英差异）。 */}}
       <div class="home-close__card">
         <div class="label">{{ T "home_pricing" | default "计价" }}</div>
         <div class="home-close__num">{{ $p.eiu.currency }}{{ $p.eiu.base }}<span class="data"> / 1 EIU</span></div>
         <p class="body-s">{{ T "svc_eiu_note" }}</p>
-        <a class="btn-text" href="{{ relLangURL "services" }}">{{ T "home_open_estimator" | default "打开估算器 →" }}</a>
+        <a class="btn-text" href="{{ relLangURL "services" }}">{{ T "home_full_services" | default "完整服务与计价 →" }}</a>
       </div>
-      {{ end }}
       <div class="home-close__card">
         <div class="label">{{ T "home_schedule" | default "档期" }}</div>
         <div class="display-4 home-close__slots">{{ printf (T "home_slots" | default "%d 个展示位开放中") $sch.open_slots }}</div>
         <p class="body-s">{{ printf (T "home_next_slot" | default "下一档期 %s 起。军团单请提前一个月。") $sch.next_month }}</p>
-        {{ if $isZH }}
-          <button type="button" class="btn-text" data-wechat-open="home-schedule">{{ T "home_inquire" | default "微信 / 邮件询价 →" }}</button>
-        {{ else }}
-          <a class="btn-text" href="{{ $.Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">{{ T "cta_instagram" | default "Instagram →" }}</a>
-        {{ end }}
+        <button type="button" class="btn-text" data-wechat-open="home-schedule">{{ T "home_inquire" | default "微信 / 邮件询价 →" }}</button>
       </div>
     </div>
   </div>

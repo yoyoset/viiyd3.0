@@ -369,6 +369,14 @@ other = "All %d dossiers →"
 other = "Five tiers"
 [home_full_services]
 other = "Services in full →"
+[home_pricing]
+other = "Pricing"
+[home_inquire]
+other = "Send an inquiry →"
+[svc_eiu_note]
+other = "EIU is the unit I use to measure hours. What your piece comes to in EIU can only be worked out after I've seen photos of the actual models — send them over and I'll walk you through it."
+[est_cta]
+other = "Send photos, let's talk →"
 [home_schedule]
 other = "Availability"
 [home_slots]
@@ -436,13 +444,15 @@ other = "Load more"
 [load_more_rest]
 other = "remaining"
 
-# ─── 有意不翻译的 key ────────────────────────────────────
-# 以下 14 个 key **故意只存在于 zh.toml**，不要「补齐」：
-#   est_* (估算器全部) · svc_eiu_note · svc_estimator_label
-#   home_pricing · home_open_estimator · home_inquire
-# 规格 §12：英文站只做品牌展示不做成交漏斗 —— 不出 EIU 数字、不放估算器、
-# 询价改 Instagram。模板用 {{ if $isZH }} 守着，这些 key 在英文站根本不会被渲染。
-# 实测：英文站全站 EIU / ¥ 出现次数为 0。
+# ─── 规格 §12 已撤（2026-09） ──────────────────────────────
+# 曾经「英文站不出 EIU / 不做成交漏斗」的规则已被用户推翻：中英文定价模型
+# 完全一样，没有理由只让中文客户看到报价。svc_eiu_note / home_pricing /
+# home_inquire / est_cta 现在两边都渲染，翻译补在下面对应位置。
+# est_* 其余几个 key（est_composition 等）和 svc_estimator_label 是更早版本
+# 估算器 UI 的遗留——服务页现在没有估算器组件，两个语言都不会渲染，
+# 不是本次改动漏掉，是另一块死代码，留着没有翻译负担。
+# home_open_estimator 已被 home_full_services 取代（原文案指向一个已经
+# 不存在的估算器），这个 key 现在中英文都不再使用。
 
 [cm_copy_wechat]
 other = "Copy WeChat ID"

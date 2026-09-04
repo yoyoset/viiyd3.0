@@ -11,7 +11,6 @@
      倍数与估算全部留到微信里一对一谈（规格 §19 的留白策略，这次贯彻得更彻底）。 */}}
 
 {{ $p    := .Site.Data.pricing }}
-{{ $isZH := eq .Lang "zh" }}
 {{ $sch  := .Site.Data.schedule }}
 
 <main>
@@ -25,14 +24,13 @@
       <p class="body-s svc-head__lede">{{ T "svc_lede" }}</p>
     </div>
 
-    {{ if $isZH }}
-    {{/* 全站唯一的金额。旁边那句「具体怎么算，问我」是有意的钩子（规格 B1）。 */}}
+    {{/* 全站唯一的金额。旁边那句「具体怎么算，问我」是有意的钩子（规格 B1）。
+         中英文定价模型一样，这块不再按语言隐藏（用户拍板撤销规格 §12 的中英差异）。 */}}
     <div class="frame svc-eiu">
       <div class="label">1 EIU</div>
       <div class="svc-eiu__num">{{ $p.eiu.currency }}{{ $p.eiu.base }}</div>
       <p class="body-xs">{{ T "svc_eiu_note" }}</p>
     </div>
-    {{ end }}
   </div>
 </section>
 
@@ -101,11 +99,7 @@
         <div class="display-4 about-cta__slots">{{ printf (T "home_slots") $sch.open_slots }}</div>
         <p class="body-s">{{ printf (T "home_next_slot") $sch.next_month }}</p>
       </div>
-      {{ if $isZH }}
-        <button type="button" class="btn-action" data-wechat-open="services">{{ T "est_cta" }}</button>
-      {{ else }}
-        <a class="btn-line" href="{{ .Site.Data.contact.channels.instagram }}" target="_blank" rel="noopener">{{ T "cta_instagram" }}</a>
-      {{ end }}
+      <button type="button" class="btn-action" data-wechat-open="services">{{ T "est_cta" }}</button>
     </div>
   </div>
 </section>
