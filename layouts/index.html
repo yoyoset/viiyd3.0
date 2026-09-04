@@ -37,10 +37,28 @@
 </section>
 {{ end }}
 
-{{/* ── 定义屏：全站最大的一处留白，不要压缩（handoff §5） ── */}}
+{{/* ── 定义屏：全站最大的一处留白（handoff §5），文字之外用户要求补一块
+     直接行动点——中文站放微信二维码，英文站放 Instagram/Facebook，
+     不铺满，右侧仍留白，只是不再是纯空。 */}}
 <section class="section section--statement">
-  <div class="wrap">
+  <div class="wrap home-statement-row">
     <p class="display-3 home-statement">{{ T "home_statement" | default "成都的手涂委托工作室。战锤、杀戮小队、JoyToy，以及别人不愿接的委托。" }}</p>
+    {{ if $isZH }}
+      {{ with .Site.Data.contact.wechat_qr }}
+      <div class="home-statement__qr">
+        <img src="{{ . }}" alt="VIIYD 微信二维码" loading="lazy">
+        <div>
+          <div class="label">微信</div>
+          <div class="body-s">{{ T "cm_qr_scan_hint" | default "扫码添加微信" }}</div>
+        </div>
+      </div>
+      {{ end }}
+    {{ else }}
+      <div class="home-statement__social">
+        {{ with .Site.Data.contact.channels.instagram }}<a class="btn-line" href="{{ . }}" target="_blank" rel="noopener">Instagram →</a>{{ end }}
+        {{ with .Site.Data.contact.channels.facebook }}<a class="btn-line" href="{{ . }}" target="_blank" rel="noopener">Facebook →</a>{{ end }}
+      </div>
+    {{ end }}
   </div>
 </section>
 
