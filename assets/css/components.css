@@ -357,15 +357,19 @@
 
 /* ══ 首页 ══ */
 /* 首屏：限宽内的大图，不做全幅出血（PLAN §2-E）。
-   高度用 vh 兜住，图片 cover 裁切 —— 首屏是唯一允许裁切的大图位，
-   因为它要的是氛围不是构图完整性；详情页主图才保留自然比例。 */
+   高度用固定值兜住。原先用 object-fit:cover 居中裁切——56 单里构图差异很大
+   （半身角色特写 / 骑乘模型 / 多模型合影），centre-crop 经常切掉真正的主体
+   （2026-09 的门下督封面实测：裁完只剩龙首没有人），且没有一个 object-position
+   能通吃所有构图。改成 contain + object-position:right，图片永远完整可见，
+   靠右贴边；左侧让出的空当刚好放文案，不用再靠裁切腾地方——不管封面是竖构图
+   还是横构图都成立，这也是不再需要为不同图片单独调 object-position 的原因。 */
 /* 固定 height（不是 min-height）：图片尺寸必须中英文一致，不能被标题长度
    撑高撑矮——英文标题常比中文长 3-4 倍，之前用 min-height + flex 会让
    长标题把整个首屏撑高，图片 cover 出完全不同的裁切范围。改成固定高度 +
    文案绝对定位（从底部往上长），图片永远是同一个框；文案长就自己往上顶，
    顶到头就交给 overflow:hidden 兜底——图片一致优先于文案完整展示。 */
-.home-hero{ position:relative; height:520px; overflow:hidden; }
-.home-hero__img{ position:absolute; top:0; right:0; bottom:0; left:0; inset:0; width:100%; height:100%; object-fit:cover; border:0; }
+.home-hero{ position:relative; height:520px; overflow:hidden; background:var(--ink); }
+.home-hero__img{ position:absolute; top:0; right:0; bottom:0; left:0; inset:0; width:100%; height:100%; object-fit:contain; object-position:right center; background:var(--ink); border:0; }
 .home-hero__copy{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:40px; max-width:60ch; }
 .home-hero__copy .display-1{ margin:14px 0 24px; }
 /* 英文标题常比中文长 3-4 倍，固定高度的框里放不下 68px 字号的长标题——
