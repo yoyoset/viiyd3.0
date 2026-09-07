@@ -15,6 +15,8 @@ photos: 8
 tier: "Legend"
 time_log: "32h 00m"
 model_count: 1
+videos_360:
+  - "https://photo.viiyd.com/video/miao-ying-human.mp4"
 paints:
   - name: "Naggaroth Night"
     role: "BASE"

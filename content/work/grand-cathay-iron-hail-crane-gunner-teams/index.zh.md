@@ -15,6 +15,9 @@ photos: 32
 tier: "Specialist"
 time_log: "72h 00m"
 model_count: 12
+videos_360:
+  - "https://photo.viiyd.com/video/cathay-iron-hail-gunners-1.mp4"
+  - "https://photo.viiyd.com/video/cathay-iron-hail-gunners-2.mp4"
 paints:
   - name: "Mephiston Red"
     role: "BASE"

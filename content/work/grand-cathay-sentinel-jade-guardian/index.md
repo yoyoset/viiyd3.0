@@ -11,11 +11,12 @@ tags: ["Warhammer", "Grand Cathay", "Monster", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/cathaysentinel/viiyd20260901cathaysentinel_01.webp"
 layout: "project"
 optimized: true
-photos: 8
+photos: 9
 tier: "Master"
 time_log: "22h 00m"
 model_count: 1
-video_360: "https://photo.viiyd.com/video/cathay-sentinel.mp4"
+videos_360:
+  - "https://photo.viiyd.com/video/cathay-sentinel.mp4"
 paints:
   - name: "Sotek Green"
     role: "BASE"

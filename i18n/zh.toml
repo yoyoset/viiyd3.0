@@ -20,6 +20,9 @@ other = "其他 / 定制"
 [dossier_notes_label]
 other = "// 涂师手记"
 
+[dossier_video_label]
+other = "// 360° 转台"
+
 [dossier_plates_label]
 other = "// 图版"
 

@@ -151,6 +151,32 @@
   </div>
 </section>
 
+{{/* ── 360° 转台视频 ──
+     新字段 videos_360（列表，支持 1-N 支）；旧文章用的是单值 video_360 +
+     video_360_menhir（3.0 遗留，4.0 重构时漏接，此前完全不渲染），
+     两个旧字段在没有 videos_360 时自动拼成同一份列表，不用逐篇改内容。 */}}
+{{ $videos360 := .Params.videos_360 }}
+{{ if not $videos360 }}
+  {{ $v360 := slice }}
+  {{ with .Params.video_360 }}{{ $v360 = $v360 | append . }}{{ end }}
+  {{ with .Params.video_360_menhir }}{{ $v360 = $v360 | append . }}{{ end }}
+  {{ $videos360 = $v360 }}
+{{ end }}
+{{ with $videos360 }}
+<section class="section">
+  <div class="wrap">
+    <div class="section-label label">
+      <span class="num">01a</span><span>{{ T "dossier_video_label" | default "360° 转台" }}</span>
+    </div>
+    <div class="video-grid">
+      {{ range . }}
+      <video class="video-360" src="{{ . }}" autoplay loop muted playsinline controls></video>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
 {{/* ── 图集网格 ── */}}
 {{ $photoCount := .Params.photos | default 0 }}
 {{ if and $baseURL (gt $photoCount 0) }}

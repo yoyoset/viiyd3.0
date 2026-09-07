@@ -22,6 +22,9 @@ other = "Other / Custom"
 [dossier_notes_label]
 other = "// PAINTER'S NOTES"
 
+[dossier_video_label]
+other = "// 360° TURNTABLE"
+
 [dossier_plates_label]
 other = "// PLATES"
 

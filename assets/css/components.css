@@ -297,6 +297,10 @@
 .plate:hover img{ opacity:.88; }
 .plate__n{ position:absolute; left:10px; bottom:10px; background:rgba(14,17,19,.8); padding:3px 6px; }
 
+/* 360° 转台视频：1-N 支响应式排布，横屏比例与灯箱/图集同一套暗底网格语言 */
+.video-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--hairline); margin-top:20px; }
+.video-360{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--ink); }
+
 .paint-row{ display:flex; flex-wrap:wrap; gap:1px; background:var(--hairline); margin-top:20px; }
 .paint{ background:var(--ink); padding:14px 16px; display:flex; align-items:center; gap:10px; flex:1 1 180px; }
 .paint__chip{ width:16px; height:16px; border:1px solid var(--hairline-strong); flex-shrink:0; }

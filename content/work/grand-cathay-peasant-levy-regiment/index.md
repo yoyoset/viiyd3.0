@@ -15,6 +15,10 @@ photos: 24
 tier: "Battleline"
 time_log: "58h 00m"
 model_count: 24
+videos_360:
+  - "https://photo.viiyd.com/video/cathay-peasant-levy-1.mp4"
+  - "https://photo.viiyd.com/video/cathay-peasant-levy-2.mp4"
+  - "https://photo.viiyd.com/video/cathay-peasant-levy-3.mp4"
 paints:
   - name: "Mephiston Red"
     role: "BASE"

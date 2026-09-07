@@ -15,6 +15,9 @@ photos: 16
 tier: "Specialist"
 time_log: "55h 00m"
 model_count: 8
+videos_360:
+  - "https://photo.viiyd.com/video/cathay-gate-masters-1.mp4"
+  - "https://photo.viiyd.com/video/cathay-gate-masters-2.mp4"
 paints:
   - name: "Mephiston Red"
     role: "BASE"
