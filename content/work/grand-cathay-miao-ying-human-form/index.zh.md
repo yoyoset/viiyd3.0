@@ -8,15 +8,13 @@ share_caption: "一尊模型，32 个小时，长袍每一道褶皱上都有手�
 
 如果您也有一件靠手绘撑场面的角色模型，这种项目我很想听听。"
 tags: ["Warhammer", "Grand Cathay", "巨兽", "英雄", "委托"]
-cover: "https://photo.viiyd.com/2026/09/miaoyinghuman/viiyd20260901miaoyinghuman_01.webp"
+cover: "https://photo.viiyd.com/2026/09/miaoyinghuman/viiyd20260908miaoyinghuman_01.webp"
 layout: "project"
 optimized: true
 photos: 8
 tier: "Legend"
 time_log: "32h 00m"
 model_count: 1
-videos_360:
-  - "https://photo.viiyd.com/video/miao-ying-human.mp4"
 paints:
   - name: "Naggaroth Night"
     role: "BASE"

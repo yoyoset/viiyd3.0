@@ -8,16 +8,13 @@ Red shields, silver lamellar, ivory scarves — a scheme locked down tight enoug
 
 If your army has a banner or standard that deserves real freehand work, that's usually my favorite part of any commission."
 tags: ["Warhammer", "Grand Cathay", "Infantry", "Commission"]
-cover: "https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_01.webp"
+cover: "https://photo.viiyd.com/2026/09/cathaygate/viiyd20260908cathaygate_01.webp"
 layout: "project"
 optimized: true
 photos: 16
 tier: "Specialist"
 time_log: "55h 00m"
 model_count: 8
-videos_360:
-  - "https://photo.viiyd.com/video/cathay-gate-masters-1.mp4"
-  - "https://photo.viiyd.com/video/cathay-gate-masters-2.mp4"
 paints:
   - name: "Mephiston Red"
     role: "BASE"

@@ -8,16 +8,13 @@ share_caption: "八名门下督，55 个小时，那面手绘龙旗单独就画�
 
 如果您的部队有一面值得认真手绘的军旗，那通常是我整单里最喜欢做的部分。"
 tags: ["Warhammer", "Grand Cathay", "步兵", "委托"]
-cover: "https://photo.viiyd.com/2026/09/cathaygate/viiyd20260901cathaygate_01.webp"
+cover: "https://photo.viiyd.com/2026/09/cathaygate/viiyd20260908cathaygate_01.webp"
 layout: "project"
 optimized: true
 photos: 16
 tier: "Specialist"
 time_log: "55h 00m"
 model_count: 8
-videos_360:
-  - "https://photo.viiyd.com/video/cathay-gate-masters-1.mp4"
-  - "https://photo.viiyd.com/video/cathay-gate-masters-2.mp4"
 paints:
   - name: "Mephiston Red"
     role: "BASE"

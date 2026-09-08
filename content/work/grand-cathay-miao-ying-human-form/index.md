@@ -8,15 +8,13 @@ Miao Ying's mortal form is amethyst over ivory with rose gems and gold trim — 
 
 If you've got a character piece where the freehand is the point, that's the project I want to hear about."
 tags: ["Warhammer", "Grand Cathay", "Monster", "Hero", "Commission"]
-cover: "https://photo.viiyd.com/2026/09/miaoyinghuman/viiyd20260901miaoyinghuman_01.webp"
+cover: "https://photo.viiyd.com/2026/09/miaoyinghuman/viiyd20260908miaoyinghuman_01.webp"
 layout: "project"
 optimized: true
 photos: 8
 tier: "Legend"
 time_log: "32h 00m"
 model_count: 1
-videos_360:
-  - "https://photo.viiyd.com/video/miao-ying-human.mp4"
 paints:
   - name: "Naggaroth Night"
     role: "BASE"

@@ -8,17 +8,13 @@ A mounted Astromancer, a foot wizard, and their familiar — crimson, gold, and 
 
 If your faction has a small cast of characters that need to look like they belong to the same court, that's exactly this brief."
 tags: ["Warhammer", "Grand Cathay", "Wizard", "Commission"]
-cover: "https://photo.viiyd.com/2026/09/cathaastro/viiyd20260901cathaastro_01.webp"
+cover: "https://photo.viiyd.com/2026/09/cathaastro/viiyd20260908cathaastro_01.webp"
 layout: "project"
 optimized: true
 photos: 24
 tier: "Master"
 time_log: "42h 00m"
 model_count: 3
-videos_360:
-  - "https://photo.viiyd.com/video/cathay-astromancers-1.mp4"
-  - "https://photo.viiyd.com/video/cathay-astromancers-2.mp4"
-  - "https://photo.viiyd.com/video/cathay-astromancers-3.mp4"
 paints:
   - name: "Retributor Armour"
     role: "METALLIC"
