@@ -48,6 +48,30 @@
     doCopy(text);
   };
 
+  /* 原生分享：手机（及支持 Web Share 的桌面浏览器）直接唤起系统分享面板，
+     里面就有 Instagram / 微信 / 小红书，而且能带上链接。IG 网页版无法预填
+     文案，复制再粘贴走不通，所以这条才是 IG 的正路。不支持时退回复制文案。 */
+  window.shareNative = function () {
+    if (!shareData) return;
+    var text = shareData.native || '';
+    var url = shareData.link || '';
+    var payload = { title: shareData.title || document.title, text: text, url: url };
+    if (navigator.share) {
+      try { navigator.share(payload).catch(function () {}); }
+      catch (e) { doCopy(text ? text + '\n\n' + url : url); }
+    } else {
+      doCopy(text ? text + '\n\n' + url : url);
+    }
+  };
+
+  /* Facebook 有网页分享框，直接跳转；文案同时复制一份，若分享框不带文案可自行粘贴。 */
+  window.shareFb = function () {
+    if (!shareData) return;
+    if (shareData.fb) doCopy(shareData.fb);
+    var u = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareData.link || '');
+    window.open(u, '_blank', 'noopener');
+  };
+
   window.shareClose = function () {
     var el = document.getElementById('share-backdrop');
     if (!el) return;
@@ -68,7 +92,9 @@
       moments: trigger.getAttribute('data-share-moments') || '',
       ig: trigger.getAttribute('data-share-ig') || '',
       fb: trigger.getAttribute('data-share-fb') || '',
-      link: trigger.getAttribute('data-share-link') || ''
+      link: trigger.getAttribute('data-share-link') || '',
+      native: trigger.getAttribute('data-share-native') || '',
+      title: trigger.getAttribute('data-share-title') || ''
     };
     toggleBtn(panel, 'xhs', !!shareData.xhs);
     toggleBtn(panel, 'moments', !!shareData.moments);

@@ -26,10 +26,11 @@
       </p>
 
       <div style="display:flex;flex-direction:column;gap:10px;">
+        <button type="button" class="btn-action btn-block" onclick="shareNative()">{{ T "share_native_btn" }}</button>
         <button type="button" class="btn-line btn-block" data-share-channel="xhs" onclick="shareCopy('xhs')">{{ T "share_xhs_btn" }}</button>
         <button type="button" class="btn-line btn-block" data-share-channel="moments" onclick="shareCopy('moments')">{{ T "share_moments_btn" }}</button>
         <button type="button" class="btn-line btn-block" data-share-channel="ig" onclick="shareCopy('ig')">{{ T "share_ig_btn" }}</button>
-        <button type="button" class="btn-line btn-block" data-share-channel="fb" onclick="shareCopy('fb')">{{ T "share_fb_btn" }}</button>
+        <button type="button" class="btn-line btn-block" data-share-channel="fb" onclick="shareFb()">{{ T "share_fb_btn" }}</button>
         <button type="button" class="btn-text" data-share-channel="link" onclick="shareCopy('link')" style="margin-top:4px;">{{ T "share_copy_link_btn" }}</button>
       </div>
     </div>

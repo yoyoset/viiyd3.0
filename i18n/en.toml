@@ -532,7 +532,9 @@ other = "Share this piece"
 [share_panel_title]
 other = "Pick a spot to share"
 [share_panel_body]
-other = "The caption's already written — copy it, tweak a line or two if you want, or just post it as is."
+other = "On a phone, Share via device opens your system share sheet — Instagram, WeChat and Xiaohongshu are all in there. Or pick a platform to copy the caption and tweak it before posting."
+[share_native_btn]
+other = "Share via device"
 [share_xhs_btn]
 other = "Copy Xiaohongshu caption"
 [share_moments_btn]
@@ -540,7 +542,7 @@ other = "Copy WeChat Moments caption"
 [share_ig_btn]
 other = "Copy Instagram caption"
 [share_fb_btn]
-other = "Copy Facebook caption"
+other = "Share to Facebook"
 [share_copy_link_btn]
 other = "Just the link"
 [share_copied]

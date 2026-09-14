@@ -542,7 +542,9 @@ other = "分享这一单"
 [share_panel_title]
 other = "请选择一处与您分享"
 [share_panel_body]
-other = "文案已为您准备妥当，请选择平台复制，您可自行修改，也可直接使用。"
+other = "手机上点「用系统分享」可直接唤起系统面板，里面就能选 Instagram、微信、小红书；也可以选平台复制文案，自行修改或直接使用。"
+[share_native_btn]
+other = "用系统分享"
 [share_xhs_btn]
 other = "复制小红书文案"
 [share_moments_btn]
@@ -550,7 +552,7 @@ other = "复制朋友圈文案"
 [share_ig_btn]
 other = "复制 Instagram 文案"
 [share_fb_btn]
-other = "复制 Facebook 文案"
+other = "分享到 Facebook"
 [share_copy_link_btn]
 other = "仅复制链接"
 [share_copied]
