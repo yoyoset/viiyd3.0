@@ -18,6 +18,8 @@ tier: "Master"
 system: "40k"
 delivered: "2026.09"
 model_count: 1
+videos_360:
+  - "https://photo.viiyd.com/video/lelith-hesperax.mp4"
 paints:
   - name: "Administratum Grey"
     role: "BASE"
