@@ -13,7 +13,7 @@ tags: ["战锤 40,000", "德鲁凯里", "玛莉丝女士", "委托"]
 cover: "https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_01.webp"
 layout: "project"
 optimized: true
-photos: 9
+photos: 8
 tier: "Master"
 system: "40k"
 delivered: "2026.09"
@@ -75,7 +75,6 @@ description: "毒舌卡巴尔的女主人玛莉丝，单体核心模型：冷青
 {{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_06.webp" title="玛莉丝女士 刀扇特写" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_07.webp" title="玛莉丝女士 盔甲与金边" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_08.webp" title="玛莉丝女士 长剑与护手细节" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_09.webp" title="玛莉丝女士 竞技场地台细节" >}}
 </div>
 
 <div class="space-y-4 my-4">

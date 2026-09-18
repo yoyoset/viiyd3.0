@@ -13,7 +13,7 @@ tags: ["Warhammer 40,000", "Drukhari", "Lady Malys", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_01.webp"
 layout: "project"
 optimized: true
-photos: 9
+photos: 8
 tier: "Master"
 system: "40k"
 delivered: "2026.09"
@@ -75,7 +75,6 @@ description: "Lady Malys of the Poisoned Tongue Kabal as a single centrepiece: c
 {{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_06.webp" title="Lady Malys - Fan of Blades Close-Up" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_07.webp" title="Lady Malys - Armour and Gold Trim" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_08.webp" title="Lady Malys - Sword and Hilt Detail" >}}
-{{< lightbox src="https://photo.viiyd.com/2026/09/ladymalys/viiyd20260914ladymalys_09.webp" title="Lady Malys - Arena Base Detail" >}}
 </div>
 
 <div class="space-y-4 my-4">

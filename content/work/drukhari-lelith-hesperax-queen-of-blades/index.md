@@ -13,7 +13,7 @@ tags: ["Warhammer 40,000", "Drukhari", "Lelith Hesperax", "Commission"]
 cover: "https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_01.webp"
 layout: "project"
 optimized: true
-photos: 6
+photos: 8
 tier: "Master"
 system: "40k"
 delivered: "2026.09"
@@ -81,6 +81,8 @@ description: "Lelith Hesperax of the Cult of Strife as a single display piece: r
 {{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_04.webp" title="Lelith Hesperax - Mid-Leap, Full Body" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_05.webp" title="Lelith Hesperax - Blade and Chain Detail" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_06.webp" title="Lelith Hesperax - Fallen Statue Base Detail" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_07.webp" title="Lelith Hesperax - Alternate Angle" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_08.webp" title="Lelith Hesperax - Detail View" >}}
 </div>
 
 <div class="space-y-4 my-4">

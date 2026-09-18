@@ -13,7 +13,7 @@ tags: ["战锤 40,000", "德鲁凯里", "莱莉丝·赫斯佩拉克斯", "委托
 cover: "https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_01.webp"
 layout: "project"
 optimized: true
-photos: 6
+photos: 8
 tier: "Master"
 system: "40k"
 delivered: "2026.09"
@@ -81,6 +81,8 @@ description: "争斗教派的莱莉丝·赫斯佩拉克斯，单体展示件：�
 {{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_04.webp" title="莱莉丝·赫斯佩拉克斯 跃起全身" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_05.webp" title="莱莉丝·赫斯佩拉克斯 刀刃与锁链细节" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_06.webp" title="莱莉丝·赫斯佩拉克斯 倒下雕像地台细节" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_07.webp" title="莱莉丝·赫斯佩拉克斯 另一个角度" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/09/lelith/viiyd20260914lelith_08.webp" title="莱莉丝·赫斯佩拉克斯 细节视图" >}}
 </div>
 
 <div class="space-y-4 my-4">
