@@ -121,7 +121,7 @@ other = "截止日期（如有）"
 other = 'A rough date is fine — "end of year", "before my birthday in May"'
 
 [cm_deadline_hint]
-other = "If urgent (under 3 weeks) please say so up front — I might pass."
+other = "If it's urgent (under three weeks), please mention it up front — if the schedule is already full, I may not be able to take it on."
 
 [cm_field_refs]
 other = "Reference picture"
@@ -363,7 +363,7 @@ other = "Latest delivery"
 [home_read_dossier]
 other = "Read the dossier →"
 [home_statement]
-other = "A hand-painting commission studio in Chengdu. Warhammer, Kill Team, JoyToy — and the commissions others turn down."
+other = "A hand-painting commission studio in Chengdu. Warhammer, Kill Team, JoyToy — and the commissions that need patience."
 [home_recent]
 other = "Recent deliveries"
 [home_all_archive]
