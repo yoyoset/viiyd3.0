@@ -458,12 +458,8 @@ other = "资历"
 other = "2024"
 [about_stat_1_k]
 other = "接单起始"
-[about_stat_2_n]
-other = "56"
 [about_stat_2_k]
-other = "已交付委托"
-[about_stat_3_n]
-other = "400+"
+other = "作品档案"
 [about_stat_3_k]
 other = "档案图片"
 [about_stat_4_n]

@@ -74,13 +74,19 @@
       </dl>
     </div>
 
-    {{/* ── 资历条：占位表 P9，数字待用户提供真实值 ── */}}
+    {{/* ── 资历条：第 2、3 格按作品页实时计算（档案数 = 首页「全部 N 个档案」同一口径，
+         图片数 = 各页 photos 求和、向下取整到百位加「+」）；第 1、4 格仍读 i18n，P9 待用户确认 ── */}}
+    {{ $works := where site.RegularPages "Section" "work" }}
+    {{ $photos := 0 }}
+    {{ range $works }}{{ $photos = add $photos (int (.Params.photos | default 0)) }}{{ end }}
+    {{ $computed := dict "2" (string (len $works)) "3" (printf "%d+" (mul (div $photos 100) 100)) }}
     <div>
       <div class="section-label label"><span class="num">03</span><span>{{ T "about_stats_label" | default "资历" }}</span></div>
       <div class="grid-hair about-stats">
         {{ range $i := seq 1 4 }}
         <div class="about-stat">
-          <span class="about-stat__num">{{ T (printf "about_stat_%d_n" $i) }}</span>
+          {{ $n := index $computed (string $i) }}{{ if not $n }}{{ $n = T (printf "about_stat_%d_n" $i) }}{{ end }}
+          <span class="about-stat__num">{{ $n }}</span>
           <span class="label">{{ T (printf "about_stat_%d_k" $i) }}</span>
         </div>
         {{ end }}
