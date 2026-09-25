@@ -146,7 +146,8 @@
   产出 `"url":"\"https://…\""` —— 能 JSON.parse，但每个值都带字面引号，结构化数据全废。
   这是 3.0 就有的问题，2026-09-03 才发现（此前只验了「能解析」，没验值）。
 - 联系方式与渠道链接集中在 `data/contact.yaml`，留空的一律不渲染，不要在模板里硬编码。
-- 页面结构：首页 · `/work/` · `/services/` · `/about/`，另有 `/tier/*` `/system/*` 分类页兼作投放落地页。旧路径 `/rates/` `/process/` `/contact/` `/painter/` 全部走 alias 重定向。
+- 页面结构：首页 · `/work/` · `/services/` · `/about/`，另有 `/system/*` 分类页兼作投放落地页（`/tier/*` 已于 2026-09-03 移除）。
+  **实测（Hugo 0.149）：分类根页和词条页都走 `_default/taxonomy.html`，按 `.Data.Term` 分流；`term.html` 不会被选中，已删。**旧路径 `/rates/` `/process/` `/contact/` `/painter/` 全部走 alias 重定向。
 
 ## 发布快速参考
 
