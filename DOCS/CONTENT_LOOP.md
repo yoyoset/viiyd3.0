@@ -31,6 +31,9 @@
 | L13 | 构建报 i18n 缺失 `sys_`：/system/ 根页用空 Term 拼 key；顺带发现该页把「6 个系统」写成「6 个委托单」、名字显示 slug | `layouts/_default/taxonomy.html` | ✅ 153ef4b（term.html 实测是死文件，已删） |
 | L12 | 可扩展点巡检：分类落地页导语、404 文案、图片 alt、单页结构化数据等 | 全站 | 🔶 已查：/system/* 标题与描述本地化 c93fe8d；5 篇 description 去档位词与「我们」b53fa7b；404 双语、JSON-LD VisualArtwork 已具备；图集 alt 为「标题 — 01」偏弱但无逐图信息，暂不动 |
 
+| L14 | 英文 i18n 全文通读 | `i18n/en.toml` | ✅ 文案本身无硬伤；顺带查出服务页 JSON-LD 向搜索引擎声明「五档」（65f01b9 删）、服务页中文 description 残留「你」（972c25e） |
+| L15 | 死 i18n 键：`tier_*_desc` `size_*` `svc_tiers_label` `svc_see_tier` `svc_legend_cta` `svc_sizes_label`，模板已无引用 | `i18n/*.toml` | 登记不删（不可见、无害；若将来恢复档位说明可复用） |
+
 ## 待您确认（需要事实或拍板，循环不会替您决定）
 
 - **「两单」口径**（站点 meta description 也写「每季度仅开放两个展示位」，搜索结果里可见）：首页/浮层写「每次仅接两单」，关于页写「每季展示位 2」，档期写「2 个展示位开放中」。到底是同时两单还是每季两单？（对应 P6、P9）
