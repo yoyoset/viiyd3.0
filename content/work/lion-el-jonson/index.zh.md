@@ -31,7 +31,7 @@ paints:
     role: "ROBES"
     hex: "#A29F91"
     link: "https://www.warhammer.com/en-GB/shop/Base-Rakarth-Flesh-2019"
-description: "狮王不再沉睡。作为暗黑天使军队无可争议的焦点，这是一件大师级的核心展示模型。我们重点刻画了披风的丰富体积光影，以及效忠之剑上醒目的NMM风格能量效果，以展现原体的威严。"
+description: "狮王不再沉睡。作为暗黑天使军中的核心展示模型，重点刻画披风的体积光影，以及效忠之剑上醒目的 NMM 风格能量效果，衬出原体的威严。"
 system: "40k"
 delivered: "2025.10"
 ---

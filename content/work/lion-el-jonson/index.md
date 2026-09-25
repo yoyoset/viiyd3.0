@@ -31,7 +31,7 @@ paints:
     role: "ROBES"
     hex: "#A29F91"
     link: "https://www.warhammer.com/en-GB/shop/Base-Rakarth-Flesh-2019"
-description: "The Lion sleeps no more. A centerpiece display model focusing on high-contrast NMM-style power weaponry and rich, volumetric cloak rendering. Executed as a Master Tier centerpiece, designed to be the undisputed focal point of a Dark Angels army."
+description: "The Lion sleeps no more. A centrepiece display model for a Dark Angels army, built around high-contrast NMM-style power weapons and rich volumetric cloak shading."
 system: "40k"
 delivered: "2025.10"
 ---

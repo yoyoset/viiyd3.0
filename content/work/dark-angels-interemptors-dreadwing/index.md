@@ -31,7 +31,7 @@ paints:
     role: "CONTRAST"
     hex: "#003d7c"
     link: "https://www.warhammer.com/en-GB/shop/Contrast-Talassar-Blue-2019"
-description: "The destroyers of the First Legion. High-contrast OSL plasma effects on matte black armor. We focused on maximizing the contrast between the void-black armor and the overcharged plasma coils."
+description: "The destroyers of the First Legion: high-contrast OSL plasma on matte black armour, pushing the contrast between void-black plates and overcharged plasma coils."
 system: "40k"
 delivered: "2026.01"
 ---

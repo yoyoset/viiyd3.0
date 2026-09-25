@@ -31,7 +31,7 @@ paints:
     role: "SPOT"
     hex: "#960b0b"
     link: "https://www.warhammer.com/en-GB/shop/Base-Mephiston-Red-2019"
-description: "黄金军团的重型驱逐者。具有精致的金色金属色和干净的红色点缀。该委托以精英级标准执行，以确保大面积的金色装甲板看起来丰富有趣，而不是平淡无奇。"
+description: "黄金军团的重型驱逐者。精致的金色金属色配干净的红色点缀，重点是让大面积金甲板有层次，不显平淡。"
 system: "40k"
 delivered: "2025.10"
 ---

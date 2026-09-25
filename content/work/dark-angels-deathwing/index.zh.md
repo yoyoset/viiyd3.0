@@ -31,7 +31,7 @@ paints:
     role: "METALLIC"
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
-description: "第一军团的内环。大师级涂装标准。旨在成为暗黑天使军队中无可争议的焦点。我们优先处理了长袍的体积照明和忠诚之剑上引人注目的'爆裂能量'效果。"
+description: "第一军团的内环精英，定位是暗黑天使军中的视觉焦点。重点在长袍的体积光，与忠诚之剑上的「爆裂能量」效果。"
 system: "40k"
 delivered: "2024.01"
 ---

@@ -31,7 +31,7 @@ paints:
     role: "METALLIC"
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
-description: "The inner circle of the First Legion. Painted to a Master standard. Designed to be the undisputed focal point of a Dark Angels army. We prioritized volumetric lighting on the cloak and a striking 'crackling energy' effect."
+description: "The inner circle of the First Legion, painted as the focal point of a Dark Angels army. The priorities were volumetric lighting on the robes and a crackling-energy effect on the sword."
 system: "40k"
 delivered: "2024.01"
 ---

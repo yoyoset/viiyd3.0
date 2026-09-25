@@ -31,7 +31,7 @@ paints:
     role: "SPOT"
     hex: "#960b0b"
     link: "https://www.warhammer.com/en-GB/shop/Base-Mephiston-Red-2019"
-description: "The Golden Legion's heavy destroyer. Featuring refined gold metallics and clean red spot colors. This commission was executed at Elite Tier to ensure the large gold panels remained interesting rather than flat."
+description: "The Golden Legion's heavy destroyer: refined gold metallics with clean red spot colours, worked so the large gold panels stay interesting rather than flat."
 system: "40k"
 delivered: "2025.10"
 ---

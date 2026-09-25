@@ -27,7 +27,7 @@ paints:
     role: "METALLIC"
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
-description: "恐虐的猎犬。SPEC OPS级别涂装，旨在实现高对比度和桌面耐用性。皮肤使用了经典的恐虐红配方，并进行了深层阴影处理以突出肌肉线条。"
+description: "恐虐的猎犬，追求高对比度与桌面耐用性。皮肤用经典恐虐红配方，深阴影压出肌肉线条。"
 system: "40k"
 delivered: "2024.01"
 ---

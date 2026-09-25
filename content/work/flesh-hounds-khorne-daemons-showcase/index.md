@@ -27,7 +27,7 @@ paints:
     role: "METALLIC"
     hex: "#C69632"
     link: "https://www.warhammer.com/en-GB/shop/Base-Retributor-Armour-2019"
-description: "The hounds of Khorne. Painted to a Spec Ops standard for high contrast and tabletop durability. The skin uses a classic Khorne Red recipe with deep shading for muscular definition."
+description: "The hounds of Khorne, painted for high contrast and tabletop durability. The skin uses a classic Khorne red recipe with deep shading for muscle definition."
 system: "40k"
 delivered: "2024.01"
 ---

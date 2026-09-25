@@ -31,7 +31,7 @@ paints:
     role: "CONTRAST"
     hex: "#003d7c"
     link: "https://www.warhammer.com/en-GB/shop/Contrast-Talassar-Blue-2019"
-description: "第一军团的毁灭者。哑光黑色护甲上的高对比度OSL等离子效果。我们专注于最大化虚空般的黑色护甲与过充等离子线圈之间的对比度。明亮的OSL效果穿透哑光护甲，创造出配得上第一军团毁灭者的视觉冲击力。"
+description: "第一军团的毁灭者。哑光黑甲上的高对比度 OSL 等离子效果：把虚空般的黑甲与过充的等离子线圈之间的对比拉到最大，让光穿透哑光护甲。"
 system: "40k"
 delivered: "2026.01"
 ---
