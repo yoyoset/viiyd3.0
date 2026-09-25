@@ -1,6 +1,6 @@
 # Contact Form
 [form_select_option]
-other = "Select..."
+other = "Select"
 
 [form_project_single]
 other = "Single Model"
@@ -173,6 +173,17 @@ other = "Your reference"
 
 [cm_success_back]
 other = "Back to the archive"
+
+[cm_close]
+other = "Close ×"
+[cm_close_aria]
+other = "Close"
+[cm_success_patience]
+other = "Thank you for your patience ❤️"
+[cm_privacy_foot_1]
+other = "· Stored on Cloudflare D1 · forwarded to my private Telegram ·"
+[cm_privacy_foot_2]
+other = "nothing else, ever"
 
 [cm_success_another]
 other = "Send another"

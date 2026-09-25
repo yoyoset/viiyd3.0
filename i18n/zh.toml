@@ -1,6 +1,6 @@
 # Contact Form
 [form_select_option]
-other = "请选择..."
+other = "请选择"
 
 [form_project_single]
 other = "单件模型"
@@ -53,10 +53,10 @@ other = "没有微信？填写表单 →"
 other = "← 返回微信二维码"
 
 [cm_headline]
-other = "把作品交给我，"
+other = "把模型交给我，"
 
 [cm_headline_accent]
-other = "和一个截止日期。"
+other = "再告诉我您何时需要。"
 
 [cm_body]
 other = "这样就足够了。我会在 48 小时内通过您留下的联系方式回复您 —— 微信优先，邮件也可以。"
@@ -68,7 +68,7 @@ other = "每次仅接两单，手法虽慢却力求细致，还请您多多包�
 other = "怎么称呼您？"
 
 [cm_field_name_zh]
-other = "您的称呼"
+other = "Name"
 
 [cm_name_placeholder]
 other = "名字或昵称都可以"
@@ -77,7 +77,7 @@ other = "名字或昵称都可以"
 other = "如何联络您？"
 
 [cm_field_contact_zh]
-other = "联络方式"
+other = "Contact"
 
 [cm_contact_placeholder]
 other = "微信 / 邮箱"
@@ -89,7 +89,7 @@ other = "用您最常用的渠道就好。"
 other = "是什么项目？"
 
 [cm_field_project_zh]
-other = "项目类型"
+other = "Project"
 
 [cm_project_vehicle]
 other = "载具 / 战争引擎"
@@ -104,7 +104,7 @@ other = "修复 / 补色"
 other = "涂装等级"
 
 [cm_field_tier_zh]
-other = "涂装等级"
+other = "Tier"
 
 [cm_tier_unsure]
 other = "不确定，聊一聊"
@@ -113,19 +113,19 @@ other = "不确定，聊一聊"
 other = "需要什么时候完成？"
 
 [cm_field_deadline_zh]
-other = "截止日期（如有）"
+other = "Deadline"
 
 [cm_deadline_placeholder]
 other = "大概日期即可——年底前、生日前都可以"
 
 [cm_deadline_hint]
-other = "如果特别赶（不足三周），还请提前告知——若手头档期已满，恐怕慢工赶不上您的期，还望见谅。"
+other = "如果时间比较紧（不足三周），还请提前告知。若档期已满，可能无法如期完成，还望见谅。"
 
 [cm_field_refs]
 other = "参考图片"
 
 [cm_field_refs_zh]
-other = "可选"
+other = "Optional"
 
 [cm_drop_prompt]
 other = "拖拽图片，或点击浏览"
@@ -137,13 +137,13 @@ other = "支持多张 · JPG / PNG / HEIC · 总计不超过 20 MB"
 other = "还有什么想说的？"
 
 [cm_field_notes_zh]
-other = "备注"
+other = "Notes"
 
 [cm_notes_placeholder]
 other = "颜色偏好 · 底座想法 · 喜欢的参考 · 不想要的风格"
 
 [cm_privacy_note]
-other = "提交即代表您同意您的信息以 Telegram Pin 消息的形式发送到我的手机。我通常当天回复，最迟 48 小时内。"
+other = "提交后，您的信息只会发送到我本人的手机上，不作他用。通常当天回复，最迟 48 小时内。"
 
 [cm_submit_disabled]
 other = "麻烦您先填写上面几项，谢谢。"
@@ -161,7 +161,7 @@ other = "网络似乎不太顺畅，麻烦您再点一次，实在抱歉。"
 other = "已发送。"
 
 [cm_success_headline]
-other = "您的消息已固定在我的手机上。"
+other = "您的消息已送达我的手机。"
 
 [cm_success_body]
 other = "我将在 48 小时内通过您提供的渠道联系您。"
@@ -171,6 +171,17 @@ other = "您的委托编号"
 
 [cm_success_back]
 other = "返回作品库"
+
+[cm_close]
+other = "关闭 ×"
+[cm_close_aria]
+other = "关闭"
+[cm_success_patience]
+other = "劳您稍候一两天 ❤️"
+[cm_privacy_foot_1]
+other = "· 内容存于 Cloudflare D1 · 仅转发到我本人的 Telegram ·"
+[cm_privacy_foot_2]
+other = "不作他用"
 
 [cm_success_another]
 other = "再发一条"
@@ -526,7 +537,7 @@ other = "只"
 [cm_field_goal]
 other = "想要的效果"
 [cm_field_goal_zh]
-other = "想要的效果"
+other = "Goal"
 [cm_goal_placeholder]
 other = "比如：整队上桌耐看 / 单件进展示柜 / 想还原某个官图"
 [rail_prev]
