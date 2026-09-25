@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{/* 实测（Hugo 0.149）：/system/ 根页与 /system/40k/ 词条页都走本模板，term.html 不会被选中。
+     所以在这里按 .Data.Term 分流：有 Term = 词条页（原逻辑不变），无 Term = 分类总览。 */}}
+{{ if .Data.Term }}
 {{/* VIIYD 4.0 分类页（/tiers/master/ · /systems/40k/）
      用途有二：JS 失效时筛选的静态兜底；小红书 / IG 投放的落地页（营销规划 §5-1）。
      卡片形态复用作品档案页的 .work-card，两处看到同一个系统。 */}}
@@ -45,4 +48,47 @@
 </section>
 
 </main>
+{{ else }}
+{{/* VIIYD 4.0 分类总览页（/system/）
+     旧版把「词条数」套进「%d 个委托单」、词条名显示成 slug（Old-World），
+     且在根页用空 Term 拼 i18n key 报 MISSING_TRANSLATION|sys_ —— 2026-09 改为每个系统一张卡。
+     卡片形态复用作品档案页的 .work-card，封面取该系统最新一单。 */}}
+{{ $terms := .Data.Terms.ByCount }}
+<main>
+
+<section class="section">
+  <div class="wrap archive-head">
+    <div>
+      <div class="label">{{ .Data.Singular | upper }}</div>
+      <h1 class="display-2">{{ T "tax_system_title" | default "按系统浏览" }}</h1>
+    </div>
+    <div class="archive-head__meta label-lg">
+      {{ printf (T "tax_term_count" | default "%d 个系统") (len $terms) }}<br>
+      <a href="{{ relLangURL "work" }}">{{ T "filter_empty_cta" | default "看看全部作品 →" }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="work-grid">
+      {{ range $terms }}
+      {{ $name := T (printf "sys_%s" (replace .Name "-" "_")) | default .Name }}
+      {{ $latest := index (.Pages.ByDate.Reverse) 0 }}
+      <a class="work-card" href="{{ .Page.RelPermalink }}">
+        <span class="work-card__cover">
+          {{ with $latest.Params.cover }}<img src="{{ partial "optimized-image" (dict "src" . "width" 640) }}" alt="{{ $name }}" loading="lazy">{{ end }}
+        </span>
+        <span class="work-card__meta">
+          <span>{{ printf (T "archive_count" | default "%d 个委托单") .Count }}</span>
+        </span>
+        <span class="title-item work-card__title">{{ $name }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+</main>
+{{ end }}
 {{ end }}
