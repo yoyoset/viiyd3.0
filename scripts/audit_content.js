@@ -219,7 +219,24 @@ Object.entries(bilingual).forEach(([slug, langs]) => {
 
 console.log('Report written to audit_report.json');
 
+/* i18n 占位文案检查（提醒级，不阻断）。
+   上面的 Placeholder 只扫 content/，关于页设备栏的「待补充 / TBC」写在 i18n 里，
+   2026-09 发现它们已经上线可见，审计却一直报 No issues found。 */
+function auditI18nPlaceholders() {
+    const PATTERN = /^(待补充|待定|TBC|TBD|TODO)$|lorem ipsum|占位/i;
+    fs.readdirSync('i18n').filter(f => f.endsWith('.toml')).forEach(f => {
+        let key = null; const hits = [];
+        fs.readFileSync(path.join('i18n', f), 'utf8').split(/\r?\n/).forEach(line => {
+            const k = line.match(/^\[([\w.-]+)\]/); if (k) { key = k[1]; return; }
+            const v = line.match(/^other\s*=\s*"(.*)"\s*$/);
+            if (v && key && PATTERN.test(v[1].trim())) hits.push(key);
+        });
+        if (hits.length) issues.push({ file: 'i18n/' + f, type: 'I18nPlaceholder', detail: hits.join(', ') });
+    });
+}
+
 /* CSS 产物门禁必须在汇总之前跑 —— 上一版忘了调用，等于白加 */
+auditI18nPlaceholders();
 auditBuiltCSS();
 auditJSSyntax();
 
