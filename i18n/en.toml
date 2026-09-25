@@ -246,6 +246,10 @@ other = "Age of Sigmar"
 other = "Kill Team"
 [sys_joytoy]
 other = "JoyToy"
+[tax_system_title]
+other = "Browse by system"
+[tax_term_count]
+other = "%d systems"
 [sys_other]
 other = "Other"
 

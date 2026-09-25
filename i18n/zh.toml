@@ -244,6 +244,10 @@ other = "西格玛纪元"
 other = "杀戮小队"
 [sys_joytoy]
 other = "JoyToy"
+[tax_system_title]
+other = "按系统浏览"
+[tax_term_count]
+other = "%d 个系统"
 [sys_other]
 other = "其他"
 
