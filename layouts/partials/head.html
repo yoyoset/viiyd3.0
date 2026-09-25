@@ -128,12 +128,10 @@
       "creator" (dict "@type" "Organization" "name" "VIIYD Studio" "url" .Site.BaseURL)
     }}
   {{ else if eq .Layout "services" }}
-    {{/* 只声明五个等级的存在，**不放任何价格与数字** ——
-         占位系数会被搜索引擎当成事实，而 1 EIU = ¥40 是规格 §19 故意留白的策略。 */}}
-    {{ $tiers := slice }}
-    {{ range .Site.Data.pricing.tiers }}
-      {{ $tiers = $tiers | append (dict "@type" "OfferCatalog" "name" .name) }}
-    {{ end }}
+    {{/* **不放任何价格、数字与等级** —— 占位系数会被搜索引擎当成事实，
+         而 1 EIU = ¥40 是规格 §19 故意留白的策略。
+         2026-09-26 删掉了按 pricing.tiers 生成的 hasOfferCatalog（"Standard tiers" 五档）：
+         服务页正文与这段 JSON-LD 自己的 description 都写「不分档位」，结构化数据却对搜索引擎声明五档。 */}}
     {{ $ld = dict
       "@context" "https://schema.org"
       "@type" "Service"
@@ -143,7 +141,6 @@
       "serviceType" "Miniature painting commission"
       "provider" (dict "@type" "ProfessionalService" "name" "VIIYD Studio" "url" .Site.BaseURL)
       "areaServed" (dict "@type" "Country" "name" "China")
-      "hasOfferCatalog" (dict "@type" "OfferCatalog" "name" (T "svc_tiers_label" | default "Painting tiers") "itemListElement" $tiers)
     }}
   {{ else if eq .Layout "about" }}
     {{/* 资历数字是占位值（P9），只放非数字事实 */}}
