@@ -341,21 +341,21 @@ other = "Shipped back"
 other = "And added to the archive"
 
 [faq_1_q]
-other = "Do you take international commissions?"
+other = "How is EIU worked out?"
 [faq_1_a]
-other = "Usually, yes — send a DM on Instagram with what you have in mind and we'll figure it out together."
+other = "The base rate covers the painting hours themselves. Assembly, basing and return shipping depend on the job — send photos and I'll lay it all out in one go."
 [faq_2_q]
-other = "What tiers do you offer?"
+other = "Do you take international commissions? How do I ship?"
 [faq_2_a]
-other = "Five, listed above. Battleline through Legend."
+other = "Usually, yes. Any tracked courier to Chengdu works, and for valuable models insurance is worth adding. Message me before you pack and I'll share the packing method that has held up in transit."
 [faq_3_q]
-other = "How long does a commission take?"
+other = "Can a large army be delivered in batches?"
 [faq_3_a]
-other = "Turnaround is listed per tier above."
+other = "Yes, and for big orders I'd recommend it. After each batch I send photos for you to check, and only move on once you're happy."
 [faq_4_q]
-other = "Can you match a specific scheme?"
+other = "Can you match a specific or official scheme?"
 [faq_4_a]
-other = "Yes — send reference images."
+other = "Of course. Send reference or official images and we'll settle the colours together — a straight copy of the box art is fine too."
 
 # ─── Home ───────────────────────────────────────────────
 [home_latest]
