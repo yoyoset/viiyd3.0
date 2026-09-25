@@ -1,7 +1,7 @@
 ---
 title: "Dark Angels Deathwing Companions"
 date: 2024-01-01
-summary: "The inner circle of the First Legion. Painted to a Master standard."
+summary: "The inner circle of the First Legion."
 share_caption: "Five Deathwing Terminators, 20 hours, painted to a standard the inner circle deserves.
 
 Dark Angels white is one of those schemes that looks simple until you're the one doing the shading — get the grey transitions wrong and the whole squad reads flat under tabletop lighting. These five needed to look like veterans, not just clean.

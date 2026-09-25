@@ -1,5 +1,5 @@
 ---
-title: "灵族 飞鹰展示 (Aeldari Swooping Hawks Showcase)"
+title: "灵族飞鹰：道途武士展示"
 date: 2026-04-01T16:30:00+08:00
 summary: "灵族道途武士：飞鹰小队。配备机械动力翼，擅长高空突击与高速战场机动。"
 share_caption: "五只飞鹰小队，35 个小时，重点全在那对得让人觉得真的在兜风的翅膀上。

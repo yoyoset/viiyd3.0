@@ -1,7 +1,7 @@
 ---
 title: "Lion El'Jonson: Primarch of the First"
 date: 2025-10-13T12:00:00+08:00
-summary: "The Lord of the First returns. Painted to a Master standard."
+summary: "The Lord of the First returns."
 share_caption: "The Lord of the First, 45 hours, painted to a standard that a Primarch-scale model demands.
 
 This is a big single-model commitment — every surface at Primarch scale shows more than the same technique would on a normal-sized model, so there's nowhere to hide an inconsistent transition. 45 hours went almost entirely into making sure nothing on it reads as rushed.
