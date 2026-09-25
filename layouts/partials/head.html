@@ -4,7 +4,17 @@
   {{/* 4.0 是单一暗色主题（tokens.css 写死 color-scheme:dark）。
        这里若还写 light dark，部分内核会在 CSS 到达前用浅色渲染表单控件，出现一瞬白闪。 */}}
   <meta name="color-scheme" content="dark">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  {{/* 分类页的 .Title 是 slug（"40k"）——这些页兼作投放落地页，标题与描述要用人话。
+       system 词条页取 sys_* 译名，/system/ 根页取 tax_system_title；其余页面照旧用 .Title。 */}}
+  {{ $pageTitle := .Title }}
+  {{ $termDesc := "" }}
+  {{ if and (eq .Kind "term") (eq .Data.Singular "system") }}
+    {{ $pageTitle = T (printf "sys_%s" (replace .Data.Term "-" "_")) | default .Title }}
+    {{ $termDesc = printf (T "tax_term_desc") $pageTitle (len .Pages) }}
+  {{ else if and (eq .Kind "taxonomy") (eq .Data.Plural "system") }}
+    {{ $pageTitle = T "tax_system_title" }}
+  {{ end }}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ $pageTitle }} | {{ .Site.Title }}{{ end }}</title>
   {{ if .Params.noindex }}<meta name="robots" content="noindex">{{ end }}
 
   <!-- Language redirect -->
@@ -52,7 +62,7 @@
 
   <!-- SEO -->
   {{ $desc := "" }}
-  {{ if .IsHome }}{{ $desc = .Site.Params.description }}{{ else }}{{ $desc = .Params.description | default .Summary | default .Site.Params.description }}{{ end }}
+  {{ if .IsHome }}{{ $desc = .Site.Params.description }}{{ else if $termDesc }}{{ $desc = $termDesc }}{{ else }}{{ $desc = .Params.description | default .Summary | default .Site.Params.description }}{{ end }}
   <meta name="description" content="{{ $desc }}">
   <link rel="canonical" href="{{ .Permalink }}">
 
@@ -71,7 +81,7 @@
        微信分享出去就是没有预览图。cover 可能是站内相对路径，统一过 absURL。 */}}
   {{ $ogImage := .Params.cover | default .Site.Params.ogImage }}
   {{ if $ogImage }}{{ $ogImage = $ogImage | absURL }}{{ end }}
-  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ $pageTitle }} | {{ .Site.Title }}{{ end }}">
   <meta property="og:description" content="{{ $desc }}">
   <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">

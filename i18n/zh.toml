@@ -246,6 +246,8 @@ other = "杀戮小队"
 other = "JoyToy"
 [tax_system_title]
 other = "按系统浏览"
+[tax_term_desc]
+other = "%s · 涂装作品档案：VIIYD 成都手涂工作室共 %d 单作品，每单附多角度实拍大图。"
 [tax_term_count]
 other = "%d 个系统"
 [sys_other]

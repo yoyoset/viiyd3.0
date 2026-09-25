@@ -248,6 +248,8 @@ other = "Kill Team"
 other = "JoyToy"
 [tax_system_title]
 other = "Browse by system"
+[tax_term_desc]
+other = "%s commission archive from VIIYD, a hand-painting studio in Chengdu: %d pieces, each photographed from multiple angles."
 [tax_term_count]
 other = "%d systems"
 [sys_other]
