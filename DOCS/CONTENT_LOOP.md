@@ -29,11 +29,11 @@
 | L10 | 审计脚本查不到 i18n 里的「待补充 / TBC」→ 加一条**警告级**检查（不阻断构建，P23 仍在） | `scripts/audit_content.js` | ✅ 0fcb57c |
 | L11 | 59 篇作品页 `share_caption` 中文是否还有「你」而非「您」、标题/summary 是否有翻译腔 | `content/work/*/index.zh.md` | ✅ 「你」2685fb2；标题/summary f8d21ca（20 篇，见下方明细） |
 | L13 | 构建报 i18n 缺失 `sys_`：/system/ 根页用空 Term 拼 key；顺带发现该页把「6 个系统」写成「6 个委托单」、名字显示 slug | `layouts/_default/taxonomy.html` | ✅ 153ef4b（term.html 实测是死文件，已删） |
-| L12 | 可扩展点巡检：分类落地页导语、404 文案、图片 alt、单页结构化数据等 | 全站 | 待扫 |
+| L12 | 可扩展点巡检：分类落地页导语、404 文案、图片 alt、单页结构化数据等 | 全站 | 🔶 已查：/system/* 标题与描述本地化 c93fe8d；5 篇 description 去档位词与「我们」b53fa7b；404 双语、JSON-LD VisualArtwork 已具备；图集 alt 为「标题 — 01」偏弱但无逐图信息，暂不动 |
 
 ## 待您确认（需要事实或拍板，循环不会替您决定）
 
-- **「两单」口径**：首页/浮层写「每次仅接两单」，关于页写「每季展示位 2」，档期写「2 个展示位开放中」。到底是同时两单还是每季两单？（对应 P6、P9）
+- **「两单」口径**（站点 meta description 也写「每季度仅开放两个展示位」，搜索结果里可见）：首页/浮层写「每次仅接两单」，关于页写「每季展示位 2」，档期写「2 个展示位开放中」。到底是同时两单还是每季两单？（对应 P6、P9）
 - **关于页设备三项**（喷笔、光箱与拍摄、地台材料）：真实型号，或决定整块删掉。（P23）
 - **兽人页颜料表**：若想恢复，请给真实用过的颜料清单。
 - **「Opus 5.5 制作」署名**：建议只在页脚小字写 “Site built with Claude · all miniatures hand-painted by VIIYD”，您拍板后再加。
@@ -84,3 +84,18 @@
 | zenestra-matriarch-of-the-great-wheel-cities-of-sigmar (summary) | 大转轮教派的教宗，乘坐神圣的轿子奔赴战场。这是一个核心模型，具有风化的石头、神圣的布料和虔诚的追随者。 | 大转轮教派的教宗，乘神圣轿辇奔赴战场。核心模型：风化石质、圣布与虔诚的随从。 |
 | noise-marines-slaanesh-chaos-space-marines (summary) | 声波武器和鲜艳的色彩。一队用震耳欲聋的嘈杂声荣耀色孽的噪音战士。 | 声波武器配鲜艳色彩，一队以震耳噪音礼赞色孽的噪音战士。 |
 | 3d-print-custom-figure-chromatic (summary) | 针对3D打印树脂件的色彩重构研究。通过高饱和度渐变和光源效果克服打印层纹。 | 针对 3D 打印树脂件的配色重构：用高饱和渐变与光源效果压住打印层纹。 |
+
+### b53fa7b 作品 description 明细（09-26）
+
+| 页面 | 改前 | 改后 |
+|---|---|---|
+| dark-angels-deathwing/index.zh.md | 第一军团的内环。大师级涂装标准。旨在成为暗黑天使军队中无可争议的焦点。我们优先处理了长袍的体积照明和忠诚之剑上引人注目的'爆裂能量'效果。 | 第一军团的内环精英，定位是暗黑天使军中的视觉焦点。重点在长袍的体积光，与忠诚之剑上的「爆裂能量」效果。 |
+| dark-angels-deathwing/index.md | The inner circle of the First Legion. Painted to a Master standard. Designed to be the undisputed focal point of a Dark Angels army. We prioritized volumetric lighting on the cloak and a striking 'crackling energy' effect. | The inner circle of the First Legion, painted as the focal point of a Dark Angels army. The priorities were volumetric lighting on the robes and a crackling-energy effect on the sword. |
+| flesh-hounds-khorne-daemons-showcase/index.zh.md | 恐虐的猎犬。SPEC OPS级别涂装，旨在实现高对比度和桌面耐用性。皮肤使用了经典的恐虐红配方，并进行了深层阴影处理以突出肌肉线条。 | 恐虐的猎犬，追求高对比度与桌面耐用性。皮肤用经典恐虐红配方，深阴影压出肌肉线条。 |
+| flesh-hounds-khorne-daemons-showcase/index.md | The hounds of Khorne. Painted to a Spec Ops standard for high contrast and tabletop durability. The skin uses a classic Khorne Red recipe with deep shading for muscular definition. | The hounds of Khorne, painted for high contrast and tabletop durability. The skin uses a classic Khorne red recipe with deep shading for muscle definition. |
+| legio-custodes-caladius-grav-tank-annihilator/index.zh.md | 黄金军团的重型驱逐者。具有精致的金色金属色和干净的红色点缀。该委托以精英级标准执行，以确保大面积的金色装甲板看起来丰富有趣，而不是平淡无奇。 | 黄金军团的重型驱逐者。精致的金色金属色配干净的红色点缀，重点是让大面积金甲板有层次，不显平淡。 |
+| legio-custodes-caladius-grav-tank-annihilator/index.md | The Golden Legion's heavy destroyer. Featuring refined gold metallics and clean red spot colors. This commission was executed at Elite Tier to ensure the large gold panels remained interesting rather than flat. | The Golden Legion's heavy destroyer: refined gold metallics with clean red spot colours, worked so the large gold panels stay interesting rather than flat. |
+| lion-el-jonson/index.zh.md | 狮王不再沉睡。作为暗黑天使军队无可争议的焦点，这是一件大师级的核心展示模型。我们重点刻画了披风的丰富体积光影，以及效忠之剑上醒目的NMM风格能量效果，以展现原体的威严。 | 狮王不再沉睡。作为暗黑天使军中的核心展示模型，重点刻画披风的体积光影，以及效忠之剑上醒目的 NMM 风格能量效果，衬出原体的威严。 |
+| lion-el-jonson/index.md | The Lion sleeps no more. A centerpiece display model focusing on high-contrast NMM-style power weaponry and rich, volumetric cloak rendering. Executed as a Master Tier centerpiece, designed to be the undisputed focal point of a Dark Angels army. | The Lion sleeps no more. A centrepiece display model for a Dark Angels army, built around high-contrast NMM-style power weapons and rich volumetric cloak shading. |
+| dark-angels-interemptors-dreadwing/index.zh.md | 第一军团的毁灭者。哑光黑色护甲上的高对比度OSL等离子效果。我们专注于最大化虚空般的黑色护甲与过充等离子线圈之间的对比度。明亮的OSL效果穿透哑光护甲，创造出配得上第一军团毁灭者的视觉冲击力。 | 第一军团的毁灭者。哑光黑甲上的高对比度 OSL 等离子效果：把虚空般的黑甲与过充的等离子线圈之间的对比拉到最大，让光穿透哑光护甲。 |
+| dark-angels-interemptors-dreadwing/index.md | The destroyers of the First Legion. High-contrast OSL plasma effects on matte black armor. We focused on maximizing the contrast between the void-black armor and the overcharged plasma coils. | The destroyers of the First Legion: high-contrast OSL plasma on matte black armour, pushing the contrast between void-black plates and overcharged plasma coils. |
