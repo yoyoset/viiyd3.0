@@ -130,11 +130,15 @@ delivered: "YYYY.MM"  # 4.0 必填。交付月，列表倒序依据。**双语�
 eiu: N  # 4.0 选填。定价系数拍板前可留空，留空即不显示
 time_log: "XXh XXm"
 model_count: N
-paints:
+paints:        # 只写真实用过的涂料；给不出清单就不要写，改用下面的 palette:，**不要猜**
   - name: "Paint Name"
     role: "[BASE|LAYER|SHADE|HIGHLIGHT|METALLIC|CONTRAST|DETAIL]"
     hex: "#XXXXXX"
     link: "https://..."
+# palette:     # 2026-09 起：颜料太杂给不出清单时用。页面标题显示「配色 · 取自实拍照片」
+#   - name: "氏族黄"      # 部位名，双语各写一份
+#     role: "ARMOUR"
+#     hex: "#D29B18"      # node scripts/extract_palette.js ./need_upload/[folder] 生成
 description: "[SEO description, 150-200 chars]"
 ---
 ```
