@@ -8,7 +8,6 @@
 {{ $latest := index $works 0 }}
 {{ $recent := first 12 $works }}
 {{ $p      := .Site.Data.pricing }}
-{{ $sch    := .Site.Data.schedule }}
 {{ $isZH   := eq .Lang "zh" }}
 
 <main>
@@ -144,8 +143,8 @@
       </div>
       <div class="home-close__card">
         <div class="label">{{ T "home_schedule" | default "档期" }}</div>
-        <div class="display-4 home-close__slots">{{ printf (T "home_slots" | default "%d 个展示位开放中") $sch.open_slots }}</div>
-        <p class="body-s">{{ printf (T "home_next_slot" | default "下一档期 %s 起。军团单请提前一个月。") $sch.next_month }}</p>
+        <div class="display-4 home-close__slots">{{ T "home_slots" | default "接单中" }}</div>
+        <p class="body-s">{{ T "home_next_slot" }}</p>
         <button type="button" class="btn-text" data-wechat-open="home-schedule">{{ T "home_inquire" | default "微信 / 邮件询价 →" }}</button>
       </div>
     </div>

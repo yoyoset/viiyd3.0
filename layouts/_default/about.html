@@ -8,7 +8,6 @@
 {{ $shots := .Resources.ByType "image" }}
 {{ $hero  := index $shots 0 }}
 {{ $grid  := after 1 (first 4 $shots) }}
-{{ $sch   := .Site.Data.schedule }}
 
 <main>
 
@@ -79,7 +78,7 @@
     {{ $works := where site.RegularPages "Section" "work" }}
     {{ $photos := 0 }}
     {{ range $works }}{{ $photos = add $photos (int (.Params.photos | default 0)) }}{{ end }}
-    {{ $computed := dict "2" (string (len $works)) "3" (printf "%d+" (mul (div $photos 100) 100)) }}
+    {{ $computed := dict "2" (string (len $works)) "3" (printf "%d+" (mul (div $photos 100) 100)) "4" (string (len site.Taxonomies.system)) }}
     <div>
       <div class="section-label label"><span class="num">03</span><span>{{ T "about_stats_label" | default "资历" }}</span></div>
       <div class="grid-hair about-stats">
@@ -101,8 +100,8 @@
     <div class="frame about-cta">
       <div>
         <div class="label">{{ T "home_schedule" | default "档期" }}</div>
-        <div class="display-4 about-cta__slots">{{ printf (T "home_slots" | default "%d 个展示位开放中") $sch.open_slots }}</div>
-        <p class="body-s">{{ printf (T "home_next_slot" | default "下一档期 %s 起。") $sch.next_month }}</p>
+        <div class="display-4 about-cta__slots">{{ T "home_slots" | default "接单中" }}</div>
+        <p class="body-s">{{ T "home_next_slot" }}</p>
       </div>
       <button type="button" class="btn-action" data-wechat-open="about">{{ T "home_inquire" | default "微信 / 邮件询价 →" }}</button>
     </div>

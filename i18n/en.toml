@@ -64,7 +64,7 @@ other = "and a deadline."
 other = "That's enough to start. I'll reply within 48h on the contact you left — WeChat first, email works too."
 
 [cm_body_zh]
-other = "I take on two commissions at a time — thank you for your patience."
+other = "I work at a slow pace, and every piece gets finished properly."
 
 [cm_field_name]
 other = "What should I call you?"
@@ -400,9 +400,9 @@ other = "Send photos, let's talk →"
 [home_schedule]
 other = "Availability"
 [home_slots]
-other = "%d display slots open"
+other = "Taking commissions"
 [home_next_slot]
-other = "Next opening %s. For army-scale work, a heads-up a month ahead helps me hold you a slot."
+other = "For army-scale work, a heads-up a month ahead helps me plan the time."
 
 # ─── About ──────────────────────────────────────────────
 [about_hero_alt]
@@ -451,10 +451,8 @@ other = "Commissions since"
 other = "Archive entries"
 [about_stat_3_k]
 other = "Archive images"
-[about_stat_4_n]
-other = "2"
 [about_stat_4_k]
-other = "Slots per quarter"
+other = "Game systems"
 [load_more]
 other = "Load more"
 [load_more_rest]

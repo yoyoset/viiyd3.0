@@ -30,7 +30,7 @@ defaultContentLanguageInSubdir = false
     weight = 1
     title = 'VIIYD · Miniature Painting Studio'
     [languages.en.params]
-      description = "Commission-grade Warhammer & tabletop miniature painting studio in Chengdu. Display-level NMM, OSL and freehand work, documented piece by piece — two display slots open each quarter."
+      description = "Commission-grade Warhammer & tabletop miniature painting studio in Chengdu. Display-level NMM, OSL and freehand work, documented piece by piece."
     [[languages.en.menu.main]]
       name = "Home"
       pageRef = "/"
@@ -53,7 +53,7 @@ defaultContentLanguageInSubdir = false
     weight = 2
     title = 'VIIYD · 战锤模型涂装工作室'
     [languages.zh.params]
-      description = "成都战锤微缩模型涂装委托工作室。展示级 NMM 金属光、OSL 光源效果与手绘自由涂，每件作品独立档案记录——每季度仅开放两个展示位。"
+      description = "成都战锤微缩模型涂装委托工作室。展示级 NMM 金属光、OSL 光源效果与手绘自由涂，每件作品独立档案记录。"
     [[languages.zh.menu.main]]
       name = "首页"
       pageRef = "/"

@@ -62,7 +62,7 @@ other = "再告诉我您何时需要。"
 other = "这样就足够了。我会在 48 小时内通过您留下的联系方式回复您 —— 微信优先，邮件也可以。"
 
 [cm_body_zh]
-other = "每次仅接两单，手法虽慢却力求细致，还请您多多包涵。"
+other = "手法偏慢，但每一单都会细细做完，还请您多多包涵。"
 
 [cm_field_name]
 other = "怎么称呼您？"
@@ -415,9 +415,9 @@ other = "打开估算器 →"
 [home_schedule]
 other = "档期"
 [home_slots]
-other = "%d 个展示位开放中"
+other = "接单中"
 [home_next_slot]
-other = "下一档期自 %s 起。军团单体量较大，还请提前一个月告知，我会为您预留档期。"
+other = "军团单体量较大，还请提前一个月告知，方便为您安排时间。"
 [home_inquire]
 other = "微信 / 邮件询价 →"
 
@@ -468,10 +468,8 @@ other = "接单起始"
 other = "作品档案"
 [about_stat_3_k]
 other = "档案图片"
-[about_stat_4_n]
-other = "2"
 [about_stat_4_k]
-other = "每季展示位"
+other = "涉及系统"
 [load_more]
 other = "加载更多"
 [load_more_rest]
