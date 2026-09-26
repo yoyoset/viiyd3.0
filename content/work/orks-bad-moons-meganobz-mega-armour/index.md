@@ -1,7 +1,7 @@
 ---
 title: "Bad Moons Meganobz: Six in Mega Armour"
 date: 2026-09-25T23:22:00+08:00
-summary: "Six mega-armoured Orks in Bad Moons yellow, chipped and checked, with a pair of grots to keep them running."
+summary: "Six mega-armoured Orks in Bad Moons yellow — GW yellows under a red wash, then chipped and checked — with a pair of grots to keep them running."
 share_caption: "Six Orks in mega armour, all of them yellow, and none of them allowed to look like the same yellow block.
 
 Bad Moons are a trap in the same way white armour is. Yellow has almost no room between flat and dirty, so every plate was built up from a warm base, pushed bright on the edges, and then chipped so it reads as scrap that has been through a few fights. The black checks and the green skin are what stop the mob turning into one colour from across the table.
@@ -18,6 +18,25 @@ tier: "Specialist"
 system: "40k"
 delivered: "2026.09"
 model_count: 8
+palette:
+  - name: "Clan yellow"
+    role: "ARMOUR"
+    hex: "#D29B18"
+  - name: "Ork skin"
+    role: "SKIN"
+    hex: "#72983B"
+  - name: "Red cloth"
+    role: "CLOTH"
+    hex: "#9F1316"
+  - name: "Blue cloth"
+    role: "CLOTH"
+    hex: "#31688F"
+  - name: "Metal"
+    role: "METAL"
+    hex: "#989B95"
+  - name: "Checks"
+    role: "DETAIL"
+    hex: "#31312D"
 description: "Bad Moons Meganobz commission: six mega-armoured Orks in chipped clan yellow with black checks, a tesla-coil rig and a kustom force field rig, plus two grots, shot from eight angles each."
 ---
 

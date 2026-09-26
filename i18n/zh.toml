@@ -20,6 +20,10 @@ other = "其他 / 定制"
 [dossier_notes_label]
 other = "// 涂师手记"
 
+[dossier_palette_label]
+other = "// 配色"
+[dossier_palette_hint]
+other = "取自实拍照片"
 [dossier_video_label]
 other = "// 360° 转台"
 

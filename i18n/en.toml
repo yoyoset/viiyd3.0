@@ -22,6 +22,10 @@ other = "Other / Custom"
 [dossier_notes_label]
 other = "// PAINTER'S NOTES"
 
+[dossier_palette_label]
+other = "// PALETTE"
+[dossier_palette_hint]
+other = "sampled from the photos"
 [dossier_video_label]
 other = "// 360° TURNTABLE"
 

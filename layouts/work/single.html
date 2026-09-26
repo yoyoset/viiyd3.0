@@ -231,13 +231,22 @@
 </section>
 {{ end }}
 
-{{/* ── 涂料清单（3.0 保留下来的内容，重新配色） ── */}}
-{{ with .Params.paints }}
+{{/* ── 涂料清单 / 配色（3.0 保留下来的内容，重新配色）
+     paints: 具体涂料（名称 + 角色 + 色值 + 可选链接）。
+     palette: 2026-09 新增，给「颜料太杂、给不出逐单清单」的作品用 ——
+       色值取自实拍照片受光面（scripts 外的一次性取色，见 DOCS/CONTENT_LOOP.md），
+       只写部位不写品牌型号，标题改「配色」，并注明来源，不冒充涂料清单。
+     两者都有时 paints 优先。 ── */}}
+{{ $chips := .Params.paints }}
+{{ $chipLabel := T "dossier_paint_label" | default "涂料" }}
+{{ $isPalette := false }}
+{{ if not $chips }}{{ with .Params.palette }}{{ $chips = . }}{{ $chipLabel = T "dossier_palette_label" }}{{ $isPalette = true }}{{ end }}{{ end }}
+{{ with $chips }}
 <section class="section">
   <div class="wrap">
     <div class="section-label label">
-      <span class="num">03</span><span>{{ T "dossier_paint_label" | default "涂料" }}</span>
-      <span class="plates-hint">{{ len . }} {{ T "unit_pigments" | default "色" }}</span>
+      <span class="num">03</span><span>{{ $chipLabel }}</span>
+      <span class="plates-hint">{{ len . }} {{ T "unit_pigments" | default "色" }}{{ if $isPalette }} · {{ T "dossier_palette_hint" }}{{ end }}</span>
     </div>
     <div class="paint-row">
       {{ range . }}
