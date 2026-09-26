@@ -235,7 +235,8 @@
      paints: 具体涂料（名称 + 角色 + 色值 + 可选链接）。
      palette: 2026-09 新增，给「颜料太杂、给不出逐单清单」的作品用 ——
        色值取自实拍照片受光面（scripts 外的一次性取色，见 DOCS/CONTENT_LOOP.md），
-       只写部位不写品牌型号，标题改「配色」，并注明来源，不冒充涂料清单。
+       只写部位不写品牌型号，标题改「配色」而不是「调色清单」。
+       （曾加过「取自实拍照片」小字，2026-09-26 用户要求去掉：不必写得那么明确。）
      两者都有时 paints 优先。 ── */}}
 {{ $chips := .Params.paints }}
 {{ $chipLabel := T "dossier_paint_label" | default "涂料" }}
@@ -246,7 +247,7 @@
   <div class="wrap">
     <div class="section-label label">
       <span class="num">03</span><span>{{ $chipLabel }}</span>
-      <span class="plates-hint">{{ len . }} {{ T "unit_pigments" | default "色" }}{{ if $isPalette }} · {{ T "dossier_palette_hint" }}{{ end }}</span>
+      <span class="plates-hint">{{ len . }} {{ T "unit_pigments" | default "色" }}</span>
     </div>
     <div class="paint-row">
       {{ range . }}

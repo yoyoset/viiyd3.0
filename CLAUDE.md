@@ -47,7 +47,7 @@
 - 内容文件**不要带 UTF-8 BOM**。Hugo 能吃，但任何按 `startsWith('---')` 解析 front matter 的脚本都会翻车。
 - Markdown 里的 HTML 不能缩进（会渲染成代码块）。
 - **`paints:` 只写真实用过的涂料，不猜。** 用户实际混用 GW / AK / Vallejo / 国产，多数单子给不出清单 ——
-  这时改用 `palette:`（部位名 + 色值，页面标题「配色 · 取自实拍照片」），色值用
+  这时改用 `palette:`（部位名 + 色值，页面标题「配色」，不注明取色来源），色值用
   `node scripts/extract_palette.js ./need_upload/[folder]` 从 `_web` 图提取，部位名人工看图填。
 - 完整模板：`DOCS/WORK_TEMPLATE.md`；发布流程：`.agent/workflows/publishing.md`。
 

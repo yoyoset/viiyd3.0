@@ -22,8 +22,6 @@ other = "// 涂师手记"
 
 [dossier_palette_label]
 other = "// 配色"
-[dossier_palette_hint]
-other = "取自实拍照片"
 [dossier_video_label]
 other = "// 360° 转台"
 
@@ -579,13 +577,13 @@ other = "实物实拍"
 [about_credit_3_k]
 other = "颜料"
 [about_credit_3_v]
-other = "Citadel · AK · Vallejo · 国产，按效果选用"
+other = "Citadel · Vallejo · AK"
 [about_credit_4_k]
 other = "网站"
 [about_credit_4_v]
 other = "Claude Opus 5.5 —— 代码、双语文案与日常维护"
 [about_credit_line]
-other = "艺术出自 VIIYD 自己的手，技术来自 Claude Opus 5.5。"
+other = "艺术来自我们自己，技术来自 Claude Opus 5.5。"
 [foot_credit_art]
 other = "艺术 · VIIYD 手涂"
 [foot_credit_tech]

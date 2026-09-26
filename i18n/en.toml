@@ -24,8 +24,6 @@ other = "// PAINTER'S NOTES"
 
 [dossier_palette_label]
 other = "// PALETTE"
-[dossier_palette_hint]
-other = "sampled from the photos"
 [dossier_video_label]
 other = "// 360° TURNTABLE"
 
@@ -569,13 +567,13 @@ other = "Real models, photographed for real"
 [about_credit_3_k]
 other = "Paints"
 [about_credit_3_v]
-other = "Citadel · AK · Vallejo · Chinese brands, chosen for the effect"
+other = "Citadel · Vallejo · AK"
 [about_credit_4_k]
 other = "Website"
 [about_credit_4_v]
 other = "Claude Opus 5.5 — code, bilingual copy and upkeep"
 [about_credit_line]
-other = "The art is VIIYD's own. The engineering is Claude Opus 5.5."
+other = "The art is our own. The engineering is Claude Opus 5.5."
 [foot_credit_art]
 other = "Art · hand-painted by VIIYD"
 [foot_credit_tech]
