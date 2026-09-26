@@ -440,24 +440,6 @@ other = "工作台"
 other = "涂料与笔"
 [about_shot_3_cap]
 other = "待涂队列"
-[about_kit_label]
-other = "设备与工艺"
-[about_kit_1_k]
-other = "喷笔"
-[about_kit_1_v]
-other = "待补充"
-[about_kit_2_k]
-other = "常用涂料"
-[about_kit_2_v]
-other = "Citadel · Vallejo · Scale75"
-[about_kit_3_k]
-other = "光箱与拍摄"
-[about_kit_3_v]
-other = "待补充"
-[about_kit_4_k]
-other = "地台材料"
-[about_kit_4_v]
-other = "待补充"
 [about_stats_label]
 other = "资历"
 [about_stat_1_n]
@@ -578,3 +560,29 @@ other = "05 · 分享"
 other = "若您喜欢，欢迎分享"
 [share_bottom_body]
 other = "若您喜欢这一单，欢迎转发给同好，留着自己慢慢回味也很好。也欢迎您把想法发给我，让我们聊聊您的委托——无论是同款还是完全不同的构想，都非常欢迎。"
+
+# ─── 出品 / 署名（2026-09）───
+[about_credit_label]
+other = "出品"
+[about_credit_1_k]
+other = "涂装"
+[about_credit_1_v]
+other = "全部手涂"
+[about_credit_2_k]
+other = "摄影"
+[about_credit_2_v]
+other = "实物实拍"
+[about_credit_3_k]
+other = "颜料"
+[about_credit_3_v]
+other = "Citadel · AK · Vallejo · 国产，按效果选用"
+[about_credit_4_k]
+other = "网站"
+[about_credit_4_v]
+other = "Claude Opus 5.5 —— 代码、双语文案与日常维护"
+[about_credit_line]
+other = "艺术出自 VIIYD 自己的手，技术来自 Claude Opus 5.5。"
+[foot_credit_art]
+other = "艺术 · VIIYD 手涂"
+[foot_credit_tech]
+other = "技术 ·"

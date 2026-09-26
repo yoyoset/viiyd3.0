@@ -60,17 +60,20 @@
 </section>
 {{ end }}
 
-{{/* ── 设备与工艺 ── */}}
+{{/* ── 出品：原「设备与工艺」（型号待补充三项）按用户意见整块删掉，改为分清「谁做了什么」——
+         艺术（涂装 / 摄影 / 颜料）是工作室自己的，技术（网站）来自 Claude Opus 5.5。
+         颜料一栏只写品牌、不写型号：用户实际混用 GW / AK / Vallejo / 国产，给不出逐单清单。 ── */}}
 <section class="section">
   <div class="wrap about-split">
     <div>
-      <div class="section-label label"><span class="num">02</span><span>{{ T "about_kit_label" | default "设备与工艺" }}</span></div>
+      <div class="section-label label"><span class="num">02</span><span>{{ T "about_credit_label" }}</span></div>
       <dl class="spec-list about-kit">
         {{ range $i := seq 1 4 }}
-        <dt>{{ T (printf "about_kit_%d_k" $i) }}</dt>
-        <dd>{{ T (printf "about_kit_%d_v" $i) }}</dd>
+        <dt>{{ T (printf "about_credit_%d_k" $i) }}</dt>
+        <dd>{{ T (printf "about_credit_%d_v" $i) }}</dd>
         {{ end }}
       </dl>
+      <p class="body-s">{{ T "about_credit_line" }}</p>
     </div>
 
     {{/* ── 资历条：第 2、3 格按作品页实时计算（档案数 = 首页「全部 N 个档案」同一口径，

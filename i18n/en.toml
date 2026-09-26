@@ -423,24 +423,6 @@ other = "The bench"
 other = "Paints and brushes"
 [about_shot_3_cap]
 other = "The queue"
-[about_kit_label]
-other = "Kit and process"
-[about_kit_1_k]
-other = "Airbrush"
-[about_kit_1_v]
-other = "TBC"
-[about_kit_2_k]
-other = "Paints"
-[about_kit_2_v]
-other = "Citadel · Vallejo · Scale75"
-[about_kit_3_k]
-other = "Lightbox and camera"
-[about_kit_3_v]
-other = "TBC"
-[about_kit_4_k]
-other = "Basing"
-[about_kit_4_v]
-other = "TBC"
 [about_stats_label]
 other = "Track record"
 [about_stat_1_n]
@@ -568,3 +550,29 @@ other = "05 · Share"
 other = "If you like it, share it"
 [share_bottom_body]
 other = "Pass it along to a friend who'd like it, or keep it bookmarked for later. And if it gives you an idea of your own, send me a message — same or completely different, happy to talk it through."
+
+# ─── Credits (2026-09) ───
+[about_credit_label]
+other = "Credits"
+[about_credit_1_k]
+other = "Painting"
+[about_credit_1_v]
+other = "Every piece by hand"
+[about_credit_2_k]
+other = "Photography"
+[about_credit_2_v]
+other = "Real models, photographed for real"
+[about_credit_3_k]
+other = "Paints"
+[about_credit_3_v]
+other = "Citadel · AK · Vallejo · Chinese brands, chosen for the effect"
+[about_credit_4_k]
+other = "Website"
+[about_credit_4_v]
+other = "Claude Opus 5.5 — code, bilingual copy and upkeep"
+[about_credit_line]
+other = "The art is VIIYD's own. The engineering is Claude Opus 5.5."
+[foot_credit_art]
+other = "Art · hand-painted by VIIYD"
+[foot_credit_tech]
+other = "Tech ·"

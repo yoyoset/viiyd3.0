@@ -1,7 +1,12 @@
 {{/* VIIYD 4.0 页脚 — handoff §4.10：上边框 1px，两端对齐，mono 10.5px */}}
 <footer class="site-foot">
   <div class="wrap site-foot__inner">
-    <span>© {{ now.Year }} VIIYD STUDIO · {{ T "foot_city" | default "CHENGDU" }}</span>
+    <div>
+      <span>© {{ now.Year }} VIIYD STUDIO · {{ T "foot_city" | default "CHENGDU" }}</span>
+      {{/* 署名（2026-09 用户授权）：艺术归工作室，技术归 Claude Opus 5.5。放页脚小字而不是首屏——
+           访客来买的是手涂，AI 字样若抢在作品前面，会先让人怀疑作品图是不是生成的。 */}}
+      <span class="site-foot__credit">{{ T "foot_credit_art" }}　/　{{ T "foot_credit_tech" }} <a href="https://www.anthropic.com/claude" target="_blank" rel="noopener">Claude Opus 5.5</a></span>
+    </div>
     <span class="site-foot__links">
       {{/* 英文站点开是表单不是二维码，写 WECHAT 会误导 —— 分语言取文案 */}}
       <button type="button" class="site-foot__link" data-wechat-open="footer">{{ T "foot_contact" | default "WECHAT" }}</button>

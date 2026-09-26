@@ -241,6 +241,9 @@
   font-family:inherit; font-size:inherit; letter-spacing:inherit; text-transform:inherit;
 }
 .site-foot__links a:hover, .site-foot__link:hover{ color:var(--fg); }
+.site-foot__credit{ display:block; margin-top:6px; }
+.site-foot__credit a{ color:var(--fg-muted); }
+.site-foot__credit a:hover{ color:var(--fg); }
 @media (max-width:768px){
   .site-foot__inner{ flex-direction:column; align-items:flex-start; gap:12px; }
 }
@@ -485,7 +488,8 @@
   .site-head__cta{ min-height:44px; padding-block:12px; }
   .view-toggle button{ min-height:44px; }
   .site-foot__links a,
-  .site-foot__link{ min-height:44px; display:inline-flex; align-items:center; }
+  .site-foot__link,
+  .site-foot__credit a{ min-height:44px; display:inline-flex; align-items:center; }
   .site-foot__inner{ gap:4px; }
   .breadcrumb a{ min-height:44px; display:inline-flex; align-items:center; }
 }
