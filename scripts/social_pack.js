@@ -60,6 +60,8 @@ function pickPhotos(post, total) {
 async function pack(post) {
     const fm = frontmatter(post.slug);
     const dir = path.join(OUTBOX, post.id);
+    // 先清空：改了选图张数后重打包，旧的 09.jpg 会留下来混进去（2026-09-28 实测）
+    fs.rmSync(dir, { recursive: true, force: true });
     fs.mkdirSync(dir, { recursive: true });
     fs.mkdirSync(CACHE, { recursive: true });
     const prefix = fm.cover.replace(/_\d+\.webp$/, '');           // …/viiyd20260925meganobz
@@ -95,6 +97,10 @@ async function pack(post) {
 function push(dir, id) {
     const env = { ...process.env, MSYS_NO_PATHCONV: '1' };
     const remote = `/sdcard/Pictures/VIIYD/${id}`;
+    // 手机上同样先清掉旧版本和媒体库里的记录，否则相册里新旧两版并存
+    execFileSync(ADB, ['shell', 'rm', '-rf', remote], { env });
+    execFileSync(ADB, ['shell', 'content', 'delete', '--uri', 'content://media/external/images/media',
+        '--where', `"relative_path='Pictures/VIIYD/${id}/'"`], { env });
     execFileSync(ADB, ['shell', 'mkdir', '-p', remote], { env });
     for (const f of fs.readdirSync(dir)) {
         execFileSync(ADB, ['push', path.join(dir, f), `${remote}/${f}`], { env, stdio: 'ignore' });
