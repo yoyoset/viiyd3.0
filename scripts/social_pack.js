@@ -50,6 +50,7 @@ async function fetchTo(url, dest) {
 
 function pickPhotos(post, total) {
     if (post.photos && post.photos.length) return post.photos;
+    if (post.video) return [];                                  // 视频帖不配图（抖音 360°）
     const n = Math.min(COUNT[post.platform] || 0, total);
     if (n <= 0) return [];
     const picks = [1];
