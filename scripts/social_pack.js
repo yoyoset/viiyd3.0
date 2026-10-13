@@ -7,11 +7,11 @@
  *   加 --push   打包后推到手机 /sdcard/Pictures/VIIYD/<post-id>/ 并触发媒体扫描
  *
  * 产出（private/social/outbox/<post-id>/）:
- *   01.jpg … NN.jpg   按平台比例裁切（小红书 3:4 = 1080×1440，IG 4:5 = 1080×1350，Reddit 原比例）
- *   reel.mp4          ig_reel：从 R2 的 360° 视频截 start..start+duration 秒（原片竖版横版都有，统一输出 1080×1920，横版垫黑边）
+ *   01.jpg … NN.jpg   按平台比例裁切（小红书 / 抖音图文 3:4 = 1080×1440，IG 4:5 = 1080×1350，Reddit 原比例）
+ *   reel.mp4          ig_reel / 带 video 的 douyin：从 R2 的 360° 视频截 start..start+duration 秒（原片竖版横版都有，统一输出 1080×1920，横版垫黑边）
  *   caption.txt       标题 + 正文 + 标签，可直接整段复制
  *
- * 选图: queue 里写了 photos 就按它；没写就取 cover(_01) + 在 1..photos 间均匀取样（小红书 9 张，IG 8 张）。
+ * 选图: queue 里写了 photos 就按它；没写就取 cover(_01) + 在 1..photos 间均匀取样（小红书 / 抖音 9 张，IG 8 张）。
  *   单张写成 "49:contain" = 整张缩进画框、黑边补齐，不裁切 —— 主体在方图里左右分得很开时用
  *   （实测：Meganobz 的两只地精在 3:4 智能裁切下会被切掉一只半）。黑底棚拍图补黑边看不出来。
  * 图源用 R2 的 _web 版（1600px），社媒压缩后看不出与原图的差别，流量小一个数量级。
@@ -29,8 +29,8 @@ const OUTBOX = path.join(ROOT, 'private/social/outbox');
 const CACHE = path.join(ROOT, 'private/social/cache');
 const ADB = process.env.ADB || 'F:/my_ai/pixel/platform-tools/adb.exe';
 
-const RATIO = { xhs: [1080, 1440], ig_carousel: [1080, 1350], ig_reel: [1080, 1350], reddit: null };
-const COUNT = { xhs: 9, ig_carousel: 8, ig_reel: 0, reddit: 4 };
+const RATIO = { xhs: [1080, 1440], douyin: [1080, 1440], ig_carousel: [1080, 1350], ig_reel: [1080, 1350], reddit: null };
+const COUNT = { xhs: 9, douyin: 9, ig_carousel: 8, ig_reel: 0, reddit: 4 };
 
 function frontmatter(slug) {
     const f = path.join(ROOT, 'content/work', slug, 'index.md');
@@ -81,7 +81,7 @@ async function pack(post) {
         await img.jpeg({ quality: 90, mozjpeg: true }).toFile(out);
     }
 
-    if (post.platform === 'ig_reel' && post.video) {
+    if ((post.platform === 'ig_reel' || post.platform === 'douyin') && post.video) {
         const vsrc = await fetchTo(`https://photo.viiyd.com/video/${post.video.name}.mp4`, path.join(CACHE, post.video.name + '.mp4'));
         execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(post.video.start || 0), '-i', vsrc,
             '-t', String(post.video.duration || 15),
