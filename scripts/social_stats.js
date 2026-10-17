@@ -138,6 +138,13 @@ function collect(which) {
     const q = JSON.parse(fs.readFileSync(QUEUE, 'utf8'));
     const posted = q.posts.filter(p => p.status === 'posted' && p.posted_at);
     const snap = { at: new Date().toISOString(), accounts: {}, posts: {}, unmatched: {}, errors: [] };
+    // 每晚 22:00 无人值守跑（计划任务 VIIYD-social-stats）：手机没连上或锁着屏就整笔记错误，不去解锁、不乱点
+    let blocked = null;
+    try {
+        adb('shell', 'input', 'keyevent', 'KEYCODE_WAKEUP');
+        if (/isKeyguardShowing=true/.test(adb('shell', 'dumpsys', 'window'))) blocked = '手机锁着屏';
+    } catch (e) { blocked = '手机没连上 adb'; }
+    if (blocked) { which = []; snap.errors.push(`全部: ${blocked}`); console.log(`⚠️  ${blocked}，这次不采`); }
     for (const key of which) {
         try {
             const r = readers[key]();
@@ -157,7 +164,7 @@ function collect(which) {
             console.log(`⚠️  ${key}  ${e.message}`);
         }
     }
-    adb('shell', 'input', 'keyevent', '3');   // 回桌面，不把 App 留在前台
+    if (!blocked) adb('shell', 'input', 'keyevent', '3');   // 回桌面，不把 App 留在前台
     const all = fs.existsSync(STATS) ? JSON.parse(fs.readFileSync(STATS, 'utf8')) : { snapshots: [] };
     all.snapshots.push(snap);
     fs.writeFileSync(STATS, JSON.stringify(all, null, 2) + '\n');
