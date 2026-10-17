@@ -66,9 +66,11 @@ function num(s) {
 
 // 进到「我的主页」顶部：点底栏的「我」；App 上次停在主页中段时头部不在屏上，往下拉回顶再看。
 // 不按返回键 —— 实测在小红书主页按返回会直接退出 App，后面的点击就落到桌面上了（2026-10-13）。
-function gotoProfile(pkg, tabXY, isProfile) {
+// backOk：App 被留在没有底栏的子页时（抖音停在「新关注我的」，2026-10-17），只能返回一次再重新拉起。
+function gotoProfile(pkg, tabXY, isProfile, backOk = false) {
     launch(pkg);
     for (let i = 0; i < 3; i++) {
+        if (i > 0 && backOk) { adb('shell', 'input', 'keyevent', '4'); sleep(1500); launch(pkg); }
         tap(...tabXY);
         let nodes = dump();
         if (isProfile(nodes)) return nodes;
@@ -101,7 +103,7 @@ const readers = {
         return { account, items: [...items.values()], by: 'title' };
     },
     douyin() {
-        const first = gotoProfile('com.ss.android.ugc.aweme', [972, 2261], ns => ns.some(n => n.text === '获赞') && ns.some(n => n.text === '编辑主页'));
+        const first = gotoProfile('com.ss.android.ugc.aweme', [972, 2261], ns => ns.some(n => n.text === '获赞') && ns.some(n => n.text === '编辑主页'), true);
         if (!first) throw new Error('没进到抖音主页');
         const account = { followers: labelValue(first, '粉丝'), likes: labelValue(first, '获赞') };
         const views = [];
