@@ -300,7 +300,7 @@ function report() {
     const sign = n => n == null ? '' : n > 0 ? `+${fmt(n)}` : n < 0 ? `−${fmt(-n)}` : '±0';
     const median = a => { const s = a.filter(x => x != null).sort((x, y) => x - y); return s.length ? (s.length % 2 ? s[s.length >> 1] : Math.round((s[s.length / 2 - 1] + s[s.length / 2]) / 2)) : null; };
     const NAME = { xhs: '小红书', douyin: '抖音', ig: 'Instagram', ig_reel: 'IG Reel', ig_carousel: 'IG 轮播', reddit: 'Reddit' };
-    const HOOK = { story: '小故事', H1: '工时', H2: '灰模→成品', H4: '代入', H5: '猜题', H6: '数字清单', 360: '360° 转台', H7: '报价提问' };
+    const HOOK = { story: '小故事', H1: '工时', H2: '灰模→成品', H4: '代入', H5: '猜题', H6: '数字清单', 360: '360° 转台', H7: '价格话题', H8: '客户表扬' };
     const UNIT = { xhs: '阅读', douyin: '播放', ig: '播放' };
     const PLATS = { xhs: ['xhs'], douyin: ['douyin'], ig: ['ig_reel', 'ig_carousel'] };
     const DAY = 864e5, now = Date.now(), today = dkey(now);
@@ -424,18 +424,22 @@ function report() {
     }).join('');
 
     // ── 按写法比 ──
-    const hooksUsed = [...new Set(q.posts.filter(p => p.status !== 'skipped' && p.hook && p.hook !== '-').map(p => p.hook))];
+    // 现在测的三类（PROMOTION_OPS 〇·六）；遗留的 H1/H4/H5/H6 planned 条目备货时会改写成故事，只在真发过时才出现
+    const ACTIVE = ['story', 'H7', 'H8'];
+    const hooksUsed = [...new Set([...ACTIVE, ...posted.map(p => p.hook).filter(h => h && h !== '-')])];
     const hookRows = hooksUsed.map(h => `<tr><th>${HOOK[h] || h}</th>` + Object.keys(PLATS).map(k => {
         const ps = posted.filter(p => platOf(p) === k && p.hook === h);
         const d3 = ps.map(p => atDay(p, 3)).filter(v => v != null);
         if (!ps.length) return '<td class=dim>还没发</td>';
-        return `<td>${d3.length ? `<b>${fmt(median(d3))}</b>` : '<span class=dim>—</span>'} <span class=dim>${ps.length} 条${d3.length < ps.length ? `，${d3.length} 条有第 3 天数` : ''}</span></td>`;
+        // 小红书另给「每百阅读评论」：价格话题拼的是评论，不是阅读（PROMOTION_OPS 〇·六）
+        const cr = k === 'xhs' ? median(ps.map(p => { const c = lastField(p, 'comments'), v = lastField(p, 'views'); return c != null && v ? Math.round(c / v * 1e4) : null; })) : null;
+        return `<td>${d3.length ? `<b>${fmt(median(d3))}</b>` : '<span class=dim>—</span>'} <span class=dim>${ps.length} 条${d3.length < ps.length ? `，${d3.length} 条有第 3 天数` : ''}</span>${cr != null ? `<br><span class=dim>评论 ${(cr / 100).toFixed(2)} / 百阅读</span>` : ''}</td>`;
     }).join('') + '</tr>').join('');
 
     // ── 结论：只写数据撑得住的，样本不够就直说 ──
     const find = [];
     const hooksPosted = [...new Set(posted.map(p => p.hook))];
-    const nextOther = q.posts.filter(p => (p.status === 'planned' || p.status === 'ready') && p.date >= today && p.hook !== 'story' && p.hook !== '-')
+    const nextOther = q.posts.filter(p => (p.status === 'planned' || p.status === 'ready') && p.date >= today && ACTIVE.includes(p.hook) && p.hook !== 'story')
         .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
     if (hooksPosted.length === 1) find.push(['warn', `<b>写法好不好，现在算不出来。</b>已发 ${posted.length} 条全是「${HOOK[hooksPosted[0]] || hooksPosted[0]}」，没有别的写法做对照，换不换都只能凭感觉。`
         + (nextOther.length ? `队列里 ${mdk(nextOther[0].date)} 起排的是 ${[...new Set(nextOther.slice(0, 6).map(p => HOOK[p.hook] || p.hook))].join(' / ')}，同平台各发 2–3 条后，下面「按写法比」就有对照了。` : '')]);
@@ -540,7 +544,7 @@ ${last.errors.map(w => `<p class=lede style="color:#F0C239">⚠ 最近一笔没�
 <div class=panels>${panels}</div>
 <h2>这些数说明了什么</h2>
 <ul class=find>${find.map(([c, t]) => `<li class="${c}">${t}</li>`).join('')}</ul>
-<h2>按写法比 <span class=dim style="font-weight:400;font-size:12px">· 第 3 天阅读/播放中位数</span></h2>
+<h2>按写法比 <span class=dim style="font-weight:400;font-size:12px">· 第 3 天阅读/播放中位数；小红书另有每百阅读评论中位数（价格话题看这个）</span></h2>
 <div class=scroll><table><thead><tr><th>写法</th>${Object.keys(PLATS).map(k => `<th>${NAME[k]}</th>`).join('')}</tr></thead><tbody>${hookRows}</tbody></table></div>
 <h2>评论区在聊什么 <span class=dim style="font-weight:400;font-size:12px">· 只有小红书读得到原文；抖音 / IG 帖子页在播动画，读不出来</span></h2>
 ${commentBlocks || '<p class=dim>还没采到评论</p>'}
