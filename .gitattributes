@@ -1,0 +1,2 @@
+# bash 脚本必须 LF：core.autocrlf=true 会在检出时改成 CRLF，计划任务调的 social_stats_nightly.sh 会因  失败
+*.sh text eol=lf
