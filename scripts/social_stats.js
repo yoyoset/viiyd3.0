@@ -164,77 +164,243 @@ function collect(which) {
     return snap;
 }
 
+// 看板的口径（2026-10-17 改）：
+// - 「变化」一律按天比：今天最后一笔 vs 之前最近一个有数的日子。旧版按「上一笔快照」比，同一天连采两次时全是空的。
+// - 每日新增播放 = 该平台所有已发帖子「截至当天最后一笔」的播放之和，再与前一个有数的日子相减；中间没采的日子并进下一天，提示里写几天合计。
+// - 第 1 / 3 天播放：从发布时刻（记 0）到各笔快照之间线性插值；相邻两笔隔超过 1.5 天就不插（播放前几天涨得最猛，隔久了线性插值会严重低估），显示「—」（开始采集前就发了的帖子都这样）。
+// - 「按写法比」按 queue.json 的 hook 分组，用第 3 天播放的中位数 —— 写法好不好要靠这一块回答，同一种写法没法跟自己比。
 function report() {
     if (!fs.existsSync(STATS)) { console.error('❌ 还没有快照，先跑 collect'); process.exit(1); }
     const { snapshots } = JSON.parse(fs.readFileSync(STATS, 'utf8'));
     const q = JSON.parse(fs.readFileSync(QUEUE, 'utf8'));
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
     const TZ = { timeZone: 'Asia/Shanghai' };
-    const day = iso => new Date(iso).toLocaleString('zh-CN', { ...TZ, month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    const md = iso => new Date(iso).toLocaleDateString('zh-CN', { ...TZ, month: 'numeric', day: 'numeric' });
+    const dkey = x => new Date(x).toLocaleDateString('sv-SE', TZ);            // → 2026-10-17
+    const mdk = k => `${+k.slice(5, 7)}/${+k.slice(8, 10)}`;
+    const clock = iso => new Date(iso).toLocaleString('zh-CN', { ...TZ, month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    const fmt = n => n == null ? '—' : n.toLocaleString('en-US');
+    const sign = n => n == null ? '' : n > 0 ? `+${fmt(n)}` : n < 0 ? `−${fmt(-n)}` : '±0';
+    const median = a => { const s = a.filter(x => x != null).sort((x, y) => x - y); return s.length ? (s.length % 2 ? s[s.length >> 1] : Math.round((s[s.length / 2 - 1] + s[s.length / 2]) / 2)) : null; };
     const NAME = { xhs: '小红书', douyin: '抖音', ig: 'Instagram', ig_reel: 'IG Reel', ig_carousel: 'IG 轮播', reddit: 'Reddit' };
-    const delta = (a, b) => a == null || b == null || a === b ? '' : `<i>${a > b ? '+' : ''}${a - b}</i>`;
-    const last = snapshots[snapshots.length - 1], prev = snapshots[snapshots.length - 2];
-    // 某个平台这次没采到时，往回找最近一笔有它的
-    const acct = (k, upto) => { for (let i = upto; i >= 0; i--) if (snapshots[i].accounts[k]) return snapshots[i].accounts[k]; return null; };
+    const HOOK = { story: '小故事', H1: '工时', H2: '灰模→成品', H4: '代入', H5: '猜题', H6: '数字清单', 360: '360° 转台' };
+    const UNIT = { xhs: '阅读', douyin: '播放', ig: '播放' };
+    const PLATS = { xhs: ['xhs'], douyin: ['douyin'], ig: ['ig_reel', 'ig_carousel'] };
+    const DAY = 864e5, now = Date.now(), today = dkey(now);
 
-    const posted = q.posts.filter(p => p.status === 'posted').sort((a, b) => new Date(b.posted_at) - new Date(a.posted_at));
-    const tiles = [['xhs', ['xhs'], '获赞与收藏'], ['douyin', ['douyin'], '获赞'], ['ig', ['ig_reel', 'ig_carousel'], '']].map(([k, plats, likeLabel]) => {
-        const a = acct(k, snapshots.length - 1), b = acct(k, snapshots.length - 2);
-        const n = posted.filter(p => plats.includes(p.platform)).length;
-        return `<div class=tile><h3>${NAME[k]}</h3><b>${a ? a.followers ?? '—' : '—'}</b> <span>粉丝 ${a && b ? delta(a.followers, b.followers) : ''}</span>`
-            + `<p>${likeLabel && a && a.likes != null ? `${likeLabel} ${a.likes} ${b ? delta(a.likes, b.likes) : ''} · ` : ''}已发 ${n} 条</p></div>`;
+    const posted = q.posts.filter(p => p.status === 'posted' && p.posted_at).sort((a, b) => new Date(b.posted_at) - new Date(a.posted_at));
+    const platOf = p => Object.keys(PLATS).find(k => PLATS[k].includes(p.platform));
+    const form = p => p.video ? '视频' : '图文';
+    const hist = id => snapshots.filter(s => s.posts[id]).map(s => ({ t: +new Date(s.at), ...s.posts[id] }));
+    const latest = p => { const h = hist(p.id); return h[h.length - 1] || null; };
+    // 发布后第 n 天的播放；null = 还没满 n 天，undefined = 那段时间没采到
+    const atDay = (p, n) => {
+        const t0 = +new Date(p.posted_at), tgt = t0 + n * DAY;
+        if (now < tgt) return null;
+        const pts = [{ t: t0, views: 0 }, ...hist(p.id).filter(x => x.views != null)];
+        const j = pts.findIndex(x => x.t >= tgt);
+        if (j < 1 || pts[j].t - pts[j - 1].t > 1.5 * DAY) return undefined;
+        const a = pts[j - 1], b = pts[j];
+        return Math.round(a.views + (b.views - a.views) * (tgt - a.t) / (b.t - a.t));
+    };
+    const showDay = v => v === null ? '<span class=dim>未满</span>' : v === undefined ? '<span class=dim>—</span>' : `≈${fmt(v)}`;
+
+    // ── 按天汇总：每个平台每天取最后一笔 ──
+    const days = [];
+    for (let t = +new Date(dkey(snapshots[0].at) + 'T12:00+08:00'); dkey(t) <= today; t += DAY) days.push(dkey(t));
+    const daily = {};
+    for (const k of Object.keys(PLATS)) {
+        let prev = null;
+        daily[k] = days.map((d, di) => {
+            let idx = -1;
+            snapshots.forEach((s, i) => { if (dkey(s.at) === d && s.accounts[k]) idx = i; });
+            if (idx < 0) return { d, fresh: false };
+            const s = snapshots[idx], T = +new Date(s.at);
+            const views = posted.filter(p => platOf(p) === k).reduce((sum, p) => {
+                const h = hist(p.id).filter(x => x.t <= T && x.views != null);
+                return sum + (h.length ? h[h.length - 1].views : 0);
+            }, 0);
+            const row = { d, di, fresh: true, followers: s.accounts[k].followers, likes: s.accounts[k].likes, views };
+            if (prev) Object.assign(row, { dViews: views - prev.views, dFollowers: row.followers - prev.followers, dLikes: row.likes != null && prev.likes != null ? row.likes - prev.likes : null, span: di - prev.di, since: prev.d });
+            prev = row;
+            return row;
+        });
+    }
+    const fresh = k => daily[k].filter(r => r.fresh);
+
+    // ── 小图：单一序列，不着平台色（平台靠标题区分），悬停看数 ──
+    const W = 300, H = 64, lastN = days.slice(-21);
+    const xOf = (i, n) => (i + 0.5) * W / n;
+    function barChart(k) {
+        const rows = daily[k].slice(-lastN.length), n = rows.length;
+        const max = Math.max(1, ...rows.map(r => r.dViews || 0)), bw = Math.min(18, W / n - 3);
+        const top = rows.reduce((m, r, i) => (r.dViews || 0) > (rows[m].dViews || 0) ? i : m, 0);
+        return `<svg viewBox="0 -14 ${W} ${H + 30}" role=img aria-label="${NAME[k]}每日新增${UNIT[k]}">`
+            + `<line x1=0 x2=${W} y1=${H} y2=${H} class=axis />`
+            + rows.map((r, i) => {
+                const x = xOf(i, n) - bw / 2;
+                if (!r.fresh) return `<rect x=${x} y=${H - 2} width=${bw} height=2 class=gap><title>${mdk(r.d)}：没采</title></rect>`;
+                if (r.dViews == null) return `<rect x=${x} y=${H - 2} width=${bw} height=2 class=gap><title>${mdk(r.d)}：第一笔，没有前一天可比</title></rect>`;
+                const h = Math.max(2, Math.round(Math.max(0, r.dViews) / max * (H - 4)));
+                return `<g><rect x=${xOf(i, n) - W / n / 2} y=-14 width=${W / n} height=${H + 14} fill=transparent />`
+                    + `<rect x=${x} y=${H - h} width=${bw} height=${h} class="bar${r.span > 1 ? ' multi' : ''}" />`
+                    + (i === top && r.dViews > 0 ? `<text x=${xOf(i, n)} y=${H - h - 4} text-anchor=middle class=val>${sign(r.dViews)}</text>` : '')
+                    + `<title>${mdk(r.d)}：${sign(r.dViews)} ${UNIT[k]}${r.span > 1 ? `（${mdk(r.since)} 之后 ${r.span} 天合计）` : ''}</title></g>`;
+            }).join('')
+            + `<text x=0 y=${H + 14} class=lab>${mdk(rows[0].d)}</text><text x=${W} y=${H + 14} text-anchor=end class=lab>${mdk(rows[n - 1].d)}</text></svg>`;
+    }
+    function lineChart(k) {
+        const rows = daily[k].slice(-lastN.length), n = rows.length, pts = rows.map((r, i) => ({ ...r, i })).filter(r => r.fresh);
+        if (!pts.length) return '';
+        const lo = Math.min(...pts.map(r => r.followers)), hi = Math.max(...pts.map(r => r.followers));
+        const y = v => hi === lo ? H / 2 : H - 6 - (v - lo) / (hi - lo) * (H - 18);
+        const last = pts[pts.length - 1];
+        return `<svg viewBox="0 -14 ${W} ${H + 30}" role=img aria-label="${NAME[k]}粉丝">`
+            + `<polyline class=ln points="${pts.map(r => `${xOf(r.i, n)},${y(r.followers)}`).join(' ')}" />`
+            + pts.map(r => `<g><circle cx=${xOf(r.i, n)} cy=${y(r.followers)} r=10 fill=transparent /><circle cx=${xOf(r.i, n)} cy=${y(r.followers)} r=3.5 class=dot /><title>${mdk(r.d)}：${r.followers} 粉丝${r.dFollowers ? `（${sign(r.dFollowers)}）` : ''}</title></g>`).join('')
+            + `<text x=${Math.min(W - 2, xOf(last.i, n) + 6)} y=${y(last.followers) - 8} text-anchor=end class=val>${last.followers}</text>`
+            + `<text x=0 y=${H + 14} class=lab>${mdk(rows[0].d)}</text><text x=${W} y=${H + 14} text-anchor=end class=lab>${mdk(rows[n - 1].d)}</text></svg>`;
+    }
+
+    // ── 顶部：每个平台一块 ──
+    const panels = Object.keys(PLATS).map(k => {
+        const f = fresh(k), cur = f[f.length - 1];
+        if (!cur) return `<div class=panel><h3>${NAME[k]}</h3><p>还没采到</p></div>`;
+        const firstRow = f[0], n = posted.filter(p => platOf(p) === k).length;
+        const ago = Math.round((now - new Date(cur.d + 'T12:00+08:00')) / DAY);
+        return `<div class=panel><h3>${NAME[k]}<span>${cur.d === today ? '今天' : `${mdk(cur.d)} 的数（${ago} 天前）`}</span></h3>`
+            + `<div class=kpis><div><b>${fmt(cur.followers)}</b><small>粉丝</small><i class=${cur.dFollowers > 0 ? 'up' : 'flat'}>${cur.since ? `较 ${mdk(cur.since)} ${sign(cur.dFollowers)}` : '第一笔'}</i></div>`
+            + `<div><b>${fmt(cur.views)}</b><small>已发 ${n} 条的总${UNIT[k]}</small><i class=${cur.dViews > 0 ? 'up' : 'flat'}>${cur.since ? `较 ${mdk(cur.since)} ${sign(cur.dViews)}` : '第一笔'}</i></div>`
+            + (cur.likes != null ? `<div><b>${fmt(cur.likes)}</b><small>${k === 'xhs' ? '获赞与收藏' : '获赞'}</small><i class=${cur.dLikes > 0 ? 'up' : 'flat'}>${cur.since ? `较 ${mdk(cur.since)} ${sign(cur.dLikes)}` : ''}</i></div>` : '')
+            + `</div><p class=since>自 ${mdk(firstRow.d)} 起：粉丝 ${sign(cur.followers - firstRow.followers)} · ${UNIT[k]} ${sign(cur.views - firstRow.views)}</p>`
+            + `<div class=charts><figure><figcaption>每日新增${UNIT[k]}</figcaption>${barChart(k)}</figure><figure><figcaption>粉丝</figcaption>${lineChart(k)}</figure></div></div>`;
     }).join('');
 
-    const hist = p => snapshots.filter(s => s.posts[p.id]).map(s => ({ at: s.at, ...s.posts[p.id] }));
-    const max = Math.max(1, ...posted.map(p => { const h = hist(p); return h.length ? h[h.length - 1].views || 0 : 0; }));
-    const rows = posted.map(p => {
-        const h = hist(p), cur = h[h.length - 1], pv = h[h.length - 2];
-        const days = Math.floor((Date.now() - new Date(p.posted_at)) / 864e5);
-        const head = `<div class=post><div class=meta><em class="tag ${p.platform}">${NAME[p.platform] || p.platform}</em> ${md(p.posted_at)} · ${days ? days + ' 天前' : '今天'}</div><div class=title>${esc(p.title)}</div>`;
-        if (!cur) return head + `<div class=none>读不到数（IG 轮播要逐条点进去看）</div></div>`;
-        return head + `<div class=bar><s style="width:${Math.max(1, Math.round((cur.views || 0) / max * 100))}%"></s></div>`
-            + `<div class=nums><b>${cur.views ?? '—'}</b> ${p.platform === 'xhs' ? '阅读' : '播放'} ${delta(cur.views, pv && pv.views)}`
-            + (cur.likes != null ? ` · <b>${cur.likes}</b> 赞 ${delta(cur.likes, pv && pv.likes)}` : '')
-            + (h.length > 1 ? `<small>${h.map(x => `${md(x.at)} ${x.views ?? '—'}`).join(' → ')}</small>` : '') + `</div></div>`;
-    }).join('\n');
+    // ── 每日明细表 ──
+    const dayRows = days.slice().reverse().filter(d => Object.keys(PLATS).some(k => daily[k][days.indexOf(d)].fresh)).map(d => {
+        const i = days.indexOf(d);
+        return `<tr><th>${mdk(d)} ${'日一二三四五六'[new Date(d + 'T12:00+08:00').getDay()]}</th>` + Object.keys(PLATS).map(k => {
+            const r = daily[k][i];
+            if (!r.fresh) return '<td class=dim>没采</td><td class=dim>—</td>';
+            return `<td>${fmt(r.followers)} <i>${r.dFollowers ? sign(r.dFollowers) : ''}</i></td><td>${r.dViews == null ? '<span class=dim>起点</span>' : sign(r.dViews)}${r.span > 1 ? `<span class=dim> (${r.span}天)</span>` : ''}</td>`;
+        }).join('') + '</tr>';
+    }).join('');
 
-    const today = new Date().toLocaleDateString('sv-SE', TZ);
+    // ── 帖子逐条：同平台内比 ──
+    const postTables = Object.keys(PLATS).map(k => {
+        const ps = posted.filter(p => platOf(p) === k);
+        if (!ps.length) return '';
+        const max = Math.max(1, ...ps.map(p => (latest(p) || {}).views || 0));
+        return `<h3 class=sub>${NAME[k]}</h3><div class=scroll><table class=posts><thead><tr><th>发布</th><th>标题</th><th>写法 · 形式</th><th class=r>第 1 天</th><th class=r>第 3 天</th><th class=r>现在</th><th class=r>赞</th><th class=r>赞 / ${UNIT[k]}</th></tr></thead><tbody>`
+            + ps.map(p => {
+                const cur = latest(p), age = Math.floor((now - new Date(p.posted_at)) / DAY);
+                const base = `<tr><td class=nowrap>${mdk(dkey(p.posted_at))}<span class=dim> · ${age ? age + ' 天' : '今天'}</span></td><td>${esc(p.title)}${p.platform !== k ? ` <span class=dim>${NAME[p.platform]}</span>` : ''}</td><td class=nowrap>${HOOK[p.hook] || p.hook} · ${form(p)}</td>`;
+                if (!cur) return base + `<td colspan=5 class=dim>读不到（IG 轮播的数要逐条点进去看）</td></tr>`;
+                const rate = cur.likes != null && cur.views ? cur.likes / cur.views : null;
+                return base + `<td class=r>${showDay(atDay(p, 1))}</td><td class=r>${showDay(atDay(p, 3))}</td>`
+                    + `<td class="r cur"><b>${fmt(cur.views)}</b><span class=mini><s style="width:${Math.max(2, Math.round((cur.views || 0) / max * 100))}%"></s></span></td>`
+                    + `<td class=r>${cur.likes ?? '<span class=dim>—</span>'}</td><td class=r>${rate == null ? '<span class=dim>—</span>' : (rate * 100).toFixed(1) + '%'}</td></tr>`;
+            }).join('') + '</tbody></table></div>';
+    }).join('');
+
+    // ── 按写法比 ──
+    const hooksUsed = [...new Set(q.posts.filter(p => p.status !== 'skipped' && p.hook && p.hook !== '-').map(p => p.hook))];
+    const hookRows = hooksUsed.map(h => `<tr><th>${HOOK[h] || h}</th>` + Object.keys(PLATS).map(k => {
+        const ps = posted.filter(p => platOf(p) === k && p.hook === h);
+        const d3 = ps.map(p => atDay(p, 3)).filter(v => v != null);
+        if (!ps.length) return '<td class=dim>还没发</td>';
+        return `<td>${d3.length ? `<b>${fmt(median(d3))}</b>` : '<span class=dim>—</span>'} <span class=dim>${ps.length} 条${d3.length < ps.length ? `，${d3.length} 条有第 3 天数` : ''}</span></td>`;
+    }).join('') + '</tr>').join('');
+
+    // ── 结论：只写数据撑得住的，样本不够就直说 ──
+    const find = [];
+    const hooksPosted = [...new Set(posted.map(p => p.hook))];
+    const nextOther = q.posts.filter(p => (p.status === 'planned' || p.status === 'ready') && p.date >= today && p.hook !== 'story' && p.hook !== '-')
+        .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+    if (hooksPosted.length === 1) find.push(['warn', `<b>写法好不好，现在算不出来。</b>已发 ${posted.length} 条全是「${HOOK[hooksPosted[0]] || hooksPosted[0]}」，没有别的写法做对照，换不换都只能凭感觉。`
+        + (nextOther.length ? `队列里 ${mdk(nextOther[0].date)} 起排的是 ${[...new Set(nextOther.slice(0, 6).map(p => HOOK[p.hook] || p.hook))].join(' / ')}，同平台各发 2–3 条后，下面「按写法比」就有对照了。` : '')]);
+    const pairs = posted.filter(p => p.platform === 'douyin').map(d => [d, posted.find(x => x.platform === 'xhs' && x.slug === d.slug)])
+        .filter(([d, x]) => x && latest(d) && latest(x)).map(([d, x]) => ({ t: d.title, dv: latest(d).views, xv: latest(x).views }));
+    if (pairs.length) {
+        const r = pairs.map(p => p.dv / Math.max(1, p.xv));
+        find.push(['', `<b>同一篇内容，抖音的播放是小红书阅读的 ${Math.min(...r).toFixed(1)}–${Math.max(...r).toFixed(1)} 倍</b>（${pairs.map(p => `${esc(p.t.slice(0, 8))}… ${fmt(p.dv)} vs ${fmt(p.xv)}`).join('；')}）。注意抖音「播放」划过就算，小红书「阅读」要点开，口径不一样，倍数偏大。`]);
+    }
+    const grow = Object.keys(PLATS).map(k => { const f = fresh(k); return f.length > 1 ? { k, a: f[0], b: f[f.length - 1], n: posted.filter(p => platOf(p) === k && new Date(p.posted_at) >= new Date(f[0].d + 'T00:00+08:00')).length } : null; }).filter(Boolean);
+    if (grow.length) find.push(['', `<b>涨粉：</b>${grow.map(g => `${NAME[g.k]} ${g.a.followers}→${g.b.followers}（${sign(g.b.followers - g.a.followers)}，期间新发 ${g.n} 条）`).join('；')}。`
+        + (grow.some(g => g.b.followers > g.a.followers) ? `在带人关注的只有${grow.filter(g => g.b.followers > g.a.followers).map(g => NAME[g.k]).join('、')}。` : '三边都没涨粉。')]);
+    for (const k of Object.keys(PLATS)) {
+        const vals = posted.filter(p => platOf(p) === k).map(p => ({ p, v: atDay(p, 3) })).filter(x => x.v != null);
+        if (vals.length < 2) continue;
+        vals.sort((a, b) => b.v - a.v);
+        const hi = vals[0], lo = vals[vals.length - 1];
+        if (hi.v >= lo.v * 1.5) find.push(['', `<b>${NAME[k]}第 3 天：</b>最好「${esc(hi.p.title)}」≈${fmt(hi.v)}（${HOOK[hi.p.hook] || hi.p.hook} · ${form(hi.p)}），最差「${esc(lo.p.title)}」≈${fmt(lo.v)}，差 ${(hi.v / Math.max(1, lo.v)).toFixed(1)} 倍。${vals.length < 4 ? '只有 ' + vals.length + ' 条，先当线索看，别当结论。' : ''}`]);
+    }
+    const rated = posted.filter(p => platOf(p) === 'xhs').map(p => ({ p, c: latest(p) })).filter(x => x.c && x.c.likes != null && x.c.views >= 100).map(x => ({ ...x, r: x.c.likes / x.c.views }));
+    if (rated.length >= 3) {
+        const m = median(rated.map(x => x.r * 1e4)) / 1e4, top = rated.reduce((a, b) => b.r > a.r ? b : a);
+        if (top.r >= m * 1.8) find.push(['', `<b>小红书赞率：</b>「${esc(top.p.title)}」${(top.r * 100).toFixed(1)}%，其余中位 ${(m * 100).toFixed(1)}%。阅读不一定最高，但看到的人更愿意点赞 —— 这类题材值得再来一条。`]);
+    }
+    const igNew = posted.filter(p => p.platform === 'ig_reel').map(p => ({ p, c: latest(p) })).filter(x => x.c);
+    const igBase = (() => { for (let i = snapshots.length - 1; i >= 0; i--) if ((snapshots[i].unmatched.ig || []).length) return snapshots[i].unmatched.ig.map(x => x.views); return []; })();
+    if (igBase.length >= 3 && igNew.length) find.push([igNew.every(x => x.c.views < median(igBase) / 2) ? 'warn' : '', `<b>IG Reel 对比老号自己：</b>主页上队列之外的 ${igBase.length} 条旧 Reel 播放中位 ${fmt(median(igBase))}（最高 ${fmt(Math.max(...igBase))}）；这轮发的 ${igNew.map(x => `「${esc(x.p.title)}」${fmt(x.c.views)}`).join('、')}。`]);
+    const wk = days.slice(-7), got = wk.filter(d => Object.keys(PLATS).some(k => daily[k][days.indexOf(d)].fresh)).length;
+    if (got < wk.length) find.push(['warn', `<b>近 ${wk.length} 天只有 ${got} 天采了数，</b>曲线是断的，没采的日子会并进下一天（柱子变浅）。要看清「每天涨多少」，得每天固定时间采一次。`]);
+    const um = snapshots[snapshots.length - 1].unmatched || {};
+    for (const k of Object.keys(um)) if (k !== 'ig') find.push(['warn', `<b>${NAME[k]}主页上有对不上队列的帖子：</b>${um[k].map(x => esc(x.title || `播放 ${x.views}`)).join('、')} —— 不在 queue.json 的 posted 里，数据没算进上面。`]);
+
     const WEEK = '日一二三四五六';
     const next = q.posts.filter(p => p.date >= today && (p.status === 'ready' || p.status === 'planned'))
         .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)).slice(0, 8)
-        .map(p => `<div class=up><span>${+p.date.slice(5, 7)}/${+p.date.slice(8)} ${WEEK[new Date(p.date + 'T12:00+08:00').getDay()]} ${p.time}</span><em class="tag ${p.platform}">${NAME[p.platform] || p.platform}</em>`
-            + `<span class=t>${esc(p.title)}</span><span class="st ${p.status}">${p.status === 'ready' ? (p.video ? '视频已备' : '素材已备') : '只有选题'}</span></div>`).join('\n');
+        .map(p => `<tr><td class=nowrap>${mdk(p.date)} ${WEEK[new Date(p.date + 'T12:00+08:00').getDay()]} ${p.time}</td><td class=nowrap>${NAME[p.platform] || p.platform}</td><td>${esc(p.title)}</td><td class=nowrap>${HOOK[p.hook] || p.hook}</td><td class="nowrap ${p.status}">${p.status === 'ready' ? (p.video ? '视频已备' : '素材已备') : '只有选题'}</td></tr>`).join('');
 
+    const last = snapshots[snapshots.length - 1];
     fs.writeFileSync(HTML, `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VIIYD 社媒看板</title>
 <style>
 *{box-sizing:border-box}
-body{background:#0E1113;color:#D6ECF0;font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif;margin:0 auto;padding:28px 16px 48px;max-width:1040px}
-h1{font-size:22px;margin:0}h2{font-size:14px;font-weight:400;color:#758A99;letter-spacing:.08em;margin:36px 0 12px;padding-bottom:8px;border-bottom:1px solid #758A9940}
-p,small,.meta,.none{color:#758A99;font-size:13px}i{font-style:normal;color:#5AA4AE;font-size:13px}
-.warn{color:#F0C239}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}
-.tile{border:1px solid #758A9940;padding:16px 18px}.tile h3{margin:0 0 6px;font-size:13px;font-weight:400;color:#5AA4AE}
-.tile b{font-size:40px;line-height:1.1;font-variant-numeric:tabular-nums}.tile p{margin:8px 0 0}
-.post{padding:14px 0;border-bottom:1px solid #758A9926}.title{font-size:16px;margin:2px 0 8px}
-.bar{background:#758A9926;height:6px}.bar s{display:block;height:6px;background:#5AA4AE}
-.nums{margin-top:6px;font-variant-numeric:tabular-nums}.nums b{font-size:18px}.nums small{display:block}
-.tag{font-style:normal;font-size:12px;padding:1px 7px;border:1px solid #758A99;color:#D6ECF0;margin-right:6px;white-space:nowrap}
-.tag.xhs{border-color:#FF4C00}.tag.douyin{border-color:#D6ECF0}.tag.ig_reel,.tag.ig_carousel{border-color:#5AA4AE}
-.up{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:9px 0;border-bottom:1px solid #758A9926}
-.up>span:first-child{color:#758A99;font-size:13px;min-width:108px;font-variant-numeric:tabular-nums}.up .t{flex:1 1 200px}
-.st{font-size:12px;color:#758A99}.st.ready{color:#5AA4AE}
+body{background:#0E1113;color:#D6ECF0;font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif;margin:0 auto;padding:24px 16px 48px;max-width:1200px}
+h1{font-size:22px;margin:0}h2{font-size:15px;font-weight:600;margin:36px 0 12px;padding-bottom:8px;border-bottom:1px solid #758A9940}
+h3.sub{font-size:13px;font-weight:400;color:#5AA4AE;margin:18px 0 6px}
+p{margin:6px 0}.lede,.dim,.since,small,figcaption{color:#758A99}.lede{font-size:13px}
+i{font-style:normal;font-size:12px}i.up{color:#5AA4AE}i.flat{color:#758A99}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px;margin-top:18px}
+.panel{border:1px solid #758A9940;padding:14px 16px}
+.panel h3{margin:0 0 10px;font-size:15px;display:flex;justify-content:space-between;align-items:baseline}.panel h3 span{font-size:12px;font-weight:400;color:#758A99}
+.kpis{display:flex;gap:22px;flex-wrap:wrap}.kpis div{display:flex;flex-direction:column}
+.kpis b{font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}.kpis small{font-size:12px}
+.since{font-size:12px;margin-top:8px}
+.charts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}figure{margin:0}figcaption{font-size:12px}
+svg{width:100%;height:auto;display:block;overflow:visible}
+.axis{stroke:#758A9960;stroke-width:1}.bar{fill:#5AA4AE}.bar.multi{fill:#5AA4AE80}.gap{fill:#758A9950}
+.ln{fill:none;stroke:#5AA4AE;stroke-width:2}.dot{fill:#5AA4AE;stroke:#0E1113;stroke-width:2}
+.val{fill:#D6ECF0;font-size:11px}.lab{fill:#758A99;font-size:10px}
+g:hover .bar,g:hover .dot{fill:#D6ECF0}
+.find{list-style:none;padding:0;margin:0}.find li{padding:10px 14px;border-left:2px solid #5AA4AE;background:#758A9914;margin-bottom:8px}
+.find li.warn{border-left-color:#F0C239}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 10px 7px 0;border-bottom:1px solid #758A9926;vertical-align:baseline}
+thead th{font-weight:400;color:#758A99;font-size:12px}tbody th{font-weight:400}
+.r{text-align:right}.nowrap{white-space:nowrap}
+td.cur{min-width:110px}.mini{display:block;height:3px;background:#758A9926;margin-top:3px}.mini s{display:block;height:3px;background:#5AA4AE;margin-left:auto}
+td.ready{color:#5AA4AE}td.planned{color:#758A99}
+@media(max-width:520px){.kpis b{font-size:26px}}
 </style>
 <h1>VIIYD 社媒看板</h1>
-<p>数据截至 ${day(last.at)} · 第 ${snapshots.length} 笔快照${prev ? ` · 蓝色小字是相对 ${day(prev.at)} 的变化` : ''} · 每次发帖前和每周日晚更新</p>
-${last.errors.map(w => `<p class=warn>⚠ 这次没采到：${esc(w)}</p>`).join('')}
-<div class=tiles>${tiles}</div>
-<h2>已发的帖子</h2>
-${rows}
+<p class=lede>最近一笔 ${clock(last.at)} · 共 ${snapshots.length} 笔快照，${days.filter(d => Object.keys(PLATS).some(k => daily[k][days.indexOf(d)].fresh)).length} 天有数 · 「较 x/x」都是跟前一个有数的日子比 · 鼠标停在柱子/圆点上看具体数</p>
+${last.errors.map(w => `<p class=lede style="color:#F0C239">⚠ 最近一笔没采到：${esc(w)}</p>`).join('')}
+<div class=panels>${panels}</div>
+<h2>这些数说明了什么</h2>
+<ul class=find>${find.map(([c, t]) => `<li class="${c}">${t}</li>`).join('')}</ul>
+<h2>按写法比 <span class=dim style="font-weight:400;font-size:12px">· 第 3 天阅读/播放中位数</span></h2>
+<div class=scroll><table><thead><tr><th>写法</th>${Object.keys(PLATS).map(k => `<th>${NAME[k]}</th>`).join('')}</tr></thead><tbody>${hookRows}</tbody></table></div>
+<h2>每条帖子</h2>
+<p class=lede>只在同一平台内比。第 1 / 3 天是按采集时刻推算的（≈），「—」表示那几天没采到，「未满」表示还没到。</p>
+${postTables}
+<h2>每日明细</h2>
+<div class=scroll><table><thead><tr><th>日期</th>${Object.keys(PLATS).map(k => `<th>${NAME[k]} 粉丝</th><th>新增${UNIT[k]}</th>`).join('')}</tr></thead><tbody>${dayRows}</tbody></table></div>
 <h2>接下来要发</h2>
-${next || '<p>队列里没有待发的帖子</p>'}
-<p style="margin-top:28px">读不到的：IG 轮播的赞、各平台收藏和评论。抖音与 IG Reel 的格子里没有标题，按「最新的在最前」对回队列，队列外另发过东西时会错位。</p>
+${next ? `<div class=scroll><table><tbody>${next}</tbody></table></div>` : '<p class=dim>队列里没有待发的帖子</p>'}
+<p class=lede style="margin-top:28px">读不到的：IG 轮播的赞和播放、各平台收藏和评论。抖音与 IG Reel 的格子里没有标题，按「最新的在最前」对回队列，队列外另发过东西时会错位。</p>
 </html>
 `);
     console.log(`📄 ${path.relative(ROOT, HTML)}`);
