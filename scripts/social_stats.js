@@ -286,7 +286,7 @@ function collect(which) {
 // - 「变化」一律按天比：今天最后一笔 vs 之前最近一个有数的日子。旧版按「上一笔快照」比，同一天连采两次时全是空的。
 // - 每日新增播放 = 该平台所有已发帖子「截至当天最后一笔」的播放之和，再与前一个有数的日子相减；中间没采的日子并进下一天，提示里写几天合计。
 // - 第 1 / 3 天播放：从发布时刻（记 0）到各笔快照之间线性插值；相邻两笔隔超过 1.5 天就不插（播放前几天涨得最猛，隔久了线性插值会严重低估），显示「—」（开始采集前就发了的帖子都这样）。
-// - 「按写法比」按 queue.json 的 hook 分组，用第 3 天播放的中位数 —— 写法好不好要靠这一块回答，同一种写法没法跟自己比。
+// - 「按类型比」按 queue.json 的 hook 分组（H1 / H6 合并成 N），用第 3 天播放的中位数 —— 写法好不好要靠这一块回答，同一种写法没法跟自己比。
 function report() {
     if (!fs.existsSync(STATS)) { console.error('❌ 还没有快照，先跑 collect'); process.exit(1); }
     const { snapshots } = JSON.parse(fs.readFileSync(STATS, 'utf8'));
@@ -300,7 +300,9 @@ function report() {
     const sign = n => n == null ? '' : n > 0 ? `+${fmt(n)}` : n < 0 ? `−${fmt(-n)}` : '±0';
     const median = a => { const s = a.filter(x => x != null).sort((x, y) => x - y); return s.length ? (s.length % 2 ? s[s.length >> 1] : Math.round((s[s.length / 2 - 1] + s[s.length / 2]) / 2)) : null; };
     const NAME = { xhs: '小红书', douyin: '抖音', ig: 'Instagram', ig_reel: 'IG Reel', ig_carousel: 'IG 轮播', reddit: 'Reddit' };
-    const HOOK = { story: '小故事', H1: '工时', H2: '灰模→成品', H4: '代入', H5: '猜题', H6: '数字清单', 360: '360° 转台', H7: '价格话题', H8: '客户表扬' };
+    const HOOK = { story: '小故事', H1: '工时', H2: '灰模→成品', H4: '代入', H5: '猜题', H6: '数字清单', 360: '360° 转台', H7: '价格话题', H8: '客户表扬', N: '数字（工时 / 清单）' };
+    // 运营方案 v2（PROMOTION_OPS 〇·六）把 H1 工时和 H6 数字清单合并成一臂 N 来比 —— 两种数字在标题里总一起出现，分开测样本不够
+    const arm = h => h === 'H1' || h === 'H6' ? 'N' : h;
     const UNIT = { xhs: '阅读', douyin: '播放', ig: '播放' };
     const PLATS = { xhs: ['xhs'], douyin: ['douyin'], ig: ['ig_reel', 'ig_carousel'] };
     const DAY = 864e5, now = Date.now(), today = dkey(now);
@@ -423,12 +425,12 @@ function report() {
             }).join('') + '</tbody></table></div>';
     }).join('');
 
-    // ── 按写法比 ──
-    // 现在测的三类（PROMOTION_OPS 〇·六）；遗留的 H1/H4/H5/H6 planned 条目备货时会改写成故事，只在真发过时才出现
-    const ACTIVE = ['story', 'H7', 'H8'];
-    const hooksUsed = [...new Set([...ACTIVE, ...posted.map(p => p.hook).filter(h => h && h !== '-')])];
+    // ── 按类型比 ──
+    // 现在在比的类型（PROMOTION_OPS 〇·六）：标题臂 story / N / H4，360 视频，真实素材 H7 / H8
+    const ACTIVE = ['story', 'N', 'H4', '360', 'H7', 'H8'];
+    const hooksUsed = [...new Set([...ACTIVE, ...posted.map(p => arm(p.hook)).filter(h => h && h !== '-')])];
     const hookRows = hooksUsed.map(h => `<tr><th>${HOOK[h] || h}</th>` + Object.keys(PLATS).map(k => {
-        const ps = posted.filter(p => platOf(p) === k && p.hook === h);
+        const ps = posted.filter(p => platOf(p) === k && arm(p.hook) === h);
         const d3 = ps.map(p => atDay(p, 3)).filter(v => v != null);
         if (!ps.length) return '<td class=dim>还没发</td>';
         // 小红书另给「每百阅读评论」：价格话题拼的是评论，不是阅读（PROMOTION_OPS 〇·六）
@@ -438,11 +440,11 @@ function report() {
 
     // ── 结论：只写数据撑得住的，样本不够就直说 ──
     const find = [];
-    const hooksPosted = [...new Set(posted.map(p => p.hook))];
-    const nextOther = q.posts.filter(p => (p.status === 'planned' || p.status === 'ready') && p.date >= today && ACTIVE.includes(p.hook) && p.hook !== 'story')
+    const hooksPosted = [...new Set(posted.map(p => arm(p.hook)))];
+    const nextOther = q.posts.filter(p => (p.status === 'planned' || p.status === 'ready') && p.date >= today && ACTIVE.includes(arm(p.hook)) && p.hook !== 'story')
         .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
     if (hooksPosted.length === 1) find.push(['warn', `<b>写法好不好，现在算不出来。</b>已发 ${posted.length} 条全是「${HOOK[hooksPosted[0]] || hooksPosted[0]}」，没有别的写法做对照，换不换都只能凭感觉。`
-        + (nextOther.length ? `队列里 ${mdk(nextOther[0].date)} 起排的是 ${[...new Set(nextOther.slice(0, 6).map(p => HOOK[p.hook] || p.hook))].join(' / ')}，同平台各发 2–3 条后，下面「按写法比」就有对照了。` : '')]);
+        + (nextOther.length ? `队列里 ${mdk(nextOther[0].date)} 起排的是 ${[...new Set(nextOther.slice(0, 8).map(p => HOOK[arm(p.hook)] || p.hook))].join(' / ')}，11/15 初看、11/29 各满 4 条后，下面「按类型比」就有结论了。` : '')]);
     const pairs = posted.filter(p => p.platform === 'douyin').map(d => [d, posted.find(x => x.platform === 'xhs' && x.slug === d.slug)])
         .filter(([d, x]) => x && latest(d) && latest(x)).map(([d, x]) => ({ t: d.title, dv: latest(d).views, xv: latest(x).views }));
     if (pairs.length) {
@@ -499,7 +501,7 @@ function report() {
     const WEEK = '日一二三四五六';
     const next = q.posts.filter(p => p.date >= today && (p.status === 'ready' || p.status === 'planned'))
         .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)).slice(0, 8)
-        .map(p => `<tr><td class=nowrap>${mdk(p.date)} ${WEEK[new Date(p.date + 'T12:00+08:00').getDay()]} ${p.time}</td><td class=nowrap>${NAME[p.platform] || p.platform}</td><td>${esc(p.title)}</td><td class=nowrap>${HOOK[p.hook] || p.hook}</td><td class="nowrap ${p.status}">${p.status === 'ready' ? (p.video ? '视频已备' : '素材已备') : '只有选题'}</td></tr>`).join('');
+        .map(p => `<tr><td class=nowrap>${mdk(p.date)} ${WEEK[new Date(p.date + 'T12:00+08:00').getDay()]} ${p.time}</td><td class=nowrap>${NAME[p.platform] || p.platform}</td><td>${esc(p.title)}</td><td class=nowrap>${HOOK[arm(p.hook)] || p.hook}</td><td class="nowrap ${p.status}">${p.status === 'ready' ? (p.video ? '视频已备' : '素材已备') : '只有选题'}</td></tr>`).join('');
 
     const last = snapshots[snapshots.length - 1];
     fs.writeFileSync(HTML, `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -544,7 +546,7 @@ ${last.errors.map(w => `<p class=lede style="color:#F0C239">⚠ 最近一笔没�
 <div class=panels>${panels}</div>
 <h2>这些数说明了什么</h2>
 <ul class=find>${find.map(([c, t]) => `<li class="${c}">${t}</li>`).join('')}</ul>
-<h2>按写法比 <span class=dim style="font-weight:400;font-size:12px">· 第 3 天阅读/播放中位数；小红书另有每百阅读评论中位数（价格话题看这个）</span></h2>
+<h2>按类型比 <span class=dim style="font-weight:400;font-size:12px">· 第 3 天阅读/播放中位数；小红书另有每百阅读评论中位数（价格话题看这个）</span></h2>
 <div class=scroll><table><thead><tr><th>写法</th>${Object.keys(PLATS).map(k => `<th>${NAME[k]}</th>`).join('')}</tr></thead><tbody>${hookRows}</tbody></table></div>
 <h2>评论区在聊什么 <span class=dim style="font-weight:400;font-size:12px">· 只有小红书读得到原文；抖音 / IG 帖子页在播动画，读不出来</span></h2>
 ${commentBlocks || '<p class=dim>还没采到评论</p>'}
@@ -557,7 +559,7 @@ ${postTables}
 <div class=scroll><table><thead><tr><th>日期</th>${Object.keys(PLATS).map(k => `<th>${NAME[k]} 粉丝</th><th>新增${UNIT[k]}</th>`).join('')}</tr></thead><tbody>${dayRows}</tbody></table></div>
 <h2>接下来要发</h2>
 ${next ? `<div class=scroll><table><tbody>${next}</tbody></table></div>` : '<p class=dim>队列里没有待发的帖子</p>'}
-<p class=lede style="margin-top:28px">读不到的：IG 轮播的赞和播放、各平台收藏和评论。抖音与 IG Reel 的格子里没有标题，按「最新的在最前」对回队列，队列外另发过东西时会错位。</p>
+<p class=lede style="margin-top:28px">读不到的：IG 轮播的赞和播放；抖音和 IG 的收藏、评论（帖子页在播动画，读不出来）。抖音与 IG Reel 的格子里没有标题，按「最新的在最前」对回队列，队列外另发过东西时会错位。</p>
 </html>
 `);
     console.log(`📄 ${path.relative(ROOT, HTML)}`);
