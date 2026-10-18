@@ -65,13 +65,17 @@ async function pack(post) {
     fs.rmSync(dir, { recursive: true, force: true });
     fs.mkdirSync(dir, { recursive: true });
     fs.mkdirSync(CACHE, { recursive: true });
-    const prefix = fm.cover.replace(/_\d+\.webp$/, '');           // …/viiyd20260925meganobz
+    // 新作品 cover 是 …_01.webp，有预生成的 _web；2024 年的旧作品 cover 是 …_01.jpg，没有 _web，
+    // 只能拉原图（约 6MB/张）本地缩放。cdn-cgi 实时缩放对这种大 jpg 会 524 超时（2026-10-18 泽内斯特拉实测）
+    const m = fm.cover.match(/^(.*)_\d+\.(webp|jpe?g)$/i);
+    if (!m) throw new Error(`cover 不是 _NN 格式，没法推导图集：${fm.cover}`);
+    const [, prefix, ext] = m;                                     // …/viiyd20260925meganobz
 
     const nums = pickPhotos(post, fm.photos);
     for (let i = 0; i < nums.length; i++) {
         const [num, mode] = String(nums[i]).split(':');
         const nn = num.padStart(2, '0');
-        const url = `${prefix}_${nn}_web.webp`;
+        const url = ext === 'webp' ? `${prefix}_${nn}_web.webp` : `${prefix}_${nn}.${ext}`;
         const src = await fetchTo(url, path.join(CACHE, path.basename(url)));
         const out = path.join(dir, String(i + 1).padStart(2, '0') + '.jpg');
         const size = RATIO[post.platform];
