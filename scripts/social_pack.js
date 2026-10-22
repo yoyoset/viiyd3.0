@@ -9,6 +9,7 @@
  * 产出（private/social/outbox/<post-id>/）:
  *   01.jpg … NN.jpg   按平台比例裁切（小红书 / 抖音图文 3:4 = 1080×1440，IG 4:5 = 1080×1350，Reddit 原比例）
  *   reel.mp4          ig_reel / 带 video 的 douyin：从 R2 的 360° 视频截 start..start+duration 秒（原片竖版横版都有，统一输出 1080×1920，横版垫黑边）
+ *                     video 写了 file（本地路径）就用本地成品，不走 R2 —— F:/shortvideo 里用户自己剪的 360° / 拆件视频
  *   caption.txt       标题 + 正文 + 标签，可直接整段复制
  *
  * 选图: queue 里写了 photos 就按它；没写就取 cover(_01) + 在 1..photos 间均匀取样（小红书 / 抖音 9 张，IG 8 张）。
@@ -87,7 +88,10 @@ async function pack(post) {
     }
 
     if ((post.platform === 'ig_reel' || post.platform === 'douyin') && post.video) {
-        const vsrc = await fetchTo(`https://photo.viiyd.com/video/${post.video.name}.mp4`, path.join(CACHE, post.video.name + '.mp4'));
+        // video.file = 本地成品（F:/shortvideo 里用户自己剪的，没传 R2 的那些）；否则按 video.name 从 R2 拉
+        const vsrc = post.video.file
+            ? post.video.file
+            : await fetchTo(`https://photo.viiyd.com/video/${post.video.name}.mp4`, path.join(CACHE, post.video.name + '.mp4'));
         execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(post.video.start || 0), '-i', vsrc,
             '-t', String(post.video.duration || 15),
             // 横版原片（1920×1080）直接传，IG 会把 16:9 画面硬压进 9:16 封面框——统一垫黑边成竖版
