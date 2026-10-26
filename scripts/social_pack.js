@@ -8,7 +8,9 @@
  *
  * 产出（private/social/outbox/<post-id>/）:
  *   01.jpg … NN.jpg   按平台比例裁切（小红书 / 抖音图文 3:4 = 1080×1440，IG 4:5 = 1080×1350，Reddit 原比例）
- *   reel.mp4          ig_reel / 带 video 的 douyin：从 R2 的 360° 视频截 start..start+duration 秒（原片竖版横版都有，统一输出 1080×1920，横版垫黑边）
+ *   reel.mp4          ig_reel / 带 video 的 douyin：R2 的 360° 视频**整段 + 原声**（原片竖版横版都有，统一输出 1080×1920，横版垫黑边）。
+ *                     只有写了 video.start / video.duration 才截取。以前默认截前 15 秒、去声音，
+ *                     转台只转半圈、用户配的音乐也没了（2026-10-26 用户发现）——用户剪的成品约 30 秒正好一圈，别再截。
  *                     video 写了 file（本地路径）就用本地成品，不走 R2 —— F:/shortvideo 里用户自己剪的 360° / 拆件视频
  *   caption.txt       标题 + 正文 + 标签，可直接整段复制
  *
@@ -92,12 +94,16 @@ async function pack(post) {
         const vsrc = post.video.file
             ? post.video.file
             : await fetchTo(`https://photo.viiyd.com/video/${post.video.name}.mp4`, path.join(CACHE, post.video.name + '.mp4'));
-        execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(post.video.start || 0), '-i', vsrc,
-            '-t', String(post.video.duration || 15),
+        const cut = [];
+        if (post.video.start) cut.push('-ss', String(post.video.start));
+        cut.push('-i', vsrc);
+        if (post.video.duration) cut.push('-t', String(post.video.duration));
+        execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...cut,
             // 横版原片（1920×1080）直接传，IG 会把 16:9 画面硬压进 9:16 封面框——统一垫黑边成竖版
             '-vf', 'scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2,setsar=1',
             '-c:v', 'libx264', '-crf', '20', '-preset', 'medium',
-            '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', path.join(dir, 'reel.mp4')]);
+            '-c:a', 'aac', '-b:a', '192k',
+            '-pix_fmt', 'yuv420p', '-movflags', '+faststart', path.join(dir, 'reel.mp4')]);
     }
 
     const tags = (post.tags || []).map(t => '#' + t).join(' ');
