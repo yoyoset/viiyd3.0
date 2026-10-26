@@ -299,7 +299,7 @@ function report() {
     const fmt = n => n == null ? '—' : n.toLocaleString('en-US');
     const sign = n => n == null ? '' : n > 0 ? `+${fmt(n)}` : n < 0 ? `−${fmt(-n)}` : '±0';
     const median = a => { const s = a.filter(x => x != null).sort((x, y) => x - y); return s.length ? (s.length % 2 ? s[s.length >> 1] : Math.round((s[s.length / 2 - 1] + s[s.length / 2]) / 2)) : null; };
-    const NAME = { xhs: '小红书', douyin: '抖音', ig: 'Instagram', ig_reel: 'IG Reel', ig_carousel: 'IG 轮播', reddit: 'Reddit' };
+    const NAME = { xhs: '小红书', douyin: '抖音', ig: 'Instagram', ig_reel: 'IG Reel', ig_carousel: 'IG 轮播', reddit: 'Reddit', channels: '视频号' };
     const HOOK = { story: '小故事', H1: '工时', H2: '灰模→成品', H4: '代入', H5: '猜题', H6: '数字清单', 360: '360° 转台', H7: '价格话题', H8: '客户表扬', N: '数字（工时 / 清单）' };
     // 运营方案 v2（PROMOTION_OPS 〇·六）把 H1 工时和 H6 数字清单合并成一臂 N 来比 —— 两种数字在标题里总一起出现，分开测样本不够
     const arm = h => h === 'H1' || h === 'H6' ? 'N' : h;
