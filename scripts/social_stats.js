@@ -99,6 +99,9 @@ function appendNew(seen, page) {
     seen.push(...page.slice(k));
 }
 
+// 小红书主页卡片的 content-desc 前缀。视频笔记写成什么还没见过（第一条视频 2026-11-02 发），先按「视频,」猜着兼容，发了以后实测改
+const XHS_CARD = /^(?:笔记|视频),/;
+
 const labelValue = (nodes, label) => { const i = nodes.findIndex(n => n.text === label); return i > 0 ? num(nodes[i - 1].text) : null; };
 
 // 只读近期帖子（2026-10-28 用户：帖子越发越多，不能每次把发过的全看一遍，远古的能不看就不看）。
@@ -155,10 +158,10 @@ function xhsComments(titles) {
         let card = null;
         for (let k = 0; k < 6 && !card; k++) {
             const ns = dump();
-            if (!isXhsProfile(ns) && !ns.some(n => /^笔记,/.test(n.desc))) return res;
+            if (!isXhsProfile(ns) && !ns.some(n => XHS_CARD.test(n.desc))) return res;
             // 点卡片露在顶栏（y>250）和底栏（y<2180）之间那段的中心；露出不到 300px 就再滑。
             // 列表到底时最后一行卡片的 bounds 会压进底栏（[1264,2213]），只能这样算，不能要求整张在屏上。
-            card = ns.find(n => n.desc.startsWith(`笔记,${title},`) && n.box[1] > 250 && Math.min(n.box[3], 2180) - n.box[1] > 300);
+            card = ns.find(n => n.desc.replace(XHS_CARD, "").startsWith(`${title},`) && XHS_CARD.test(n.desc) && n.box[1] > 250 && Math.min(n.box[3], 2180) - n.box[1] > 300);
             if (!card) { adb('shell', 'input', 'swipe', '540', '1700', '540', '1100', '400'); sleep(1500); }
         }
         if (!card) { console.log(`   ⚠️  主页上没找到「${title}」的卡片`); continue; }
@@ -169,7 +172,7 @@ function xhsComments(titles) {
         // 没进到详情页：还在主页就跳过这条（此时按返回会退出 App）；落到别的页面就整段停下
         if (r.comments == null) {
             console.log(`   ⚠️  「${title}」没进到详情页`);
-            if (ns.some(n => /^笔记,/.test(n.desc))) continue;
+            if (ns.some(n => XHS_CARD.test(n.desc))) continue;
             return res;
         } else {
             const seen = new Set();
@@ -182,7 +185,7 @@ function xhsComments(titles) {
             res[title] = r;
         }
         adb('shell', 'input', 'keyevent', '4'); sleep(2500);
-        if (!dump().some(n => /^笔记,/.test(n.desc))) { console.log('   ⚠️  没回到小红书主页，评论只读到这里'); return res; }
+        if (!dump().some(n => XHS_CARD.test(n.desc))) { console.log('   ⚠️  没回到小红书主页，评论只读到这里'); return res; }
     }
     return res;
 }
@@ -200,7 +203,7 @@ const readers = {
         for (let i = 0; i < 8; i++) {
             const before = items.size;
             for (const n of nodes) {
-                const m = n.desc.match(/^笔记,(.*),来自[^,]*,(\S+?)赞，(\S+?)阅读/);
+                const m = n.desc.match(/^(?:笔记|视频),(.*),来自[^,]*,(\S+?)赞，(\S+?)(?:阅读|播放|观看)/);
                 if (m) items.set(m[1], { title: m[1], likes: num(m[2]), views: num(m[3]) });
             }
             if (!opts.all && want.every(t => items.has(t))) break;
@@ -486,6 +489,10 @@ function report() {
         const hi = vals[0], lo = vals[vals.length - 1];
         if (hi.v >= lo.v * 1.5) find.push(['', `<b>${NAME[k]}第 3 天：</b>最好「${esc(hi.p.title)}」≈${fmt(hi.v)}（${HOOK[hi.p.hook] || hi.p.hook} · ${form(hi.p)}），最差「${esc(lo.p.title)}」≈${fmt(lo.v)}，差 ${(hi.v / Math.max(1, lo.v)).toFixed(1)} 倍。${vals.length < 4 ? '只有 ' + vals.length + ' 条，先当线索看，别当结论。' : ''}`]);
     }
+    // 小红书视频 vs 图文（2026-10-28 起 4 条周一 / 五视频笔记做对照，PROMOTION_OPS〇·七）。价格帖固定是图文、阅读普遍高，不算进来
+    const xf = f => posted.filter(p => p.platform === 'xhs' && p.hook !== 'H7' && form(p) === f && Date.now() - new Date(p.posted_at) < 42 * DAY).map(p => atDay(p, 3)).filter(v => v != null);
+    const [xv, xi] = [xf('视频'), xf('图文')];
+    if (xv.length) find.push([xv.length < 4 ? 'warn' : '', `<b>小红书视频 vs 图文（第 3 天阅读中位，近 6 周、不含价格帖）：</b>视频 ${fmt(median(xv))}（${xv.length} 条） / 图文 ${fmt(median(xi))}（${xi.length} 条）。${xv.length < 4 ? '视频还不满 4 条，先别下结论。' : median(xv) >= median(xi) * 1.5 ? '视频明显更高，周一 / 五有视频的作品改发视频。' : median(xv) * 1.5 <= median(xi) ? '视频反而更低，小红书回到图文。' : '差不到 1.5 倍，算打平，按做起来省事的来。'}`]);
     const rated = posted.filter(p => platOf(p) === 'xhs').map(p => ({ p, c: latest(p) })).filter(x => x.c && x.c.likes != null && x.c.views >= 100).map(x => ({ ...x, r: x.c.likes / x.c.views }));
     if (rated.length >= 3) {
         const m = median(rated.map(x => x.r * 1e4)) / 1e4, top = rated.reduce((a, b) => b.r > a.r ? b : a);

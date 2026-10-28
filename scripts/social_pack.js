@@ -8,7 +8,7 @@
  *
  * 产出（private/social/outbox/<post-id>/）:
  *   01.jpg … NN.jpg   按平台比例裁切（小红书 / 抖音图文 3:4 = 1080×1440，IG 4:5 = 1080×1350，Reddit 原比例）
- *   reel.mp4          ig_reel / 带 video 的 douyin：R2 的 360° 视频**整段 + 原声**（原片竖版横版都有，统一输出 1080×1920，横版垫黑边）。
+ *   reel.mp4          ig_reel / 带 video 的 douyin、xhs：R2 的 360° 视频**整段 + 原声**（原片竖版横版都有，统一输出 1080×1920，横版垫黑边）。
  *                     只有写了 video.start / video.duration 才截取。以前默认截前 15 秒、去声音，
  *                     转台只转半圈、用户配的音乐也没了（2026-10-26 用户发现）——用户剪的成品约 30 秒正好一圈，别再截。
  *                     video 写了 file（本地路径）就用本地成品，不走 R2 —— F:/shortvideo 里用户自己剪的 360° / 拆件视频
@@ -52,8 +52,9 @@ async function fetchTo(url, dest) {
 }
 
 function pickPhotos(post, total) {
+    // 视频帖不配图：同步小红书的抖音条目会带着 photos，以前照样出 9 张图，和 reel.mp4 一起混在相册最前面
+    if (post.video) return [];
     if (post.photos && post.photos.length) return post.photos;
-    if (post.video) return [];                                  // 视频帖不配图（抖音 360°）
     const n = Math.min(COUNT[post.platform] || 0, total);
     if (n <= 0) return [];
     const picks = [1];
@@ -89,7 +90,8 @@ async function pack(post) {
         await img.jpeg({ quality: 90, mozjpeg: true }).toFile(out);
     }
 
-    if ((post.platform === 'ig_reel' || post.platform === 'douyin') && post.video) {
+    // 小红书视频笔记 2026-10-28 起试（用户：「小红书这边是不是要发一些视频看看流量」），同一套 reel.mp4
+    if (['ig_reel', 'douyin', 'xhs'].includes(post.platform) && post.video) {
         // video.file = 本地成品（F:/shortvideo 里用户自己剪的，没传 R2 的那些）；否则按 video.name 从 R2 拉
         const vsrc = post.video.file
             ? post.video.file
