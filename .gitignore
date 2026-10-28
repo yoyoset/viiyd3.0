@@ -5,6 +5,9 @@ resources/_gen/
 # Node modules
 node_modules/
 
+# Local toolchain (hugo binary etc.)
+.tools/
+
 # Build artifacts
 .hugo_build.lock
 hugo_stats.json
