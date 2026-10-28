@@ -1,17 +1,18 @@
 ---
-title: "White Scars: Ten Marines in White and Red"
-summary: "Ten White Scars marines in white power armour with red, gold-trimmed shoulder pads, mixed Mk VI and Mk VII armour marks, shot from every side plus four 360° turntables."
-share_caption: "White is the colour that shows every mistake. There is nowhere to hide a thin coat or a wobbly edge, and on a squad of ten those small slips add up fast.
+title: "White Scars: Forty Marines in White and Red"
+summary: "A forty-model White Scars force in white power armour with red, gold-trimmed shoulder pads, assembled from many packs and mixing Mk VI with Mk VII armour marks, shot from every side plus four 360° turntables."
+share_caption: "Forty models is where a colour scheme stops being a look and becomes a system. White is unforgiving anyway: one thin coat, one shaky edge and it shows, and at forty you cannot fix that by touching up each model on its own.
 
-So the white was built in layers instead of being pushed to full brightness at the start. The recesses stay a cool grey, the flat panels come up gradually, and the brightest white only lands on the top-facing edges where light would actually catch. That is what keeps ten identical silhouettes from reading as one white blob on the table.
+So the white was built in the same layers every time. The recesses keep a cool grey, the flat panels come up slowly, and the brightest white only lands on the edges that catch the light. Forty models out of a pile of different packs, but they have to read as one army on the table instead of forty small projects.
 
-The red shoulders do the rest. Each pad is a solid red with gold trim around it, and the gold is kept deliberately quiet so the red stays the loudest thing on the model. The bare heads were a choice from the client: White Scars cut their hair and go into battle uncovered, so a few of them are running no helmet at all.
+The red shoulders carry the rest. Every pad is a solid red with gold trim, and the gold stays quiet on purpose so the red keeps the loudest voice. The bare heads were the client's call: White Scars go into battle with their hair cut and no helmet, so several of them do.
 
-All ten stand on the same dark, gravelled base so the squad reads as one unit rather than ten separate commissions. If you have a squad that has been sitting half-painted, send me photos and we can talk about how far to take it."
+The thing I would still pick at is the drift between packs. Mk VI and Mk VII standing side by side is what this collection actually is, but it does mean the taller and bulkier silhouettes sit a little differently in the ranks. If you have a half-painted pile of your own, send me photos and we can talk about how far to take it."
 tags: ["Warhammer 40,000", "Space Marines", "White Scars", "Battleline", "Commission"]
 date: 2026-10-28T20:40:00+08:00
 cover: "https://photo.viiyd.com/2026/10/whitescars/viiyd20261028whitescars_03.webp"
 layout: "project"
+aliases: ["/work/white-scars-ten-marines-white-and-red/"]
 optimized: true
 photos: 16
 videos_360:
@@ -22,7 +23,7 @@ videos_360:
 tier: "Battleline"
 system: "40k"
 delivered: "2026.10"
-model_count: 10
+model_count: 40
 palette:
   - name: "White armour"
     role: "ARMOUR"
@@ -39,7 +40,7 @@ palette:
   - name: "Base gravel"
     role: "DETAIL"
     hex: "#3A4149"
-description: "Warhammer 40K White Scars commission: ten marines in white power armour with red gold-trimmed shoulder pads, mixed Mk VI and Mk VII marks. 16 photos and four 360° turntable videos."
+description: "Warhammer 40K White Scars commission: a forty-model force in white power armour with red gold-trimmed shoulder pads, assembled from many packs and mixing Mk VI and Mk VII marks. 16 photos and four 360° turntable videos."
 ---
 
 <div class="image-grid">
