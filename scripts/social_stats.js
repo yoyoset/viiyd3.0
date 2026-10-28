@@ -4,6 +4,7 @@
  * 用法:
  *   node scripts/social_stats.js collect            # 采一次，追加到 private/social/stats.json，并重出报表
  *   node scripts/social_stats.js collect xhs douyin # 只采指定平台（xhs / douyin / ig）
+ *   node scripts/social_stats.js collect --all      # 不限近期，全量扫一遍（月度复盘用；平时只读 14 天内的帖子）
  *   node scripts/social_stats.js report             # 只重出 private/social/stats.html
  *   node scripts/social_stats.js praise "客户原话" [--who 称呼] [--work 作品slug] [--public]
  *                                                   # 记一条客户反馈到 private/social/feedback.json（--public = 客户同意公开）
@@ -90,9 +91,21 @@ function gotoProfile(pkg, tabXY, isProfile, backOk = false) {
     return null;
 }
 
+// 网格滚动后上一屏的格子会再出现：找「已读序列的尾巴 = 这一屏的开头」的最长重叠，只接后面新的。
+// 抖音旧版到底那一屏（露出「暂时没有更多了」）整屏不接，7 条作品一直只读到第一行 3 条（2026-10-28 发现）。
+function appendNew(seen, page) {
+    let k = Math.min(seen.length, page.length);
+    while (k > 0 && seen.slice(-k).join() !== page.slice(0, k).join()) k--;
+    seen.push(...page.slice(k));
+}
+
 const labelValue = (nodes, label) => { const i = nodes.findIndex(n => n.text === label); return i > 0 ? num(nodes[i - 1].text) : null; };
 
-const XHS_COMMENT_POSTS = 12;   // 只看最新的 12 条，旧帖子很少再有人评论
+// 只读近期帖子（2026-10-28 用户：帖子越发越多，不能每次把发过的全看一遍，远古的能不看就不看）。
+// 播放 / 阅读只读发布 14 天内的 —— 前三天涨得最猛，两周后基本不动；评论只点进 7 天内的小红书笔记，点进去是最慢的一步。
+// 没读到的老帖在看板上停在最后一次读到的数。`collect --all` 全量扫一遍（月度复盘用），评论仍只看最新 12 条。
+const VIEW_DAYS = 14, COMMENT_DAYS = 7;
+const XHS_COMMENT_POSTS = 12;
 const isXhsProfile = ns => ns.some(n => /获赞与收藏/.test(n.desc));
 
 // 「昨天 11:25」「3小时前」「10-12」→ ISO；认不出就 null（原文另存）
@@ -175,12 +188,14 @@ function xhsComments(titles) {
 }
 
 const readers = {
-    xhs() {
+    // opts.recent / opts.fresh：要读播放 / 要读评论的帖子（队列条目，新的在前）；opts.all：全量
+    xhs(opts) {
         const first = gotoProfile('com.xingin.xhs', [972, 2278], ns => ns.some(n => /获赞与收藏/.test(n.desc)));
         if (!first) throw new Error('没进到小红书主页');
         const pick = re => { const n = first.find(n => re.test(n.desc)); return n ? num(n.desc) : null; };
         const account = { followers: pick(/\d粉丝$/), likes: pick(/获赞与收藏$/) };
         const items = new Map();
+        const want = opts.recent.map(p => p.title);
         let nodes = first;
         for (let i = 0; i < 8; i++) {
             const before = items.size;
@@ -188,37 +203,45 @@ const readers = {
                 const m = n.desc.match(/^笔记,(.*),来自[^,]*,(\S+?)赞，(\S+?)阅读/);
                 if (m) items.set(m[1], { title: m[1], likes: num(m[2]), views: num(m[3]) });
             }
+            if (!opts.all && want.every(t => items.has(t))) break;
             if (i > 0 && items.size === before) break;
             scroll(); nodes = dump();
         }
-        const comments = xhsComments([...items.keys()].slice(0, XHS_COMMENT_POSTS));
+        const fresh = new Set(opts.fresh.map(p => p.title));
+        const comments = xhsComments([...items.keys()].filter(t => fresh.has(t)).concat(opts.all ? [...items.keys()].filter(t => !fresh.has(t)) : []).slice(0, XHS_COMMENT_POSTS));
         return { account, items: [...items.values()], by: 'title', comments };
     },
-    douyin() {
+    douyin(opts) {
         const first = gotoProfile('com.ss.android.ugc.aweme', [972, 2261], ns => ns.some(n => n.text === '获赞') && ns.some(n => n.text === '编辑主页'), true);
         if (!first) throw new Error('没进到抖音主页');
         const account = { followers: labelValue(first, '粉丝'), likes: labelValue(first, '获赞') };
         const views = [];
         let nodes = first, done = false;
         for (let i = 0; i < 8 && !done; i++) {
-            // 滚动后同一格会再出现一次：只在第一屏之后接上「比已有更多」的部分
-            const page = nodes.filter(n => /^播放数/.test(n.desc)).map(n => num(n.desc));
-            if (i === 0) views.push(...page);
-            else if (!nodes.some(n => n.text === '暂时没有更多了')) views.push(...page.slice(-3));
-            done = nodes.some(n => n.text === '暂时没有更多了');
+            appendNew(views, nodes.filter(n => /^播放数/.test(n.desc)).map(n => num(n.desc)));
+            done = nodes.some(n => n.text === '暂时没有更多了') || (!opts.all && views.length >= opts.recent.length);
             if (!done) { scroll(); nodes = dump(); }
         }
         return { account, items: views.map(v => ({ views: v })), by: 'order' };
     },
-    ig() {
+    ig(opts) {
         const first = gotoProfile('com.instagram.android', [972, 2275], ns => ns.some(n => /粉絲人數$/.test(n.desc)));
         if (!first) throw new Error('没进到 IG 主页');
         const account = { followers: num(first.find(n => /粉絲人數$/.test(n.desc)).desc) };
         const tab = first.findIndex(n => n.desc === 'Reels' && first.some(x => x.desc === '網格檢視'));
         if (tab < 0) throw new Error('IG 主页上没找到 Reels 页签');
-        tap(540, 1962);                       // 主页中部的 Reels 页签（不是底栏那个）
-        scroll();
-        const views = dump().filter(n => /Reel。觀看次數：/.test(n.desc)).map(n => num(n.desc.split('觀看次數：')[1]));
+        // 主页中部的 Reels 页签（不是底栏那个）。按 dump 出的位置点：简介行数一变它就上下挪，
+        // 写死的 (540,1962) 在 2026-10-28 落空（页签挪到了 y≈2049），整天「没读到观看次数」。
+        const b = first[tab].box;
+        tap(Math.round((b[0] + b[2]) / 2), Math.round((b[1] + b[3]) / 2));
+        // 观看次数要往下滑、格子露出来才有（2026-10-28 用户指出；同一流程一次读不到、一次读到 9 条）。
+        // 每次只滑 500px（一行格子约 630px），保证最新那行不会一下滑出屏外，每屏用 appendNew 接上新露出的格子。
+        const views = [];
+        for (let i = 0; i < 5; i++) {
+            adb('shell', 'input', 'swipe', '540', '1700', '540', '1200', '400'); sleep(2500);
+            appendNew(views, dump().filter(n => /Reel。觀看次數：\d/.test(n.desc)).map(n => num(n.desc.split('觀看次數：')[1])));
+            if (!opts.all && views.length >= Math.max(opts.recent.length, 3)) break;
+        }
         if (!views.length) throw new Error('IG Reels 页没读到观看次数');
         return { account, items: views.map(v => ({ views: v })), by: 'order', kind: 'ig_reel' };
     },
@@ -243,9 +266,11 @@ function saveComments(id, list, at) {
     fs.writeFileSync(COMMENTS, JSON.stringify(all, null, 2) + '\n');
 }
 
-function collect(which) {
+function collect(which, full = false) {
     const q = JSON.parse(fs.readFileSync(QUEUE, 'utf8'));
     const posted = q.posts.filter(p => p.status === 'posted' && p.posted_at);
+    const within = (key, days) => posted.filter(p => PLATFORMS[key].includes(p.platform) && (full || Date.now() - new Date(p.posted_at) < days * 864e5))
+        .sort((a, b) => new Date(b.posted_at) - new Date(a.posted_at));
     const snap = { at: new Date().toISOString(), accounts: {}, posts: {}, unmatched: {}, errors: [] };
     // 每晚 22:00 无人值守跑（计划任务 VIIYD-social-stats）：手机没连上或锁着屏就整笔记错误，不去解锁、不乱点
     let blocked = null;
@@ -256,7 +281,7 @@ function collect(which) {
     if (blocked) { which = []; snap.errors.push(`全部: ${blocked}`); console.log(`⚠️  ${blocked}，这次不采`); }
     for (const key of which) {
         try {
-            const r = readers[key]();
+            const r = readers[key]({ all: full, recent: within(key, VIEW_DAYS), fresh: within(key, COMMENT_DAYS) });
             snap.accounts[key] = r.account;
             const mine = posted.filter(p => PLATFORMS[key].includes(p.platform))
                 .sort((a, b) => new Date(b.posted_at) - new Date(a.posted_at));
@@ -579,10 +604,11 @@ function deploy() {
 
 const [cmd, ...rest] = process.argv.slice(2);
 if (cmd === 'collect') {
-    const which = rest.length ? rest : Object.keys(readers);
+    const plats = rest.filter(a => a !== '--all');
+    const which = plats.length ? plats : Object.keys(readers);
     const bad = which.filter(k => !readers[k]);
     if (bad.length) { console.error(`❌ 不认识的平台：${bad.join(' ')}（可选 xhs / douyin / ig）`); process.exit(1); }
-    const snap = collect(which);
+    const snap = collect(which, rest.includes('--all'));
     report();
     deploy();
     if (snap.errors.length) process.exit(2);
@@ -595,4 +621,4 @@ else if (cmd === 'praise' && rest[0]) {
     console.log(`📝 记了第 ${all.length} 条客户反馈`);
     report(); deploy();
 }
-else { console.error('用法: node scripts/social_stats.js collect [xhs douyin ig] | report | praise "原话" [--who 称呼] [--work slug] [--public]'); process.exit(1); }
+else { console.error('用法: node scripts/social_stats.js collect [xhs douyin ig] [--all] | report | praise "原话" [--who 称呼] [--work slug] [--public]'); process.exit(1); }
