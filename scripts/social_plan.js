@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+// 社媒排期：按台账（social_ledger.js）把"同平台没发过"的作品填进空档。只写 planned 空壳，正文由人/起稿模型补。
+//
+//   node scripts/social_plan.js --from 2026-11-02 --to 2026-12-12            试跑，只打印
+//   node scripts/social_plan.js --from 2026-11-02 --to 2026-12-12 --write    写入 queue.json
+//
+// 做两件事：
+//  1. 执法：待发条目的作品在**该平台**已经发过 → skipped（抖音让位时，同作品的 IG / 视频号整组让位）；
+//     同一作品在同一平台排了多天 → 只留最早一天。
+//  2. 补位：发帖日（周一到周六，2026-11-01 用户定「发得再勤快一点」）每个平台缺条目就补。
+//     抖音 / IG / 视频号同作品；小红书优先同作品，同作品小红书发过就另挑；周三小红书是 H7 价格帖，必须有 time_log。
+const fs = require('fs');
+const path = require('path');
+const { load, readFront, PLAT } = require('./social_ledger');
+
+const arg = (k) => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : null; };
+const WRITE = process.argv.includes('--write');
+const FROM = arg('--from'), TO = arg('--to');
+if (!FROM || !TO) { console.error('需要 --from YYYY-MM-DD --to YYYY-MM-DD'); process.exit(1); }
+const DAYS = [1, 2, 3, 4, 5, 6]; // 周一到周六；周日备货休息
+const TAG = '2026-11-01 台账排期';
+
+const { q, posts, posted, works } = load();
+const active = (x) => ['planned', 'ready'].includes(x.status);
+const front = Object.fromEntries(works.map((w) => [w, readFront(w)]));
+const tierOrd = { Legend: 0, Master: 1, 'Spec Ops': 2, Specialist: 3, Battleline: 4 };
+const pool = [...works].sort((a, b) => ((tierOrd[front[a].tier] ?? 5) * 1000 - front[a].photos) - ((tierOrd[front[b].tier] ?? 5) * 1000 - front[b].photos));
+const skip = (x, why) => { x.status = 'skipped'; x.note = (x.note ? x.note + '；' : '') + `${TAG}：${why}`; };
+const log = [];
+
+// ---- 1. 执法 ----
+for (const x of posts) {
+  const p = PLAT[x.platform];
+  if (!active(x) || !p) continue;
+  if (posted[p].has(x.slug)) { skip(x, `该作品在${p}已发过(${posted[p].get(x.slug).slice(0, 10)})，同平台不重发`); log.push('skip ' + x.id); }
+}
+const skippedDouyin = new Set(posts.filter((x) => x.platform === 'douyin' && x.note && x.note.includes(TAG) && x.status === 'skipped').map((x) => x.id));
+for (const x of posts) {
+  if (!active(x) || !['ig_reel', 'ig_carousel', 'channels'].includes(x.platform)) continue;
+  const gone = skippedDouyin.has(x.mirror) || posts.some((d) => skippedDouyin.has(d.id) && d.date === x.date && d.slug === x.slug);
+  if (gone) { skip(x, '同组抖音让位(同作品同平台已发过)，整组一起让位，作品留给以后重新分组'); log.push('skip(group) ' + x.id); }
+}
+{ // 同平台同作品只排一天
+  const by = {};
+  for (const x of posts) if (active(x) && PLAT[x.platform]) (by[PLAT[x.platform] + '|' + x.slug] = by[PLAT[x.platform] + '|' + x.slug] || []).push(x);
+  for (const k in by) {
+    const ds = [...new Set(by[k].map((x) => x.date))].sort();
+    if (ds.length > 1) for (const x of by[k]) if (x.date !== ds[0]) { skip(x, `同作品同平台只排一天，保留最早 ${ds[0]}`); log.push('skip(dup) ' + x.id); }
+  }
+}
+
+// ---- 2. 补位 ----
+const sched = { xhs: new Set(), douyin: new Set(), ig: new Set(), channels: new Set() };
+for (const x of posts) if (active(x) && PLAT[x.platform] && sched[PLAT[x.platform]]) sched[PLAT[x.platform]].add(x.slug);
+const free = (p, w) => !posted[p].has(w) && !sched[p].has(w);
+const pick = (p, ok = () => true) => pool.find((w) => free(p, w) && ok(w));
+const sdow = (d) => new Date(d + 'T00:00:00Z').getUTCDay();
+const short = (w) => w.replace(/^\d{4}-\d{2}-\d{2}-/, '').split('-').slice(0, 3).join('-');
+const ids = new Set(posts.map((x) => x.id));
+const mk = (o) => { let id = o.id, n = 2; while (ids.has(id)) id = o.id + '-' + n++; ids.add(id); return { ...o, id }; };
+const add = [];
+
+for (let t = new Date(FROM + 'T00:00:00Z'); t <= new Date(TO + 'T00:00:00Z'); t = new Date(t.getTime() + 864e5)) {
+  const d = t.toISOString().slice(0, 10);
+  if (!DAYS.includes(sdow(d))) continue;
+  const E = posts.filter((x) => x.date === d && active(x));
+  const has = (p) => E.some((x) => PLAT[x.platform] === p);
+  // 抖音 / IG / 视频号 这一组
+  let dy = E.find((x) => x.platform === 'douyin');
+  let T = dy ? dy.slug : null, video = dy && dy.video;
+  if (!T && (!has('ig') || !has('channels') || !has('douyin'))) {
+    const ex = E.find((x) => x.platform === 'ig_reel' || x.platform === 'ig_carousel' || x.platform === 'channels');
+    T = ex && free('douyin', ex.slug) ? ex.slug : pick('douyin', (w) => free('channels', w));
+    if (T) {
+      const v = front[T].video;
+      video = (ex && ex.video) || (v ? { name: v } : null);
+    }
+  }
+  const ds = T ? `${d}-douyin-${short(T)}` : null;
+  if (T && !has('douyin')) { add.push(mk({ id: ds, date: d, time: '20:10', platform: 'douyin', slug: T, hook: video ? '360' : 'story', title: '', caption: '', tags: [], status: 'planned', ...(video ? { video } : {}), note: `${TAG}：没在抖音发过的作品先发` })); sched.douyin.add(T); }
+  if (T && !has('ig') && free('ig', T)) { add.push(mk({ id: `${d}-ig${video ? 'reel' : 'carousel'}-${short(T)}`, date: d, time: '20:20', platform: video ? 'ig_reel' : 'ig_carousel', slug: T, hook: video ? '360' : 'story', title: '', caption: '', tags: [], status: 'planned', ...(video ? { video } : {}), note: `${TAG}：跟当天抖音同作品` })); sched.ig.add(T); }
+  if (T && !has('channels') && free('channels', T)) { add.push(mk({ id: `${d}-channels-${short(T)}`, date: d, time: '20:30', platform: 'channels', slug: T, hook: video ? '360' : 'story', mirror: dy ? dy.id : ds, status: 'planned', note: `${TAG}：照抄当天抖音` })); sched.channels.add(T); }
+  // 小红书
+  if (!has('xhs')) {
+    const wed = sdow(d) === 3;
+    let X = wed ? pick('xhs', (w) => front[w].timeLog) : (T && free('xhs', T) ? T : pick('xhs'));
+    if (X) {
+      add.push(mk({ id: `${d}-xhs-${short(X)}`, date: d, time: '20:00', platform: 'xhs', slug: X, hook: wed ? 'H7' : 'story', title: '', caption: '', tags: [], status: 'planned', note: `${TAG}：没在小红书发过的作品先发${wed ? '；周三 H7 价格话题，工时用作品页 time_log ' + front[X].timeLog : ''}` }));
+      sched.xhs.add(X);
+    }
+  }
+}
+
+console.log(`执法 ${log.length} 条：`); log.forEach((l) => console.log('  ' + l));
+console.log(`补位 ${add.length} 条：`);
+for (const a of add.sort((x, y) => (x.date + x.time).localeCompare(y.date + y.time))) console.log(`  ${a.date} ${a.time} ${a.platform.padEnd(12)} ${a.hook.padEnd(6)} ${a.slug}${a.video ? ' [video ' + a.video.name + ']' : ''}`);
+if (WRITE) { posts.push(...add); fs.writeFileSync(path.join(__dirname, '../private/social/queue.json'), JSON.stringify(q, null, 2) + '\n'); console.log('WRITTEN'); }
