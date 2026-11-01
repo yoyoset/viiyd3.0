@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // 社媒发布台账：作品 × 平台 的"发过没有"。唯一事实来源是 private/social/queue.json 里 status=posted 的条目。
-// 规则（2026-11-01 用户定）：同一作品在**同一平台**发过就不再发；没发过的先发，全发完才回头重发。
+// 规则（2026-11-01 用户定）：台账按 作品×平台 打勾。发过的不是永久排除而是**权重往后放**：没发过的先发；
+// 没东西发了，或者隔了一两个月（COOLDOWN_DAYS），可以再发，发得最久的先重发。新作品随时会有。
 //
 //   node scripts/social_ledger.js            写 private/social/LEDGER.md（矩阵 + 各平台还没发的）
 //   node scripts/social_ledger.js --json     只打印 JSON
@@ -10,6 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
+const COOLDOWN_DAYS = 60; // 同作品同平台至少隔这么多天才能重发
 const QUEUE = path.join(ROOT, 'private/social/queue.json');
 const OUT = path.join(ROOT, 'private/social/LEDGER.md');
 
@@ -53,7 +55,7 @@ function load() {
 
 if (require.main === module) {
   const { posted, works, posts } = load();
-  const short = (s) => (s ? String(s).slice(5, 10) : '');
+  const short = (s) => (s ? '✓ ' + String(s).slice(5, 10) : '');
   const rows = works.map((w) => {
     const f = readFront(w);
     return { work: w, title: f.title, cells: PLATFORMS.map((p) => short(posted[p].get(w))) };
@@ -66,7 +68,7 @@ if (require.main === module) {
   const lines = [];
   lines.push('# 社媒发布台账（自动生成，别手改）', '');
   lines.push('> `node scripts/social_ledger.js` 重新生成。来源：`queue.json` 里 `status: posted` 的条目。');
-  lines.push('> 规则（2026-11-01）：同一作品在**同一平台**发过就不再发；没发过的先发，都发完才重发。');
+  lines.push(`> 规则（2026-11-01）：发过的打 ✓，权重往后放；没发过的先发。没东西发了或隔了 ${COOLDOWN_DAYS} 天以上才重发，发得最久的先。`);
   lines.push('> 单元格是发布日（月-日），空 = 这个平台还没发过。2026-10 之前不在队列里的老帖（IG 老号 830+ 帖等）不计。', '');
   lines.push('| 平台 | ' + PLATFORMS.join(' | ') + ' |', '|---|' + PLATFORMS.map(() => '---').join('|') + '|');
   lines.push('| 还没发的作品数 | ' + todo.join(' | ') + ' |', '');
@@ -81,4 +83,4 @@ if (require.main === module) {
   console.log('written', OUT, '\n还没发的作品数', PLATFORMS.map((p, i) => `${p}=${todo[i]}`).join(' '));
 }
 
-module.exports = { load, readFront, PLAT, PLATFORMS };
+module.exports = { COOLDOWN_DAYS, load, readFront, PLAT, PLATFORMS };
