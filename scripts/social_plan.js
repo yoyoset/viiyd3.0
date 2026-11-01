@@ -7,7 +7,8 @@
 // 做两件事：
 //  1. 执法：待发条目的作品在**该平台** COOLDOWN_DAYS 天内发过 → skipped（抖音让位时，同作品的 IG / 视频号整组让位）；
 //     同一作品在同一平台排了多天 → 只留最早一天。
-//  2. 补位：发帖日（周一到周六，2026-11-01 用户定「发得再勤快一点」）每个平台缺条目就补。
+//  2. 补位：发帖日（--days 指定）每个平台缺条目就补。
+//     发帖日默认周一/三/五（--days 可改，2026-11-01 定：11-02 那周周一到周五，之后一/三/五）。
 //     抖音 / IG / 视频号同作品；小红书优先同作品，同作品小红书发过就另挑；周三小红书是 H7 价格帖，必须有 time_log。
 const fs = require('fs');
 const path = require('path');
@@ -18,7 +19,7 @@ const arg = (k) => { const i = process.argv.indexOf(k); return i > -1 ? process.
 const WRITE = process.argv.includes('--write');
 const FROM = arg('--from'), TO = arg('--to');
 if (!FROM || !TO) { console.error('需要 --from YYYY-MM-DD --to YYYY-MM-DD'); process.exit(1); }
-const DAYS = [1, 2, 3, 4, 5, 6]; // 周一到周六；周日备货休息
+const DAYS = (arg('--days') || '1,3,5').split(',').map(Number); // 默认周一/三/五；某周要多发就 --days 1,2,3,4,5 单独跑那一周
 const TAG = '2026-11-01 台账排期';
 
 const { q, posts, posted, works } = load();
