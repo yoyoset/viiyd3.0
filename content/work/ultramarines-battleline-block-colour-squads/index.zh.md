@@ -1,9 +1,9 @@
 ---
 title: "极限战士兵线：分色小队"
-summary: "极限战士兵线，五人一队，只做分色：整片蓝甲、黑色枪身、底座不加工。成本最低、能把整支军队摆上桌的做法，正反面都拍了。"
+summary: "极限战士兵线五人小队，外加几名英雄单位，只做分色：整片蓝甲、黑色枪身，披风红和金边只涂在模型本来有的地方，底座不加工。成本最低、能把整支军队摆上桌的做法。"
 share_caption: "不是每支军队都得画成展品。有时候您手上是一盒极限战士，一个比赛日期，预算也有限，那老实的答案就是分色。
 
-这几队就是这样：每块甲板一层干净均匀的极限战士蓝，枪身和底座上黑，仅此而已。凹处不洗色，边缘不提亮。这是我这儿最便宜的做法，比带洗色的基础平涂还要便宜。但它依然是一支像样的军队：同一种蓝、每个模型涂法一致，隔着桌子看就是一支整齐的部队。
+这一批的小队和英雄单位都是这样：每块甲板一层干净均匀的极限战士蓝，枪身和底座上黑，红色和金色只涂在模型本来有的地方，仅此而已。凹处不洗色，边缘不提亮。这是我这儿最便宜的做法，比带洗色的基础平涂还要便宜。但它依然是一支像样的军队：同一种蓝、每个模型涂法一致，隔着桌子看就是一支整齐的部队。
 
 我自己喜欢的是它的整齐。蓝色涂得平滑、覆盖完整的时候，再朴素的配色也看得出是有意为之，不会像没画完。
 
@@ -13,7 +13,7 @@ date: 2026-11-16T17:06:00+08:00
 cover: "https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_03.webp"
 layout: "project"
 optimized: true
-photos: 14
+photos: 22
 tier: "Battleline"
 system: "40k"
 delivered: "2026.11"
@@ -27,7 +27,13 @@ palette:
   - name: "枪械金属"
     role: "METAL"
     hex: "#9E938D"
-description: "战锤40K极限战士涂装委托：兵线小队只做分色，整片蓝甲配黑色枪身，成本最低的整军方案。共14张照片，正反面都拍了。"
+  - name: "披风红"
+    role: "CLOTH"
+    hex: "#D01126"
+  - name: "金色包边"
+    role: "METAL"
+    hex: "#945E2F"
+description: "战锤40K极限战士涂装委托：兵线小队与英雄单位只做分色、不洗色。整片蓝甲配黑色枪身，英雄单位带红与金，成本最低的整军方案。共22张照片。"
 ---
 
 <div class="image-grid">
@@ -45,4 +51,12 @@ description: "战锤40K极限战士涂装委托：兵线小队只做分色，整
 {{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_12.webp" title="极限战士 · 图版 12" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_13.webp" title="极限战士 · 图版 13" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_14.webp" title="极限战士 · 图版 14" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_15.webp" title="极限战士 · 图版 15" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_16.webp" title="极限战士 · 图版 16" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_17.webp" title="极限战士 · 图版 17" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_18.webp" title="极限战士 · 图版 18" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_19.webp" title="极限战士 · 图版 19" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_20.webp" title="极限战士 · 图版 20" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_21.webp" title="极限战士 · 图版 21" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_22.webp" title="极限战士 · 图版 22" >}}
 </div>

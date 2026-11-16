@@ -1,9 +1,9 @@
 ---
 title: "Ultramarines Battleline: Block-Colour Squads"
-summary: "Ultramarines battleline in squads of five, block colour only: solid blue armour, black weapons, bases left plain. The most economical way to get a whole army onto the table, shot from front and back."
+summary: "Ultramarines battleline in squads of five plus a few hero units, block colour only: solid blue armour, black weapons, red and gold where the models have them, bases left plain. The most economical way to get a whole army onto the table."
 share_caption: "Not every army needs to be a showpiece. Sometimes you have a box of Ultramarines, a tournament date and a limited budget, and the honest answer is block colour.
 
-These squads got exactly that: a clean, even coat of Ultramarine blue over every plate, black on the weapons and bases, and nothing else. No shading in the recesses, no edge highlights. It is the cheapest thing I do, cheaper even than a basic flat paint job with a wash, and the point is that it is still a proper army: one blue, applied the same way on every model, so the squads read as one force from across the table.
+The squads and the hero units in this batch got exactly that: a clean, even coat of Ultramarine blue over every plate, black on the weapons and bases, red and gold only where a model has them, and nothing else. No wash in the recesses, no edge highlights. It is the cheapest thing I do, cheaper even than a basic flat paint job with a wash, and the point is that it is still a proper army: one blue, applied the same way on every model, so the squads read as one force from across the table.
 
 What I like is how uniform it comes out. When the blue is smooth and the coverage is complete, even a plain scheme looks deliberate rather than unfinished.
 
@@ -13,7 +13,7 @@ date: 2026-11-16T17:06:00+08:00
 cover: "https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_03.webp"
 layout: "project"
 optimized: true
-photos: 14
+photos: 22
 tier: "Battleline"
 system: "40k"
 delivered: "2026.11"
@@ -27,7 +27,13 @@ palette:
   - name: "Gunmetal"
     role: "METAL"
     hex: "#9E938D"
-description: "Warhammer 40K Ultramarines commission: battleline squads in block colour only, solid blue armour with black weapons, the most economical finish for a full army. 14 photos from front and back."
+  - name: "Cloak red"
+    role: "CLOTH"
+    hex: "#D01126"
+  - name: "Gold trim"
+    role: "METAL"
+    hex: "#945E2F"
+description: "Warhammer 40K Ultramarines commission: battleline squads and hero units in block colour only, no wash. Solid blue armour with black weapons, red and gold on the heroes, the most economical finish for a full army. 22 photos."
 ---
 
 <div class="image-grid">
@@ -45,4 +51,12 @@ description: "Warhammer 40K Ultramarines commission: battleline squads in block 
 {{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_12.webp" title="Ultramarines · Plate 12" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_13.webp" title="Ultramarines · Plate 13" >}}
 {{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_14.webp" title="Ultramarines · Plate 14" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_15.webp" title="Ultramarines · Plate 15" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_16.webp" title="Ultramarines · Plate 16" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_17.webp" title="Ultramarines · Plate 17" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_18.webp" title="Ultramarines · Plate 18" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_19.webp" title="Ultramarines · Plate 19" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_20.webp" title="Ultramarines · Plate 20" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_21.webp" title="Ultramarines · Plate 21" >}}
+{{< lightbox src="https://photo.viiyd.com/2026/11/ultramarines/viiyd20261116ultramarines_22.webp" title="Ultramarines · Plate 22" >}}
 </div>
