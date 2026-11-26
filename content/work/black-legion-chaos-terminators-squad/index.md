@@ -1,11 +1,11 @@
 ---
-title: "Black Legion Chaos Terminators: Gold Trim & Trophies"
-summary: "An eight-model Black Legion Chaos Terminator squad in matte black armour with burnished gold trim, ivory tusks, and loyalist Space Marine trophy helmets mounted on the spikes, set on plain black bases."
+title: "Black Legion Chaos Terminators: Black & Gold"
+summary: "An eight-model Black Legion Chaos Terminator squad in matte black armour with burnished gold trim, ivory tusks, and loyalist Space Marine helmets on their trophy racks, set on plain black bases."
 share_caption: "Eight Chaos Terminators, sixty-two photos, and a lot of gold trim.
 
-Black Legion is one of those schemes that looks simple until you actually sit down to edge every Chaos trim plate on eight chunky Terminator suits. For this commission we kept the armour black with crisp grey edge highlights, warm burnished gold and brass across the trims, bone-toned tusks and skulls, and a mix of Ultramarines blue, Dark Angels green, and Blood Angels red on the trophy helmets spiked to their backs.
+Black Legion is one of those schemes that looks simple until you actually sit down to edge every Chaos trim plate on eight chunky Terminator suits. For this commission we kept the armour black with crisp grey edge highlights, warm burnished gold and brass across the trims, bone-toned tusks and skulls, and a mix of Ultramarines blue, Dark Angels green, and Blood Angels red on the helmets spiked to their trophy racks.
 
-One squad champion goes bare-headed with a power sword, alongside a Reaper autocannon gunner and a pair of lightning claws, all standing on plain black textured bases at the client's request. Black-on-black always eats light on the camera, so getting the metallic contrast to pop without blowing out the ivory took a bit of care.
+One squad champion goes bare-headed with an accursed sword, alongside a Reaper autocannon gunner and a pair of lightning claws, all standing on plain black textured bases at the client's request. Black-on-black always eats light on the camera, so getting the metallic contrast to pop without blowing out the ivory took a bit of care.
 
 If you have a Chaos squad sitting on the sprue and want to see how far we can take it, send over a few photos and we can figure out the scheme together."
 tags: ["Warhammer 40,000", "Chaos Space Marines", "Black Legion", "Terminators", "Commission"]
@@ -41,7 +41,7 @@ palette:
   - name: "Trophy helmet green"
     role: "DETAIL"
     hex: "#28623C"
-description: "Warhammer 40K Black Legion Chaos Terminator Squad commission (8 models): matte black armour with grey edge highlights, burnished gold trim, ivory tusks, and loyalist trophy helmets on plain black bases. 62 photos."
+description: "Warhammer 40K Black Legion Chaos Terminator Squad commission (8 models): matte black armour with grey edge highlights, burnished gold trim, ivory tusks, and loyalist helmets on trophy racks, plain black bases. 62 photos."
 ---
 
 <div class="image-grid">
